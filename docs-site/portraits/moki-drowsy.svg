@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="moki the Lumming (drowsy)">
+<circle cx="120" cy="132" r="104" fill="#e35fa8" opacity="0.18" />
+<ellipse cx="120" cy="132" rx="91" ry="86" fill="#ff79c6" stroke="#e35fa8" stroke-width="3" />
+<g transform="translate(61,43)" fill="#e35fa8" opacity="0.9"><path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>
+<path d="M83,108 Q92,115.2 101,108" stroke="#1a1f2e" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M139,108 Q148,115.2 157,108" stroke="#1a1f2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="120" cy="148" rx="4" ry="5" fill="#1a1f2e"/>
+</svg>

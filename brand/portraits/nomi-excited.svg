@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="nomi the Lumming (excited)">
+<circle cx="120" cy="132" r="104" fill="#67c7d9" opacity="0.18" />
+<ellipse cx="120" cy="132" rx="91" ry="86" fill="#8be9fd" stroke="#67c7d9" stroke-width="3" />
+<g transform="translate(61,43)" fill="#67c7d9" opacity="0.9"><path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>
+<circle cx="93.5" cy="106.5" r="9" fill="#1a1f2e"/><circle cx="149.5" cy="106.5" r="9" fill="#1a1f2e"/><circle cx="91" cy="106" r="1.4" fill="#fff"/><circle cx="147" cy="106" r="1.4" fill="#fff"/><g transform="translate(154,98)" fill="#ffb86c"><path d="M0,-3 L1,-1 L3,0 L1,1 L0,3 L-1,1 L-3,0 L-1,-1 Z"/></g>
+<path d="M104,148 Q120,162 136,148" stroke="#1a1f2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

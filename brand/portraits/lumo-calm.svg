@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="lumo the Lumming (calm)">
+<circle cx="120" cy="132" r="104" fill="#ff9f43" opacity="0.18" />
+<ellipse cx="120" cy="132" rx="91" ry="86" fill="#ffb86c" stroke="#ff9f43" stroke-width="3" />
+<g transform="translate(61,43)" fill="#ff9f43" opacity="0.9"><path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>
+<path d="M80,108 Q92,97.2 104,108" stroke="#1a1f2e" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M136,108 Q148,97.2 160,108" stroke="#1a1f2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M110,148 Q120,154 130,148" stroke="#1a1f2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</svg>

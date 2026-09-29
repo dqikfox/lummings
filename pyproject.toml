@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lummings"
+version = "0.1.0"
+description = "Little friends from a brighter tomorrow. Smart-toy platform with on-device AI personalities (Lumo, Lumi, Piko, Nomi, Moki) that help children learn, think, protect the Earth, and make good choices."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Flyxion" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

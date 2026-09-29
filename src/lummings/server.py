@@ -132,11 +132,12 @@ def main():
             for f in extract_facts(user_msg, reply):
                 st["memory"].add_fact(f)
             st["mood"].state = st["mood"].next_mood_after_response()
-            faces = {"curious":"( • o • )?","excited":"( ^o^ )!","playful":"( ^ _ ^ )",
-                     "calm":"( • _ • )","drowsy":"( -  - )..zz","tired":"( - _ - )"}
+            faces = {"curious":"( o_o )?", "excited":"( ^o^ )!", "playful":"( ^_^ )",
+                     "calm":"( ._. )", "drowsy":"( -.- )..zz", "tired":"( -_- )"}
             self._send(200, {
-                "reply": reply, "mood": st["mood"].state,
-                "face": faces.get(st["mood"].state","( • _ • )") if False else faces.get(st["mood"].state, "( • _ • )"),
+                "reply": reply,
+                "mood": st["mood"].state,
+                "face": faces.get(st["mood"].state, "( ._. )"),
                 "elapsed": r.get("elapsed", 0),
             })
 

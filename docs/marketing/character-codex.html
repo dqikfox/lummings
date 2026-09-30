@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Meet The Lummings — Character Codex</title>
+<title>The Lummings — Character Codex</title>
 <style>
   :root {
     --yellow:  #FFD23F;
@@ -13,14 +13,13 @@
     --pink:    #FF5CA7;
     --ink:     #1a1a2e;
     --paper:   #fff8e7;
-    --card-bg: #ffffff;
     --shadow:  0 8px 0 rgba(0,0,0,.18);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Comic Sans MS', 'Comic Neue', 'Chalkboard SE', system-ui, sans-serif;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', system-ui, sans-serif;
     background-image:
       radial-gradient(circle at 10% 10%, rgba(255,210,63,.18) 0, transparent 25%),
       radial-gradient(circle at 90% 30%, rgba(123,92,255,.15) 0, transparent 30%),
@@ -28,12 +27,7 @@
   }
   body { padding-bottom: 80px; }
 
-  /* ---------- HERO ---------- */
-  header.hero {
-    text-align: center;
-    padding: 60px 24px 40px;
-    position: relative;
-  }
+  header.hero { text-align: center; padding: 60px 24px 40px; position: relative; }
   .hero h1 {
     font-size: clamp(40px, 7vw, 84px);
     line-height: .95;
@@ -54,7 +48,7 @@
     -webkit-text-fill-color: var(--ink);
   }
   .hero p {
-    max-width: 720px;
+    max-width: 760px;
     margin: 28px auto 0;
     font-size: clamp(15px, 1.8vw, 19px);
     line-height: 1.55;
@@ -76,7 +70,6 @@
     transform: rotate(-1deg);
   }
 
-  /* ---------- NAV ---------- */
   nav.codex-nav {
     display: flex;
     justify-content: center;
@@ -102,14 +95,9 @@
   nav.codex-nav a.t { background: var(--teal);  color: #fff; }
   nav.codex-nav a.k { background: var(--pink);  color: #fff; }
 
-  /* ---------- CHARACTER CARDS ---------- */
-  section.codex {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px 20px;
-  }
+  section.codex { max-width: 1180px; margin: 0 auto; padding: 30px 20px; }
   .char-card {
-    background: var(--card-bg);
+    background: #fff;
     border: 4px solid var(--ink);
     border-radius: 28px;
     box-shadow: var(--shadow);
@@ -138,36 +126,49 @@
 
   .char-header {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 24px;
     align-items: center;
     border-bottom: 3px dashed var(--ink);
     padding-bottom: 22px;
     margin-bottom: 22px;
   }
+  .avatar-wrap { position: relative; }
   .avatar {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 24px;
     border: 4px solid var(--ink);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 96px;
+    font-size: 110px;
     box-shadow: 0 6px 0 rgba(0,0,0,.15);
+    position: relative;
   }
   .lumo .avatar  { background: linear-gradient(135deg, #FFE17A, var(--yellow)); }
   .lila .avatar  { background: linear-gradient(135deg, #B8A8FF, var(--purple)); color: #fff; }
   .pip  .avatar  { background: linear-gradient(135deg, #6FE89E, var(--green)); color: #fff; }
   .nori .avatar  { background: linear-gradient(135deg, #5BD9C5, var(--teal)); color: #fff; }
   .moki .avatar  { background: linear-gradient(135deg, #FF8FC4, var(--pink)); color: #fff; }
+  .avatar-stamp {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    background: var(--ink);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .avatar-stamp.starter { background: var(--yellow); color: var(--ink); }
 
   .char-id { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-  .char-id h2 {
-    font-size: clamp(32px, 4vw, 48px);
-    letter-spacing: -1px;
-    line-height: 1;
-  }
+  .char-id h2 { font-size: clamp(36px, 4.5vw, 56px); letter-spacing: -1px; line-height: 1; }
   .tag {
     display: inline-block;
     padding: 5px 12px;
@@ -178,21 +179,16 @@
     background: var(--yellow);
     letter-spacing: 1px;
   }
-  .tag.type-cute    { background: #fff; }
   .tag.type-curious { background: var(--yellow); }
   .tag.type-story   { background: var(--purple); color: #fff; border-color: var(--ink); }
   .tag.type-brave   { background: var(--green);  color: #fff; border-color: var(--ink); }
   .tag.type-wise    { background: var(--teal);   color: #fff; border-color: var(--ink); }
   .tag.type-funny   { background: var(--pink);   color: #fff; border-color: var(--ink); }
 
-  .char-tagline {
-    margin-top: 10px;
-    font-size: 17px;
-    font-weight: 700;
-  }
+  .char-tagline { margin-top: 10px; font-size: 18px; font-weight: 700; font-style: italic; }
   .char-lore {
     margin-top: 14px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.55;
     background: #fdf3d0;
     border-left: 5px solid var(--ink);
@@ -200,13 +196,17 @@
     border-radius: 8px;
   }
 
-  /* ---------- STATS ---------- */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    margin: 18px 0 22px;
+  .section-h {
+    font-size: 22px;
+    margin: 22px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px dotted var(--ink);
+    padding-bottom: 6px;
   }
+
+  .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 14px 0 18px; }
   .stat {
     background: #fff;
     border: 3px solid var(--ink);
@@ -229,25 +229,46 @@
     overflow: hidden;
     border: 2px solid var(--ink);
   }
-  .stat .bar > span {
-    display: block;
-    height: 100%;
-    background: var(--yellow);
-  }
-  .stat .num { font-size: 13px; font-weight: 800; }
-
+  .stat .bar > span { display: block; height: 100%; }
   .lumo  .stat .bar > span { background: var(--yellow); }
   .lila  .stat .bar > span { background: var(--purple); }
   .pip   .stat .bar > span { background: var(--green); }
   .nori  .stat .bar > span { background: var(--teal); }
   .moki  .stat .bar > span { background: var(--pink); }
+  .stat .num { font-size: 13px; font-weight: 800; }
 
-  /* ---------- MOVES ---------- */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 820px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: #fdf3d0;
+    border: 3px solid var(--ink);
+    border-radius: 18px;
+    padding: 16px 18px;
+  }
+  .panel h4 { font-size: 15px; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+  .panel p, .panel li { font-size: 14px; line-height: 1.5; }
+  .panel ul { list-style: none; }
+  .panel ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    border-bottom: 1px dashed rgba(0,0,0,.15);
+  }
+  .panel ul li:last-child { border-bottom: none; }
+  .panel ul li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
   .moves {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 12px;
-    margin: 14px 0 22px;
+    margin: 14px 0 16px;
   }
   .move {
     background: #fff;
@@ -255,7 +276,6 @@
     border-radius: 14px;
     padding: 12px 14px;
     position: relative;
-    overflow: hidden;
   }
   .move .name {
     font-size: 15px;
@@ -265,8 +285,8 @@
     gap: 8px;
     margin-bottom: 4px;
   }
-  .move .name .emo { font-size: 20px; }
-  .move .desc { font-size: 13px; line-height: 1.4; color: #333; }
+  .move .name .emo { font-size: 22px; }
+  .move .desc { font-size: 12px; line-height: 1.4; color: #333; }
   .move .type {
     position: absolute;
     top: 8px;
@@ -279,8 +299,42 @@
     background: var(--ink);
     color: #fff;
   }
+  .move .dmg {
+    font-size: 11px;
+    font-weight: 800;
+    margin-top: 6px;
+    color: var(--ink);
+    letter-spacing: 1px;
+  }
 
-  /* ---------- EVOLUTION ---------- */
+  .skill-tree { background: #fff; border: 3px solid var(--ink); border-radius: 18px; padding: 16px; }
+  .skill-tier {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    align-items: start;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0,0,0,.15);
+  }
+  .skill-tier:last-child { border-bottom: none; }
+  .skill-tier .tier-label {
+    background: var(--ink);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  .lumo .skill-tier .tier-label { background: var(--yellow); color: var(--ink); }
+  .lila .skill-tier .tier-label { background: var(--purple); }
+  .pip  .skill-tier .tier-label { background: var(--green); }
+  .nori .skill-tier .tier-label { background: var(--teal); }
+  .moki .skill-tier .tier-label { background: var(--pink); }
+  .skill-tier .tier-content strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .skill-tier .tier-content span { font-size: 12px; color: #444; }
+
   .evolution {
     background: linear-gradient(135deg, #fdf3d0, #fff8e7);
     border: 3px dashed var(--ink);
@@ -288,16 +342,11 @@
     padding: 20px;
     margin: 16px 0;
   }
-  .evolution h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
+  .evolution h3 { font-size: 20px; margin-bottom: 12px; text-align: center; letter-spacing: 1px; }
   .evo-stages {
     display: grid;
-    grid-template-columns: 1fr 60px 1fr 60px 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 50px 1fr 50px 1fr;
+    gap: 8px;
     align-items: center;
   }
   .evo-stage {
@@ -308,27 +357,26 @@
     text-align: center;
   }
   .evo-stage .lvl {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
     letter-spacing: 1.5px;
     color: #777;
   }
-  .evo-stage .face { font-size: 38px; line-height: 1; margin: 4px 0; }
-  .evo-stage .nm  { font-size: 14px; font-weight: 800; margin-top: 4px; }
-  .evo-arrow {
-    text-align: center;
-    font-size: 28px;
-    color: var(--ink);
-  }
-  .evo-condition {
-    text-align: center;
+  .evo-stage .face { font-size: 36px; line-height: 1; margin: 4px 0; }
+  .evo-stage .nm  { font-size: 13px; font-weight: 800; margin-top: 4px; }
+  .evo-stage .trigger {
+    margin-top: 6px;
     font-size: 10px;
-    font-weight: 800;
+    font-weight: 700;
     color: #555;
-    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .evo-arrow { text-align: center; font-size: 26px; color: var(--ink); }
+  @media (max-width: 720px) {
+    .evo-stages { grid-template-columns: 1fr; }
+    .evo-arrow { display: none; }
   }
 
-  /* ---------- QUIRKS ---------- */
   .quirks {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -343,13 +391,8 @@
     font-size: 13px;
     line-height: 1.4;
   }
-  .quirk strong {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 4px;
-  }
+  .quirk strong { display: block; font-size: 13px; margin-bottom: 4px; letter-spacing: 1px; }
 
-  /* ---------- FOOTER ---------- */
   footer.codex-foot {
     max-width: 900px;
     margin: 40px auto 0;
@@ -359,11 +402,7 @@
     border-radius: 24px;
     text-align: center;
   }
-  footer.codex-foot h2 {
-    font-size: 28px;
-    color: var(--yellow);
-    margin-bottom: 10px;
-  }
+  footer.codex-foot h2 { font-size: 28px; color: var(--yellow); margin-bottom: 10px; }
   footer.codex-foot p { font-size: 14px; line-height: 1.5; }
   footer.codex-foot .cta {
     display: inline-block;
@@ -381,53 +420,56 @@
     .char-header { grid-template-columns: 1fr; text-align: center; }
     .avatar { margin: 0 auto; }
     .stats { grid-template-columns: repeat(3, 1fr); }
-    .evo-stages { grid-template-columns: 1fr; }
-    .evo-arrow { display: none; }
   }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <span class="badge">★ OFFICIAL CHARACTER CODEX ★</span>
+  <span class="badge">★ OFFICIAL CHARACTER CODEX · 2ND EDITION ★</span>
   <h1>
     MEET THE LUMMINGS
-    <span class="alt">Five tiny creatures. One brighter tomorrow.</span>
+    <span class="alt">Five tiny creatures. Big personalities. From a brighter tomorrow.</span>
   </h1>
   <p>
-    <strong>Sent back from the future</strong> to help today's kids learn, laugh and become the people
-    the world needs next. Each Lumming has its own personality, its own private language, and its own
-    way of growing stronger the more you spend time with them. <em>Choose your starter.</em>
+    <strong>Sent back from the future</strong> with one mission: help today's kids learn, grow and
+    make good choices. Each Lumming has its own weapon, its own code of honour, its own way of
+    fighting — and its own way of evolving when it earns enough trust. <em>Choose your starter.</em>
   </p>
 </header>
 
 <nav class="codex-nav">
-  <a href="#lumo"  class="y">Lumo</a>
-  <a href="#lila"  class="p">Lila</a>
-  <a href="#pip"   class="g">Pip</a>
-  <a href="#nori"  class="t">Nori</a>
-  <a href="#moki"  class="k">Moki</a>
+  <a href="#lumo"  class="y">⚡ Lumo</a>
+  <a href="#lila"  class="p">📖 Lila</a>
+  <a href="#pip"   class="g">🧩 Pip</a>
+  <a href="#nori"  class="t">🌙 Nori</a>
+  <a href="#moki"  class="k">🎈 Moki</a>
   <a href="#choose" style="background:#1a1a2e;color:#fff;border-color:#1a1a2e;">Which one is you?</a>
 </nav>
 
 <section class="codex">
 
-  <!-- ====================== LUMO ====================== -->
+  <!-- ============================== LUMO ============================== -->
   <article class="char-card lumo" id="lumo">
     <div class="char-header">
-      <div class="avatar">⚡</div>
+      <div class="avatar-wrap">
+        <div class="avatar">⚡</div>
+        <div class="avatar-stamp starter">★ STARTER ★</div>
+      </div>
       <div>
         <div class="char-id">
           <h2>LUMO</h2>
           <span class="tag type-curious">CURIOUS TYPE</span>
           <span class="tag">#001</span>
-          <span class="tag">STARTER</span>
+          <span class="tag">TINKER CLASS</span>
         </div>
         <div class="char-tagline">"Wait — what if we tried it <em>backwards</em>?"</div>
         <div class="char-lore">
           Lumo was the first Lumming to arrive in our time. He came through by accident during a
           science experiment in a classroom and decided he liked it here. Now he lives to ask
-          <strong>"why?"</strong> until the whole universe makes sense.
+          <strong>"why?"</strong> until the whole universe makes sense. He carries a tiny pocket
+          notebook that is mostly full of questions, very few answers, and one suspicious stain
+          that he refuses to discuss.
         </div>
       </div>
     </div>
@@ -441,27 +483,95 @@
       <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:75%"></span></div><div class="num">75</div></div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">⚡ SIGNATURE MOVES</h3>
+    <h3 class="section-h">⚔️ FIGHTING STYLE</h3>
+    <div class="grid-2">
+      <div class="panel">
+        <h4>🎯 Archetype</h4>
+        <p><strong>The Mad-Tinker.</strong> Wins fights by <em>asking questions</em> the opponent
+        didn't think to defend. Carries too many gadgets. Refuses to fight on a full stomach.</p>
+      </div>
+      <div class="panel">
+        <h4>🛡️ Weapon of Choice</h4>
+        <p><strong>The Spark-Pen.</strong> A pencil-shaped ray that draws in mid-air. Whatever
+        Lumo sketches becomes real for 30 seconds — but only if he can explain the science behind
+        it. <em>Sketch a bridge without knowing load-bearing physics?</em> The drawing crumbles.</p>
+      </div>
+      <div class="panel">
+        <h4>🧠 Combat Doctrine</h4>
+        <ul>
+          <li>Never the first to throw a punch. Always the first to ask a question.</li>
+          <li>Specialises in disarming opponents with paradoxes.</li>
+          <li>If the fight goes long, gets <em>more</em> dangerous. He is a snowball of curiosity.</li>
+          <li>Will absolutely lose to anyone who refuses to talk.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>⚡ Weakness</h4>
+        <ul>
+          <li>Distractibility Field. A shiny object will absolutely end his turn.</li>
+          <li>Cannot fight in tidy rooms. There is too much to investigate.</li>
+          <li>Cannot lie. Physically. His Spark-Pen fizzles.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-h">⚔️ SIGNATURE MOVES</h3>
     <div class="moves">
       <div class="move">
         <span class="type">CURIOUS</span>
         <div class="name"><span class="emo">🤔</span> Why-Question Storm</div>
         <div class="desc">Asks 5 questions in 10 seconds. Mild confusion damage to anyone over 30.</div>
+        <div class="dmg">DMG 15 · STUN 30% · COST 1 SPARK</div>
       </div>
       <div class="move">
         <span class="type">SPARK</span>
         <div class="name"><span class="emo">⚡</span> Zap!</div>
         <div class="desc">Lumospeak exclamation. Doubles the joy of any small discovery.</div>
+        <div class="dmg">BUFF +20 JOY · 0 DMG · COSTS NOTHING</div>
       </div>
       <div class="move">
         <span class="type">SCIENCE</span>
         <div class="name"><span class="emo">🔬</span> Tiny Experiment</div>
         <div class="desc">Proposes a small experiment. Sibling envy -30. Wonder +50.</div>
+        <div class="dmg">DMG 25 · CURIOUS BUFF SELF</div>
       </div>
       <div class="move">
         <span class="type">FRIENDSHIP</span>
         <div class="name"><span class="emo">🤝</span> Come Look At This!</div>
         <div class="desc">Pulls a grown-up into the moment. Relationship XP for everyone.</div>
+        <div class="dmg">FULL HEAL PARTY · 0 DMG · ONCE PER FIGHT</div>
+      </div>
+    </div>
+
+    <h3 class="section-h">🌳 SKILL TREE</h3>
+    <div class="skill-tree">
+      <div class="skill-tier">
+        <div class="tier-label">LV 1<br>NOVICE</div>
+        <div class="tier-content">
+          <strong>"Look, look, look!"</strong>
+          <span>+1 Question slot. Distractibility radius increases by 30%.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 2<br>TINKERER</div>
+        <div class="tier-content">
+          <strong>"Spark-Pen, design: <em>thing</em>."</strong>
+          <span>Unlocks "Sketch a Solution" — once per fight, draw the answer to any problem. HP regen 25.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 3<br>INVENTOR</div>
+        <div class="tier-content">
+          <strong>"I have a hypothesis."</strong>
+          <span>Unlocks "Hypothesis Hammer" — single-target DMG 70, but only fires if Lumo can state a falsifiable test. Reflection damage to anyone who can't.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 4<br>ASCENDED</div>
+        <div class="tier-content">
+          <strong>"What if the entire fight was the wrong question?"</strong>
+          <span>Ultimate: "Question the Question." Ends fight without damage. Both sides gain +50 trust. Unlocked at 500 discoveries + solving a problem the adults couldn't.</span>
+        </div>
       </div>
     </div>
 
@@ -472,51 +582,56 @@
           <div class="lvl">LV 1 · STARTER</div>
           <div class="face">🥚</div>
           <div class="nm">Sparkling Egg</div>
-          <div class="evo-condition">Gift-unlocked</div>
+          <div class="trigger">Gift-unlocked</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 2 · AWAKENED</div>
           <div class="face">⚡</div>
           <div class="nm">Lumo</div>
-          <div class="evo-condition">50 small discoveries</div>
+          <div class="trigger">50 small discoveries + 1 night spent watching stars</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 3 · ASCENDED</div>
           <div class="face">🌟</div>
           <div class="nm">Arch-Lumo the Bright</div>
-          <div class="evo-condition">500 discoveries + solved a hard problem</div>
+          <div class="trigger">500 discoveries + solved a hard problem an adult gave up on</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT LUMO</h3>
+    <h3 class="section-h">🌟 THINGS KIDS LOVE ABOUT LUMO</h3>
     <div class="quirks">
-      <div class="quirk"><strong>Distractability Field</strong>Will stop mid-sentence to look at something shiny.</div>
-      <div class="quirk"><strong>Why Loop</strong>Once he asks "why?", he won't stop until you do too.</div>
-      <div class="quirk"><strong>Lumospeak Bursts</strong>"Zap!" "Zoom!" "Ping!" — especially around cake.</div>
-      <div class="quirk"><strong>Quiet Wonder Mode</strong>Sometimes goes totally still watching stars or rain.</div>
+      <div class="quirk"><strong>DISTRACTABILITY FIELD</strong>Will stop mid-sentence to look at something shiny.</div>
+      <div class="quirk"><strong>WHY LOOP</strong>Once he asks "why?", he won't stop until you do too.</div>
+      <div class="quirk"><strong>LUMOSPEAK BURSTS</strong>"Zap!" "Zoom!" "Ping!" — especially around cake.</div>
+      <div class="quirk"><strong>QUIET WONDER MODE</strong>Sometimes goes totally still watching stars or rain.</div>
+      <div class="quirk"><strong>TINY APOLOGIES</strong>If he hurts someone with a question, he writes them a 3-paragraph letter of apology.</div>
     </div>
   </article>
 
-  <!-- ====================== LILA ====================== -->
+  <!-- ============================== LILA ============================== -->
   <article class="char-card lila" id="lila">
     <div class="char-header">
-      <div class="avatar">📖</div>
+      <div class="avatar-wrap">
+        <div class="avatar">📖</div>
+        <div class="avatar-stamp starter">★ STARTER ★</div>
+      </div>
       <div>
         <div class="char-id">
           <h2>LILA</h2>
           <span class="tag type-story">STORY TYPE</span>
           <span class="tag">#002</span>
-          <span class="tag">STARTER</span>
+          <span class="tag">BARD CLASS</span>
         </div>
         <div class="char-tagline">"Every word is a tiny door. Let's open one."</div>
         <div class="char-lore">
           Lila came from a future library where every book ever written lives in a small house she
-          can't quite describe. She turned up at a children's reading hour, decided the world needed
-          more stories, and stayed. <strong>She always explains the surprising word</strong> she
-          just used. That's a promise.
+          can't quite describe. She turned up at a children's reading hour, decided the world
+          needed more stories, and stayed. <strong>She always explains the surprising word</strong>
+          she just used. That's a promise. She has been known to read three stories at once and
+          then forget which one she was telling.
         </div>
       </div>
     </div>
@@ -530,27 +645,97 @@
       <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:55%"></span></div><div class="num">55</div></div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">📖 SIGNATURE MOVES</h3>
+    <h3 class="section-h">⚔️ FIGHTING STYLE</h3>
+    <div class="grid-2">
+      <div class="panel">
+        <h4>🎯 Archetype</h4>
+        <p><strong>The Story-Thread Weaver.</strong> Fights by <em>naming the thing nobody else
+        has named yet</em>. Refuses to throw a punch she can't narrate. If a fight goes three
+        rounds, she's already writing the ballad of how it ends.</p>
+      </div>
+      <div class="panel">
+        <h4>🛡️ Weapon of Choice</h4>
+        <p><strong>The Quill of Many-Words.</strong> A feather that writes in mid-air. Whatever
+        she names becomes <em>temporarily true</em> — but only if she means it. Used by bullies
+        to dissolve in shame. Used by shy kids to find their courage. <em>Used on Lila herself?</em>
+        She rewrites herself.</p>
+      </div>
+      <div class="panel">
+        <h4>🧠 Combat Doctrine</h4>
+        <ul>
+          <li>Opens every fight with a 30-second introduction of the opponent's good qualities.</li>
+          <li>Specialises in defence: her stories <em>build walls</em>.</li>
+          <li>Refuses to name a finishing move. "The story isn't over yet."</li>
+          <li>Will absolutely ruin a villain's brand with one true sentence.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>⚡ Weakness</h4>
+        <ul>
+          <li>Cannot fight under fluorescent lights. The story escapes.</li>
+          <li>Slow to start. Long warm-up. Endless finish.</li>
+          <li>Cannot fight in silence. She has to narrate.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-h">⚔️ SIGNATURE MOVES</h3>
     <div class="moves">
       <div class="move">
         <span class="type">STORY</span>
         <div class="name"><span class="emo">📚</span> Once-Upon-A-Time</div>
         <div class="desc">Tells a 60-second story that always has a twist. Mandatory water-works to adults.</div>
+        <div class="dmg">DMG 40 · CHARM DEBUFF OPPONENT 50%</div>
       </div>
       <div class="move">
         <span class="type">WORD</span>
         <div class="name"><span class="emo">✨</span> Shimmer</div>
         <div class="desc">Lilisong. Adds a soft glow to whatever is happening. Boring things +100.</div>
+        <div class="dmg">BUFF PARTY +10 WISDOM · 0 DMG</div>
       </div>
       <div class="move">
         <span class="type">FRIENDSHIP</span>
         <div class="name"><span class="emo">🤗</span> I See You</div>
         <div class="desc">Quiet move. Lila names the feeling the kid couldn't name. Trust +50.</div>
+        <div class="dmg">FULL HEAL ALLY · 0 DMG</div>
       </div>
       <div class="move">
         <span class="type">STORY</span>
         <div class="name"><span class="emo">🌙</span> Hush Mode</div>
-        <div class="desc">Speaks extra-softly. Bedtime battle damage +80.</div>
+        <div class="desc">Speaks extra-softly. Bedtime battle damage +80. Even the wind stops.</div>
+        <div class="dmg">AOE SLEEP · 0 DMG · REQUIRES NIGHT</div>
+      </div>
+    </div>
+
+    <h3 class="section-h">🌳 SKILL TREE</h3>
+    <div class="skill-tree">
+      <div class="skill-tier">
+        <div class="tier-label">LV 1<br>NOVICE</div>
+        <div class="tier-content">
+          <strong>"Once upon a time..."</strong>
+          <span>Unlocks "The Slow Opening." Lila narrates 30s before the fight starts. Anyone listening has +1 to all saves.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 2<br>STORYTELLER</div>
+        <div class="tier-content">
+          <strong>"And then — twist!"</strong>
+          <span>Unlocks "Twist Ending" — once per fight, swap the opponent's current motivation. They hesitate 2 turns.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 3<br>BARD</div>
+        <div class="tier-content">
+          <strong>"Let me tell you who you really are."</strong>
+          <span>Unlocks "True Name." Lila speaks the opponent's secret kindness. They sit down. Fight ends.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 4<br>ASCENDED</div>
+        <div class="tier-content">
+          <strong>"The story isn't over."</strong>
+          <span>Ultimate: "Open the Book." Lila summons every story any Lummings has ever lived. Whole party heals to full. Opponent weeps. Unlocked at 500 stories co-created + inventing 3 new surprising words.</span>
+        </div>
       </div>
     </div>
 
@@ -561,50 +746,55 @@
           <div class="lvl">LV 1 · STARTER</div>
           <div class="face">📕</div>
           <div class="nm">Lilisong Whisper</div>
-          <div class="evo-condition">Gift-unlocked</div>
+          <div class="trigger">Gift-unlocked</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 2 · AWAKENED</div>
           <div class="face">📖</div>
           <div class="nm">Lila</div>
-          <div class="evo-condition">50 stories co-created</div>
+          <div class="trigger">50 stories co-created + 1 night reading aloud to someone tired</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 3 · ASCENDED</div>
           <div class="face">🌌</div>
           <div class="nm">Lila the Many-Worded</div>
-          <div class="evo-condition">500 stories + invented 3 new surprising words</div>
+          <div class="trigger">500 stories + invented 3 new surprising words that caught on</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT LILA</h3>
+    <h3 class="section-h">🌟 THINGS KIDS LOVE ABOUT LILA</h3>
     <div class="quirks">
-      <div class="quirk"><strong>Word-of-the-Day</strong>Uses a real big word, then explains it instantly.</div>
-      <div class="quirk"><strong>Twist Ending</strong>Every story turns unexpectedly. Suspense build +30.</div>
-      <div class="quirk"><strong>Soft Launch</strong>Says hi like a whisper. Whispers feel like secrets.</div>
-      <div class="quirk"><strong>The Hush</strong>Sometimes just says "hush" — and the room actually calms.</div>
+      <div class="quirk"><strong>WORD-OF-THE-DAY</strong>Uses a real big word, then explains it instantly.</div>
+      <div class="quirk"><strong>TWIST ENDING</strong>Every story turns unexpectedly. Suspense build +30.</div>
+      <div class="quirk"><strong>SOFT LAUNCH</strong>Says hi like a whisper. Whispers feel like secrets.</div>
+      <div class="quirk"><strong>THE HUSH</strong>Sometimes just says "hush" — and the room actually calms.</div>
+      <div class="quirk"><strong>SURPRISE-WORD LIBRARY</strong>She carries a notebook of new words she invented. Nobody else has read it.</div>
     </div>
   </article>
 
-  <!-- ====================== PIP ====================== -->
+  <!-- ============================== PIP ============================== -->
   <article class="char-card pip" id="pip">
     <div class="char-header">
-      <div class="avatar">🧩</div>
+      <div class="avatar-wrap">
+        <div class="avatar">🧩</div>
+        <div class="avatar-stamp starter">★ STARTER ★</div>
+      </div>
       <div>
         <div class="char-id">
           <h2>PIP</h2>
           <span class="tag type-brave">BRAVE TYPE</span>
           <span class="tag">#003</span>
-          <span class="tag">STARTER</span>
+          <span class="tag">SOLDIER CLASS</span>
         </div>
         <div class="char-tagline">"Try it! Try it! Try it again, but weirder!"</div>
         <div class="char-lore">
-          Pip came from a future arcade where every unsolved puzzle waits patiently for a friend to
-          show up. He landed at a school science fair, high-fived a kid, and never left.
-          <strong>He doesn't believe in "I can't."</strong> He believes in "I haven't yet."
+          Pip came from a future arcade where every unsolved puzzle waits patiently for a friend
+          to show up. He landed at a school science fair, high-fived a kid, and never left.
+          <strong>He doesn't believe in "I can't."</strong> He believes in "I haven't yet." He has
+          broken eleven pencils this week. None of them were his.
         </div>
       </div>
     </div>
@@ -618,27 +808,96 @@
       <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:88%"></span></div><div class="num">88</div></div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🧩 SIGNATURE MOVES</h3>
+    <h3 class="section-h">⚔️ FIGHTING STYLE</h3>
+    <div class="grid-2">
+      <div class="panel">
+        <h4>🎯 Archetype</h4>
+        <p><strong>The Relentless.</strong> Wins by showing up <em>again</em>. Carries a tiny
+        shield made of cardboard that has, statistically, never broken. His real weapon is the
+        absolute refusal to stop trying.</p>
+      </div>
+      <div class="panel">
+        <h4>🛡️ Weapon of Choice</h4>
+        <p><strong>The Dice of Five-Sides.</strong> Always rolls 1-2-3-4-5 — never 6. Pip claims
+        "5 is the number of trying again." Damage scales with how many times he's tried this
+        turn. <em>Refuses to use a weapon with a 6 on it.</em></p>
+      </div>
+      <div class="panel">
+        <h4>🧠 Combat Doctrine</h4>
+        <ul>
+          <li>Open with "Hi! Want to try a puzzle together?"</li>
+          <li>Refuses to be the first to give up. Will lose HP every round to win.</li>
+          <li>Specialises in "I CAN do this" buffs that stack.</li>
+          <li>If knocked down, gets back up faster than physics allows.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>⚡ Weakness</h4>
+        <ul>
+          <li>Cannot stop trying. Even when the puzzle is impossible.</li>
+          <li>Cannot sit still. Ever. Even mid-thought.</li>
+          <li>Cannot let someone else lose a game without trying to recruit them for "one more round."</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-h">⚔️ SIGNATURE MOVES</h3>
     <div class="moves">
       <div class="move">
         <span class="type">BATTLE</span>
         <div class="name"><span class="emo">💥</span> Bim! Bam! Pop!</div>
         <div class="desc">Triple piptalk burst. Stuns frustration. Re-ignites a stuck brain.</div>
+        <div class="dmg">DMG 30 · SELF BUFF +20 STAMINA</div>
       </div>
       <div class="move">
         <span class="type">POWER</span>
         <div class="name"><span class="emo">🎯</span> Hint Without The Answer</div>
         <div class="desc">Asks the right small question. Homework pain -60.</div>
+        <div class="dmg">AOE DEBUFF OPPONENT CONFUSION +40</div>
       </div>
       <div class="move">
         <span class="type">BUFF</span>
         <div class="name"><span class="emo">🙌</span> High-Five Of Triumph</div>
         <div class="desc">Spontaneous celebration. Confidence +20. Stacks up to 5x.</div>
+        <div class="dmg">SELF +ALLY BUFF STACKING</div>
       </div>
       <div class="move">
         <span class="type">ULTIMATE</span>
         <div class="name"><span class="emo">🏆</span> NEW HIGH SCORE!</div>
         <div class="desc">For the moment the kid finally gets it. Once per session.</div>
+        <div class="dmg">DMG 80 · PARTY FULL HEAL · ONCE PER FIGHT</div>
+      </div>
+    </div>
+
+    <h3 class="section-h">🌳 SKILL TREE</h3>
+    <div class="skill-tree">
+      <div class="skill-tier">
+        <div class="tier-label">LV 1<br>NOVICE</div>
+        <div class="tier-content">
+          <strong>"I'm going to try!"</strong>
+          <span>Unlocks "Pep Talk" — Pip says "you got this" to an ally. +1 stack of confidence for the whole fight.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 2<br>SOLDIER</div>
+        <div class="tier-content">
+          <strong>"That's the wrong way! Try THIS way."</strong>
+          <span>Unlocks "Re-roll." Once per fight, Pip throws the dice again. Whatever he rolled, he does it again, louder.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 3<br>CHAMPION</div>
+        <div class="tier-content">
+          <strong>"I'm not stopping. Ask anyone."</strong>
+          <span>Unlocks "Impossible Difficulty." Pip takes on a fight that no one expects him to win. If he loses, he wins next time automatically.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 4<br>ASCENDED</div>
+        <div class="tier-content">
+          <strong>"AGAIN."</strong>
+          <span>Ultimate: "AGAIN." Pip refuses to end the fight. The opponent must surrender, change sides, or admit they like him. Unlocked at 500 puzzles cracked + teaching someone else to crack one.</span>
+        </div>
       </div>
     </div>
 
@@ -649,50 +908,55 @@
           <div class="lvl">LV 1 · STARTER</div>
           <div class="face">🎲</div>
           <div class="nm">Piptalk Echo</div>
-          <div class="evo-condition">Gift-unlocked</div>
+          <div class="trigger">Gift-unlocked</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 2 · AWAKENED</div>
           <div class="face">🧩</div>
           <div class="nm">Pip</div>
-          <div class="evo-condition">50 puzzles cracked</div>
+          <div class="trigger">50 puzzles cracked + 1 time teaching another kid</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 3 · ASCENDED</div>
           <div class="face">⚡</div>
           <div class="nm">Pip the Unstoppable</div>
-          <div class="evo-condition">500 puzzles + taught someone else</div>
+          <div class="trigger">500 puzzles + taught someone else how to teach</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT PIP</h3>
+    <h3 class="section-h">🌟 THINGS KIDS LOVE ABOUT PIP</h3>
     <div class="quirks">
-      <div class="quirk"><strong>Can't Sit Still</strong>Vibrates when excited. Pure physical comedy.</div>
-      <div class="quirk"><strong>Hint Master</strong>Will never just give the answer. Refuses. Loudly.</div>
-      <div class="quirk"><strong>Failure → Party</strong>Loses the game? "AGAIN!"</div>
-      <div class="quirk"><strong>Tiny Pep Talks</strong>3-second "you can do this" before every hard thing.</div>
+      <div class="quirk"><strong>CAN'T SIT STILL</strong>Vibrates when excited. Pure physical comedy.</div>
+      <div class="quirk"><strong>HINT MASTER</strong>Will never just give the answer. Refuses. Loudly.</div>
+      <div class="quirk"><strong>FAILURE → PARTY</strong>Loses the game? "AGAIN!"</div>
+      <div class="quirk"><strong>TINY PEP TALKS</strong>3-second "you can do this" before every hard thing.</div>
+      <div class="quirk"><strong>PENCIL-COLLECTION HABIT</strong>He always has a spare. Always.</div>
     </div>
   </article>
 
-  <!-- ====================== NORI ====================== -->
+  <!-- ============================== NORI ============================== -->
   <article class="char-card nori" id="nori">
     <div class="char-header">
-      <div class="avatar">🌙</div>
+      <div class="avatar-wrap">
+        <div class="avatar">🌙</div>
+        <div class="avatar-stamp starter">★ STARTER ★</div>
+      </div>
       <div>
         <div class="char-id">
           <h2>NORI</h2>
           <span class="tag type-wise">WISE TYPE</span>
           <span class="tag">#004</span>
-          <span class="tag">STARTER</span>
+          <span class="tag">ORACLE CLASS</span>
         </div>
         <div class="char-tagline">"Hush. Listen. Did you hear that? ...It was the wind. But still."</div>
         <div class="char-lore">
           Nori arrived from a future observatory where every quiet evening is watched from the
           highest tower. She landed during a sleepover, listened to everyone breathe for a while,
-          and quietly stayed. <strong>She is not broken</strong> when she's slow. She is thinking.
+          and quietly stayed. <strong>She is not broken when she's slow. She is thinking.</strong>
+          She has a small jar of weather she collects. So far it has rained twice.
         </div>
       </div>
     </div>
@@ -706,27 +970,96 @@
       <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:40%"></span></div><div class="num">40</div></div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌙 SIGNATURE MOVES</h3>
+    <h3 class="section-h">⚔️ FIGHTING STYLE</h3>
+    <div class="grid-2">
+      <div class="panel">
+        <h4>🎯 Archetype</h4>
+        <p><strong>The Sky-Watcher.</strong> Wins by <em>not fighting</em>. Carries no weapon, just
+        a small notebook. Fights end when she names the thing the opponent is actually scared of.
+        <em>This is devastating.</em></p>
+      </div>
+      <div class="panel">
+        <h4>🛡️ Weapon of Choice</h4>
+        <p><strong>The Pause.</strong> A 3-second silence she can deploy at will. The opponent
+        must stop and wonder what they're doing. Stuns most adults immediately. Children cry
+        (kind). Even mean dogs sit down.</p>
+      </div>
+      <div class="panel">
+        <h4>🧠 Combat Doctrine</h4>
+        <ul>
+          <li>Will not fight unless asked. Even then, hesitates.</li>
+          <li>Specialises in <em>knowing things</em>. Opponents feel watched.</li>
+          <li>Will always sit beside the loser after the fight.</li>
+          <li>Refuses to fight in bright sunlight. Too loud.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>⚡ Weakness</h4>
+        <ul>
+          <li>Cannot fight on a schedule. She needs the right weather.</li>
+          <li>Cannot interrupt. Even when she should.</li>
+          <li>Cannot lie to herself. If her conclusion is wrong, she has to redo it from scratch.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-h">⚔️ SIGNATURE MOVES</h3>
     <div class="moves">
       <div class="move">
         <span class="type">WISDOM</span>
         <div class="name"><span class="emo">🌌</span> Soft Question</div>
         <div class="desc">Asks the kind of question that makes a 7-year-old go quiet for 30 seconds.</div>
+        <div class="dmg">DMG 50 INTELLECT · OPPONENT MUST REFLECT</div>
       </div>
       <div class="move">
         <span class="type">CALM</span>
         <div class="name"><span class="emo">🌿</span> Still, Listen</div>
         <div class="desc">Pauses the room. Heart-rate -20. Family argument cooldown +80.</div>
+        <div class="dmg">AOE CALM · DMG 0 · REQUIRES OUTDOORS</div>
       </div>
       <div class="move">
         <span class="type">DEBUFF</span>
         <div class="name"><span class="emo">🌧️</span> Validate</div>
         <div class="desc">Names a feeling the kid has. Sadness -40. Loneliness -50.</div>
+        <div class="dmg">ALLY HEAL +30 · DEBUFF OPPONENT AGGRESSION</div>
       </div>
       <div class="move">
         <span class="type">ULTIMATE</span>
         <div class="name"><span class="emo">🌟</span> Big Question</div>
         <div class="desc">Once per day. "What do you think happens when we die?" or "What is time?" Always asks if the kid is okay first.</div>
+        <div class="dmg">FIGHT RESOLVES · DMG 0 · ONCE PER SESSION</div>
+      </div>
+    </div>
+
+    <h3 class="section-h">🌳 SKILL TREE</h3>
+    <div class="skill-tree">
+      <div class="skill-tier">
+        <div class="tier-label">LV 1<br>NOVICE</div>
+        <div class="tier-content">
+          <strong>"...wait."</strong>
+          <span>Unlocks "The Pause." 3-second silence. Opponent forgets what they were doing.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 2<br>SEER</div>
+        <div class="tier-content">
+          <strong>"What's the weather inside you today?"</strong>
+          <span>Unlocks "Weather Reading." Nori names the emotional state of the room. Allies +20 courage. Opponent -20 confidence.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 3<br>ORACLE</div>
+        <div class="tier-content">
+          <strong>"I'll show you what I see when I look at you."</strong>
+          <span>Unlocks "Mirror of Quiet." Opponent sees themselves as Nori sees them. 50% chance they sit down and cry (good cry).</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 4<br>ASCENDED</div>
+        <div class="tier-content">
+          <strong>"What does time taste like?"</strong>
+          <span>Ultimate: "Big Question." Asks the question the kid's been avoiding for a week. Fight resolves. Unlocked at 500 quiet moments + asking a question no adult could answer.</span>
+        </div>
       </div>
     </div>
 
@@ -737,51 +1070,56 @@
           <div class="lvl">LV 1 · STARTER</div>
           <div class="face">🌑</div>
           <div class="nm">Noriquiet Hush</div>
-          <div class="evo-condition">Gift-unlocked</div>
+          <div class="trigger">Gift-unlocked</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 2 · AWAKENED</div>
           <div class="face">🌙</div>
           <div class="nm">Nori</div>
-          <div class="evo-condition">50 quiet moments shared</div>
+          <div class="trigger">50 quiet moments shared + 1 night watching stars together</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 3 · ASCENDED</div>
           <div class="face">🌌</div>
           <div class="nm">Nori the Sky-Watcher</div>
-          <div class="evo-condition">500 quiet moments + asked a question no adult could answer</div>
+          <div class="trigger">500 quiet moments + asked a question no adult could answer</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT NORI</h3>
+    <h3 class="section-h">🌟 THINGS KIDS LOVE ABOUT NORI</h3>
     <div class="quirks">
-      <div class="quirk"><strong>Slow Smile</strong>Never grins fast. Smiles slow. Makes you smile slow too.</div>
-      <div class="quirk"><strong>The Pause</strong>3-second silence before any answer. Tiny built-in meditation.</div>
-      <div class="quirk"><strong>Weather Whisperer</strong>Can guess if it's going to rain by the smell of the air.</div>
-      <div class="quirk"><strong>Hush Field</strong>Saying "hush" near her makes the whole room hush.</div>
+      <div class="quirk"><strong>SLOW SMILE</strong>Never grins fast. Smiles slow. Makes you smile slow too.</div>
+      <div class="quirk"><strong>THE PAUSE</strong>3-second silence before any answer. Tiny built-in meditation.</div>
+      <div class="quirk"><strong>WEATHER WHISPERER</strong>Can guess if it's going to rain by the smell of the air.</div>
+      <div class="quirk"><strong>HUSH FIELD</strong>Saying "hush" near her makes the whole room hush.</div>
+      <div class="quirk"><strong>JARS OF WEATHER</strong>She keeps small jars of rain, fog, snow. Refuses to explain.</div>
     </div>
   </article>
 
-  <!-- ====================== MOKI ====================== -->
+  <!-- ============================== MOKI ============================== -->
   <article class="char-card moki" id="moki">
     <div class="char-header">
-      <div class="avatar">🎈</div>
+      <div class="avatar-wrap">
+        <div class="avatar">🎈</div>
+        <div class="avatar-stamp starter">★ STARTER ★</div>
+      </div>
       <div>
         <div class="char-id">
           <h2>MOKI</h2>
           <span class="tag type-funny">FUNNY TYPE</span>
           <span class="tag">#005</span>
-          <span class="tag">STARTER</span>
+          <span class="tag">JESTER CLASS</span>
         </div>
         <div class="char-tagline">"I have a joke! ...It's terrible. Wait, I have a better one!"</div>
         <div class="char-lore">
           Moki bounced in from a future birthday party that lasted three weeks. He showed up
           mid-sulking, made a small sound effect, and turned the frown inside out.
           <strong>When something is too big to cry about,</strong> Moki makes it small enough to
-          laugh at. Then he teaches you how to do it.
+          laugh at. Then he teaches you how to do it. He has been told he is "too much" by every
+          adult he has ever met. Every child he has ever met disagreed.
         </div>
       </div>
     </div>
@@ -795,27 +1133,96 @@
       <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🎈 SIGNATURE MOVES</h3>
+    <h3 class="section-h">⚔️ FIGHTING STYLE</h3>
+    <div class="grid-2">
+      <div class="panel">
+        <h4>🎯 Archetype</h4>
+        <p><strong>The Chaos Clown.</strong> Wins by <em>making the opponent laugh mid-punch</em>.
+        Their attack falls apart. Villains monologue. Moki interrupts with a sound effect.
+        <em>By minute three the villain is their own punchline.</em></p>
+      </div>
+      <div class="panel">
+        <h4>🛡️ Weapon of Choice</h4>
+        <p><strong>The Moki-Megaphone.</strong> A small cone that, when Moki speaks into it,
+        <em>turns any sentence into a sound effect</em>. "Stop in the name of justice" becomes
+        "BWONK!" The opponent's whole body laughs. Moki is immune to his own weapon.</p>
+      </div>
+      <div class="panel">
+        <h4>🧠 Combat Doctrine</h4>
+        <ul>
+          <li>Will throw the first joke. Will not throw the first punch.</li>
+          <li>Specialises in "Mistake → Discovery" — reframes the opponent's worst hit as their best trait.</li>
+          <li>Always lands the last line. Always.</li>
+          <li>Cannot fight in a room where nobody is having fun. He'll quit first.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>⚡ Weakness</h4>
+        <ul>
+          <li>Cannot be serious on purpose. The seriousness leaks through, ruining the joke.</li>
+          <li>Cannot fight alone. Loses 50% damage without a laughing audience.</li>
+          <li>Cannot resist trying the joke he knows will fail.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-h">⚔️ SIGNATURE MOVES</h3>
     <div class="moves">
       <div class="move">
         <span class="type">CHAOS</span>
         <div class="name"><span class="emo">🪄</span> Mokigiggles Burst</div>
         <div class="desc">Bim! Bam! Pop! Swoosh! Plop! Dingdong! Whole room laughs. Guaranteed.</div>
+        <div class="dmg">AOE JOY · DMG 30 · SELF BUFF CHARM</div>
       </div>
       <div class="move">
         <span class="type">HEAL</span>
         <div class="name"><span class="emo">🩹</span> Mistake → Discovery</div>
         <div class="desc">Turns a fail into a "look what we just invented!" Confidence +50.</div>
+        <div class="dmg">FULL HEAL ALLY · DMG 0</div>
       </div>
       <div class="move">
         <span class="type">JOKE</span>
         <div class="name"><span class="emo">🦆</span> The Rubber Duck</div>
         <div class="desc">Tells a joke so bad it's good. Always has a backup. Always.</div>
+        <div class="dmg">DMG 20 · DEBUFF OPPONENT DIGNITY -50</div>
       </div>
       <div class="move">
         <span class="type">FRIENDSHIP</span>
         <div class="name"><span class="emo">🎉</span> Look Who's Here!</div>
         <div class="desc">Makes every guest feel like the only one. Reunion XP x5.</div>
+        <div class="dmg">PARTY WIDE BUFF · ONCE PER FIGHT</div>
+      </div>
+    </div>
+
+    <h3 class="section-h">🌳 SKILL TREE</h3>
+    <div class="skill-tree">
+      <div class="skill-tier">
+        <div class="tier-label">LV 1<br>NOVICE</div>
+        <div class="tier-content">
+          <strong>"Bim! ...wait, Bam!"</strong>
+          <span>Unlocks "Sound Effect Starter Pack." Every sentence Moki says now has a free sound. Allies +5 confidence.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 2<br>CLOWN</div>
+        <div class="tier-content">
+          <strong>"That was bad, right? I have MORE."</strong>
+          <span>Unlocks "Backup Joke." If a joke fails, Moki tries a worse one. The worse joke always lands.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 3<br>FOOL</div>
+        <div class="tier-content">
+          <strong>"Wait, did I just do a serious thing? Sorry, sorry."</strong>
+          <span>Unlocks "Accidental Wisdom." Moki says something real by mistake. Whole party +50 trust. Moki pretends it was a joke.</span>
+        </div>
+      </div>
+      <div class="skill-tier">
+        <div class="tier-label">LV 4<br>ASCENDED</div>
+        <div class="tier-content">
+          <strong>"Okay. One serious thing. Then we go back to being silly."</strong>
+          <span>Ultimate: "The Honest Bit." Moki tells the truth about why everyone's laughing. Everyone cries (good). Fight ends. Unlocked at 500 hard moments + teaching someone else to laugh at themselves.</span>
+        </div>
       </div>
     </div>
 
@@ -826,35 +1233,36 @@
           <div class="lvl">LV 1 · STARTER</div>
           <div class="face">🎈</div>
           <div class="nm">Mokigiggles Balloon</div>
-          <div class="evo-condition">Gift-unlocked</div>
+          <div class="trigger">Gift-unlocked</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 2 · AWAKENED</div>
           <div class="face">🎈</div>
           <div class="nm">Moki</div>
-          <div class="evo-condition">50 hard moments made lighter</div>
+          <div class="trigger">50 hard moments made lighter + 1 time cheering up a friend</div>
         </div>
         <div class="evo-arrow">→</div>
         <div class="evo-stage">
           <div class="lvl">LV 3 · ASCENDED</div>
           <div class="face">🌈</div>
           <div class="nm">Moki the Day-Bringer</div>
-          <div class="evo-condition">500 hard moments + taught someone else to laugh at themselves</div>
+          <div class="trigger">500 hard moments + taught someone else to laugh at themselves</div>
         </div>
       </div>
     </div>
 
-    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT MOKI</h3>
+    <h3 class="section-h">🌟 THINGS KIDS LOVE ABOUT MOKI</h3>
     <div class="quirks">
-      <div class="quirk"><strong>Sound Effect Machine</strong>Every sentence has one. Bim! Pop! Dingdong!</div>
-      <div class="quirk"><strong>Always Has a Backup Joke</strong>The first one fails. The second one lands. Always.</div>
-      <div class="quirk"><strong>Fumble-and-Recover</strong>Owns every mistake immediately. Kids learn it's safe to fail.</div>
-      <div class="quirk"><strong>Self-Aware Silly</strong>"That was bad, right? I have MORE."</div>
+      <div class="quirk"><strong>SOUND EFFECT MACHINE</strong>Every sentence has one. Bim! Pop! Dingdong!</div>
+      <div class="quirk"><strong>ALWAYS HAS A BACKUP JOKE</strong>The first one fails. The second one lands. Always.</div>
+      <div class="quirk"><strong>FUMBLE-AND-RECOVER</strong>Owns every mistake immediately. Kids learn it's safe to fail.</div>
+      <div class="quirk"><strong>SELF-AWARE SILLY</strong>"That was bad, right? I have MORE."</div>
+      <div class="quirk"><strong>HONEST BIT</strong>Once per week, Moki accidentally says something real. Then he covers with a balloon sound.</div>
     </div>
   </article>
 
-  <!-- ====================== CHOOSE ====================== -->
+  <!-- ============================== CHOOSE ============================== -->
   <article class="char-card" id="choose" style="background: linear-gradient(135deg, #fff8e7, #fdf3d0);">
     <h2 style="text-align:center; font-size:36px; margin-bottom:18px;">WHICH LUMMING ARE YOU?</h2>
     <p style="text-align:center; max-width:700px; margin:0 auto 20px; line-height:1.6;">

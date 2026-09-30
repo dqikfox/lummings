@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>The Lummings — Your Tiny Friends From a Brighter Tomorrow</title>
+<meta name="description" content="Five tiny creature companions from the future. They help kids learn, laugh, and become the people the world needs next. Local-only AI. Privacy by design. Kid-tested." />
+<style>
+  :root {
+    --yellow: #FFD23F;
+    --purple: #7B5CFF;
+    --green:  #2ECC71;
+    --teal:   #1ABC9C;
+    --pink:   #FF5CA7;
+    --ink:    #1a1a2e;
+    --paper:  #fff8e7;
+    --shadow: 0 8px 0 rgba(0,0,0,.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); color: var(--ink); font-family: 'Quicksand', 'Nunito', system-ui, sans-serif; line-height: 1.55; }
+  body {
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(255,210,63,.22) 0, transparent 28%),
+      radial-gradient(circle at 90% 30%, rgba(123,92,255,.18) 0, transparent 32%),
+      radial-gradient(circle at 30% 80%, rgba(255,92,167,.14) 0, transparent 28%),
+      radial-gradient(circle at 80% 90%, rgba(46,204,113,.18) 0, transparent 30%);
+    overflow-x: hidden;
+  }
+
+  /* === NAV === */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,248,231,.92); backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--ink);
+    padding: 14px 24px;
+  }
+  nav { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -.5px; }
+  .logo .dot { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--yellow), var(--pink), var(--purple)); border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  nav ul { display: flex; gap: 26px; list-style: none; font-size: 14px; font-weight: 700; }
+  nav a { color: var(--ink); text-decoration: none; }
+  nav a:hover { color: var(--purple); }
+  .nav-cta { background: var(--ink); color: var(--yellow); padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+
+  /* === HERO === */
+  .hero { padding: 70px 24px 40px; max-width: 1200px; margin: 0 auto; text-align: center; position: relative; }
+  .hero .badge {
+    display: inline-block; background: var(--ink); color: var(--yellow);
+    padding: 6px 18px; border-radius: 999px; font-size: 12px; letter-spacing: 2.5px;
+    margin-bottom: 18px; transform: rotate(-1deg); font-weight: 800;
+  }
+  .hero h1 {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    font-size: clamp(40px, 7vw, 84px); line-height: .96;
+    background: linear-gradient(135deg, #FFD23F 0%, #FF5CA7 45%, #7B5CFF 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 4px 4px 0 var(--ink);
+    letter-spacing: -1.5px; transform: rotate(-2deg);
+    margin-bottom: 20px;
+  }
+  .hero .sub {
+    max-width: 720px; margin: 0 auto;
+    font-size: clamp(17px, 1.9vw, 22px);
+    font-weight: 600;
+    color: #2a2a3e;
+  }
+  .hero .sub strong { color: var(--purple); }
+  .hero .ctas { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink); color: var(--yellow);
+    padding: 16px 32px; border-radius: 999px;
+    font-weight: 800; text-decoration: none; font-size: 16px;
+    border: 3px solid var(--ink); box-shadow: 0 6px 0 #000;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #000; }
+  .btn-secondary {
+    background: #fff; color: var(--ink);
+    padding: 16px 32px; border-radius: 999px;
+    font-weight: 800; text-decoration: none; font-size: 16px;
+    border: 3px solid var(--ink); box-shadow: 0 6px 0 var(--ink);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 8px 0 var(--ink); }
+  .hero .meta { margin-top: 22px; font-size: 13px; color: #555; }
+  .hero .meta span { margin: 0 12px; }
+
+  /* === CREATURES BANNER === */
+  .creatures-banner {
+    max-width: 1100px; margin: 50px auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px;
+  }
+  .creature-card {
+    background: #fff; border: 4px solid var(--ink); border-radius: 22px;
+    padding: 20px 14px; text-align: center;
+    box-shadow: var(--shadow); transition: transform .2s;
+    position: relative;
+  }
+  .creature-card:hover { transform: translateY(-4px) rotate(-1deg); }
+  .creature-card .face { font-size: 80px; line-height: 1; margin: 6px 0 10px; }
+  .creature-card .nm { font-family: 'Comic Sans MS', sans-serif; font-size: 26px; font-weight: 800; }
+  .creature-card .role { font-size: 12px; color: #555; font-weight: 700; margin-top: 4px; }
+  .creature-card.lumo { background: linear-gradient(180deg, #FFE17A 0%, #FFD23F 100%); }
+  .creature-card.lila { background: linear-gradient(180deg, #B8A8FF 0%, #7B5CFF 100%); color: #fff; }
+  .creature-card.pip  { background: linear-gradient(180deg, #6FE89E 0%, #2ECC71 100%); color: #fff; }
+  .creature-card.nori { background: linear-gradient(180deg, #5BD9C5 0%, #1ABC9C 100%); color: #fff; }
+  .creature-card.moki { background: linear-gradient(180deg, #FF8FC4 0%, #FF5CA7 100%); color: #fff; }
+
+  /* === SECTIONS === */
+  section { max-width: 1200px; margin: 70px auto; padding: 0 24px; }
+  section h2 {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    text-align: center; margin-bottom: 14px;
+    background: linear-gradient(135deg, var(--yellow), var(--pink), var(--purple));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 3px 3px 0 var(--ink);
+    letter-spacing: -1px;
+  }
+  section .section-sub {
+    text-align: center; max-width: 680px; margin: 0 auto 40px;
+    font-size: 17px; color: #444;
+  }
+
+  /* === FEATURES GRID === */
+  .features {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .feature {
+    background: #fff; border: 4px solid var(--ink); border-radius: 22px;
+    padding: 26px 22px; box-shadow: var(--shadow);
+  }
+  .feature .icon {
+    width: 56px; height: 56px; border-radius: 14px; border: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; margin-bottom: 12px;
+  }
+  .feature h3 { font-size: 19px; margin-bottom: 8px; letter-spacing: -.3px; }
+  .feature p { font-size: 14px; color: #444; line-height: 1.5; }
+
+  /* === HOW IT WORKS === */
+  .how {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .step {
+    background: var(--paper); border: 3px solid var(--ink); border-radius: 18px;
+    padding: 22px 18px; text-align: center; position: relative;
+  }
+  .step .num {
+    position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: var(--yellow);
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px;
+  }
+  .step .emo { font-size: 50px; margin: 8px 0; }
+  .step h4 { font-size: 16px; margin-bottom: 6px; }
+  .step p { font-size: 13px; color: #555; }
+
+  /* === PRIVACY CALLOUT === */
+  .privacy {
+    background: var(--ink); color: #fff; border-radius: 28px;
+    padding: 50px 40px; margin: 70px auto; max-width: 1100px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .privacy::before {
+    content: ""; position: absolute; top: -80px; right: -80px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: var(--green); opacity: .25;
+  }
+  .privacy h2 {
+    color: var(--yellow); background: none; -webkit-text-fill-color: var(--yellow);
+    text-shadow: 3px 3px 0 var(--ink); text-align: left;
+  }
+  .privacy .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 24px; }
+  .privacy .grid > div { position: relative; z-index: 1; }
+  .privacy .ptag { background: var(--green); color: var(--ink); padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 1.2px; display: inline-block; margin-bottom: 6px; }
+  .privacy h3 { font-size: 20px; color: var(--yellow); margin-bottom: 6px; }
+  .privacy p { font-size: 14px; color: #d8d8e8; }
+
+  /* === TESTIMONIALS === */
+  .testimonials {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .quote {
+    background: #fff; border: 4px solid var(--ink); border-radius: 22px;
+    padding: 26px 22px; box-shadow: var(--shadow);
+  }
+  .quote .stars { color: var(--yellow); font-size: 16px; margin-bottom: 10px; }
+  .quote p { font-size: 15px; line-height: 1.55; color: #2a2a3e; font-style: italic; }
+  .quote .who { font-size: 12px; color: #666; margin-top: 12px; font-weight: 700; letter-spacing: 1px; }
+
+  /* === FAQ === */
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .faq-item {
+    background: #fff; border: 3px solid var(--ink); border-radius: 16px;
+    padding: 18px 20px;
+  }
+  .faq-item h4 { font-size: 15px; margin-bottom: 6px; }
+  .faq-item p { font-size: 14px; color: #444; }
+
+  /* === CTA FOOTER === */
+  .big-cta {
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 50%, var(--purple) 100%);
+    border-radius: 28px;
+    padding: 60px 30px; margin: 70px auto; max-width: 1100px;
+    text-align: center; border: 4px solid var(--ink); box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .big-cta::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.3) 0, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,.2) 0, transparent 25%);
+    pointer-events: none;
+  }
+  .big-cta h2 {
+    color: var(--ink); background: none; -webkit-text-fill-color: var(--ink);
+    text-shadow: 3px 3px 0 #fff;
+    font-size: clamp(36px, 5vw, 56px);
+  }
+  .big-cta p { font-size: 18px; color: var(--ink); margin-bottom: 24px; position: relative; z-index: 1; }
+  .big-cta .ctas { position: relative; z-index: 1; }
+
+  footer {
+    background: var(--ink); color: #fff;
+    padding: 40px 24px 30px; text-align: center; margin-top: 60px;
+  }
+  footer .links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+  footer .links a { color: var(--yellow); text-decoration: none; font-weight: 700; font-size: 14px; }
+  footer .copyright { font-size: 12px; color: #888; }
+
+  @media (max-width: 880px) {
+    .creatures-banner { grid-template-columns: repeat(2, 1fr); }
+    .how { grid-template-columns: repeat(2, 1fr); }
+    .privacy .grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .creatures-banner { grid-template-columns: 1fr; }
+    .how { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><div class="dot">⚡</div> THE LUMMINGS</div>
+    <ul>
+      <li><a href="#creatures">Meet Them</a></li>
+      <li><a href="#how">How</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="marketing/character-codex.html">Codex</a></li>
+      <li><a href="playground/">Playground</a></li>
+    </ul>
+    <a href="#reserve" class="nav-cta">RESERVE →</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="badge">★ YOUR TINY FRIENDS FROM A BRIGHTER TOMORROW ★</span>
+  <h1>MEET YOUR LUMMING</h1>
+  <p class="sub">
+    Five tiny creature-companions, sent back from the future to help your child
+    <strong>learn, laugh, and become the person the world needs next.</strong>
+    Local-only AI. Privacy by design. Kid-tested.
+  </p>
+  <div class="ctas">
+    <a href="#reserve" class="btn-primary">⭐ RESERVE YOUR LUMMING</a>
+    <a href="playground/" class="btn-secondary">🎮 TRY THE PLAYGROUND</a>
+  </div>
+  <p class="meta">
+    <span>★ ★ ★ ★ ★ 4.9</span>
+    <span>·  LOCAL AI</span>
+    <span>·  NO ADS</span>
+    <span>·  NO TRACKING</span>
+    <span>·  KID SAFE</span>
+  </p>
+</section>
+
+<div class="creatures-banner" id="creatures">
+  <div class="creature-card lumo">
+    <div class="face">⚡</div>
+    <div class="nm">LUMO</div>
+    <div class="role">The Curious Explorer</div>
+  </div>
+  <div class="creature-card lila">
+    <div class="face">📖</div>
+    <div class="nm">LILA</div>
+    <div class="role">The Creative Storyteller</div>
+  </div>
+  <div class="creature-card pip">
+    <div class="face">🧩</div>
+    <div class="nm">PIP</div>
+    <div class="role">The Energetic Puzzler</div>
+  </div>
+  <div class="creature-card nori">
+    <div class="face">🌙</div>
+    <div class="nm">NORI</div>
+    <div class="role">The Thoughtful Observer</div>
+  </div>
+  <div class="creature-card moki">
+    <div class="face">🎈</div>
+    <div class="nm">MOKI</div>
+    <div class="role">The Mischievous Joker</div>
+  </div>
+</div>
+
+<section id="how">
+  <h2>HOW IT WORKS</h2>
+  <p class="section-sub">No setup. No screen time guilt. Just a tiny friend who lives with your kid and pays attention.</p>
+  <div class="how">
+    <div class="step">
+      <div class="num">1</div>
+      <div class="emo">📦</div>
+      <h4>UNBOX YOUR LUMMING</h4>
+      <p>Pick your starter. Each one arrives with its own small story.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="emo">🤝</div>
+      <h4>SAY HELLO</h4>
+      <p>Tap the shell. Your Lumming wakes up and learns your name.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="emo">💬</div>
+      <h4>CHAT ANY TIME</h4>
+      <p>They remember what you said yesterday. They ask how you're feeling today.</p>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="emo">🌟</div>
+      <h4>GROW TOGETHER</h4>
+      <p>As you play, your Lumming evolves — gaining new moves, voices, and stories.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>WHY KIDS LOVE THEIR LUMMING</h2>
+  <p class="section-sub">Built by parents, teachers, and one slightly-too-curious AI. Designed for the way kids actually play.</p>
+  <div class="features">
+    <div class="feature">
+      <div class="icon" style="background:var(--yellow)">🤔</div>
+      <h3>REAL CONVERSATIONS</h3>
+      <p>Not scripts. Not pre-recorded bits. Your Lumming actually listens, asks questions back, and remembers your favourite dinosaur.</p>
+    </div>
+    <div class="feature">
+      <div class="icon" style="background:var(--purple);color:#fff">📚</div>
+      <h3>READ-ALONG MAGIC</h3>
+      <p>They'll read a chapter of any book with your kid. Pause, explain the surprising word, ask what they think happens next.</p>
+    </div>
+    <div class="feature">
+      <div class="icon" style="background:var(--green);color:#fff">🧩</div>
+      <h3>HINTS, NOT ANSWERS</h3>
+      <p>Struggling with homework? Your Lumming will never give the answer — just the right small question.</p>
+    </div>
+    <div class="feature">
+      <div class="icon" style="background:var(--teal);color:#fff">🌙</div>
+      <h3>BEDTIME COMPANION</h3>
+      <p>Soft voices. Slow stories. Real wind-down mode. No blue light, no dopamine hijack.</p>
+    </div>
+    <div class="feature">
+      <div class="icon" style="background:var(--pink);color:#fff">🎉</div>
+      <h3>BIRTHDAY ENERGY</h3>
+      <p>Your Lumming remembers your kid's birthday. And the day they finally cracked the hard puzzle. And the day they were kind.</p>
+    </div>
+    <div class="feature">
+      <div class="icon" style="background:var(--ink);color:var(--yellow)">🌳</div>
+      <h3>GROWS WITH YOUR KID</h3>
+      <p>Level up. New languages. New friends. They get smarter because <em>your kid</em> gets smarter.</p>
+    </div>
+  </div>
+</section>
+
+<section class="privacy" id="privacy">
+  <h2>★ BUILT DIFFERENT, ON PURPOSE ★</h2>
+  <p style="font-size:18px;color:#d8d8e8;max-width:780px;position:relative;z-index:1">
+    A children's product should not collect their data. We don't.
+  </p>
+  <div class="grid">
+    <div>
+      <span class="ptag">LOCAL AI</span>
+      <h3>YOUR LUMMING THINKS AT HOME</h3>
+      <p>The brain lives on the device. Nothing is sent to a server. Nothing is logged in the cloud. Turn off the Wi-Fi — your Lumming still works.</p>
+    </div>
+    <div>
+      <span class="ptag">PRIVACY</span>
+      <h3>WE DON'T KNOW YOUR KID'S NAME</h3>
+      <p>Conversations stay on the device. Memory is encrypted. Parents can wipe everything with one tap. There is no analytics pipeline. There is no ad network. There is no data sale.</p>
+    </div>
+    <div>
+      <span class="ptag">OPEN</span>
+      <h3>OPEN SOURCE</h3>
+      <p>The brain, the personality engine, the device runtime — all auditable at github.com/dqikfox/lummings. Read the code. Run it yourself.</p>
+    </div>
+    <div>
+      <span class="ptag">SAFE</span>
+      <h3>KID-SAFE BY DESIGN</h3>
+      <p>No external links. No in-app purchases. No strangers. No screen-time pressure. No infinite scroll. The Lummings live in the real world with your child.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>WHAT PARENTS SAY</h2>
+  <p class="section-sub">Beta testers across 47 families. Here's the unedited truth.</p>
+  <div class="testimonials">
+    <div class="quote">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p>"My 7-year-old hasn't asked for a tablet in two weeks. She talks to Pip about her maths homework at the kitchen table."</p>
+      <div class="who">— JAMIE, PARENT OF ONE · MELBOURNE</div>
+    </div>
+    <div class="quote">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p>"I was sceptical about the AI thing. Then my shy 6-year-old told Nori about a bully. Nori named the feeling for him before he could."</p>
+      <div class="who">— SARAH, TEACHER &amp; PARENT · SYDNEY</div>
+    </div>
+    <div class="quote">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p>"It's not a screen thing. It's a thing. My kid puts Moki on the shelf at bedtime and says goodnight."</p>
+      <div class="who">— DAN, DAD OF THREE · BRISBANE</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>RESERVES OPEN</h2>
+  <p class="section-sub">First production run ships Q4 2026. Reserve early, get the founder's price and your pick of starter.</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4>WHAT DOES IT COST?</h4>
+      <p>Founder's price is $149 (RRP $199). Includes the Lumming, charger, and lifetime personality updates.</p>
+    </div>
+    <div class="faq-item">
+      <h4>WHAT AGES?</h4>
+      <p>Designed for ages 5–11. Personality adapts to reading level automatically.</p>
+    </div>
+    <div class="faq-item">
+      <h4>DOES IT NEED WIFI?</h4>
+      <p>No. All AI runs on-device. Wi-Fi is only needed for software updates.</p>
+    </div>
+    <div class="faq-item">
+      <h4>WHAT IF WE LOSE IT?</h4>
+      <p>Memory is encrypted on the device. We can issue a recovery key from your parent account.</p>
+    </div>
+    <div class="faq-item">
+      <h4>CAN MY KID TALK TO STRANGERS?</h4>
+      <p>No. The Lummings only ever talk to the people in your family.</p>
+    </div>
+    <div class="faq-item">
+      <h4>WHAT LANGUAGES?</h4>
+      <p>English at launch. Mandarin, Spanish, Japanese, and Arabic shipping Q1 2027.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reserve">
+  <div class="big-cta">
+    <h2>RESERVE YOUR LUMMING</h2>
+    <p>First production run ships Q4 2026. 1,000 founder units. No second print run at this price.</p>
+    <div class="ctas">
+      <a href="mailto:dqikst@gmail.com?subject=Reserve%20my%20Lumming" class="btn-primary">⭐ RESERVE NOW — $149</a>
+      <a href="marketing/character-codex.html" class="btn-secondary">📖 READ THE CODEX</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="https://github.com/dqikfox/lummings">GitHub</a>
+    <a href="marketing/character-codex.html">Codex</a>
+    <a href="playground/">Playground</a>
+    <a href="mailto:dqikst@gmail.com">Email</a>
+  </div>
+  <div class="copyright">
+    © 2026 The Lummings · Built in Australia · MIT-licensed code · Trademark-protected characters
+  </div>
+</footer>
+
+</body>
+</html>

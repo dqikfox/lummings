@@ -69,13 +69,10 @@ nav a:hover { color: var(--yellow); }
 .hero h1 {
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   margin: 0 0 0.5rem;
-  /* Fallback solid color first (always visible) */
-  color: var(--yellow);
-  /* Gradient overlay (progressive enhancement) */
   background: linear-gradient(135deg, var(--yellow), var(--pink), var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: -1px;
@@ -95,12 +92,11 @@ nav a:hover { color: var(--yellow); }
 .hero .sprites {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 3rem 0 1.5rem;
+  gap: 1.2rem;
+  margin: 2rem 0 1rem;
   flex-wrap: wrap;
 }
-.hero .sprites > div { width: 130px; height: 130px; transition: transform 0.2s; }
-.hero .sprites > div:hover { transform: translateY(-8px) scale(1.05); }
+.hero .sprites > div { width: 100px; height: 100px; }
 .hero .sprites img, .hero .sprites svg { width: 100%; height: 100%; }
 
 section {
@@ -257,7 +253,7 @@ footer a { color: var(--teal); text-decoration: none; }
   pointer-events: none;
   z-index: 0;
 }
-.hero > *:not(.bg-glow) { position: relative; z-index: 1; }
+.hero > * { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -330,6 +326,10 @@ footer a { color: var(--teal); text-decoration: none; }
       <p>Loves humour, silliness, and games. Sometimes forgets the end of his own sentences. Always says "just kidding!"</p>
       <div class="lang">bim! bam! pop! swoosh! plop!</div>
     </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://dqikfox.github.io/lummings/marketing/character-codex.html" style="background:var(--yellow);color:var(--ink);padding:.85rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)">📖 FULL CHARACTER CODEX</a>
+    <a href="https://dqikfox.github.io/lummings/playground/" style="background:var(--pink);color:#fff;padding:.85rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)">🎮 TRY THE PLAYGROUND</a>
   </div>
 </section>
 

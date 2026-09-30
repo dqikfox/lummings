@@ -75,7 +75,7 @@ This is not a get-rich-quick scheme. It's a real product business with real marg
 **Why:** Margin, customer relationship, brand control, story-telling.
 
 **Channels:**
-- Own website (thelummings.com)
+- Own website (dqikfox.github.io/lummings)
 - Kickstarter or pre-order campaign for first production run
 - Substack / blog content (brand storytelling)
 - TikTok / Instagram Reels (parents showing their kid's Lumming)

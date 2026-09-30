@@ -21,7 +21,7 @@
 
 ## The campaign page
 
-URL: `https://thelummings.com/reserve` (after domain setup)
+URL: `https://dqikfox.github.io/lummings/reserve` (after domain setup)
 
 ### Above the fold
 
@@ -159,7 +159,7 @@ Subject: **Pre-orders are open — first 500 units**
 >
 > Reserve at the founder's price ($149). Locked in.
 >
-> [Reserve Lumo] → https://thelummings.com/reserve
+> [Reserve Lumo] → https://dqikfox.github.io/lummings/reserve
 >
 > What you get:
 > - The Lumo device (matte black shell, glowing dot)
@@ -184,7 +184,7 @@ Subject: **200 of 500 reserved**
 >
 > The Companion Pack ($199) gives you a choice of any Lumming + 12 months of personality swaps. Most families are picking this one.
 >
-> [Reserve yours] → https://thelummings.com/reserve
+> [Reserve yours] → https://dqikfox.github.io/lummings/reserve
 >
 > — Hitchy
 
@@ -196,7 +196,7 @@ Subject: **Last 100 units at the founder's price**
 >
 > If you've been waiting, this is the moment.
 >
-> [Reserve Lumo — $149] → https://thelummings.com/reserve
+> [Reserve Lumo — $149] → https://dqikfox.github.io/lummings/reserve
 >
 > — Hitchy & the Lummings
 
@@ -208,7 +208,7 @@ Subject: **The first 500 are reserved**
 >
 > If you reserved: thank you. Watch your inbox for the manufacturing update (we'll send one in 30 days).
 >
-> If you didn't: join the next-batch waitlist at https://thelummings.com. The next batch ships Q1 2027 at regular pricing.
+> If you didn't: join the next-batch waitlist at https://dqikfox.github.io/lummings. The next batch ships Q1 2027 at regular pricing.
 >
 > — Hitchy & the Lummings
 
@@ -227,7 +227,7 @@ the Lummings are five small characters from the future who live on a Raspberry P
 
 pre-orders open today. first 500 ship Q4 2026.
 
-https://thelummings.com
+https://dqikfox.github.io/lummings
 
 [attach: hero image with the 5 Lummings sprite row]
 ```
@@ -245,7 +245,7 @@ the 5 Lummings:
 
 each runs entirely on-device. no cloud. local AI. character with memory.
 
-https://thelummings.com
+https://dqikfox.github.io/lummings
 ```
 
 ### Hacker News (Show HN, Day 14)
@@ -291,7 +291,7 @@ https://thelummings.com
 
 ## Press kit
 
-URL: `https://thelummings.com/press`
+URL: `https://dqikfox.github.io/lummings/press`
 
 Includes:
 - Logo in PNG, SVG (light + dark)

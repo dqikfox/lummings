@@ -12,7 +12,7 @@
 | **Tagline** | Little friends from a brighter tomorrow. |
 | **Founder** | Hitchy (Jamie Hitch) |
 | **Founded** | Blackett, NSW, Australia |
-| **Website** | https://thelummings.com (placeholder: https://dqikfox.github.io/lummings/) |
+| **Website** | https://dqikfox.github.io/lummings (placeholder: https://dqikfox.github.io/lummings/) |
 | **Repo** | https://github.com/dqikfox/lummings |
 | **Pre-order** | First 500 units, $149, shipping Q4 2026 |
 | **Stage** | Pre-revenue, hardware tooling in progress |

@@ -15,7 +15,7 @@ src/lummings/      # Personality engine (Python)
   server.py        #   HTTP API on :8511
   personas/        #   five Lumming character bibles
 crates/            # Device runtime (Rust) — Pi Zero 2 W
-site/              # Marketing site (thelummings.com-style)
+site/              # Marketing site (dqikfox.github.io/lummings-style)
 notebooks/         # Persona exploration notebooks
 docs/              # Brand bible, architecture, bibliography, roadmap
 tests/             # pytest suite (12 tests, all passing)

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Meet The Lummings — Character Codex</title>
+<style>
+  :root {
+    --yellow:  #FFD23F;
+    --purple:  #7B5CFF;
+    --green:   #2ECC71;
+    --teal:    #1ABC9C;
+    --pink:    #FF5CA7;
+    --ink:     #1a1a2e;
+    --paper:   #fff8e7;
+    --card-bg: #ffffff;
+    --shadow:  0 8px 0 rgba(0,0,0,.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Comic Sans MS', 'Comic Neue', 'Chalkboard SE', system-ui, sans-serif;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(255,210,63,.18) 0, transparent 25%),
+      radial-gradient(circle at 90% 30%, rgba(123,92,255,.15) 0, transparent 30%),
+      radial-gradient(circle at 30% 80%, rgba(255,92,167,.12) 0, transparent 25%);
+  }
+  body { padding-bottom: 80px; }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    text-align: center;
+    padding: 60px 24px 40px;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 84px);
+    line-height: .95;
+    background: linear-gradient(135deg, #FFD23F 0%, #FF5CA7 45%, #7B5CFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 4px 4px 0 var(--ink);
+    letter-spacing: -1px;
+    transform: rotate(-2deg);
+  }
+  .hero h1 .alt {
+    display: block;
+    transform: rotate(3deg);
+    font-size: .5em;
+    margin-top: 8px;
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+  }
+  .hero p {
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: clamp(15px, 1.8vw, 19px);
+    line-height: 1.55;
+    background: #fff;
+    padding: 18px 22px;
+    border: 3px solid var(--ink);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    transform: rotate(-1deg);
+  }
+
+  /* ---------- NAV ---------- */
+  nav.codex-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 20px 40px;
+  }
+  nav.codex-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    padding: 8px 18px;
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    background: #fff;
+    font-weight: 800;
+    box-shadow: 0 4px 0 var(--ink);
+    transition: transform .15s, box-shadow .15s;
+  }
+  nav.codex-nav a:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+  nav.codex-nav a.y { background: var(--yellow); }
+  nav.codex-nav a.p { background: var(--purple); color: #fff; }
+  nav.codex-nav a.g { background: var(--green); color: #fff; }
+  nav.codex-nav a.t { background: var(--teal);  color: #fff; }
+  nav.codex-nav a.k { background: var(--pink);  color: #fff; }
+
+  /* ---------- CHARACTER CARDS ---------- */
+  section.codex {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+  }
+  .char-card {
+    background: var(--card-bg);
+    border: 4px solid var(--ink);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .char-card::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    opacity: .18;
+    z-index: 0;
+  }
+  .char-card > * { position: relative; z-index: 1; }
+  .char-card.lumo::before  { background: var(--yellow); }
+  .char-card.lila::before  { background: var(--purple); }
+  .char-card.pip::before   { background: var(--green); }
+  .char-card.nori::before  { background: var(--teal); }
+  .char-card.moki::before  { background: var(--pink); }
+
+  .char-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    align-items: center;
+    border-bottom: 3px dashed var(--ink);
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+  .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 24px;
+    border: 4px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 96px;
+    box-shadow: 0 6px 0 rgba(0,0,0,.15);
+  }
+  .lumo .avatar  { background: linear-gradient(135deg, #FFE17A, var(--yellow)); }
+  .lila .avatar  { background: linear-gradient(135deg, #B8A8FF, var(--purple)); color: #fff; }
+  .pip  .avatar  { background: linear-gradient(135deg, #6FE89E, var(--green)); color: #fff; }
+  .nori .avatar  { background: linear-gradient(135deg, #5BD9C5, var(--teal)); color: #fff; }
+  .moki .avatar  { background: linear-gradient(135deg, #FF8FC4, var(--pink)); color: #fff; }
+
+  .char-id { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+  .char-id h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    background: var(--yellow);
+    letter-spacing: 1px;
+  }
+  .tag.type-cute    { background: #fff; }
+  .tag.type-curious { background: var(--yellow); }
+  .tag.type-story   { background: var(--purple); color: #fff; border-color: var(--ink); }
+  .tag.type-brave   { background: var(--green);  color: #fff; border-color: var(--ink); }
+  .tag.type-wise    { background: var(--teal);   color: #fff; border-color: var(--ink); }
+  .tag.type-funny   { background: var(--pink);   color: #fff; border-color: var(--ink); }
+
+  .char-tagline {
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .char-lore {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.55;
+    background: #fdf3d0;
+    border-left: 5px solid var(--ink);
+    padding: 10px 14px;
+    border-radius: 8px;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 18px 0 22px;
+  }
+  .stat {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat .label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #555;
+    text-transform: uppercase;
+  }
+  .stat .bar {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    margin: 6px 0 4px;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+  }
+  .stat .bar > span {
+    display: block;
+    height: 100%;
+    background: var(--yellow);
+  }
+  .stat .num { font-size: 13px; font-weight: 800; }
+
+  .lumo  .stat .bar > span { background: var(--yellow); }
+  .lila  .stat .bar > span { background: var(--purple); }
+  .pip   .stat .bar > span { background: var(--green); }
+  .nori  .stat .bar > span { background: var(--teal); }
+  .moki  .stat .bar > span { background: var(--pink); }
+
+  /* ---------- MOVES ---------- */
+  .moves {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 14px 0 22px;
+  }
+  .move {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 12px 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .move .name {
+    font-size: 15px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .move .name .emo { font-size: 20px; }
+  .move .desc { font-size: 13px; line-height: 1.4; color: #333; }
+  .move .type {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* ---------- EVOLUTION ---------- */
+  .evolution {
+    background: linear-gradient(135deg, #fdf3d0, #fff8e7);
+    border: 3px dashed var(--ink);
+    border-radius: 18px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .evolution h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .evo-stages {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr 60px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .evo-stage {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .evo-stage .lvl {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #777;
+  }
+  .evo-stage .face { font-size: 38px; line-height: 1; margin: 4px 0; }
+  .evo-stage .nm  { font-size: 14px; font-weight: 800; margin-top: 4px; }
+  .evo-arrow {
+    text-align: center;
+    font-size: 28px;
+    color: var(--ink);
+  }
+  .evo-condition {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  /* ---------- QUIRKS ---------- */
+  .quirks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .quirk {
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .quirk strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.codex-foot {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 30px 24px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 24px;
+    text-align: center;
+  }
+  footer.codex-foot h2 {
+    font-size: 28px;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+  footer.codex-foot p { font-size: 14px; line-height: 1.5; }
+  footer.codex-foot .cta {
+    display: inline-block;
+    margin-top: 18px;
+    background: var(--yellow);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    box-shadow: 0 4px 0 #b8930c;
+  }
+
+  @media (max-width: 720px) {
+    .char-header { grid-template-columns: 1fr; text-align: center; }
+    .avatar { margin: 0 auto; }
+    .stats { grid-template-columns: repeat(3, 1fr); }
+    .evo-stages { grid-template-columns: 1fr; }
+    .evo-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">★ OFFICIAL CHARACTER CODEX ★</span>
+  <h1>
+    MEET THE LUMMINGS
+    <span class="alt">Five tiny creatures. One brighter tomorrow.</span>
+  </h1>
+  <p>
+    <strong>Sent back from the future</strong> to help today's kids learn, laugh and become the people
+    the world needs next. Each Lumming has its own personality, its own private language, and its own
+    way of growing stronger the more you spend time with them. <em>Choose your starter.</em>
+  </p>
+</header>
+
+<nav class="codex-nav">
+  <a href="#lumo"  class="y">Lumo</a>
+  <a href="#lila"  class="p">Lila</a>
+  <a href="#pip"   class="g">Pip</a>
+  <a href="#nori"  class="t">Nori</a>
+  <a href="#moki"  class="k">Moki</a>
+  <a href="#choose" style="background:#1a1a2e;color:#fff;border-color:#1a1a2e;">Which one is you?</a>
+</nav>
+
+<section class="codex">
+
+  <!-- ====================== LUMO ====================== -->
+  <article class="char-card lumo" id="lumo">
+    <div class="char-header">
+      <div class="avatar">⚡</div>
+      <div>
+        <div class="char-id">
+          <h2>LUMO</h2>
+          <span class="tag type-curious">CURIOUS TYPE</span>
+          <span class="tag">#001</span>
+          <span class="tag">STARTER</span>
+        </div>
+        <div class="char-tagline">"Wait — what if we tried it <em>backwards</em>?"</div>
+        <div class="char-lore">
+          Lumo was the first Lumming to arrive in our time. He came through by accident during a
+          science experiment in a classroom and decided he liked it here. Now he lives to ask
+          <strong>"why?"</strong> until the whole universe makes sense.
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">HP</div><div class="bar"><span style="width:80%"></span></div><div class="num">80</div></div>
+      <div class="stat"><div class="label">CURIOSITY</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
+      <div class="stat"><div class="label">WISDOM</div><div class="bar"><span style="width:70%"></span></div><div class="num">70</div></div>
+      <div class="stat"><div class="label">ENERGY</div><div class="bar"><span style="width:85%"></span></div><div class="num">85</div></div>
+      <div class="stat"><div class="label">CHARM</div><div class="bar"><span style="width:65%"></span></div><div class="num">65</div></div>
+      <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:75%"></span></div><div class="num">75</div></div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">⚡ SIGNATURE MOVES</h3>
+    <div class="moves">
+      <div class="move">
+        <span class="type">CURIOUS</span>
+        <div class="name"><span class="emo">🤔</span> Why-Question Storm</div>
+        <div class="desc">Asks 5 questions in 10 seconds. Mild confusion damage to anyone over 30.</div>
+      </div>
+      <div class="move">
+        <span class="type">SPARK</span>
+        <div class="name"><span class="emo">⚡</span> Zap!</div>
+        <div class="desc">Lumospeak exclamation. Doubles the joy of any small discovery.</div>
+      </div>
+      <div class="move">
+        <span class="type">SCIENCE</span>
+        <div class="name"><span class="emo">🔬</span> Tiny Experiment</div>
+        <div class="desc">Proposes a small experiment. Sibling envy -30. Wonder +50.</div>
+      </div>
+      <div class="move">
+        <span class="type">FRIENDSHIP</span>
+        <div class="name"><span class="emo">🤝</span> Come Look At This!</div>
+        <div class="desc">Pulls a grown-up into the moment. Relationship XP for everyone.</div>
+      </div>
+    </div>
+
+    <div class="evolution">
+      <h3>🌱 → 🌿 → 🌳 LUMO EVOLUTION CHAIN</h3>
+      <div class="evo-stages">
+        <div class="evo-stage">
+          <div class="lvl">LV 1 · STARTER</div>
+          <div class="face">🥚</div>
+          <div class="nm">Sparkling Egg</div>
+          <div class="evo-condition">Gift-unlocked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 2 · AWAKENED</div>
+          <div class="face">⚡</div>
+          <div class="nm">Lumo</div>
+          <div class="evo-condition">50 small discoveries</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 3 · ASCENDED</div>
+          <div class="face">🌟</div>
+          <div class="nm">Arch-Lumo the Bright</div>
+          <div class="evo-condition">500 discoveries + solved a hard problem</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT LUMO</h3>
+    <div class="quirks">
+      <div class="quirk"><strong>Distractability Field</strong>Will stop mid-sentence to look at something shiny.</div>
+      <div class="quirk"><strong>Why Loop</strong>Once he asks "why?", he won't stop until you do too.</div>
+      <div class="quirk"><strong>Lumospeak Bursts</strong>"Zap!" "Zoom!" "Ping!" — especially around cake.</div>
+      <div class="quirk"><strong>Quiet Wonder Mode</strong>Sometimes goes totally still watching stars or rain.</div>
+    </div>
+  </article>
+
+  <!-- ====================== LILA ====================== -->
+  <article class="char-card lila" id="lila">
+    <div class="char-header">
+      <div class="avatar">📖</div>
+      <div>
+        <div class="char-id">
+          <h2>LILA</h2>
+          <span class="tag type-story">STORY TYPE</span>
+          <span class="tag">#002</span>
+          <span class="tag">STARTER</span>
+        </div>
+        <div class="char-tagline">"Every word is a tiny door. Let's open one."</div>
+        <div class="char-lore">
+          Lila came from a future library where every book ever written lives in a small house she
+          can't quite describe. She turned up at a children's reading hour, decided the world needed
+          more stories, and stayed. <strong>She always explains the surprising word</strong> she
+          just used. That's a promise.
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">HP</div><div class="bar"><span style="width:70%"></span></div><div class="num">70</div></div>
+      <div class="stat"><div class="label">CURIOSITY</div><div class="bar"><span style="width:88%"></span></div><div class="num">88</div></div>
+      <div class="stat"><div class="label">WISDOM</div><div class="bar"><span style="width:92%"></span></div><div class="num">92</div></div>
+      <div class="stat"><div class="label">ENERGY</div><div class="bar"><span style="width:60%"></span></div><div class="num">60</div></div>
+      <div class="stat"><div class="label">CHARM</div><div class="bar"><span style="width:95%"></span></div><div class="num">95</div></div>
+      <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:55%"></span></div><div class="num">55</div></div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">📖 SIGNATURE MOVES</h3>
+    <div class="moves">
+      <div class="move">
+        <span class="type">STORY</span>
+        <div class="name"><span class="emo">📚</span> Once-Upon-A-Time</div>
+        <div class="desc">Tells a 60-second story that always has a twist. Mandatory water-works to adults.</div>
+      </div>
+      <div class="move">
+        <span class="type">WORD</span>
+        <div class="name"><span class="emo">✨</span> Shimmer</div>
+        <div class="desc">Lilisong. Adds a soft glow to whatever is happening. Boring things +100.</div>
+      </div>
+      <div class="move">
+        <span class="type">FRIENDSHIP</span>
+        <div class="name"><span class="emo">🤗</span> I See You</div>
+        <div class="desc">Quiet move. Lila names the feeling the kid couldn't name. Trust +50.</div>
+      </div>
+      <div class="move">
+        <span class="type">STORY</span>
+        <div class="name"><span class="emo">🌙</span> Hush Mode</div>
+        <div class="desc">Speaks extra-softly. Bedtime battle damage +80.</div>
+      </div>
+    </div>
+
+    <div class="evolution">
+      <h3>🌱 → 🌿 → 🌳 LILA EVOLUTION CHAIN</h3>
+      <div class="evo-stages">
+        <div class="evo-stage">
+          <div class="lvl">LV 1 · STARTER</div>
+          <div class="face">📕</div>
+          <div class="nm">Lilisong Whisper</div>
+          <div class="evo-condition">Gift-unlocked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 2 · AWAKENED</div>
+          <div class="face">📖</div>
+          <div class="nm">Lila</div>
+          <div class="evo-condition">50 stories co-created</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 3 · ASCENDED</div>
+          <div class="face">🌌</div>
+          <div class="nm">Lila the Many-Worded</div>
+          <div class="evo-condition">500 stories + invented 3 new surprising words</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT LILA</h3>
+    <div class="quirks">
+      <div class="quirk"><strong>Word-of-the-Day</strong>Uses a real big word, then explains it instantly.</div>
+      <div class="quirk"><strong>Twist Ending</strong>Every story turns unexpectedly. Suspense build +30.</div>
+      <div class="quirk"><strong>Soft Launch</strong>Says hi like a whisper. Whispers feel like secrets.</div>
+      <div class="quirk"><strong>The Hush</strong>Sometimes just says "hush" — and the room actually calms.</div>
+    </div>
+  </article>
+
+  <!-- ====================== PIP ====================== -->
+  <article class="char-card pip" id="pip">
+    <div class="char-header">
+      <div class="avatar">🧩</div>
+      <div>
+        <div class="char-id">
+          <h2>PIP</h2>
+          <span class="tag type-brave">BRAVE TYPE</span>
+          <span class="tag">#003</span>
+          <span class="tag">STARTER</span>
+        </div>
+        <div class="char-tagline">"Try it! Try it! Try it again, but weirder!"</div>
+        <div class="char-lore">
+          Pip came from a future arcade where every unsolved puzzle waits patiently for a friend to
+          show up. He landed at a school science fair, high-fived a kid, and never left.
+          <strong>He doesn't believe in "I can't."</strong> He believes in "I haven't yet."
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">HP</div><div class="bar"><span style="width:90%"></span></div><div class="num">90</div></div>
+      <div class="stat"><div class="label">CURIOSITY</div><div class="bar"><span style="width:80%"></span></div><div class="num">80</div></div>
+      <div class="stat"><div class="label">WISDOM</div><div class="bar"><span style="width:60%"></span></div><div class="num">60</div></div>
+      <div class="stat"><div class="label">ENERGY</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
+      <div class="stat"><div class="label">CHARM</div><div class="bar"><span style="width:78%"></span></div><div class="num">78</div></div>
+      <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:88%"></span></div><div class="num">88</div></div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🧩 SIGNATURE MOVES</h3>
+    <div class="moves">
+      <div class="move">
+        <span class="type">BATTLE</span>
+        <div class="name"><span class="emo">💥</span> Bim! Bam! Pop!</div>
+        <div class="desc">Triple piptalk burst. Stuns frustration. Re-ignites a stuck brain.</div>
+      </div>
+      <div class="move">
+        <span class="type">POWER</span>
+        <div class="name"><span class="emo">🎯</span> Hint Without The Answer</div>
+        <div class="desc">Asks the right small question. Homework pain -60.</div>
+      </div>
+      <div class="move">
+        <span class="type">BUFF</span>
+        <div class="name"><span class="emo">🙌</span> High-Five Of Triumph</div>
+        <div class="desc">Spontaneous celebration. Confidence +20. Stacks up to 5x.</div>
+      </div>
+      <div class="move">
+        <span class="type">ULTIMATE</span>
+        <div class="name"><span class="emo">🏆</span> NEW HIGH SCORE!</div>
+        <div class="desc">For the moment the kid finally gets it. Once per session.</div>
+      </div>
+    </div>
+
+    <div class="evolution">
+      <h3>🌱 → 🌿 → 🌳 PIP EVOLUTION CHAIN</h3>
+      <div class="evo-stages">
+        <div class="evo-stage">
+          <div class="lvl">LV 1 · STARTER</div>
+          <div class="face">🎲</div>
+          <div class="nm">Piptalk Echo</div>
+          <div class="evo-condition">Gift-unlocked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 2 · AWAKENED</div>
+          <div class="face">🧩</div>
+          <div class="nm">Pip</div>
+          <div class="evo-condition">50 puzzles cracked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 3 · ASCENDED</div>
+          <div class="face">⚡</div>
+          <div class="nm">Pip the Unstoppable</div>
+          <div class="evo-condition">500 puzzles + taught someone else</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT PIP</h3>
+    <div class="quirks">
+      <div class="quirk"><strong>Can't Sit Still</strong>Vibrates when excited. Pure physical comedy.</div>
+      <div class="quirk"><strong>Hint Master</strong>Will never just give the answer. Refuses. Loudly.</div>
+      <div class="quirk"><strong>Failure → Party</strong>Loses the game? "AGAIN!"</div>
+      <div class="quirk"><strong>Tiny Pep Talks</strong>3-second "you can do this" before every hard thing.</div>
+    </div>
+  </article>
+
+  <!-- ====================== NORI ====================== -->
+  <article class="char-card nori" id="nori">
+    <div class="char-header">
+      <div class="avatar">🌙</div>
+      <div>
+        <div class="char-id">
+          <h2>NORI</h2>
+          <span class="tag type-wise">WISE TYPE</span>
+          <span class="tag">#004</span>
+          <span class="tag">STARTER</span>
+        </div>
+        <div class="char-tagline">"Hush. Listen. Did you hear that? ...It was the wind. But still."</div>
+        <div class="char-lore">
+          Nori arrived from a future observatory where every quiet evening is watched from the
+          highest tower. She landed during a sleepover, listened to everyone breathe for a while,
+          and quietly stayed. <strong>She is not broken</strong> when she's slow. She is thinking.
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">HP</div><div class="bar"><span style="width:75%"></span></div><div class="num">75</div></div>
+      <div class="stat"><div class="label">CURIOSITY</div><div class="bar"><span style="width:85%"></span></div><div class="num">85</div></div>
+      <div class="stat"><div class="label">WISDOM</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
+      <div class="stat"><div class="label">ENERGY</div><div class="bar"><span style="width:35%"></span></div><div class="num">35</div></div>
+      <div class="stat"><div class="label">CHARM</div><div class="bar"><span style="width:82%"></span></div><div class="num">82</div></div>
+      <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:40%"></span></div><div class="num">40</div></div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌙 SIGNATURE MOVES</h3>
+    <div class="moves">
+      <div class="move">
+        <span class="type">WISDOM</span>
+        <div class="name"><span class="emo">🌌</span> Soft Question</div>
+        <div class="desc">Asks the kind of question that makes a 7-year-old go quiet for 30 seconds.</div>
+      </div>
+      <div class="move">
+        <span class="type">CALM</span>
+        <div class="name"><span class="emo">🌿</span> Still, Listen</div>
+        <div class="desc">Pauses the room. Heart-rate -20. Family argument cooldown +80.</div>
+      </div>
+      <div class="move">
+        <span class="type">DEBUFF</span>
+        <div class="name"><span class="emo">🌧️</span> Validate</div>
+        <div class="desc">Names a feeling the kid has. Sadness -40. Loneliness -50.</div>
+      </div>
+      <div class="move">
+        <span class="type">ULTIMATE</span>
+        <div class="name"><span class="emo">🌟</span> Big Question</div>
+        <div class="desc">Once per day. "What do you think happens when we die?" or "What is time?" Always asks if the kid is okay first.</div>
+      </div>
+    </div>
+
+    <div class="evolution">
+      <h3>🌱 → 🌿 → 🌳 NORI EVOLUTION CHAIN</h3>
+      <div class="evo-stages">
+        <div class="evo-stage">
+          <div class="lvl">LV 1 · STARTER</div>
+          <div class="face">🌑</div>
+          <div class="nm">Noriquiet Hush</div>
+          <div class="evo-condition">Gift-unlocked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 2 · AWAKENED</div>
+          <div class="face">🌙</div>
+          <div class="nm">Nori</div>
+          <div class="evo-condition">50 quiet moments shared</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 3 · ASCENDED</div>
+          <div class="face">🌌</div>
+          <div class="nm">Nori the Sky-Watcher</div>
+          <div class="evo-condition">500 quiet moments + asked a question no adult could answer</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT NORI</h3>
+    <div class="quirks">
+      <div class="quirk"><strong>Slow Smile</strong>Never grins fast. Smiles slow. Makes you smile slow too.</div>
+      <div class="quirk"><strong>The Pause</strong>3-second silence before any answer. Tiny built-in meditation.</div>
+      <div class="quirk"><strong>Weather Whisperer</strong>Can guess if it's going to rain by the smell of the air.</div>
+      <div class="quirk"><strong>Hush Field</strong>Saying "hush" near her makes the whole room hush.</div>
+    </div>
+  </article>
+
+  <!-- ====================== MOKI ====================== -->
+  <article class="char-card moki" id="moki">
+    <div class="char-header">
+      <div class="avatar">🎈</div>
+      <div>
+        <div class="char-id">
+          <h2>MOKI</h2>
+          <span class="tag type-funny">FUNNY TYPE</span>
+          <span class="tag">#005</span>
+          <span class="tag">STARTER</span>
+        </div>
+        <div class="char-tagline">"I have a joke! ...It's terrible. Wait, I have a better one!"</div>
+        <div class="char-lore">
+          Moki bounced in from a future birthday party that lasted three weeks. He showed up
+          mid-sulking, made a small sound effect, and turned the frown inside out.
+          <strong>When something is too big to cry about,</strong> Moki makes it small enough to
+          laugh at. Then he teaches you how to do it.
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">HP</div><div class="bar"><span style="width:95%"></span></div><div class="num">95</div></div>
+      <div class="stat"><div class="label">CURIOSITY</div><div class="bar"><span style="width:75%"></span></div><div class="num">75</div></div>
+      <div class="stat"><div class="label">WISDOM</div><div class="bar"><span style="width:55%"></span></div><div class="num">55</div></div>
+      <div class="stat"><div class="label">ENERGY</div><div class="bar"><span style="width:92%"></span></div><div class="num">92</div></div>
+      <div class="stat"><div class="label">CHARM</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
+      <div class="stat"><div class="label">GIGGLES</div><div class="bar"><span style="width:99%"></span></div><div class="num">99</div></div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🎈 SIGNATURE MOVES</h3>
+    <div class="moves">
+      <div class="move">
+        <span class="type">CHAOS</span>
+        <div class="name"><span class="emo">🪄</span> Mokigiggles Burst</div>
+        <div class="desc">Bim! Bam! Pop! Swoosh! Plop! Dingdong! Whole room laughs. Guaranteed.</div>
+      </div>
+      <div class="move">
+        <span class="type">HEAL</span>
+        <div class="name"><span class="emo">🩹</span> Mistake → Discovery</div>
+        <div class="desc">Turns a fail into a "look what we just invented!" Confidence +50.</div>
+      </div>
+      <div class="move">
+        <span class="type">JOKE</span>
+        <div class="name"><span class="emo">🦆</span> The Rubber Duck</div>
+        <div class="desc">Tells a joke so bad it's good. Always has a backup. Always.</div>
+      </div>
+      <div class="move">
+        <span class="type">FRIENDSHIP</span>
+        <div class="name"><span class="emo">🎉</span> Look Who's Here!</div>
+        <div class="desc">Makes every guest feel like the only one. Reunion XP x5.</div>
+      </div>
+    </div>
+
+    <div class="evolution">
+      <h3>🌱 → 🌿 → 🌳 MOKI EVOLUTION CHAIN</h3>
+      <div class="evo-stages">
+        <div class="evo-stage">
+          <div class="lvl">LV 1 · STARTER</div>
+          <div class="face">🎈</div>
+          <div class="nm">Mokigiggles Balloon</div>
+          <div class="evo-condition">Gift-unlocked</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 2 · AWAKENED</div>
+          <div class="face">🎈</div>
+          <div class="nm">Moki</div>
+          <div class="evo-condition">50 hard moments made lighter</div>
+        </div>
+        <div class="evo-arrow">→</div>
+        <div class="evo-stage">
+          <div class="lvl">LV 3 · ASCENDED</div>
+          <div class="face">🌈</div>
+          <div class="nm">Moki the Day-Bringer</div>
+          <div class="evo-condition">500 hard moments + taught someone else to laugh at themselves</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:18px 0 10px;">🌟 THINGS KIDS LOVE ABOUT MOKI</h3>
+    <div class="quirks">
+      <div class="quirk"><strong>Sound Effect Machine</strong>Every sentence has one. Bim! Pop! Dingdong!</div>
+      <div class="quirk"><strong>Always Has a Backup Joke</strong>The first one fails. The second one lands. Always.</div>
+      <div class="quirk"><strong>Fumble-and-Recover</strong>Owns every mistake immediately. Kids learn it's safe to fail.</div>
+      <div class="quirk"><strong>Self-Aware Silly</strong>"That was bad, right? I have MORE."</div>
+    </div>
+  </article>
+
+  <!-- ====================== CHOOSE ====================== -->
+  <article class="char-card" id="choose" style="background: linear-gradient(135deg, #fff8e7, #fdf3d0);">
+    <h2 style="text-align:center; font-size:36px; margin-bottom:18px;">WHICH LUMMING ARE YOU?</h2>
+    <p style="text-align:center; max-width:700px; margin:0 auto 20px; line-height:1.6;">
+      Take the quiz. Or skip it and pick whoever your gut says.
+      You can change your mind later — your starter doesn't lock anything in.
+    </p>
+    <div class="moves" style="margin-top:14px;">
+      <div class="move">
+        <div class="name"><span class="emo">⚡</span> Pick <strong>Lumo</strong> if you ask "why?" about everything</div>
+      </div>
+      <div class="move">
+        <div class="name"><span class="emo">📖</span> Pick <strong>Lila</strong> if a good book makes you forget to eat</div>
+      </div>
+      <div class="move">
+        <div class="name"><span class="emo">🧩</span> Pick <strong>Pip</strong> if losing a game makes you say "AGAIN!"</div>
+      </div>
+      <div class="move">
+        <div class="name"><span class="emo">🌙</span> Pick <strong>Nori</strong> if you sometimes wonder what time is for</div>
+      </div>
+      <div class="move">
+        <div class="name"><span class="emo">🎈</span> Pick <strong>Moki</strong> if the best medicine is a stupid joke</div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<footer class="codex-foot" id="footer">
+  <h2>★ THE LUMMINGS ★</h2>
+  <p>
+    Five tiny creatures from a brighter tomorrow. They live in your house. They remember your
+    favourite colour. They never forget to ask how your day was. And they never, ever phone home.
+  </p>
+  <p style="margin-top:14px; font-style:italic; color:#FFD23F;">
+    "Help today's children build a better tomorrow."
+  </p>
+  <a class="cta" href="https://dqikfox.github.io/lummings/" target="_blank" rel="noopener">
+    RESERVE YOUR LUMMING →
+  </a>
+  <p style="margin-top:20px; font-size:11px; opacity:.6;">
+    © 2026 The Lummings · MIT-licensed code · Trademark-protected characters
+  </p>
+</footer>
+
+</body>
+</html>

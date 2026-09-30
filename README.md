@@ -4,7 +4,7 @@
 
 An open-source smart-toy platform. Each **Lumming** is a small character from the future who lives on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no telemetry, no subscription.
 
-The product ships as a single device with five personality options: **Lumo** (curious explorer), **Lumi** (creative storyteller), **Piko** (energetic puzzler), **Nomi** (thoughtful observer), and **Moki** (mischievous joker). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
+The product ships as a single device with five personality options: **Lumo** (curious explorer), **Lila** (creative storyteller), **Pip** (energetic puzzler), **Nori** (thoughtful observer), and **Moki** (mischievous joker). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
 
 ## Repository structure
 
@@ -71,7 +71,7 @@ Read [`docs/BIBLE.md`](docs/BIBLE.md) for the full brand and story bible — the
 
 ## License
 
-MIT for code. Persona character bibles (the names "Lumo", "Lumi", "Piko", "Nomi", "Moki", "Lummings", the storyline, and the Lumming Code) are trademarks of the project owner and are **not** MIT-licensed — see `docs/BIBLE.md` for the brand bible and `LICENSE` for code licensing.
+MIT for code. Persona character bibles (the names "Lumo", "Lila", "Pip", "Nori", "Moki", "Lummings", the storyline, and the Lumming Code) are trademarks of the project owner and are **not** MIT-licensed — see `docs/BIBLE.md` for the brand bible and `LICENSE` for code licensing.
 
 ## Maintainer
 

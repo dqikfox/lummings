@@ -16,7 +16,7 @@ PERSONAS_DIR = Path(__file__).parent / "personas"
 
 
 def load_persona(name: str) -> dict:
-    """Load a persona JSON by name (lumo, lumi, piko, nomi, moki)."""
+    """Load a persona JSON by name (lumo, lila, pip, nori, moki)."""
     p = PERSONAS_DIR / f"{name}.json"
     if not p.exists():
         p = PERSONAS_DIR / "lumo.json"

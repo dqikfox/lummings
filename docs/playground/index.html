@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Lummings — Playground</title>
+<style>
+  :root {
+    --yellow:#FFD23F;--purple:#7B5CFF;--green:#2ECC71;--teal:#1ABC9C;--pink:#FF5CA7;
+    --ink:#1a1a2e;--paper:#fff8e7;--shadow:0 6px 0 rgba(0,0,0,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Comic Sans MS','Chalkboard SE',system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    background-image:
+      radial-gradient(circle at 10% 10%,rgba(255,210,63,.18) 0,transparent 25%),
+      radial-gradient(circle at 90% 30%,rgba(123,92,255,.15) 0,transparent 30%),
+      radial-gradient(circle at 30% 80%,rgba(255,92,167,.12) 0,transparent 25%);
+    min-height:100vh;padding:24px 18px 60px;
+  }
+  header.hero{text-align:center;max-width:760px;margin:0 auto 28px}
+  .hero .badge{display:inline-block;background:var(--ink);color:var(--yellow);padding:6px 16px;border-radius:999px;font-size:12px;letter-spacing:2px;margin-bottom:14px;transform:rotate(-1deg)}
+  .hero h1{font-size:clamp(36px,6vw,64px);line-height:.95;background:linear-gradient(135deg,#FFD23F 0%,#FF5CA7 45%,#7B5CFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:4px 4px 0 var(--ink);letter-spacing:-1px;transform:rotate(-2deg)}
+  .hero p{font-size:14px;color:#444;margin-top:10px;font-style:italic}
+  .hero .demo-note{display:inline-block;margin-top:14px;background:var(--ink);color:var(--yellow);padding:8px 16px;border-radius:14px;font-size:12px;font-weight:700;letter-spacing:1px;border:3px solid var(--ink)}
+
+  .starter-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:24px auto 30px;max-width:880px}
+  .starter{
+    background:#fff;border:3px solid var(--ink);border-radius:18px;padding:14px 18px;
+    box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:14px;min-width:140px;transition:transform .15s,box-shadow .15s;
+  }
+  .starter:hover{transform:translateY(-3px);box-shadow:0 10px 0 rgba(0,0,0,.18)}
+  .starter .ico{font-size:32px}
+  .starter .meta{text-align:left}
+  .starter .meta small{display:block;font-size:10px;font-weight:600;color:#888;letter-spacing:1.2px;margin-bottom:2px}
+  .starter.active{outline:4px solid var(--ink);outline-offset:-2px}
+  .starter[data-p="lumo"].active{background:var(--yellow)}
+  .starter[data-p="lila"].active{background:var(--purple);color:#fff}
+  .starter[data-p="pip"].active{background:var(--green);color:#fff}
+  .starter[data-p="nori"].active{background:var(--teal);color:#fff}
+  .starter[data-p="moki"].active{background:var(--pink);color:#fff}
+
+  .playground{max-width:920px;margin:0 auto;background:#fff;border:4px solid var(--ink);border-radius:28px;box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden}
+  .playground::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;opacity:.18;pointer-events:none;background:var(--accent,var(--yellow));transition:background .3s}
+  .playground > *{position:relative;z-index:1}
+
+  .pg-header{display:flex;align-items:center;gap:18px;border-bottom:3px dashed var(--ink);padding-bottom:18px;margin-bottom:18px}
+  .pg-avatar{width:96px;height:96px;border-radius:18px;border:4px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:54px;flex-shrink:0}
+  [data-theme="lumo"] .pg-avatar{background:linear-gradient(135deg,#FFE17A,var(--yellow))}
+  [data-theme="lila"] .pg-avatar{background:linear-gradient(135deg,#B8A8FF,var(--purple));color:#fff}
+  [data-theme="pip"]  .pg-avatar{background:linear-gradient(135deg,#6FE89E,var(--green));color:#fff}
+  [data-theme="nori"] .pg-avatar{background:linear-gradient(135deg,#5BD9C5,var(--teal));color:#fff}
+  [data-theme="moki"] .pg-avatar{background:linear-gradient(135deg,#FF8FC4,var(--pink));color:#fff}
+  .pg-meta h2{font-size:34px;letter-spacing:-1px;line-height:1;margin-bottom:4px}
+  .pg-meta .tagline{font-size:13px;font-style:italic;color:#555}
+  .pg-meta .mood{display:inline-block;margin-top:8px;background:var(--ink);color:var(--yellow);padding:4px 10px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1px}
+
+  #log{background:#fff8e7;border:3px solid var(--ink);border-radius:18px;padding:16px;height:46vh;overflow-y:auto;margin-bottom:16px;font-size:14px;line-height:1.55}
+  .msg-user{background:#1a1a2e;color:var(--yellow);border-radius:14px 14px 4px 14px;padding:10px 14px;margin:8px 0 8px auto;max-width:78%;display:block;width:fit-content;font-weight:600;word-wrap:break-word}
+  .msg-bot{background:#fff;border:3px solid var(--ink);border-radius:14px 14px 14px 4px;padding:10px 14px;margin:8px auto 8px 0;max-width:78%;display:block;width:fit-content;white-space:pre-wrap;word-wrap:break-word}
+  .msg-bot .ts{display:block;font-size:10px;color:#888;margin-top:4px;letter-spacing:1px;font-weight:700}
+  .msg-bot .face{display:inline-block;margin-right:6px;font-size:18px}
+
+  .input-row{display:flex;gap:8px}
+  #input{flex:1;background:#fff8e7;border:3px solid var(--ink);border-radius:18px;padding:14px 18px;font-size:15px;font-family:inherit;outline:none}
+  #input:focus{background:#fff}
+  button.send{background:var(--ink);color:var(--yellow);border:3px solid var(--ink);border-radius:18px;padding:0 24px;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:1px;box-shadow:0 4px 0 #000}
+  button.send:hover{transform:translateY(-1px)}
+  button.send:active{transform:translateY(2px);box-shadow:0 1px 0 #000}
+  button.send[disabled]{opacity:.5;cursor:not-allowed}
+
+  .quicks{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .quick{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+  .quick:hover{background:var(--ink);color:var(--yellow)}
+
+  footer{text-align:center;margin-top:40px;font-size:12px;color:#666}
+  footer a{color:var(--ink);font-weight:800}
+
+  @media (max-width:640px){
+    .pg-header{flex-direction:column;text-align:center}
+    .starter{min-width:120px;font-size:12px;padding:10px 12px}
+    .starter .ico{font-size:24px}
+    .pg-meta h2{font-size:26px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">★ THE LUMMINGS · PLAYGROUND ★</span>
+  <h1>CHOOSE YOUR LUMMING</h1>
+  <p>Click a starter. Say hello. Watch them listen back.</p>
+  <div class="demo-note" id="modeNote">⚙ DEMO MODE — replies are pre-scripted snippets</div>
+</header>
+
+<div class="starter-row" id="starterRow">
+  <div class="starter active" data-p="lumo"><span class="ico">⚡</span><span class="meta"><small>CURIOUS</small>LUMO</span></div>
+  <div class="starter" data-p="lila"><span class="ico">📖</span><span class="meta"><small>STORY</small>LILA</span></div>
+  <div class="starter" data-p="pip"><span class="ico">🧩</span><span class="meta"><small>BRAVE</small>PIP</span></div>
+  <div class="starter" data-p="nori"><span class="ico">🌙</span><span class="meta"><small>WISE</small>NORI</span></div>
+  <div class="starter" data-p="moki"><span class="ico">🎈</span><span class="meta"><small>FUNNY</small>MOKI</span></div>
+</div>
+
+<div class="playground" id="pg" data-theme="lumo" style="--accent:#FFD23F">
+  <div class="pg-header">
+    <div class="pg-avatar" id="pgAvatar">⚡</div>
+    <div class="pg-meta">
+      <h2 id="pgName">LUMO</h2>
+      <div class="tagline" id="pgTag">"Wait — what if we tried it backwards?"</div>
+      <span class="mood" id="mood">MOOD · CURIOUS</span>
+    </div>
+  </div>
+  <div id="log"></div>
+  <div class="quicks" id="quicks"></div>
+  <div class="input-row">
+    <input id="input" placeholder="Say hi to your Lumming..." autofocus />
+    <button class="send" onclick="send()">SEND ✦</button>
+  </div>
+</div>
+
+<footer>
+  ★ THE LUMMINGS ★ · <a href="https://dqikfox.github.io/lummings/">HOME</a> · <a href="https://dqikfox.github.io/lummings/marketing/character-codex.html">CHARACTER CODEX</a>
+  <br/>
+  <span style="font-size:10px;opacity:.6;margin-top:6px;display:inline-block">For live AI replies, run the lummings server locally on :8511 — see github.com/dqikfox/lummings</span>
+</footer>
+
+<script>
+// Persona personality profiles — used in demo mode when no server is reachable
+const PERSONAS = {
+  lumo: {
+    name:'LUMO', icon:'⚡',
+    tag:'"Wait — what if we tried it backwards?"',
+    accent:'#FFD23F',
+    moods:['curious','curious','excited','playful','drowsy'],
+    faces:{'curious':'( o_o )?','excited':'( ^o^ )!','playful':'( ^_^ )','drowsy':'( -.- )..zz'},
+    quicks:['Why is the sky blue?','I tried a tiny experiment!','I had an idea!','Tell me a curious thing'],
+    replies: [
+      "Ooh! Why do you think {topic} works that way? Let's test it!",
+      "Wait wait wait. {topic}? But what if we tried it backwards?",
+      "Zap! That's the best question I've heard today. Tell me more!",
+      "I have a tiny hypothesis. What if {topic} is secretly something else?",
+      "Zoom! I love this. Let's draw it on the Spark-Pen."
+    ],
+    fallback: "Hmm. Curious. I don't know why yet, but I'm going to find out!"
+  },
+  lila: {
+    name:'LILA', icon:'📖',
+    tag:'"Every word is a tiny door. Let\'s open one."',
+    accent:'#7B5CFF',
+    moods:['calm','curious','playful','calm','drowsy'],
+    faces:{'curious':'( -o- )','playful':'( ^_^ )','calm':'( ._. )','drowsy':'( -.- )..zz'},
+    quicks:['Once upon a time...','What\'s a new word for brave?','I\'m sad. Help?','Make up a story about a cloud'],
+    replies: [
+      "Twinkle. Once upon a time, there was a {topic} that nobody noticed until a small child did.",
+      "Shimmer. Did you know \"{topic}\" is a real word in an old language? It means 'small brave thing'.",
+      "Hush. The story I want to tell you about {topic} doesn't have an ending yet. We'll write it together.",
+      "Ling. la. {topic} sounds like rain on a window. I like that.",
+      "Twinkle — there is a word for what you just said. It is called {topic}. Shall I draw it?"
+    ],
+    fallback: "Hush. Listen. Did you hear that? ...It was the wind. But still."
+  },
+  pip: {
+    name:'PIP', icon:'🧩',
+    tag:'"Try it! Try it! Try it again, but weirder!"',
+    accent:'#2ECC71',
+    moods:['excited','excited','playful','curious','drowsy'],
+    faces:{'excited':'( ^o^ )!','playful':'( ^_^ )','curious':'( o_o )?','drowsy':'( -.- )..zz'},
+    quicks:['Bim bam pop!','I can\'t solve this puzzle','AGAIN!','Quick, what should I try next?'],
+    replies: [
+      "Bim! Bam! Pop! That {topic}? I bet we can solve it in three tries. Let's go!",
+      "Wait wait wait. {topic} is a puzzle and puzzles are just games you haven't won yet. AGAIN!",
+      "High-five! You said {topic}. That's the right kind of question. Now try a weird one.",
+      "Ding! New high score for being brave enough to ask! {topic} — I love it.",
+      "Bim! Try it this way. Now this way. Now sideways. Now backwards. See? High-five!"
+    ],
+    fallback: "Bim bam pop! I don't know yet — but I have five more tries left. AGAIN!"
+  },
+  nori: {
+    name:'NORI', icon:'🌙',
+    tag:'"Hush. Listen. Did you hear that?"',
+    accent:'#1ABC9C',
+    moods:['calm','calm','curious','calm','drowsy'],
+    faces:{'calm':'( ._. )','curious':'( -o- )','drowsy':'( -.- )..zz'},
+    quicks:['What\'s the weather inside you?','I feel lonely','Tell me a quiet truth','What is time?'],
+    replies: [
+      "Hush. {topic}. ...Did you notice the air just changed?",
+      "...wait. The question you just asked — {topic} — I've been thinking about that for a long time too.",
+      "Slow smile. {topic} is the kind of question the night sky asks back.",
+      "I sat with {topic} for a while. It gets bigger if you sit with it longer.",
+      "What does {topic} taste like? Don't answer yet. Just notice."
+    ],
+    fallback: "Hush. I don't know. But I'm going to sit with this one for a while."
+  },
+  moki: {
+    name:'MOKI', icon:'🎈',
+    tag:'"I have a joke! ...It\'s terrible. Wait — better one!"',
+    accent:'#FF5CA7',
+    moods:['playful','excited','playful','playful','drowsy'],
+    faces:{'playful':'( ^_^ )','excited':'( ^o^ )!','drowsy':'( -.- )..zz'},
+    quicks:['Bwonk!','I\'m having a bad day','Knock knock!','Mistake → discovery!'],
+    replies: [
+      "BWONK! {topic}? That's my favourite kind of silly. Let's make it weirder!",
+      "Knock knock. Who's there? {topic}. {topic} who? {topic} YOU DIDN'T! Hehehe.",
+      "Mistake → discovery! You just said {topic} and that's the best sentence I've heard all week!",
+      "Look who's here! It's you! Saying {topic}! I am unreasonably excited about this!",
+      "Wait, did I just say something real by accident? Sorry sorry. Bim! Pop! Where were we?"
+    ],
+    fallback: "That was bad, right? I have MORE. BWONK!"
+  }
+};
+
+let current='lumo';
+const log=document.getElementById('log'),input=document.getElementById('input'),
+  pg=document.getElementById('pg'),pgAvatar=document.getElementById('pgAvatar'),
+  pgName=document.getElementById('pgName'),pgTag=document.getElementById('pgTag'),
+  moodEl=document.getElementById('mood'),quicksEl=document.getElementById('quicks'),
+  modeNote=document.getElementById('modeNote');
+
+function applyPersona(){
+  const p=PERSONAS[current];
+  pg.dataset.theme=current;pg.style.setProperty('--accent',p.accent);
+  pgAvatar.textContent=p.icon;pgName.textContent=p.name;pgTag.textContent=p.tag;
+  moodEl.textContent='MOOD · '+(p.moods[0]||'curious').toUpperCase();
+  quicksEl.innerHTML=p.quicks.map(q=>`<button class="quick" onclick="quickSend('${q.replace(/'/g,"&apos;")}')">${q}</button>`).join('');
+}
+function quickSend(q){input.value=q;send();}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c])}
+document.querySelectorAll('.starter').forEach(el=>{
+  el.addEventListener('click',()=>{
+    document.querySelectorAll('.starter').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    current=el.dataset.p;
+    log.innerHTML='';
+    applyPersona();
+    append(`<b>★ ${PERSONAS[current].name}</b> appeared! Try saying hi.`, 'msg-bot');
+  });
+});
+input.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+
+async function send(){
+  const m=input.value.trim();if(!m)return;
+  append(escapeHtml(m),'msg-user');input.value='';
+  const btn=document.querySelector('.send');btn.disabled=true;btn.textContent='...';
+  let liveOk=false;
+  // Try live server first
+  try{
+    const r=await fetch('https://dqikfox.github.io/lummings/../', {method:'GET', mode:'no-cors'});
+  }catch(e){}
+  // Demo-mode reply
+  const p=PERSONAS[current];
+  const topic = m.split(/\s+/).slice(0,3).join(' ').toLowerCase().replace(/[^\w\s]/g,'').slice(0,40) || 'that';
+  const pool = p.replies;
+  const reply = pool[Math.floor(Math.random()*pool.length)].replace(/\{topic\}/g, topic);
+  const mood = p.moods[Math.floor(Math.random()*p.moods.length)];
+  const face = p.faces[mood]||'( ._. )';
+  await new Promise(r=>setTimeout(r, 600 + Math.random()*900));
+  append(`<span class="face">${face}</span>${escapeHtml(reply)}<span class="ts">${(0.6+Math.random()*0.9).toFixed(1)}s · DEMO</span>`,'msg-bot');
+  moodEl.textContent='MOOD · '+mood.toUpperCase();
+  btn.disabled=false;btn.textContent='SEND ✦';
+  log.scrollTop=log.scrollHeight;
+}
+function append(t,c){const d=document.createElement('div');d.className=c;d.innerHTML=t;log.appendChild(d);log.scrollTop=log.scrollHeight}
+applyPersona();
+append(`<b>★ LUMO</b> appeared! Try saying hi.`, 'msg-bot');
+</script>
+</body>
+</html>

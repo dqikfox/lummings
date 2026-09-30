@@ -16,7 +16,7 @@ def test_load_persona_lumo():
 
 
 def test_load_persona_all_five():
-    for name in ["lumo", "lumi", "piko", "nomi", "moki"]:
+    for name in ["lumo", "lila", "pip", "nori", "moki"]:
         p = load_persona(name)
         assert p["name"][0].isupper()
         assert "max_words" in p
@@ -79,7 +79,7 @@ def test_memory_isolates_per_persona(tmp_path):
     db = tmp_path / "test.sqlite"
     m1 = Memory(db, "lumo")
     m1.add_fact("lumo fact")
-    m2 = Memory(db, "piko")
+    m2 = Memory(db, "pip")
     facts = m2.recall_facts()
     assert not any("lumo" in f["fact"] for f in facts)
 
@@ -94,14 +94,14 @@ def test_mood_transitions():
 
 
 def test_all_personas_have_valid_mood_graph():
-    for name in ["lumo", "lumi", "piko", "nomi", "moki"]:
+    for name in ["lumo", "lila", "pip", "nori", "moki"]:
         p = load_persona(name)
         initial = p["mood_initial"]
         assert initial in p["mood_transitions"], f"{name}: initial mood '{initial}' not in transitions"
 
 
 def test_avoid_lists_no_overlap_with_openers():
-    for name in ["lumo", "lumi", "piko", "nomi", "moki"]:
+    for name in ["lumo", "lila", "pip", "nori", "moki"]:
         p = load_persona(name)
         for word in p["avoid"]:
             assert word.lower() not in [o.lower().strip("!?.,") for o in p["openers"]], \

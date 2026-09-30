@@ -35,9 +35,9 @@ button{background:#ff79c6;color:#fff;border:none;padding:0.6rem 1.2rem;border-ra
 <p class="tag">Little friends from a brighter tomorrow.</p>
 <div>Talk to: <select id="persona">
 <option value="lumo">Lumo — the curious explorer</option>
-<option value="lumi">Lumi — the creative storyteller</option>
-<option value="piko">Piko — the energetic puzzler</option>
-<option value="nomi">Nomi — the thoughtful observer</option>
+<option value="lila">Lila — the creative storyteller</option>
+<option value="pip">Pip — the energetic puzzler</option>
+<option value="nori">Nori — the thoughtful observer</option>
 <option value="moki">Moki — the mischievous joker</option>
 </select>
 &nbsp; Mood: <span id="mood" class="mood">curious</span>

@@ -24,7 +24,7 @@
 
 > The Lummings are five small characters from a future where everything has been remembered. They were sent back in time with one mission: help today's children build a better tomorrow.
 
-Each Lumming has a distinct personality. **Lumo** loves science. **Lumi** loves stories. **Piko** loves puzzles. **Nomi** loves big questions. **Moki** loves jokes.
+Each Lumming has a distinct personality. **Lumo** loves science. **Lila** loves stories. **Pip** loves puzzles. **Nori** loves big questions. **Moki** loves jokes.
 
 They live on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no subscription, no telemetry, no advertising. The child speaks to the Lumming; the Lumming remembers.
 
@@ -73,7 +73,7 @@ This isn't a feature. **It's the brand.**
 (All images in `docs-site/portraits/` of the repo, or downloadable from the press kit URL.)
 
 1. **Hero image** — five Lummings sprite row (yellow, purple, green, teal, pink)
-2. **Individual portraits** — Lumo, Lumi, Piko, Nomi, Moki (each in "curious" mood)
+2. **Individual portraits** — Lumo, Lila, Pip, Nori, Moki (each in "curious" mood)
 3. **Wordmark** — `The Lummings` with glowing i-dots
 4. **In-context** — child holding a Lumo device (forthcoming, post-prototype)
 

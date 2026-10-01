@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="piko the Lumming (embarrassed)">
+<circle cx="120" cy="132" r="104" fill="#3ddc66" opacity="0.18" />
+<ellipse cx="120" cy="132" rx="91" ry="86" fill="#50fa7b" stroke="#3ddc66" stroke-width="3" />
+<g transform="translate(61,43)" fill="#3ddc66" opacity="0.9"><path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>
+<circle cx="92" cy="110" r="8" fill="#1a1f2e"/><circle cx="148" cy="110" r="8" fill="#1a1f2e"/>
+<path d="M110,145 L115,151 L120,145 L125,151 L130,145" stroke="#1a1f2e" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

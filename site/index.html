@@ -58,8 +58,11 @@ nav a:hover { color: var(--yellow); }
   font-weight: 700;
   text-decoration: none;
   font-size: 0.95rem;
+  display: inline-block;
 }
 .cta:hover { background: var(--pink); color: var(--white); }
+.cta.shop { background: var(--pink); color: var(--white); margin-left: 0.5rem; }
+.cta.shop:hover { background: var(--ink); color: var(--yellow); }
 .hero {
   text-align: center;
   padding: 4rem 2rem 3rem;
@@ -270,6 +273,7 @@ footer a { color: var(--teal); text-decoration: none; }
     <a href="#pricing">Pricing</a>
   </nav>
   <a href="#waitlist" class="cta">Reserve yours</a>
+  <a href="/lummings/shop/" class="cta shop">Shop <span>💎</span></a>
 </header>
 
 <section class="hero">

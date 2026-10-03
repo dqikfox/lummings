@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHInEyVErSE — Premium AI Image & Video Studio</title>
+    <meta name="description" content="Premium AI image and video generation studio. Local-first, kid-friendly, production-grade. SD 1.5, SDXL, Flux, Wan2.2 5B/14B. By Hitchy.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --iris-1: #ff006e;
+            --iris-2: #8338ec;
+            --iris-3: #3a86ff;
+            --bg: #0a0a0c;
+            --card: #18181b;
+            --text: #fafafa;
+            --muted: #a1a1aa;
+            --border: #27272a;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+        .gradient-text { background: linear-gradient(135deg, var(--iris-1), var(--iris-2), var(--iris-3)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .iris-border { background: linear-gradient(135deg, var(--iris-1), var(--iris-2), var(--iris-3)); }
+        .card-hover { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .card-hover:hover { transform: translateY(-4px); }
+        .model-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+        @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent); background-size: 1000px 100%; animation: shimmer 3s infinite; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-[#0a0a0c]/80 backdrop-blur-xl border-b border-zinc-900">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg iris-border"></div>
+            <span class="font-extrabold text-lg tracking-tight">SHInEyVErSE</span>
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-semibold">
+            <a href="#models" class="text-zinc-300 hover:text-white">Models</a>
+            <a href="#features" class="text-zinc-300 hover:text-white">Features</a>
+            <a href="#pricing" class="text-zinc-300 hover:text-white">Pricing</a>
+            <a href="#try" class="text-zinc-300 hover:text-white">Try It</a>
+        </div>
+        <a href="#buy" class="px-5 py-2 rounded-full iris-border text-white font-semibold text-sm">Get Access</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+        <div class="absolute -top-20 -left-20 w-96 h-96 rounded-full bg-pink-500 blur-3xl"></div>
+        <div class="absolute top-40 -right-20 w-96 h-96 rounded-full bg-blue-500 blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pt-24 pb-32 relative">
+        <div class="inline-block px-4 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-semibold text-zinc-400 mb-6">
+            <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+            v3.0 · Local-first AI studio
+        </div>
+        <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6">
+            Make anything <br><span class="gradient-text">imaginable.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl mb-10 leading-relaxed">
+            Premium AI image and video studio. Five production-grade models, kid-friendly controls, gallery of every creation. Run locally, share globally.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#try" class="px-8 py-4 rounded-2xl iris-border text-white font-bold text-lg">Start creating →</a>
+            <a href="#pricing" class="px-8 py-4 rounded-2xl bg-zinc-900 border border-zinc-800 text-white font-bold text-lg hover:bg-zinc-800">View pricing</a>
+        </div>
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
+            <div><div class="text-3xl font-bold gradient-text">5</div><div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Models wired</div></div>
+            <div><div class="text-3xl font-bold gradient-text">7860</div><div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Local port</div></div>
+            <div><div class="text-3xl font-bold gradient-text">10</div><div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Starter prompts</div></div>
+            <div><div class="text-3xl font-bold gradient-text">1/50</div><div class="text-xs text-zinc-500 uppercase tracking-wider mt-1">Shiny chance</div></div>
+        </div>
+    </div>
+</header>
+
+<!-- MODELS -->
+<section id="models" class="py-24 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Five models. <span class="gradient-text">One studio.</span></h2>
+        <p class="text-lg text-zinc-400 mb-12">Every workflow verified end-to-end with real generations. Pick the right tool for the job.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="model-card card-hover">
+                <div class="text-3xl mb-3">⚡</div>
+                <h3 class="text-xl font-bold mb-2">Quick Sketch</h3>
+                <p class="text-zinc-400 text-sm mb-4">Stable Diffusion 1.5 — fastest, lowest memory. Sketchpad-perfect for iterating on ideas.</p>
+                <div class="text-xs text-zinc-500 font-mono">sd15 · ~4GB VRAM · ~2s/img</div>
+            </div>
+            <div class="model-card card-hover">
+                <div class="text-3xl mb-3">🎨</div>
+                <h3 class="text-xl font-bold mb-2">Nice Picture</h3>
+                <p class="text-zinc-400 text-sm mb-4">SDXL base — balanced quality and speed. The reliable middle.</p>
+                <div class="text-xs text-zinc-500 font-mono">sdxl · ~8GB VRAM · ~5s/img</div>
+            </div>
+            <div class="model-card card-hover">
+                <div class="text-3xl mb-3">✨</div>
+                <h3 class="text-xl font-bold mb-2">Amazing Picture</h3>
+                <p class="text-zinc-400 text-sm mb-4">Flux Schnell via split UNETLoader + DualCLIPLoader pipeline. State of the art, free.</p>
+                <div class="text-xs text-zinc-500 font-mono">flux · ~12GB VRAM · ~8s/img</div>
+            </div>
+            <div class="model-card card-hover">
+                <div class="text-3xl mb-3">🎬</div>
+                <h3 class="text-xl font-bold mb-2">Make a Movie</h3>
+                <p class="text-zinc-400 text-sm mb-4">Wan2.2 5B — pure text-to-video. No starting image needed. Storyboard a scene.</p>
+                <div class="text-xs text-zinc-500 font-mono">wan22_5b · ~10GB VRAM · ~30s/clip</div>
+            </div>
+            <div class="model-card card-hover">
+                <div class="text-3xl mb-3">📸</div>
+                <h3 class="text-xl font-bold mb-2">Bring a Picture to Life</h3>
+                <p class="text-zinc-400 text-sm mb-4">Wan2.2 14B image-to-video, dual high/low-noise KSamplerAdvanced + 4-step Lightning LoRA. Cinematic.</p>
+                <div class="text-xs text-zinc-500 font-mono">wan22_14b_i2v · ~24GB VRAM · ~60s/clip</div>
+            </div>
+            <div class="model-card card-hover iris-border">
+                <div class="bg-zinc-900 rounded-xl p-5 -m-2">
+                    <div class="text-3xl mb-3">🎲</div>
+                    <h3 class="text-xl font-bold mb-2">Surprise Me</h3>
+                    <p class="text-zinc-400 text-sm mb-4">Random Pokémon. 1-in-50 chance of a shiny with glowing reveal banner. Built-in dopamine.</p>
+                    <div class="text-xs text-pink-400 font-mono">56 names · 1/50 shiny</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-24 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-12">Built for <span class="gradient-text">actually shipping</span>.</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">Tap-friendly tooltips</h3>
+                <p class="text-zinc-400">Custom CSS bubbles. Native title tooltips don't work well on touch — solved.</p>
+            </div>
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">Smart slug filenames</h3>
+                <p class="text-zinc-400">Filenames built from sanitized prompt slugs, not timestamps. Find your stuff.</p>
+            </div>
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">Built-in gallery</h3>
+                <p class="text-zinc-400">Every generation saved with per-item download links. Never lose a piece.</p>
+            </div>
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">Grown-up settings hidden</h3>
+                <p class="text-zinc-400">Resolution, steps, CFG, sampler, seed collapsed by default. Simple by design.</p>
+            </div>
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">10 starter prompts</h3>
+                <p class="text-zinc-400">Unicorn, Dragon, Castle, and 7 more. One tap to start. Plus Surprise Me button.</p>
+            </div>
+            <div class="card-hover">
+                <div class="w-12 h-12 rounded-xl iris-border mb-4"></div>
+                <h3 class="text-xl font-bold mb-2">Persistent counter</h3>
+                <p class="text-zinc-400">Tracks total generations across the studio. Watch the number climb.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES -->
+<section class="py-24 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-12">Who it's for.</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-8 rounded-2xl bg-gradient-to-br from-pink-500/10 to-purple-500/10 border border-pink-500/20">
+                <div class="text-4xl mb-4">👶</div>
+                <h3 class="text-xl font-bold mb-2">Kids (with supervision)</h3>
+                <p class="text-zinc-300 text-sm">The original design goal — simple defaults, kawaii theme, no jargon. Made for a 9-year-old.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+                <div class="text-4xl mb-4">🎬</div>
+                <h3 class="text-xl font-bold mb-2">Indie creators</h3>
+                <p class="text-zinc-300 text-sm">Storyboard, concept art, social clips. Wan2.2 image-to-video in a few taps.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20">
+                <div class="text-4xl mb-4">🏢</div>
+                <h3 class="text-xl font-bold mb-2">Small studios</h3>
+                <p class="text-zinc-300 text-sm">Run on your own hardware. No monthly fees. No data leaks. Output stays yours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-24 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-center">Simple pricing.</h2>
+        <p class="text-center text-zinc-400 mb-12 text-lg">You bring the hardware. We bring the studio.</p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 card-hover">
+                <div class="text-sm font-bold text-zinc-500 uppercase tracking-wider mb-2">Hobbyist</p>
+                <div class="text-5xl font-extrabold mb-1">$0</div>
+                <p class="text-sm text-zinc-400 mb-6">Free forever. Just bring an NVIDIA GPU.</p>
+                <ul class="text-sm text-zinc-300 space-y-2 mb-8">
+                    <li>✓ Local install</li>
+                    <li>✓ All 5 models</li>
+                    <li>✓ Community support</li>
+                    <li>✓ Gallery included</li>
+                </ul>
+                <a href="#try" class="block text-center px-6 py-3 rounded-xl border border-zinc-700 font-bold hover:bg-zinc-800">Install free →</a>
+            </div>
+            <div class="p-8 rounded-3xl iris-border relative card-hover">
+                <div class="absolute -top-3 right-6 px-3 py-1 bg-zinc-900 border border-zinc-700 rounded-full text-xs font-bold">POPULAR</div>
+                <div class="bg-zinc-900 rounded-2xl -m-1 p-7">
+                    <div class="text-sm font-bold text-pink-400 uppercase tracking-wider mb-2">Setup</p>
+                    <div class="text-5xl font-extrabold mb-1">$299</div>
+                    <p class="text-sm text-zinc-400 mb-6">Done-for-you install + 1h coaching call.</p>
+                    <ul class="text-sm text-zinc-300 space-y-2 mb-8">
+                        <li>✓ Everything in Hobbyist</li>
+                        <li>✓ Remote install by Hitchy</li>
+                        <li>✓ Model selection guidance</li>
+                        <li>✓ 1-hour 1:1 walkthrough</li>
+                        <li>✓ Priority email support</li>
+                    </ul>
+                    <a href="mailto:dqikst@gmail.com?subject=SHInEyVErSE%20Setup" class="block text-center px-6 py-3 rounded-xl iris-border text-white font-bold">Buy Setup →</a>
+                </div>
+            </div>
+            <div class="p-8 rounded-3xl bg-zinc-900 border border-zinc-800 card-hover">
+                <div class="text-sm font-bold text-zinc-500 uppercase tracking-wider mb-2">Studio</p>
+                <div class="text-5xl font-extrabold mb-1">$99<span class="text-base text-zinc-500">/mo</span></div>
+                <p class="text-sm text-zinc-400 mb-6">For active creators who want fresh tools.</p>
+                <ul class="text-sm text-zinc-300 space-y-2 mb-8">
+                    <li>✓ All Setup perks</li>
+                    <li>✓ New model integration monthly</li>
+                    <li>✓ Custom prompt library</li>
+                    <li>✓ Backup + version control</li>
+                    <li>✓ Discord community access</li>
+                </ul>
+                <a href="mailto:dqikst@gmail.com?subject=SHInEyVErSE%20Studio" class="block text-center px-6 py-3 rounded-xl border border-zinc-700 font-bold hover:bg-zinc-800">Talk to me →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRY / CTA -->
+<section id="try" class="py-32 border-t border-zinc-900">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">Try it tonight.</h2>
+        <p class="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">Free download, local install, 5 production-grade models. Your hardware, your output, your gallery.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="https://github.com/dqikfox/SHinEyVErsE" class="px-10 py-5 rounded-2xl iris-border text-white font-bold text-lg">Download from GitHub →</a>
+            <a href="mailto:dqikst@gmail.com?subject=SHInEyVErSE%20Setup" class="px-10 py-5 rounded-2xl bg-zinc-900 border border-zinc-800 text-white font-bold text-lg hover:bg-zinc-800">Or hire Hitchy to set it up</a>
+        </div>
+        <p class="text-xs text-zinc-500 font-mono">Requires: NVIDIA GPU (4GB+ VRAM), 20GB disk, Python 3.11+, Windows / macOS / Linux</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900 py-12">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2">
+            <div class="w-6 h-6 rounded iris-border"></div>
+            <span class="font-bold text-sm">SHInEyVErSE</span>
+        </div>
+        <p class="text-xs text-zinc-500">© 2026 Hitchy · <a href="mailto:dqikst@gmail.com" class="hover:text-white">dqikst@gmail.com</a> · Made with 🦄 in Blackett NSW</p>
+    </div>
+</footer>
+
+</body>
+</html>

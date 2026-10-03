@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lummings Shop — Three Products, One Forged</title>
+    <meta name="description" content="Hitchy's product hub. The Lummings (kids' AI app), SHInEyVErSE (AI image/video studio), Ultra Studio (3D assets).">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fafaf5; margin: 0; }
+        .card-hover { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .card-hover:hover { transform: translateY(-6px); }
+        .ink { color: #1a1a2e; }
+        .paper { background: #fff8e7; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .float { animation: float 4s ease-in-out infinite; }
+    </style>
+</head>
+<body class="paper ink">
+
+<nav class="sticky top-0 z-50 bg-[#fff8e7]/90 backdrop-blur border-b border-[#ffd23f]/30">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/lummings/" class="flex items-center gap-2">
+            <span class="text-3xl">🌟</span>
+            <span class="font-extrabold text-lg tracking-tight">Hitchy's Shop</span>
+        </a>
+        <a href="mailto:dqikst@gmail.com" class="px-5 py-2 rounded-full bg-[#1a1a2e] text-[#ffd23f] font-bold text-sm">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="max-w-6xl mx-auto px-6 pt-20 pb-12 text-center">
+    <div class="inline-block bg-[#1a1a2e] text-[#ffd23f] px-4 py-1 rounded-full text-xs font-bold tracking-[0.2em] mb-6 transform -rotate-2">
+        SOLO DEV · SHIPPED IN 2026
+    </div>
+    <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6">
+        Three products. <br>One forge.
+    </h1>
+    <p class="text-xl md:text-2xl text-[#1a1a2e]/70 max-w-2xl mx-auto leading-relaxed">
+        A kids' AI app, an AI image & video studio, and a 3D asset library. All local-first. All built by one developer in Blackett NSW.
+    </p>
+</header>
+
+<!-- PRODUCTS -->
+<main class="max-w-6xl mx-auto px-6 pb-24">
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Product 1: The Lummings -->
+        <a href="/lummings/" class="card-hover group block">
+            <div class="bg-gradient-to-br from-orange-400 to-pink-500 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute -top-6 -right-6 text-8xl opacity-30 float">🌟</div>
+                <div class="text-4xl mb-4">🌟</div>
+                <div class="text-xs font-bold tracking-widest uppercase opacity-80 mb-2">Software</div>
+                <h2 class="text-3xl font-extrabold mb-3">The Lummings</h2>
+                <p class="text-white/90 text-sm mb-6 leading-relaxed">
+                    Kids' AI app that turns imagination into characters and scenes. 5 mascots, 60 moods, free to try.
+                </p>
+                <div class="text-2xl font-extrabold">FREE</div>
+                <div class="text-xs opacity-80 mt-1">Web app · GitHub Pages</div>
+                <div class="mt-6 text-sm font-bold flex items-center gap-2">Try it now <span>→</span></div>
+            </div>
+        </a>
+
+        <!-- Product 2: SHInEyVErSE -->
+        <a href="/lummings/shineyverse/" class="card-hover group block">
+            <div class="bg-zinc-900 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden border border-zinc-800">
+                <div class="absolute -top-6 -right-6 text-8xl opacity-20 float">🦄</div>
+                <div class="text-4xl mb-4">🦄</div>
+                <div class="text-xs font-bold tracking-widest uppercase bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-2">Software · Studio</div>
+                <h2 class="text-3xl font-extrabold mb-3">SHInEyVErSE</h2>
+                <p class="text-zinc-300 text-sm mb-6 leading-relaxed">
+                    Premium AI image and video studio. 5 production-grade models, kid-friendly UI, gallery included.
+                </p>
+                <div class="text-2xl font-extrabold bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">$0 → $299</div>
+                <div class="text-xs text-zinc-500 mt-1">Free install · Setup packages</div>
+                <div class="mt-6 text-sm font-bold flex items-center gap-2 text-zinc-300 group-hover:text-white">View studio <span>→</span></div>
+            </div>
+        </a>
+
+        <!-- Product 3: Ultra Studio -->
+        <a href="/lummings/ultra-studio/" class="card-hover group block">
+            <div class="bg-zinc-950 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden border border-zinc-800">
+                <div class="absolute -top-6 -right-6 text-8xl opacity-20 float">💎</div>
+                <div class="text-4xl mb-4">💎</div>
+                <div class="text-xs font-bold tracking-widest uppercase bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">3D Assets</div>
+                <h2 class="text-3xl font-extrabold mb-3">Ultra Studio</h2>
+                <p class="text-zinc-300 text-sm mb-6 leading-relaxed">
+                    Curated 3D asset packs for Unity and Unreal. Characters, biomes, VFX. Indie-friendly license.
+                </p>
+                <div class="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">$19 → $499</div>
+                <div class="text-xs text-zinc-500 mt-1">Per-pack · bundles · custom</div>
+                <div class="mt-6 text-sm font-bold flex items-center gap-2 text-zinc-300 group-hover:text-white">Browse packs <span>→</span></div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- LIVE STATUS -->
+    <section class="mt-24 grid md:grid-cols-3 gap-6 text-center">
+        <div class="p-6 bg-white rounded-2xl border-2 border-[#ffd23f]/30">
+            <div class="text-xs uppercase tracking-widest text-zinc-500 mb-1">Lummings site</div>
+            <div class="text-2xl font-extrabold text-[#1a1a2e]">LIVE</div>
+            <div class="text-xs text-green-600 mt-1 font-mono">dqikfox.github.io/lummings</div>
+        </div>
+        <div class="p-6 bg-white rounded-2xl border-2 border-[#ffd23f]/30">
+            <div class="text-xs uppercase tracking-widest text-zinc-500 mb-1">SHInEyVErSE</div>
+            <div class="text-2xl font-extrabold text-[#1a1a2e]">RUNNING</div>
+            <div class="text-xs text-green-600 mt-1 font-mono">shadow.tail886dbb.ts.net:8443</div>
+        </div>
+        <div class="p-6 bg-white rounded-2xl border-2 border-[#ffd23f]/30">
+            <div class="text-xs uppercase tracking-widest text-zinc-500 mb-1">Ultra Studio</div>
+            <div class="text-2xl font-extrabold text-[#1a1a2e]">PRE-LAUNCH</div>
+            <div class="text-xs text-amber-600 mt-1 font-mono">first packs shipping Q4 2026</div>
+        </div>
+    </section>
+
+    <!-- WHY HITCHY -->
+    <section class="mt-24 bg-white rounded-3xl p-12 border-2 border-[#1a1a2e]/10">
+        <h2 class="text-3xl font-extrabold text-[#1a1a2e] mb-8 text-center">Why buy from a solo dev?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div>
+                <div class="text-3xl mb-3">🎯</div>
+                <h3 class="font-extrabold text-lg mb-2">No agency markup</h3>
+                <p class="text-zinc-600 text-sm">Direct from the developer. Every dollar goes into more art, more code, more shipping.</p>
+            </div>
+            <div>
+                <div class="text-3xl mb-3">🔓</div>
+                <h3 class="font-extrabold text-lg mb-2">Local-first</h3>
+                <p class="text-zinc-600 text-sm">Your hardware, your output, your data. No cloud lock-in. No monthly subscriptions to use the thing.</p>
+            </div>
+            <div>
+                <div class="text-3xl mb-3">🤝</div>
+                <h3 class="font-extrabold text-lg mb-2">Real support</h3>
+                <p class="text-zinc-600 text-sm">When you email, I answer. When you find a bug, I fix it. No ticket queues, no "have you tried turning it off".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="mt-24 text-center bg-gradient-to-br from-[#ffd23f] via-[#ff9f43] to-[#ef5777] rounded-3xl p-12 text-[#1a1a2e]">
+        <h2 class="text-4xl font-extrabold mb-4">Want to chat?</h2>
+        <p class="text-lg mb-8 max-w-xl mx-auto">
+            Custom work, bulk licensing, custom AI workflows, training sessions. I'm one email away.
+        </p>
+        <a href="mailto:dqikst@gmail.com?subject=From%20the%20Shop" class="inline-block px-10 py-5 rounded-2xl bg-[#1a1a2e] text-[#ffd23f] font-extrabold text-lg hover:scale-105 transition-transform">
+            dqikst@gmail.com →
+        </a>
+    </section>
+</main>
+
+<footer class="border-t border-[#ffd23f]/30 py-8 text-center">
+    <p class="text-xs text-zinc-500">© 2026 Hitchy · Blackett NSW Australia · Built with 💛 and too much coffee</p>
+</footer>
+
+</body>
+</html>

@@ -363,7 +363,7 @@ Original score (or licensed). Soft synth pad, gentle bell motif (the same chime 
 - A spec sheet (no "1.5 GB RAM, 4-bit NF4, 12 tokens/sec" in the video)
 - A comparison chart (no "Lummings vs ChatGPT vs Furby vs Moxie")
 - A logo montage (no "as seen in…")
-- Voice-over from the founder (Hitchy is the brand's voice on the *page*, but the video narrator is a parent)
+- Voice-over from the founder
 - Pricing (it's a brand video, not a sale video)
 
 The video answers one question: *"Is this what I want in my kid's room?"*
@@ -405,7 +405,7 @@ Three different jobs, three different assets.
 >
 > You'll be the first to know when we go live — and the first 48 hours of the campaign includes the lowest backer pricing we'll ever offer.
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 **Email 2 (T-21): Meet Lumo**
 > Of the five Lummings, Lumo is the one most parents ask us about first.
@@ -425,7 +425,7 @@ Three different jobs, three different assets.
 >
 > We go live on Kickstarter in 21 days. First 48 hours = lowest backer pricing.
 >
-> — Hitchy
+> — @dqikfox
 
 **Email 3 (T-7): One week**
 > One week until we go live on Kickstarter.
@@ -440,7 +440,7 @@ Three different jobs, three different assets.
 >
 > [Set a reminder for T-0 → link]
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 **Email 4 (T-0): We're live**
 > The Lummings are live on Kickstarter.
@@ -455,7 +455,7 @@ Three different jobs, three different assets.
 >
 > Real product. Open source. Real refund policy.
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 ### 6.4 The press embargo
 
@@ -724,4 +724,4 @@ This is the one sentence every backer should remember. It earns the trust that s
 
 ---
 
-*Last updated: September 30, 2026. Maintained by Hitchy (`@dqikfox`).*
+*Last updated: September 30, 2026. Maintained by @dqikfox.*

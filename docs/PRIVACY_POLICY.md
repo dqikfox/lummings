@@ -18,7 +18,7 @@ This is the long version. It is written for parents, guardians, and teachers. It
 
 - **Email (privacy):** dqikst@gmail.com
 - **Email (safety incidents):** dqikst@gmail.com
-- **Postal:** The Lummings, Blackett NSW, Australia
+- **Postal:** The Lummings, Sydney NSW, Australia
 - **Website:** https://dqikfox.github.io/lummings
 
 The Lummings is headquartered in Australia. We sell to families in Australia, the United States, the United Kingdom, the European Union, and additional English-speaking markets.
@@ -340,7 +340,7 @@ Questions, complaints, requests, or just a worried-parent email — we read ever
 - **Privacy questions:** dqikst@gmail.com
 - **Safety incidents:** dqikst@gmail.com (we acknowledge within 4 hours, respond substantively within 72 hours)
 - **General support:** dqikst@gmail.com
-- **Postal:** The Lummings, Blackett NSW, Australia
+- **Postal:** The Lummings, Sydney NSW, Australia
 
 If you would prefer to speak to a human about a privacy or safety matter, please email and we will arrange a call within one business day.
 
@@ -366,4 +366,4 @@ The Lummings is **not** certified by kidSAFE+ or PRIVO at the date of this polic
 
 *The Lummings is made for the children of today, by people who hope they build a better tomorrow.*
 
-— Hitchy (@dqikfox) and the Lummings team, Blackett NSW, Australia, September 2026
+— @dqikfox and the Lummings team, Sydney, Australia, September 2026

@@ -220,7 +220,7 @@ Either path is a win.
 
 ---
 
-## Why this is the right product for Hitchy
+## Why this is the right product for @dqikfox
 
 You have:
 - Local AI stack (Heretik, Ollama, llama.cpp) → the brain

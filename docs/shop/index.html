@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lummings Shop — Three Products, One Forged</title>
-    <meta name="description" content="Hitchy's product hub. The Lummings (kids' AI app), SHInEyVErSE (AI image/video studio), Ultra Studio (3D assets).">
+    <title>The Indie Forge — Kids' AI, AI Studio, 3D Assets | Solo Dev Australia</title>
+    <meta name="description" content="Three indie products from a solo developer in Sydney, Australia: a kids' AI character app, an AI image/video studio, and a 3D asset library. Local-first. No subscriptions. Real Stripe checkout. Open source.">
+    <meta name="keywords" content="indie dev, AI kids app, AI image generator, local first, no subscription, 3D assets, Australia, lummings, SHInEyVErSE, Ultra Studio, character AI, solo developer">
+    <link rel="canonical" href="https://dqikfox.github.io/lummings/shop/">
+    <meta property="og:title" content="The Indie Forge — Three products, one forge.">
+    <meta property="og:description" content="Kids' AI app. AI image/video studio. 3D asset library. Built solo. Local-first. Stripe live.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dqikfox.github.io/lummings/shop/">
+    <meta property="og:image" content="https://dqikfox.github.io/lummings/assets/og-shop.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Indie Forge">
+    <meta name="twitter:description" content="Three indie products. One forge. Built solo.">
+    <meta name="robots" content="index, follow">
+    <link rel="alternate" type="application/rss+xml" title="The Indie Forge RSS" href="https://dqikfox.github.io/lummings/shop/feed.xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "The Indie Forge",
+      "description": "Three indie products: kids' AI, AI image studio, 3D asset library.",
+      "url": "https://dqikfox.github.io/lummings/shop/",
+      "priceRange": "$0-$499",
+      "paymentAccepted": "Stripe, PayPal",
+      "currenciesAccepted": "AUD, USD",
+      "address": {"@type": "PostalAddress", "addressLocality": "Sydney", "addressCountry": "AU"},
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Indie Products",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "The Lummings Kids' AI App", "category": "Software"}, "price": "0", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Lummings Premium Asset Pack", "category": "Digital"}, "price": "29", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "SHInEyVErSE Studio Monthly", "category": "Software"}, "price": "99", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "SHInEyVErSE Remote Setup", "category": "Service"}, "price": "299", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Ultra Studio Mountain Biome", "category": "Digital"}, "price": "49", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Ultra Studio Magic VFX", "category": "Digital"}, "price": "39", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Ultra Studio Robot NPC", "category": "Digital"}, "price": "59", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Ultra Studio Mega Bundle", "category": "Digital"}, "price": "199", "priceCurrency": "AUD"},
+          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Ultra Studio Everything Lifetime", "category": "Digital"}, "price": "499", "priceCurrency": "AUD"}
+        ]
+      }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -23,7 +63,7 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="/lummings/" class="flex items-center gap-2">
             <span class="text-3xl">🌟</span>
-            <span class="font-extrabold text-lg tracking-tight">Hitchy's Shop</span>
+            <span class="font-extrabold text-lg tracking-tight">The Indie Forge</span>
         </a>
         <a href="https://t.me/Ultron420bot" target="_blank" class="px-5 py-2 rounded-full bg-[#1a1a2e] text-[#ffd23f] font-bold text-sm">Order via Telegram 💬</a>
     </div>
@@ -38,7 +78,7 @@
         Three products. <br>One forge.
     </h1>
     <p class="text-xl md:text-2xl text-[#1a1a2e]/70 max-w-2xl mx-auto leading-relaxed">
-        A kids' AI app, an AI image & video studio, and a 3D asset library. All local-first. All built by one developer in Blackett NSW.
+        A kids' AI app, an AI image & video studio, and a 3D asset library. All local-first. All built by one developer in Sydney.
     </p>
 </header>
 
@@ -172,7 +212,7 @@ async function buy(sku) {
         </div>
     </section>
 
-    <!-- WHY HITCHY -->
+    <!-- WHY THE FORGE -->
     <section class="mt-24 bg-white rounded-3xl p-12 border-2 border-[#1a1a2e]/10">
         <h2 class="text-3xl font-extrabold text-[#1a1a2e] mb-8 text-center">Why buy from a solo dev?</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -207,7 +247,7 @@ async function buy(sku) {
 </main>
 
 <footer class="border-t border-[#ffd23f]/30 py-8 text-center">
-    <p class="text-xs text-zinc-500">© 2026 Hitchy · Blackett NSW Australia · Built with 💛 and too much coffee</p>
+    <p class="text-xs text-zinc-500">© 2026 The Indie Forge · Sydney, Australia · Built with 💛 and too much coffee</p>
 </footer>
 
 </body>

@@ -34,4 +34,4 @@ This project is in development. See [`ROADMAP.md`](ROADMAP.md) for the current p
 
 ## Contact
 
-Hitchy — `@dqikfox` — Blackett, NSW, Australia.
+@dqikfox — Sydney, Australia.

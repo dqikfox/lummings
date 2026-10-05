@@ -4,7 +4,7 @@
 
 *Version 1.0 — 30 September 2026 (AEST)*
 *Maintained by Flyxion Pty Ltd (AU ABN 12 345 678 901) — the legal entity behind The Lummings.*
-*Live at `github.com/dqikfox/lummings/blob/main/docs/brand-use-guidelines.md`.*
+*Live at `[opensource-repo]/blob/main/docs/brand-use-guidelines.md`.*
 
 ---
 
@@ -134,11 +134,11 @@ These are welcome as long as you credit us clearly, use the right licence on you
 
 Use one of these, visible and readable:
 
-> *The Lummings are characters © Flyxion Pty Ltd, used under community guidelines. Source: github.com/dqikfox/lummings*
+> *The Lummings are characters © Flyxion Pty Ltd, used under community guidelines. Source: [opensource-repo]*
 
 or
 
-> *"Fan work featuring The Lummings. Official project: github.com/dqikfox/lummings"*
+> *"Fan work featuring The Lummings. Official project: [opensource-repo]"*
 
 If space is tight (a single-line image caption, a T-shirt tag), "The Lummings © Flyxion" is enough.
 
@@ -275,7 +275,7 @@ Required fields:
 
 - Host the JSON file in your GitHub repo, on your website, or on the Hugging Face Hub.
 - Tag it with `lummings`, `persona-pack`, `fan-content`.
-- Submit a PR to the `community-personas/` folder of `github.com/dqikfox/lummings` — we'll merge it (after a brief safety check) into the community index.
+- Submit a PR to the `community-personas/` folder of `[opensource-repo]` — we'll merge it (after a brief safety check) into the community index.
 - **Do not charge money** for the persona pack itself. You may charge for physical merch you make *using* the persona pack (a printed activity book, a sewn plush of *your* original character), but not for the JSON file.
 
 ### 10.4 Quality before commercial use
@@ -288,7 +288,7 @@ If you want to **sell** a product that uses the persona pack — say, a printed 
 
 We try to make this easy.
 
-- **Email:** dqikst@gmail.com
+- **Email:** hello@dqikst.com
 - **Subject line:** `[Lummings] <one-line summary>` — `[Lummings] Wholesale plush enquiry`, `[Lummings] Indie game licence`, etc.
 - **Include:** who you are, what you want to make, how many, where it sells, the URL of your project. A one-paragraph description is fine; we don't need a business plan.
 - **Response time:** **30 days.** If we miss it, follow up — we read email but we also build hardware.
@@ -333,7 +333,7 @@ If you're acting in good faith and you fix the problem, we move on.
 
 ## 13. Updates to this document
 
-- **Live version:** `github.com/dqikfox/lummings/blob/main/docs/brand-use-guidelines.md`
+- **Live version:** `[opensource-repo]/blob/main/docs/brand-use-guidelines.md`
 - **Versioned.** Each major revision bumps the version number at the top of this document. Patch revisions fix typos and clarify language.
 - **Changes announced** via the project Discord and the Substack newsletter at least 14 days before they take effect (except emergency child-safety updates, which take effect immediately).
 - **Public discussion** happens in the `governance` channel of the Discord. If you want to suggest a change, open an issue or a PR on GitHub.
@@ -349,12 +349,12 @@ If you're acting in good faith and you fix the problem, we move on.
 ## 14. Translations
 
 We welcome translations of this document into every language our community speaks. To contribute:
-- Open a PR at `github.com/dqikfox/lummings/blob/main/docs/i18n/<lang-code>/brand-use-guidelines.md`.
+- Open a PR at `[opensource-repo]/blob/main/docs/i18n/<lang-code>/brand-use-guidelines.md`.
 - Licence your translation under **CC-BY 4.0** (the only exception to the SA clause; we don't want to entangle translations with downstream forks of the original English).
 - Credit yourself in the §15 Acknowledgements section of your translation.
 - We aim to review and merge within 30 days.
 
-Existing translations are listed at `github.com/dqikfox/lummings/tree/main/docs/i18n/`.
+Existing translations are listed at `[opensource-repo]/tree/main/docs/i18n/`.
 
 **Important:** the English version is the authoritative version. If a translation and the English disagree, the English controls.
 

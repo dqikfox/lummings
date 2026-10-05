@@ -82,7 +82,7 @@ A: Q4 2026. We'll email a shipping date the moment we confirm manufacturing date
 A: Yes, any time before we ship. Full refund, no questions.
 
 **Q: Is this a real product?**
-A: The hardware is a Raspberry Pi Zero 2 W inside a custom shell. The software is open source and runs today on your own hardware if you want to test it: [github.com/dqikfox/lummings](https://github.com/dqikfox/lummings).
+A: The hardware is a Raspberry Pi Zero 2 W inside a custom shell. The software is open source and runs today on your own hardware if you want to test it: [[opensource-repo]](https://[opensource-repo]).
 
 **Q: Why local-only AI?**
 A: Because children's data shouldn't leave the toy. Cloud-connected smart toys have a history of security issues. The Lummings run entirely on the device. They work offline. They work forever. No subscription needed.
@@ -110,7 +110,7 @@ A: MIT for the code. The Lummings character names, the story, and the Lumming Co
 
 **CTA button:** Reserve Lumo — $149
 
-**Trust line:** Stripe-secured payment. Full refund up to 30 days post-ship. Open-source software at github.com/dqikfox/lummings.
+**Trust line:** Stripe-secured payment. Full refund up to 30 days post-ship. Open-source software at [opensource-repo].
 
 ---
 
@@ -126,7 +126,7 @@ Subject: **You're on the list**
 >
 > In the meantime: here's a 60-second read on who the Lummings are and why we built them. [link to BRAND.md or blog post]
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 ### Email 2 (Day 7): Meet Lumo
 
@@ -149,7 +149,7 @@ Subject: **Lumo, the curious one**
 >
 > Pre-orders open in 14 days. You'll be the first to know.
 >
-> — @dqikfox
+> — the team
 
 ### Email 3 (Day 14): Pre-orders open
 
@@ -172,7 +172,7 @@ Subject: **Pre-orders are open — first 500 units**
 >
 > First 500 ship together. After that, regular pricing applies.
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 ### Email 4 (Day 21): Mid-campaign update
 
@@ -186,7 +186,7 @@ Subject: **200 of 500 reserved**
 >
 > [Reserve yours] → https://dqikfox.github.io/lummings/reserve
 >
-> — @dqikfox
+> — the team
 
 ### Email 5 (Day 28): Last call
 
@@ -198,7 +198,7 @@ Subject: **Last 100 units at the founder's price**
 >
 > [Reserve Lumo — $149] → https://dqikfox.github.io/lummings/reserve
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 ### Email 6 (Day 30+): Sold out
 
@@ -210,7 +210,7 @@ Subject: **The first 500 are reserved**
 >
 > If you didn't: join the next-batch waitlist at https://dqikfox.github.io/lummings. The next batch ships Q1 2027 at regular pricing.
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 ---
 
@@ -263,12 +263,12 @@ https://dqikfox.github.io/lummings
 >
 > Pre-orders just opened: 500 units at $149, shipping Q4 2026.
 >
-> Repo: https://github.com/dqikfox/lummings
+> Repo: https://[opensource-repo]
 > Site: https://dqikfox.github.io/lummings/
 >
 > Happy to answer questions about the architecture, the training pipeline, or why we chose local-only AI for a children's product.
 >
-> — @dqikfox
+> — the team
 
 ### IndieHackers (Day 7)
 
@@ -299,12 +299,12 @@ Includes:
 - 5 individual character portraits
 - 30-second demo video (vertical + horizontal)
 - 60-second extended demo
-- Founder bio (@dqikfox) + photo
+- Founder bio (the team) + photo
 - Brand bible (PDF export of BRAND.md)
 - One-page product sheet
 - Sample dialogue for each Lumming
 - Open-source repo URL
-- Direct contact email (dqikst@gmail.com)
+- Direct contact email ([contact-form])
 
 ---
 

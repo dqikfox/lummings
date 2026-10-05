@@ -362,8 +362,8 @@ This is the promise we make to every parent who buys a Lummings. The technology 
 
 Thank you for trusting us with something that matters this much.
 
-— Hitchy (@dqikfox) and the Lummings team
-Blackett NSW, Australia
+— @dqikfox and the Lummings team
+Sydney, Australia
 September 2026
 
 ---

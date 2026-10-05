@@ -75,7 +75,7 @@ MIT for code. Persona character bibles (the names "Lumo", "Lila", "Pip", "Nori",
 
 ## Maintainer
 
-Hitchy — `@dqikfox` — Blackett, NSW, Australia.
+@dqikfox — Sydney, Australia.
 
 ---
 

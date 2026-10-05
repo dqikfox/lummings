@@ -126,7 +126,7 @@ Subject: **You're on the list**
 >
 > In the meantime: here's a 60-second read on who the Lummings are and why we built them. [link to BRAND.md or blog post]
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 ### Email 2 (Day 7): Meet Lumo
 
@@ -149,7 +149,7 @@ Subject: **Lumo, the curious one**
 >
 > Pre-orders open in 14 days. You'll be the first to know.
 >
-> — Hitchy
+> — @dqikfox
 
 ### Email 3 (Day 14): Pre-orders open
 
@@ -172,7 +172,7 @@ Subject: **Pre-orders are open — first 500 units**
 >
 > First 500 ship together. After that, regular pricing applies.
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 ### Email 4 (Day 21): Mid-campaign update
 
@@ -186,7 +186,7 @@ Subject: **200 of 500 reserved**
 >
 > [Reserve yours] → https://dqikfox.github.io/lummings/reserve
 >
-> — Hitchy
+> — @dqikfox
 
 ### Email 5 (Day 28): Last call
 
@@ -198,7 +198,7 @@ Subject: **Last 100 units at the founder's price**
 >
 > [Reserve Lumo — $149] → https://dqikfox.github.io/lummings/reserve
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 ### Email 6 (Day 30+): Sold out
 
@@ -210,7 +210,7 @@ Subject: **The first 500 are reserved**
 >
 > If you didn't: join the next-batch waitlist at https://dqikfox.github.io/lummings. The next batch ships Q1 2027 at regular pricing.
 >
-> — Hitchy & the Lummings
+> — @dqikfox & the Lummings
 
 ---
 
@@ -268,7 +268,7 @@ https://dqikfox.github.io/lummings
 >
 > Happy to answer questions about the architecture, the training pipeline, or why we chose local-only AI for a children's product.
 >
-> — Hitchy
+> — @dqikfox
 
 ### IndieHackers (Day 7)
 
@@ -299,7 +299,7 @@ Includes:
 - 5 individual character portraits
 - 30-second demo video (vertical + horizontal)
 - 60-second extended demo
-- Founder bio (Hitchy) + photo
+- Founder bio (@dqikfox) + photo
 - Brand bible (PDF export of BRAND.md)
 - One-page product sheet
 - Sample dialogue for each Lumming

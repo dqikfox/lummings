@@ -1,10 +1,6 @@
-# 🚀 Hitchy's Shop is LIVE
+# 🚀 The Indie Forge is LIVE
 
-Three products. One forge. Real Stripe checkout. Australian-built, solo-dev, all open.
-
----
-
-## 🛒 The shop
+Three products. One forge. Real Stripe checkout. Built solo. All open.
 
 **https://dqikfox.github.io/lummings/shop/**
 
@@ -63,7 +59,7 @@ Bot: https://t.me/Ultron420bot
 ```
 Title: I shipped 3 products in one repo — kids' AI app, AI image studio, and 3D asset library. Stripe checkout live.
 
-Built solo in Blackett NSW. All local-first. The Lummings is a kids' AI character app (free, no signup), SHInEyVErSE is an AI image/video studio with 5 production models, Ultra Studio is curated 3D assets for Unity/Unreal.
+Built solo in Sydney. All local-first. The Lummings is a kids' AI character app (free, no signup), SHInEyVErSE is an AI image/video studio with 5 production models, Ultra Studio is curated 3D assets for Unity/Unreal.
 
 Stripe is wired end-to-end (8 SKUs, $19-$499). Order via Telegram bot (@Ultron420bot).
 
@@ -83,13 +79,13 @@ Three things in one repo:
 3. Ultra Studio — 3D asset library for Unity/Unreal
 
 All local-first. Stripe wired for the 8 paid SKUs.
-Solo dev in Blackett NSW.
+Solo dev in Sydney.
 
 https://dqikfox.github.io/lummings/
 ```
 
 ### IndieHackers post
-Title: "Launched: 3 products, Stripe live, solo dev in regional Australia"
+Title: "Launched: 3 products, Stripe live, solo dev in Sydney, Australia"
 
 ### Product Hunt (manual submission)
 Tagline: "Three indie products, one forge. Kids' AI characters + AI studio + 3D assets."

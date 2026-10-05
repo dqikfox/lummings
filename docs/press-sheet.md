@@ -10,8 +10,8 @@
 |---|---|
 | **Product** | The Lummings — five local-AI characters for children |
 | **Tagline** | Little friends from a brighter tomorrow. |
-| **Founder** | Hitchy (Jamie Hitch) |
-| **Founded** | Blackett, NSW, Australia |
+| **Founder** | @dqikfox |
+| **Founded** | Sydney, Australia |
 | **Website** | https://dqikfox.github.io/lummings (placeholder: https://dqikfox.github.io/lummings/) |
 | **Repo** | https://github.com/dqikfox/lummings |
 | **Pre-order** | First 500 units, $149, shipping Q4 2026 |
@@ -64,7 +64,7 @@ This isn't a feature. **It's the brand.**
 
 > We built the Lummings because every cloud-connected smart toy we'd ever seen compromised on either privacy or character. The Lummings are the alternative: a character with memory, on a device your child owns, that never sends a byte to anyone.
 >
-> — Hitchy, founder
+> — @dqikfox, founder
 
 ---
 
@@ -103,7 +103,7 @@ This isn't a feature. **It's the brand.**
 
 ## Founder bio
 
-**Hitchy (Jamie Hitch)** is an AI infrastructure engineer and founder based in Blackett, NSW, Australia. He runs a local AI operator stack called THRONE (RTX 3090, 64 GB RAM) and has been building on-device AI applications since 2024. The Lummings is his first consumer product.
+**@dqikfox** is an AI infrastructure engineer and founder based in Sydney, Australia. He runs a local AI operator stack called THRONE (RTX 3090, 64 GB RAM) and has been building on-device AI applications since 2024. The Lummings is his first consumer product.
 
 Previously: indie developer, infrastructure consultant, classical alchemy researcher.
 

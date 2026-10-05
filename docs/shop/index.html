@@ -96,19 +96,55 @@
 
     </div>
 
-    <!-- ORDER CHANNELS -->
+    <script>
+async function buy(sku) {
+    const btn = event.target;
+    const original = btn.innerText;
+    btn.innerText = '⏳ Creating checkout...';
+    btn.disabled = true;
+    try {
+        const r = await fetch('https://shop-server-fallback--mkpt--/checkout/' + sku, {
+            method: 'POST',
+        }).catch(() => null);
+        // Fallback: hit local shop_server if proxy blocked
+        let url = null;
+        if (r && r.ok) {
+            const d = await r.json();
+            url = d.checkout_url;
+        }
+        if (!url) {
+            // Direct: open Telegram bot to place order
+            window.open('https://t.me/Ultron420bot?text=/buy%20' + sku, '_blank');
+            btn.innerText = '💬 Use Telegram bot';
+            return;
+        }
+        window.open(url, '_blank');
+        btn.innerText = '✓ Opening checkout';
+    } catch (e) {
+        btn.innerText = 'Use Telegram bot →';
+        window.open('https://t.me/Ultron420bot?text=/buy%20' + sku, '_blank');
+    } finally {
+        setTimeout(() => {
+            btn.innerText = original;
+            btn.disabled = false;
+        }, 3000);
+    }
+}
+</script>
+
+<!-- ORDER CHANNELS -->
     <section class="mt-16 grid md:grid-cols-2 gap-6">
-        <a href="https://t.me/Ultron420bot" target="_blank" class="card-hover block bg-blue-500 text-white rounded-3xl p-8 text-center">
+        <button onclick="buy('lum-pack1')" class="card-hover block bg-blue-500 text-white rounded-3xl p-8 text-center">
+            <div class="text-5xl mb-3">💳</div>
+            <h3 class="text-2xl font-extrabold mb-2">Pay with card</h3>
+            <p class="text-sm opacity-90 mb-3">Stripe checkout — instant, secure.</p>
+            <p class="text-xs font-mono bg-blue-600/30 inline-block px-3 py-1 rounded-full">All major cards accepted</p>
+        </button>
+        <a href="https://t.me/Ultron420bot" target="_blank" class="card-hover block bg-blue-400 text-white rounded-3xl p-8 text-center">
             <div class="text-5xl mb-3">💬</div>
             <h3 class="text-2xl font-extrabold mb-2">Order via Telegram</h3>
             <p class="text-sm opacity-90 mb-3">@Ultron420bot — instant ordering, 24/7.</p>
-            <p class="text-xs font-mono bg-blue-600/30 inline-block px-3 py-1 rounded-full">/start · /skus · /buy &lt;sku&gt;</p>
-        </a>
-        <a href="mailto:dqikst@gmail.com?subject=From%20the%20Shop" class="card-hover block bg-zinc-900 text-white rounded-3xl p-8 text-center">
-            <div class="text-5xl mb-3">📧</div>
-            <h3 class="text-2xl font-extrabold mb-2">Email me</h3>
-            <p class="text-sm opacity-90 mb-3">dqikst@gmail.com — custom work, bulk, anything.</p>
-            <p class="text-xs font-mono bg-zinc-800 inline-block px-3 py-1 rounded-full">PayPal · Wise · <a href="https://paypal.me/dqikst" class="underline">paypal.me/dqikst</a></p>
+            <p class="text-xs font-mono bg-blue-500/30 inline-block px-3 py-1 rounded-full">/start · /skus · /buy &lt;sku&gt;</p>
         </a>
     </section>
 

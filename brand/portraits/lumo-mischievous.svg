@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Lumo the Lumming (mischievous)">
+<defs>
+    <radialGradient id="bg-lumo-mischievous" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="#ffd23f" stop-opacity="0.36"/>
+        <stop offset="100%" stop-color="#ef5777" stop-opacity="0.05"/>
+    </radialGradient>
+    <radialGradient id="fur-lumo-mischievous" cx="50%" cy="40%" r="70%">
+        <stop offset="0%" stop-color="#fff3a0"/>
+        <stop offset="60%" stop-color="#ffd23f"/>
+        <stop offset="100%" stop-color="#e89c1f"/>
+    </radialGradient>
+    <radialGradient id="cheek-lumo-mischievous" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fb7185" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+</defs>
+
+<!-- Glow background -->
+<rect width="240" height="240" fill="url(#bg-lumo-mischievous)"/>
+
+<!-- Sparkles -->
+<g opacity="0.7"><circle cx="40" cy="60" r="2" fill="#fff"/><circle cx="200" cy="55" r="1.5" fill="#fff"/><circle cx="35" cy="180" r="2" fill="#fff"/><circle cx="205" cy="190" r="1.5" fill="#fff"/><circle cx="50" cy="30" r="1" fill="#fff" opacity="0.6"/><circle cx="190" cy="35" r="1" fill="#fff" opacity="0.6"/></g><g fill="#ffd23f" opacity="0.6"><path d="M22,100 L36,10 L50,100 Z" opacity="0.3"/></g>
+
+<!-- Body shadow -->
+<ellipse cx="120" cy="225" rx="70" ry="6" fill="#000" opacity="0.15"/>
+
+<!-- Main fur ball -->
+<circle cx="120" cy="132" r="91" fill="url(#fur-lumo-mischievous)" stroke="#e89c1f" stroke-width="2"/>
+
+<!-- Fur tufts (texture) -->
+<g opacity="0.4" stroke="#e89c1f" stroke-width="1" fill="none">
+    <path d="M50,110 Q55,100 60,108"/>
+    <path d="M180,120 Q185,108 192,116"/>
+    <path d="M40,150 Q46,142 52,150"/>
+    <path d="M188,158 Q194,148 200,154"/>
+    <path d="M120,40 Q126,32 132,40"/>
+    <path d="M85,200 Q92,210 100,205"/>
+    <path d="M155,200 Q148,210 140,205"/>
+</g>
+
+<!-- Signature accessory -->
+<line x1="120" y1="46" x2="120" y2="22" stroke="#e89c1f" stroke-width="3" stroke-linecap="round"/><circle cx="120" cy="18" r="6" fill="#ffd23f" /><circle cx="118" cy="16" r="2" fill="#fff" opacity="0.6"/>
+
+<!-- Cheeks -->
+<ellipse cx="78" cy="135" rx="14" ry="10" fill="url(#cheek-lumo-mischievous)"/>
+<ellipse cx="162" cy="135" rx="14" ry="10" fill="url(#cheek-lumo-mischievous)"/>
+
+<!-- Eyes -->
+<circle cx="92" cy="108" r="9" fill="#1a1a2e"/><circle cx="148" cy="108" r="9" fill="#1a1a2e"/><circle cx="95" cy="105" r="3.5" fill="#fff"/><circle cx="151" cy="105" r="3.5" fill="#fff"/><circle cx="90" cy="111" r="1.2" fill="#fff" opacity="0.6"/><circle cx="146" cy="111" r="1.2" fill="#fff" opacity="0.6"/>
+
+<!-- Brows -->
+<path d="M82,100 Q92,105 102,100" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+<!-- Mouth -->
+<path d="M105,150 Q115,158 135,148" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+<!-- Tiny freckles/sparkles on body -->
+<g opacity="0.5" fill="#fff3a0">
+    <circle cx="100" cy="180" r="2"/>
+    <circle cx="140" cy="180" r="2"/>
+    <circle cx="115" cy="195" r="1.5"/>
+    <circle cx="130" cy="195" r="1.5"/>
+</g>
+
+<!-- Highlight sheen on body -->
+<ellipse cx="95" cy="80" rx="22" ry="14" fill="#fff" opacity="0.15"/>
+</svg>

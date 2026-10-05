@@ -256,7 +256,7 @@ Hold 3 seconds. Enter your PIN. Choose "Wipe memory" if you want to remove the s
 - **EU:** 112
 
 ### Step 4 — Email us.
-**dqikst@gmail.com** We acknowledge within 4 hours and respond substantively within 72 hours. If you can include a screenshot or voice memo of the interaction, that helps us fix it.
+**[contact-form]** We acknowledge within 4 hours and respond substantively within 72 hours. If you can include a screenshot or voice memo of the interaction, that helps us fix it.
 
 ### Step 5 — We publish what we learn.
 Within 7 days of a confirmed safety incident, we publish a plain-language post on our blog describing what happened, what we changed, and what we are doing differently. Even when we are not legally required to, we do this because parent trust depends on it.
@@ -343,9 +343,9 @@ Factory-reset the device (pinhole button, hold 10 seconds with a paperclip). Thi
 
 ### "How do I contact you?"
 
-- **Privacy questions:** dqikst@gmail.com
-- **Safety incidents:** dqikst@gmail.com (we acknowledge within 4 hours)
-- **General support:** dqikst@gmail.com
+- **Privacy questions:** [contact-form]
+- **Safety incidents:** [contact-form] (we acknowledge within 4 hours)
+- **General support:** [contact-form]
 - **Website:** dqikfox.github.io/lummings
 
 We are a small team. We read every email.
@@ -362,7 +362,7 @@ This is the promise we make to every parent who buys a Lummings. The technology 
 
 Thank you for trusting us with something that matters this much.
 
-— @dqikfox and the Lummings team
+— the team and the Lummings team
 Sydney, Australia
 September 2026
 

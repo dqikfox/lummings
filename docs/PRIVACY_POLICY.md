@@ -8,7 +8,7 @@
 >
 > The Lummings runs all of its AI on the device in your child's hand. Your child's voice, transcripts, and memories do not leave that device. We do not collect, transmit, sell, rent, or share personal information. There is no cloud. There are no ads. There is no account. There is no telemetry. We cannot read what your child says to their Lummings, because it never reaches us. If we ever change that, this policy is the document we will rewrite first, and we will tell you how we are telling you.
 
-This is the long version. It is written for parents, guardians, and teachers. It is intentionally short for a privacy policy. If anything here is unclear, please email **dqikst@gmail.com**.
+This is the long version. It is written for parents, guardians, and teachers. It is intentionally short for a privacy policy. If anything here is unclear, please email **[contact-form]**.
 
 ---
 
@@ -16,8 +16,8 @@ This is the long version. It is written for parents, guardians, and teachers. It
 
 **The Lummings** is a children's AI companion product made and sold by The Lummings ("we", "us", "our"). You can reach us at:
 
-- **Email (privacy):** dqikst@gmail.com
-- **Email (safety incidents):** dqikst@gmail.com
+- **Email (privacy):** [contact-form]
+- **Email (safety incidents):** [contact-form]
 - **Postal:** The Lummings, Sydney NSW, Australia
 - **Website:** https://dqikfox.github.io/lummings
 
@@ -157,7 +157,7 @@ GDPR Article 8 sets the age of digital consent at 13–16 depending on the membe
 The Lummings is designed to the UK AADC's 15 standards as a default, not as an exception. Specifically:
 
 - **Best interests of the child** are the primary consideration in every product decision.
-- **Data Protection Impact Assessment (DPIA)** has been completed and is available on request to **dqikst@gmail.com**.
+- **Data Protection Impact Assessment (DPIA)** has been completed and is available on request to **[contact-form]**.
 - **Default settings are high-privacy.** Memory wipe, time limits, and topic toggles ship enabled or easily-enabled.
 - **No nudge techniques or dark patterns.** The Lummings never sends a "come back tomorrow!" or "you've been away so long!" message. Sessions end when the child stops talking.
 - **No use of personal data in ways detrimental to children's wellbeing.** We do not have personal data to use.
@@ -222,7 +222,7 @@ If you believe we have mishandled your or your child's information, you can comp
 - **EU:** Your national supervisory authority (e.g. CNIL in France, BfDI in Germany)
 - **US:** Federal Trade Commission (ftc.gov) or your state attorney general
 
-We would prefer to hear from you first. Email **dqikst@gmail.com**.
+We would prefer to hear from you first. Email **[contact-form]**.
 
 ---
 
@@ -337,9 +337,9 @@ The current and prior versions of this policy are available at dqikfox.github.io
 
 Questions, complaints, requests, or just a worried-parent email — we read every one.
 
-- **Privacy questions:** dqikst@gmail.com
-- **Safety incidents:** dqikst@gmail.com (we acknowledge within 4 hours, respond substantively within 72 hours)
-- **General support:** dqikst@gmail.com
+- **Privacy questions:** [contact-form]
+- **Safety incidents:** [contact-form] (we acknowledge within 4 hours, respond substantively within 72 hours)
+- **General support:** [contact-form]
 - **Postal:** The Lummings, Sydney NSW, Australia
 
 If you would prefer to speak to a human about a privacy or safety matter, please email and we will arrange a call within one business day.
@@ -366,4 +366,4 @@ The Lummings is **not** certified by kidSAFE+ or PRIVO at the date of this polic
 
 *The Lummings is made for the children of today, by people who hope they build a better tomorrow.*
 
-— @dqikfox and the Lummings team, Sydney, Australia, September 2026
+— the team and the Lummings team, Sydney, Australia, September 2026

@@ -113,7 +113,7 @@ Open-source transparency block. Brief, photo-rich:
 - **Personality engine:** MIT-licensed Python (`src/lummings/engine.py`) + Rust device runtime (`crates/`). All persona logic, system prompts, mood graph, and memory format are open.
 - **Voice:** On-device TTS (Piper). No cloud TTS. No voice cloning. No voice data leaves the device.
 - **Memory:** Persistent across reboots, stored in a small SQLite file on the device. Wipeable by parent with a long-press on the device.
-- **Repo:** https://github.com/dqikfox/lummings (MIT)
+- **Repo:** https://[opensource-repo] (MIT)
 
 ### 2.8 The pre-launch FAQ
 
@@ -155,7 +155,7 @@ A: We don't take the money. Your card is never charged. We run a smaller direct 
 
 **CTA button:** Back this project →
 
-**Trust line:** Stripe-secured payment. Full refund up to 30 days post-ship. MIT-licensed software at github.com/dqikfox/lummings.
+**Trust line:** Stripe-secured payment. Full refund up to 30 days post-ship. MIT-licensed software at [opensource-repo].
 
 ---
 
@@ -317,7 +317,7 @@ Original score (or licensed). Soft synth pad, gentle bell motif (the same chime 
 - Smaller text below the Lummings:
   > Open source. Local-only AI. MIT licensed.
   > Ships Q4 2026. No subscription, ever.
-  > github.com/dqikfox/lummings
+  > [opensource-repo]
 - Audio: synth pad fades. Distant children's laugh, gentle, same as the 30s demo.
 
 ### 5.5 The line we never say
@@ -405,7 +405,7 @@ Three different jobs, three different assets.
 >
 > You'll be the first to know when we go live — and the first 48 hours of the campaign includes the lowest backer pricing we'll ever offer.
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 **Email 2 (T-21): Meet Lumo**
 > Of the five Lummings, Lumo is the one most parents ask us about first.
@@ -425,7 +425,7 @@ Three different jobs, three different assets.
 >
 > We go live on Kickstarter in 21 days. First 48 hours = lowest backer pricing.
 >
-> — @dqikfox
+> — the team
 
 **Email 3 (T-7): One week**
 > One week until we go live on Kickstarter.
@@ -440,7 +440,7 @@ Three different jobs, three different assets.
 >
 > [Set a reminder for T-0 → link]
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 **Email 4 (T-0): We're live**
 > The Lummings are live on Kickstarter.
@@ -455,7 +455,7 @@ Three different jobs, three different assets.
 >
 > Real product. Open source. Real refund policy.
 >
-> — @dqikfox & the Lummings
+> — the team & the Lummings
 
 ### 6.4 The press embargo
 
@@ -724,4 +724,4 @@ This is the one sentence every backer should remember. It earns the trust that s
 
 ---
 
-*Last updated: September 30, 2026. Maintained by @dqikfox.*
+*Last updated: September 30, 2026. Maintained by the team.*

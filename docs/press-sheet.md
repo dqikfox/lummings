@@ -10,10 +10,10 @@
 |---|---|
 | **Product** | The Lummings — five local-AI characters for children |
 | **Tagline** | Little friends from a brighter tomorrow. |
-| **Founder** | @dqikfox |
+| **Founder** | the team |
 | **Founded** | Sydney, Australia |
 | **Website** | https://dqikfox.github.io/lummings (placeholder: https://dqikfox.github.io/lummings/) |
-| **Repo** | https://github.com/dqikfox/lummings |
+| **Repo** | https://[opensource-repo] |
 | **Pre-order** | First 500 units, $149, shipping Q4 2026 |
 | **Stage** | Pre-revenue, hardware tooling in progress |
 | **License** | MIT (code) + trademark (character names, story) |
@@ -45,7 +45,7 @@ Three things converged in 2025-2026:
 - **Local AI on a Raspberry Pi Zero 2 W.** 1.5 GB RAM footprint for a quantized 1.5B model. The device works offline.
 - **Five distinct personalities**, each with their own voice, mission, mood graph, and refusal list.
 - **Persistent memory across days, weeks, months.** The Lumming remembers what the child has learned.
-- **Open source.** The brain, the personality engine, the device runtime — all MIT-licensed at github.com/dqikfox/lummings.
+- **Open source.** The brain, the personality engine, the device runtime — all MIT-licensed at [opensource-repo].
 
 ---
 
@@ -64,7 +64,7 @@ This isn't a feature. **It's the brand.**
 
 > We built the Lummings because every cloud-connected smart toy we'd ever seen compromised on either privacy or character. The Lummings are the alternative: a character with memory, on a device your child owns, that never sends a byte to anyone.
 >
-> — @dqikfox, founder
+> — the team, founder
 
 ---
 
@@ -103,7 +103,7 @@ This isn't a feature. **It's the brand.**
 
 ## Founder bio
 
-**@dqikfox** is an AI infrastructure engineer and founder based in Sydney, Australia. He runs a local AI operator stack called THRONE (RTX 3090, 64 GB RAM) and has been building on-device AI applications since 2024. The Lummings is his first consumer product.
+**the team** is an AI infrastructure engineer and founder based in Sydney, Australia. He runs a local AI operator stack called THRONE (RTX 3090, 64 GB RAM) and has been building on-device AI applications since 2024. The Lummings is his first consumer product.
 
 Previously: indie developer, infrastructure consultant, classical alchemy researcher.
 
@@ -111,10 +111,10 @@ Previously: indie developer, infrastructure consultant, classical alchemy resear
 
 ## Contact
 
-- Email: dqikst@gmail.com
-- Twitter / X: @dqikfox
-- GitHub: github.com/dqikfox
-- Mastodon: @dqikfox@hachyderm.io
+- Email: [contact-form]
+- Twitter / X: the team
+- GitHub: [opensource-repo]
+- Mastodon: the team@hachyderm.io
 
 For press inquiries, please use email with subject line "Press — [outlet name]".
 

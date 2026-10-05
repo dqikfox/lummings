@@ -34,4 +34,4 @@ This project is in development. See [`ROADMAP.md`](ROADMAP.md) for the current p
 
 ## Contact
 
-@dqikfox — Sydney, Australia.
+the team — Sydney, Australia.

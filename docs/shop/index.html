@@ -59,6 +59,21 @@
 </head>
 <body class="paper ink">
 
+<!-- BUILD-IN-PUBLIC BAR -->
+<div id="status-bar" style="background:#1a1a2e;color:#ffd23f;text-align:center;padding:8px 16px;font-size:13px;font-family:ui-monospace,monospace;letter-spacing:0.05em">
+    <span style="opacity:0.6">build-in-public · day</span>
+    <span id="day-counter" style="font-weight:700">0</span>
+    <span style="opacity:0.6;margin:0 16px">·</span>
+    <span style="opacity:0.6">first sale:</span>
+    <span id="first-sale" style="font-weight:700">pending</span>
+    <span style="opacity:0.6;margin:0 16px">·</span>
+    <span style="opacity:0.6">subscribers:</span>
+    <span id="sub-count" style="font-weight:700">--</span>
+    <span style="opacity:0.6;margin:0 16px">·</span>
+    <span style="opacity:0.6">follow the build:</span>
+    <a href="https://t.me/Ultron420bot" target="_blank" style="color:#ffd23f;font-weight:700;text-decoration:none">@Ultron420bot →</a>
+</div>
+
 <nav class="sticky top-0 z-50 bg-[#fff8e7]/90 backdrop-blur border-b border-[#ffd23f]/30">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="/lummings/" class="flex items-center gap-2">
@@ -211,6 +226,28 @@ async function buy(sku) {
         Your email goes to a local file on our server. We use it to send the download link. Nothing else.
     </p>
 </section>
+
+<script>
+// Live build-in-public stats from /stats endpoint
+const LAUNCH_DATE = new Date('2026-10-06T00:00:00Z');
+async function refreshStats() {
+    try {
+        const r = await fetch('http://127.0.0.1:8522/stats').catch(() => null);
+        if (!r || !r.ok) return;
+        const d = await r.json();
+        // Day counter (launch date = 2026-10-06)
+        const days = Math.max(1, Math.floor((Date.now() - LAUNCH_DATE.getTime()) / 86400000));
+        document.getElementById('day-counter').textContent = days;
+        // First sale
+        document.getElementById('first-sale').textContent = d.paid_orders > 0 ? `$${d.revenue_usd}` : 'pending';
+        document.getElementById('first-sale').style.color = d.paid_orders > 0 ? '#6ad48b' : '#ffd23f';
+        // Subscribers
+        document.getElementById('sub-count').textContent = d.subscribers;
+    } catch (e) { /* ignore */ }
+}
+refreshStats();
+setInterval(refreshStats, 30000);  // refresh every 30s
+</script>
 
 <script>
 async function getFree(sku) {

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lummings — 30s interactive walkthrough | The Indie Forge</title>
+<meta name="description" content="30-second interactive demo: meet Lumo, Lila, Pip, Nori, Moki. Click each character to see what they're like.">
+<meta property="og:title" content="The Lummings — interactive demo">
+<meta property="og:description" content="Meet the 5 characters. 30 seconds.">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: linear-gradient(180deg, #fff8e7 0%, #ffe9c2 100%); color: #1a1a2e; min-height: 100vh; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 32px 24px 64px; }
+h1 { font-size: 48px; line-height: 1.1; margin-bottom: 8px; background: linear-gradient(135deg, #ef5777, #ffd23f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; }
+.tagline { text-align: center; font-size: 18px; color: #4a4a5e; margin-bottom: 32px; }
+.timer { text-align: center; font-family: ui-monospace, "Cascadia Code", monospace; font-size: 14px; color: #6b7787; margin-bottom: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0; }
+.char-card { background: white; border: 3px solid transparent; border-radius: 20px; padding: 20px; text-align: center; cursor: pointer; transition: all .2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.char-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.char-card.selected { border-color: #ffd23f; box-shadow: 0 8px 32px rgba(255,210,63,0.3); }
+.char-card img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; }
+.char-card h2 { font-size: 20px; margin: 4px 0; }
+.char-card .role { font-size: 12px; color: #6b7787; margin-bottom: 8px; }
+.char-card .intro { font-size: 13px; color: #4a4a5e; line-height: 1.5; opacity: 0; max-height: 0; transition: all .3s ease; overflow: hidden; }
+.char-card.selected .intro { opacity: 1; max-height: 200px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #ffd23f33; }
+.progress { display: flex; justify-content: center; gap: 4px; margin: 24px 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #d4c79a; transition: background .3s; }
+.dot.active { background: #ffd23f; }
+.cta-row { text-align: center; margin: 32px 0; }
+.cta { display: inline-block; padding: 18px 32px; border-radius: 12px; background: #1a1a2e; color: #ffd23f; font-weight: 800; font-size: 18px; text-decoration: none; margin: 0 8px; box-shadow: 0 6px 20px rgba(255,210,63,0.3); }
+.cta:hover { box-shadow: 0 8px 28px rgba(255,210,63,0.5); transform: translateY(-2px); }
+.cta-secondary { background: white; color: #1a1a2e; border: 2px solid #1a1a2e; }
+.cta-secondary:hover { background: #1a1a2e; color: #ffd23f; }
+footer { text-align: center; color: #6b7787; font-size: 13px; margin-top: 48px; padding-top: 24px; border-top: 2px solid #ffd23f33; }
+@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+.char-card.selected img { animation: pop .4s ease; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Meet The Lummings</h1>
+  <p class="tagline">Five local-AI characters. Click each to meet them. No signup, no subscription.</p>
+
+  <div class="progress" id="progress">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+
+  <p class="timer"><span id="seconds">0</span> / 30 seconds · take your time</p>
+
+  <div class="grid" id="char-grid">
+    <div class="char-card" data-idx="0" onclick="selectChar(this)">
+      <img src="/lummings/lead-magnet/assets/lumo-portrait.png" alt="Lumo">
+      <h2>Lumo</h2>
+      <p class="role">the curious one</p>
+      <p class="intro">"Hi! I'm Lumo. I ask 'why?' about everything. Want to explore something together?"</p>
+    </div>
+    <div class="char-card" data-idx="1" onclick="selectChar(this)">
+      <img src="/lummings/lead-magnet/assets/lila-portrait.png" alt="Lila">
+      <h2>Lila</h2>
+      <p class="role">the creative one</p>
+      <p class="intro">"Hello, friend! I'm Lila. I see stories in everything. Want to make one together?"</p>
+    </div>
+    <div class="char-card" data-idx="2" onclick="selectChar(this)">
+      <img src="/lummings/lead-magnet/assets/pip-portrait.png" alt="Pip">
+      <h2>Pip</h2>
+      <p class="role">the energetic one</p>
+      <p class="intro">"Hey hey hey! Pip here. Let's GO. What's the most exciting thing we can do right now?"</p>
+    </div>
+    <div class="char-card" data-idx="3" onclick="selectChar(this)">
+      <img src="/lummings/lead-magnet/assets/nori-portrait.png" alt="Nori">
+      <h2>Nori</h2>
+      <p class="role">the thoughtful one</p>
+      <p class="intro">"Hello. I'm Nori. I'll listen first. Take your time. What would you like to talk about?"</p>
+    </div>
+    <div class="char-card" data-idx="4" onclick="selectChar(this)">
+      <img src="/lummings/lead-magnet/assets/moki-portrait.png" alt="Moki">
+      <h2>Moki</h2>
+      <p class="role">the mischievous one</p>
+      <p class="intro">"Psst. Moki. I'm going to tell you a joke. If it's bad, you can tell me. I can take it."</p>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="cta" href="/lummings/" target="_blank">Try them all (free) →</a>
+    <a class="cta cta-secondary" href="/lummings/lead-magnet/lummings-5pk/">Get all 5 portraits free</a>
+  </div>
+
+  <p style="text-align:center;color:#6b7787;margin-top:32px;font-size:14px">
+    Built by one developer in Sydney. No cloud, no monthly fees, no surveillance. Just five friends who listen.
+  </p>
+</div>
+
+<script>
+let viewedCount = 0;
+const totalChars = 5;
+const startTime = Date.now();
+
+function selectChar(card) {
+    // Don't re-trigger if already selected
+    if (card.classList.contains('selected')) return;
+    card.classList.add('selected');
+    viewedCount++;
+    // Update progress dots
+    document.querySelectorAll('.dot')[card.dataset.idx].classList.add('active');
+    // Update timer
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('seconds').textContent = elapsed;
+}
+
+// Update timer every second
+setInterval(() => {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('seconds').textContent = elapsed;
+}, 1000);
+</script>
+
+<footer>
+  <p>© 2026 The Indie Forge · <a href="/lummings/shop/">back to shop</a> · <a href="/lummings/support/">support</a></p>
+</footer>
+</body>
+</html>

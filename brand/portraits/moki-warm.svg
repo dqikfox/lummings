@@ -1,7 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="moki the Lumming (warm)">
-<circle cx="120" cy="132" r="104" fill="#e35fa8" opacity="0.18" />
-<ellipse cx="120" cy="132" rx="91" ry="86" fill="#ff79c6" stroke="#e35fa8" stroke-width="3" />
-<g transform="translate(61,43)" fill="#e35fa8" opacity="0.9"><path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>
-<circle cx="92" cy="107" r="9" fill="#1a1f2e"/><circle cx="148" cy="107" r="9" fill="#1a1f2e"/><circle cx="91" cy="106" r="1.4" fill="#fff"/><circle cx="147" cy="106" r="1.4" fill="#fff"/>
-<path d="M104,148 Q120,162 136,148" stroke="#1a1f2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Moki the Lumming (warm)">
+<defs>
+    <radialGradient id="bg-moki-warm" cx="50%" cy="50%" r="60%">
+        <stop offset="0%" stop-color="#fb7185" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#be123c" stop-opacity="0.05"/>
+    </radialGradient>
+    <radialGradient id="fur-moki-warm" cx="50%" cy="40%" r="70%">
+        <stop offset="0%" stop-color="#fecdd3"/>
+        <stop offset="60%" stop-color="#fb7185"/>
+        <stop offset="100%" stop-color="#9f1239"/>
+    </radialGradient>
+    <radialGradient id="cheek-moki-warm" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fb7185" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+</defs>
+
+<!-- Glow background -->
+<rect width="240" height="240" fill="url(#bg-moki-warm)"/>
+
+<!-- Sparkles -->
+<g opacity="0.7"><circle cx="40" cy="60" r="2" fill="#fff"/><circle cx="200" cy="55" r="1.5" fill="#fff"/><circle cx="35" cy="180" r="2" fill="#fff"/><circle cx="205" cy="190" r="1.5" fill="#fff"/><circle cx="50" cy="30" r="1" fill="#fff" opacity="0.6"/><circle cx="190" cy="35" r="1" fill="#fff" opacity="0.6"/></g><g fill="#ffd23f" opacity="0.6"><path d="M22,100 L36,10 L50,100 Z" opacity="0.3"/></g>
+
+<!-- Body shadow -->
+<ellipse cx="120" cy="225" rx="70" ry="6" fill="#000" opacity="0.15"/>
+
+<!-- Main fur ball -->
+<circle cx="120" cy="132" r="91" fill="url(#fur-moki-warm)" stroke="#9f1239" stroke-width="2"/>
+
+<!-- Fur tufts (texture) -->
+<g opacity="0.4" stroke="#9f1239" stroke-width="1" fill="none">
+    <path d="M50,110 Q55,100 60,108"/>
+    <path d="M180,120 Q185,108 192,116"/>
+    <path d="M40,150 Q46,142 52,150"/>
+    <path d="M188,158 Q194,148 200,154"/>
+    <path d="M120,40 Q126,32 132,40"/>
+    <path d="M85,200 Q92,210 100,205"/>
+    <path d="M155,200 Q148,210 140,205"/>
+</g>
+
+<!-- Signature accessory -->
+<path d="M88,55 L82,38 L92,48 Z" fill="#9f1239"/><path d="M152,55 L158,38 L148,48 Z" fill="#9f1239"/><circle cx="82" cy="38" r="2" fill="#a78bfa"/><circle cx="158" cy="38" r="2" fill="#a78bfa"/>
+
+<!-- Cheeks -->
+<ellipse cx="78" cy="135" rx="14" ry="10" fill="url(#cheek-moki-warm)"/>
+<ellipse cx="162" cy="135" rx="14" ry="10" fill="url(#cheek-moki-warm)"/>
+
+<!-- Eyes -->
+<circle cx="92" cy="108" r="8" fill="#4c0519"/><circle cx="148" cy="108" r="8" fill="#4c0519"/><circle cx="92" cy="108" r="3" fill="#fb7185"/><circle cx="148" cy="108" r="3" fill="#fb7185"/><circle cx="95" cy="105" r="1.5" fill="#fff"/><circle cx="151" cy="105" r="1.5" fill="#fff"/>
+
+<!-- Brows -->
+
+
+<!-- Mouth -->
+<path d="M105,150 Q120,160 135,150" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+<!-- Tiny freckles/sparkles on body -->
+<g opacity="0.5" fill="#fecdd3">
+    <circle cx="100" cy="180" r="2"/>
+    <circle cx="140" cy="180" r="2"/>
+    <circle cx="115" cy="195" r="1.5"/>
+    <circle cx="130" cy="195" r="1.5"/>
+</g>
+
+<!-- Highlight sheen on body -->
+<ellipse cx="95" cy="80" rx="22" ry="14" fill="#fff" opacity="0.15"/>
 </svg>

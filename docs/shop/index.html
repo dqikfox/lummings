@@ -174,6 +174,79 @@ async function buy(sku) {
 }
 </script>
 
+<!-- FREE LEAD MAGNETS - capture email, build audience -->
+<section class="mt-20 bg-gradient-to-br from-[#ffd23f]/10 via-orange-50 to-[#ef5777]/10 rounded-3xl p-10 border-2 border-[#ffd23f]/30">
+    <div class="text-center mb-8">
+        <div class="inline-block bg-[#1a1a2e] text-[#ffd23f] px-4 py-1 rounded-full text-xs font-bold tracking-[0.2em] mb-4">FREE · NO SIGN-UP</div>
+        <h2 class="text-4xl font-extrabold mb-3">Try before you buy.</h2>
+        <p class="text-zinc-700 max-w-xl mx-auto">Free starter packs from each product. Email required so we can send you the download link — that's it. No list, no spam, unsubscribe anytime.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-2xl p-6 border-2 border-[#1a1a2e]/10">
+            <div class="text-3xl mb-2">🌟</div>
+            <h3 class="font-extrabold text-lg mb-2">5 Lummings Portraits</h3>
+            <p class="text-xs text-zinc-600 mb-4">Hero art of all 5 mascots. Free for commercial use.</p>
+            <button onclick="getFree('lm-lummings-5pk')" class="block w-full px-4 py-3 rounded-xl bg-[#1a1a2e] text-[#ffd23f] font-bold hover:bg-[#3a3a5e] transition">
+                Email me the link →
+            </button>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border-2 border-[#1a1a2e]/10">
+            <div class="text-3xl mb-2">🦄</div>
+            <h3 class="font-extrabold text-lg mb-2">SHInEyVErSE Sampler</h3>
+            <p class="text-xs text-zinc-600 mb-4">10 real images from our local AI studio. Wan2.2 + Flux + SDXL.</p>
+            <button onclick="getFree('lm-shiney-sampler')" class="block w-full px-4 py-3 rounded-xl bg-[#1a1a2e] text-[#ffd23f] font-bold hover:bg-[#3a3a5e] transition">
+                Email me the link →
+            </button>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border-2 border-[#1a1a2e]/10">
+            <div class="text-3xl mb-2">💎</div>
+            <h3 class="font-extrabold text-lg mb-2">10-Asset Starter</h3>
+            <p class="text-xs text-zinc-600 mb-4">CC0. 3D props + AI backgrounds. Use in any game.</p>
+            <button onclick="getFree('lm-free-samples')" class="block w-full px-4 py-3 rounded-xl bg-[#1a1a2e] text-[#ffd23f] font-bold hover:bg-[#3a3a5e] transition">
+                Email me the link →
+            </button>
+        </div>
+    </div>
+    <p class="text-center text-xs text-zinc-500 mt-6">
+        Your email goes to a local file on our server. We use it to send the download link. Nothing else.
+    </p>
+</section>
+
+<script>
+async function getFree(sku) {
+    const email = prompt('Your email (we send the download link here):');
+    if (!email) return;
+    if (!email.includes('@') || email.length < 5) {
+        alert('Please enter a valid email.');
+        return;
+    }
+    try {
+        const r = await fetch('http://127.0.0.1:8522/lead/' + sku, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: email}),
+        }).catch(() => null);
+        if (r && r.ok) {
+            const d = await r.json();
+            alert('Done! ' + d.product + ' link: ' + d.delivery_url + '\n\n(Check your inbox — manual delivery until we wire SMTP.)');
+            window.open(d.delivery_url, '_blank');
+        } else {
+            // Direct delivery URL fallback (no server needed)
+            const urls = {
+                'lm-lummings-5pk': '/lummings/lead-magnet/lummings-5pk/',
+                'lm-shiney-sampler': '/lummings/lead-magnet/shiney-sampler/',
+                'lm-free-samples': '/lummings/lead-magnet/free-samples/'
+            };
+            alert('Captured offline. Direct download page opens next.');
+            window.open(urls[sku] || '/lummings/lead-magnet/', '_blank');
+        }
+    } catch (e) {
+        alert('Network error. Visit /lummings/lead-magnet/ directly.');
+        window.open('/lummings/lead-magnet/', '_blank');
+    }
+}
+</script>
+
 <!-- ORDER CHANNELS -->
     <section class="mt-16 grid md:grid-cols-2 gap-6">
         <button onclick="buy('lum-pack1')" class="card-hover block bg-blue-500 text-white rounded-3xl p-8 text-center">

@@ -156,5 +156,20 @@
   <p style="margin-top:8px;font-size:.75rem;">© 2026 · The Indie Forge · No tracking, no analytics, no cookies</p>
 </div>
 
+<script>
+// On Tailscale, prefer local krysys-shop (latest code with URL param routing, /api/health, /api/waitlist)
+if (location.hostname.endsWith('github.io') === false) {
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest && e.target.closest('a');
+    if (!a) return;
+    if (a.href && a.href.includes('krysys-shop.vercel.app')) {
+      e.preventDefault();
+      const u = new URL(a.href);
+      const local = (location.protocol === 'https:' ? 'http:' : location.protocol) + '//localhost:8080' + u.pathname + u.search;
+      window.location.href = local;
+    }
+  });
+}
+</script>
 </body>
 </html>

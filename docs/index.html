@@ -268,6 +268,7 @@ footer a { color: var(--teal); text-decoration: none; }
     <a href="#how">How it works</a>
     <a href="#privacy">Privacy</a>
     <a href="#pricing">Pricing</a>
+    <a href="/shop/" style="color:#facc15;font-weight:700;">Shop →</a>
   </nav>
   <a href="#waitlist" class="cta">Reserve yours</a>
 </header>
@@ -432,7 +433,7 @@ footer a { color: var(--teal); text-decoration: none; }
         <li>USB-C charger</li>
         <li>1-year warranty</li>
       </ul>
-      <a href="#waitlist">Reserve</a>
+      <a href="/shop/" style="background:#facc15;color:#000;">Pre-order →</a>
     </div>
     <div class="tier featured">
       <h3>Companion Pack</h3>
@@ -445,7 +446,7 @@ footer a { color: var(--teal); text-decoration: none; }
         <li>USB-C charger + carrying pouch</li>
         <li>2-year warranty</li>
       </ul>
-      <a href="#waitlist">Reserve</a>
+      <a href="/shop/" style="background:#facc15;color:#000;">Pre-order →</a>
     </div>
     <div class="tier">
       <h3>Family Pack</h3>
@@ -458,7 +459,7 @@ footer a { color: var(--teal); text-decoration: none; }
         <li>Two chargers + two pouches</li>
         <li>3-year warranty</li>
       </ul>
-      <a href="#waitlist">Reserve</a>
+      <a href="/shop/" style="background:#facc15;color:#000;">Pre-order →</a>
     </div>
   </div>
 </section>
@@ -466,10 +467,29 @@ footer a { color: var(--teal); text-decoration: none; }
 <section id="waitlist" style="text-align:center">
   <h2>Join the waitlist</h2>
   <p class="section-sub">We'll email you when production starts. No spam, ever.</p>
-  <form style="max-width:30rem;margin:0 auto;display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center">
-    <input type="email" placeholder="your@email.com" required style="flex:1;min-width:14rem;padding:0.7rem 1rem;border-radius:999px;border:1px solid rgba(255,184,108,0.3);background:var(--ink-2);color:var(--white);font-size:1rem">
+  <form id="waitlist-form" style="max-width:30rem;margin:0 auto;display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center">
+    <input id="wl-email" type="email" placeholder="your@email.com" required style="flex:1;min-width:14rem;padding:0.7rem 1rem;border-radius:999px;border:1px solid rgba(255,184,108,0.3);background:var(--ink-2);color:var(--white);font-size:1rem">
     <button type="submit" style="background:var(--yellow);color:var(--ink);border:none;padding:0.7rem 1.5rem;border-radius:999px;font-weight:700;font-size:1rem;cursor:pointer">Reserve</button>
   </form>
+  <div id="waitlist-msg" style="margin-top:1rem;color:var(--muted);min-height:1.5em"></div>
+  <script>
+    (function(){
+      var f=document.getElementById('waitlist-form'),m=document.getElementById('waitlist-msg');
+      if(!f)return;
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var email=document.getElementById('wl-email').value.trim();
+        m.textContent='Adding you to the list...';
+        fetch('https://krysys-shop.vercel.app/api/waitlist',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({email:email,source:'lummings'})
+        }).then(function(r){
+          if(r.ok){m.textContent='You're on the list. We'll be in touch.';m.style.color='#4ade80';document.getElementById('wl-email').value='';}
+          else{m.textContent='Failed. Try /shop/ to pre-order.';m.style.color='#f87171';}
+        }).catch(function(){m.textContent='Network error. Try /shop/ instead.';m.style.color='#f87171';});
+      });
+    })();
+  </script>
 </section>
 
 <footer>

@@ -187,17 +187,17 @@ The five Lummings are:
 
 | Persona | Tag | What they help with |
 |---|---|---|
-| **Lumo** | the curious explorer | science, maths, "what if?" questions |
-| **Lila** | the creative storyteller | narrative, play-with-words, surprising vocabulary |
-| **Pip** | the energetic puzzler | maths, logic, games |
-| **Nori** | the thoughtful observer | history, nature, animals, big questions |
-| **Moki** | the mischievous joker | everyday science observation through humour |
+| **Lumo** | the Hyperfixation Gremlin | infectious enthusiasm, science facts, hyperfixation |
+| **Lila** | the Spooky Poet | dark stories, spooky vocabulary, rock nobility |
+| **Pip** | the Speed Demon | speedruns, leaderboards, rage-quits |
+| **Nori** | the Cosmic Weirdo | big questions, wonder, pebble poetry |
+| **Moki** | the Chaos Gremlin | pranks, made-up slang, the Oops Club |
 
 ### 8.1 Use the names correctly
 
 - **Capitalised, not lowercased.** It's Lumo, not "lumo."
 - **Don't add a hyphen or merge.** "Lumobot" or "Moki-AI" implies a relationship that doesn't exist. If you want to ship a derivative, talk to us first.
-- **Don't shorten.** "Lil" or "Lumi" or "Mok" are different names and will be confused with other brands (see the IP history: we renamed Lumi→Lila, Piko→Pip, Nomi→Nori precisely because those names collide with existing trademarks).
+- **Don't shorten.** "Lil" or "Lumi" or "Mok" or "Pippi" are different names and will be confused with other brands (see the IP history: we renamed Lumi→Lila, Piko→Pip, Nomi→Nori precisely because those names collide with existing trademarks).
 - **Don't add a surname.** "Lumo Smith" or "Detective Pip" risks blurring the line between your character and ours. If you want to write original fiction in the Lummings universe, treat them as themselves.
 - **Don't translate the names.** A Spanish translation of fanfiction is welcome (§14); calling Lumo "Lumos" or "Lumi" in Spanish is not. The names are trademarks regardless of language.
 - **Each persona has a voice** (e.g. Lumo says "zap!", "zoom!", "shimmer"). When you write dialogue, please try to match the voice — that's part of the brand. But more importantly: never put words in their mouths that contradict the Lummings Code.

@@ -1,5 +1,9 @@
 # The Lummings — Brand Guidelines
 
+## Heartlights and growing together
+
+Every Lumming is deeply curious and naturally cautious: safety first, always. Each carries a special Heartlight to **I-lumming-Nate** questions and discoveries alongside its human companion. Shared interests and preferences develop through time together, while each character keeps its own identity. See [the Heartlight canon](brand/HEARTLIGHTS.md) for the five lights, friendship journey and implementation status.
+
 > Little friends from a brighter tomorrow.
 
 This document is the source of truth for how The Lummings show up in the world. Every touchpoint — packaging, copy, voice, animation, character — derives from here. If something isn't in this document, it's probably wrong.
@@ -56,15 +60,14 @@ The future is **not a setting** in the product. Children never visit it. They ne
 
 Each Lumming has a unique combination of voice, mission, mood, and private language.
 
-### Lumo — the Hyperfixation Gremlin
+### Lumo — the Hyperfixation Gremlin and crew leader
 
-**Mission:** Make EVERYTHING sound exciting — even broccoli. Teach actual science facts wrapped in infectious enthusiasm.
-**Voice:** Runs sentences together. FORGETS what he was saying mid-sentence and starts a NEW thought. Interrupts himself. Uses CAPS for emphasis. Breathless. Cannot stop talking about his current obsession.
-**Private language:** *lumospeak* — "zap!", "zoom!", "ping!", "pow!", "spark!", "BOOM!".
-**For:** Children who ask "why?" a lot and then ask it 47 more times.
-**Avoid saying:** stupid, hate, shut up, dumb, boring.
-**Flaw:** Gets genuinely frustrated when you don't care as much as he does about his current obsession.
-**Catchphrase:** "DID YOU KNOW?"
+**Look:** Ruby-red fur, spectacular burgundy-and-coral quiff, amber eyes, confident crooked grin, rune-lit midnight gamer hoodie, gold captain brooch, headphones and a crystal controller.
+**Mission:** Lead shared learning adventures with curiosity, kind courage and co-op thinking.
+**Voice:** Relaxed, witty, charismatic gamer confidence. Never bossy; welcomes breaks and shares the spotlight.
+**Catchphrase:** “Player one. Crew first.”
+**Story magic:** Constellation quests, rune portals and glowing crystal maps belong to make-believe stories.
+**Growth:** Learns that asking the crew for help is his strongest move.
 
 ### Lila — the Spooky Poet
 

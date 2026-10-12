@@ -1,0 +1,122 @@
+[
+  {
+    "name": "lumo-portrait",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-813540f4-c0b6-4415-ab6a-a454cbbac6a2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "21d9898891d66496876c23ba13de83292ac5a99f5eae1ccafe0c159e86664f51",
+    "master": "marketing/demo-assets/lumo-portrait.png",
+    "web_copy": "docs/lead-magnet/assets/lumo-portrait.png",
+    "root_copy": "lumo-portrait.png"
+  },
+  {
+    "name": "lila-portrait",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-3e83e247-7ead-417e-b9bb-ce8918e662b6.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "9970bdaa69361a79b6dc7febdf1c9f13164187e239d6a6bfef97cf06821d21a0",
+    "master": "marketing/demo-assets/lila-portrait.png",
+    "web_copy": "docs/lead-magnet/assets/lila-portrait.png",
+    "root_copy": "lila-portrait.png"
+  },
+  {
+    "name": "pip-portrait",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-bd8d732b-89e9-4e1f-aeed-fd1928159b7e.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "1e292c4bb5e54bbd6c37494b407d376edf56e34c4d0cb8e3c61257d34e366f0e",
+    "master": "marketing/demo-assets/pip-portrait.png",
+    "web_copy": "docs/lead-magnet/assets/pip-portrait.png",
+    "root_copy": "pip-portrait.png"
+  },
+  {
+    "name": "nori-portrait",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-6fde5412-a140-4c62-bfe7-d3e70d7a1bf6.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "dc72c14cb1ae7f2f1e6f8147784110a37c58785df6be9cf42ad6f057c77e2041",
+    "master": "marketing/demo-assets/nori-portrait.png",
+    "web_copy": "docs/lead-magnet/assets/nori-portrait.png",
+    "root_copy": "nori-portrait.png"
+  },
+  {
+    "name": "moki-portrait",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-16b9e9bd-87ec-4e81-9301-3b3ff72f9ef7.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "3af35f8e0db451679d1f47ac3a190204fec79c46ebaa1c64e5ed40f21fcfb33d",
+    "master": "marketing/demo-assets/moki-portrait.png",
+    "web_copy": "docs/lead-magnet/assets/moki-portrait.png",
+    "root_copy": "moki-portrait.png"
+  },
+  {
+    "name": "hero-screenshot",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-7c044b5d-7b3b-411b-9da4-ff921362b9a5.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "sha256": "2937e289e05a94ef6e1c2beb5ff81a7562f75e5e0129dd045f9e6bea8c65534d",
+    "master": "marketing/demo-assets/hero-screenshot.png",
+    "web_copy": "docs/lead-magnet/assets/hero-screenshot.png",
+    "root_copy": "hero-screenshot.png"
+  },
+  {
+    "name": "scene-bedroom",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-dc3654fe-2fff-41c0-8483-41f8263aee18.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "f00de09c3a87e124a1ea5be8449bc3931f915282a83629f7e600b82e3c57df43",
+    "master": "marketing/demo-assets/scene-bedroom.png",
+    "web_copy": "docs/lead-magnet/assets/scene-bedroom.png",
+    "root_copy": "scene-bedroom.png"
+  },
+  {
+    "name": "scene-garden",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-65f32130-cdd4-4ccb-9c28-e96d2cc2b7f1.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "6667c272eface420a26aa6dae71d6533f0e5fb5651ba548d7811910f42cc63a5",
+    "master": "marketing/demo-assets/scene-garden.png",
+    "web_copy": "docs/lead-magnet/assets/scene-garden.png",
+    "root_copy": "scene-garden.png"
+  },
+  {
+    "name": "scene-parent-kid",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-e22fab26-69d4-423d-96b8-e3db9b05c680.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "sha256": "17825fd14ba076318116a01fe79fce77521509b6ad5c91f6402901ee3cc80c0b",
+    "master": "marketing/demo-assets/scene-parent-kid.png",
+    "web_copy": "docs/lead-magnet/assets/scene-parent-kid.png",
+    "root_copy": "scene-parent-kid.png"
+  },
+  {
+    "name": "icon-glow-L",
+    "path": "C:\\Users\\KING\\.codex\\generated_images\\01a12f85-a687-7a10-a987-772aeb348d19\\exec-ba2d8399-476f-4d3f-84e8-9db14209f84e.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "d4b4cd846b0a0ef95c5a0c3522ea717c1e8fba560c1b3e2de4138fded9dbb190",
+    "master": "marketing/demo-assets/icon-glow-L.png",
+    "web_copy": "docs/lead-magnet/assets/icon-glow-L.png",
+    "root_copy": "icon-glow-L.png"
+  }
+]

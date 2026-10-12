@@ -15,12 +15,15 @@ from dataclasses import dataclass
 # ----------------------------------------------------------------------------
 
 PERSONA_COLORS = {
-    "lumo": {"body": "#ffb86c", "glow": "#ff9f43", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
+    "lumo": {"body": "#ed4054", "glow": "#ff697a", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
     "lumi": {"body": "#bd93f9", "glow": "#a07bd6", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
     "piko": {"body": "#50fa7b", "glow": "#3ddc66", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
     "nomi": {"body": "#8be9fd", "glow": "#67c7d9", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
     "moki": {"body": "#ff79c6", "glow": "#e35fa8", "eye": "#1a1f2e", "mouth": "#1a1f2e"},
 }
+
+# Canonical names retain compatibility with the original device aliases.
+PERSONA_COLORS.update({"lila": PERSONA_COLORS["lumi"], "pip": PERSONA_COLORS["piko"], "nori": PERSONA_COLORS["nomi"]})
 
 
 # ----------------------------------------------------------------------------
@@ -67,45 +70,18 @@ class Sprite:
     glow: bool = True
 
     def to_svg(self) -> str:
-        if self.persona not in PERSONA_COLORS:
-            self.persona = "lumo"  # safe fallback
-        if self.mood not in EYE_SHAPES:
+        from .artwork import MOODS, render as render_artwork
+        aliases = {"lumi": "lila", "piko": "pip", "nomi": "nori", "luna": "lila", "sprout": "pip"}
+        name = aliases.get(self.persona, self.persona)
+        if name not in ("lumo", "lila", "pip", "nori", "moki"):
+            self.persona = name = "lumo"
+        if self.mood not in MOODS:
             self.mood = "curious"
-        c = PERSONA_COLORS[self.persona]
-        s = self.size
-        cx = cy = s // 2
-        body_r = int(s * 0.38)
-        # body: rounded "egg" using ellipse + slight squish for personality
-        body = (
-            f'<ellipse cx="{cx}" cy="{cy+int(s*0.05)}" rx="{body_r}" ry="{int(body_r*0.95)}" '
-            f'fill="{c["body"]}" stroke="{c["glow"]}" stroke-width="3" />'
-        )
-        # glow halo (optional)
-        glow = ""
-        if self.glow:
-            glow = (
-                f'<circle cx="{cx}" cy="{cy+int(s*0.05)}" r="{int(body_r*1.15)}" '
-                f'fill="{c["glow"]}" opacity="0.18" />'
-            )
-        # private-language sparkle (one small star above body for the personality)
-        sparkle = (
-            f'<g transform="translate({cx-int(body_r*0.65)},{cy-int(body_r*0.85)})" '
-            f'fill="{c["glow"]}" opacity="0.9">'
-            f'<path d="M0,-5 L1.5,-1.5 L5,0 L1.5,1.5 L0,5 L-1.5,1.5 L-5,0 L-1.5,-1.5 Z"/></g>'
-        )
-        # eyes
-        eye_y = cy - int(s * 0.05)
-        eye_x_offset = int(s * 0.12)
-        eyes = self._eyes(eye_x_offset, eye_y, c)
-        # mouth
-        mouth = self._mouth(cx, cy + int(s * 0.12), c)
-        svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {s} {s}" width="{s}" height="{s}" role="img" aria-label="{self.persona} the Lumming ({self.mood})">
-{glow}
-{body}
-{sparkle}
-{eyes}
-{mouth}
-</svg>"""
+        svg = render_artwork(name, self.mood, blink=self.blink, glow=self.glow)
+        svg = svg.replace('<svg ', f'<svg data-persona="{self.persona}" ', 1)
+        svg = svg.replace('width="240" height="240"', f'width="{self.size}" height="{self.size}"')
+        if self.persona in aliases:
+            svg = svg.replace(f'aria-label="{name.title()}', f'aria-label="{self.persona} / {name.title()}')
         return svg
 
     def _eyes(self, x_offset, y, c) -> str:

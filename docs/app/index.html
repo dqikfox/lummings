@@ -192,11 +192,11 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 const LUMINARIES = {
-    Lumo: { color: '#ff9f43', avatar: '/assets/portraits/lumo-warm.svg', role: 'Explorer' },
-    Lila: { color: '#a55eea', avatar: '/assets/portraits/lila-playful.svg', role: 'Dreamer' },
-    Moki: { color: '#ef5777', avatar: '/assets/portraits/moki-excited.svg', role: 'Prankster' },
-    Nori: { color: '#1dd1a1', avatar: '/assets/portraits/nori-warm.svg', role: 'Sage' },
-    Pip:  { color: '#54a0ff', avatar: '/assets/portraits/pip-warm.svg', role: 'Adventurer' }
+    Lumo: { color: '#ff9f43', avatar: '/assets/portraits/lumo-warm.svg', role: 'Hyperfixation Gremlin' },
+    Lila: { color: '#a55eea', avatar: '/assets/portraits/lila-playful.svg', role: 'Spooky Poet' },
+    Moki: { color: '#ef5777', avatar: '/assets/portraits/moki-excited.svg', role: 'Chaos Gremlin' },
+    Nori: { color: '#1dd1a1', avatar: '/assets/portraits/nori-warm.svg', role: 'Cosmic Weirdo' },
+    Pip:  { color: '#54a0ff', avatar: '/assets/portraits/pip-warm.svg', role: 'Speed Demon' }
 };
 
 const MAGIC_KEYWORDS = ['transform', 'turn into', 'become', 'change to', 'make it a', 'morph', 'convert'];
@@ -213,9 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function generateFeed() {
     const feed = document.getElementById('discovery-feed');
     const adventures = [
-        { title: "The Great Quill Quest", text: "Lila is searching for the legendary quill in the Whispering Woods!", author: "Lila (Dreamer)", img: "/assets/portraits/lila-curious.svg", key: 'Lila' },
-        { title: "Moki's Prank Gone Wild", text: "A tiny prank with a magic wand turned everything pink...", author: "Moki (Prankster)", img: "/assets/portraits/moki-excited.svg", key: 'Moki' },
-        { title: "Deep Space Discovery", text: "Lumo discovered a new constellation! Is it part of the mission?", author: "Lumo (Explorer)", img: "/assets/portraits/lumo-warm.svg", key: 'Lumo' }
+        { title: "The Great Quill Quest", text: "Lila is searching for the legendary quill in the Whispering Woods!", author: "Lila (Spooky Poet)", img: "/assets/portraits/lila-curious.svg", key: 'Lila' },
+        { title: "Moki's Prank Gone Wild", text: "A tiny prank with a magic wand turned everything pink...", author: "Moki (Chaos Gremlin)", img: "/assets/portraits/moki-excited.svg", key: 'Moki' },
+        { title: "Deep Space Discovery", text: "Lumo discovered a new constellation! Is it part of the mission?", author: "Lumo (Hyperfixation Gremlin)", img: "/assets/portraits/lumo-warm.svg", key: 'Lumo' }
     ];
     feed.innerHTML = adventures.map(adv => `
         <div class="feed-card" onclick="openChat('${adv.key}')">

@@ -23,7 +23,7 @@ This campaign is **not** to validate an idea. The software is MIT-licensed and r
 
 ### 2.1 Above the fold
 
-**Hero image:** The five Lummings sprite row — Lumo (yellow), Lila (teal), Pip (green), Nori (blue), Moki (pink). Soft warm-white background. Wordmark above, tagline below.
+**Hero image:** The five Lummings sprite row — Lumo (yellow), Lila (purple), Pip (green), Nori (blue), Moki (pink). Soft warm-white background. Wordmark above, tagline below.
 
 **Headline (h1):**
 
@@ -51,7 +51,7 @@ This campaign is **not** to validate an idea. The software is MIT-licensed and r
 >
 > The Lummings are five small intelligent creatures. They live on a Raspberry Pi Zero 2 W inside a child-friendly shell you can hold in one hand. Each Lumming has its own personality, its own voice, and its own private language. **They remember what your child has learned.** Across days. Across weeks. Across years.
 >
-> When your child asks Lumo a homework question, Lumo doesn't give the answer. He asks a question back. When your child tells Lila a story, Lila remembers how it began. When your child is upset, Nori listens. When your child needs to laugh, Moki is there.
+> When your child asks Lumo a homework question, Lumo doesn't give the answer. He asks a question back. When your child tells Lila a story, Lila makes it 10% spookier. When your child is upset, Nori listens. When your child needs to laugh, Moki is there.
 >
 > And — this is the part that matters most — **none of it leaves the device.**
 >
@@ -206,7 +206,7 @@ A: We don't take the money. Your card is never charged. We run a smaller direct 
 | **1. The Lummings Origins book** | $200K | Hardcover 7"×9" art book — the story of the five Lummings, their world, the Lumming Code. PDF included digitally for all backers. | Deepens brand story. Sellable post-campaign ($24 retail). |
 | **2. Voice cloning module (opt-in, parent-gated)** | $275K | A new TTS voice per Lumming — Piper voice-cloning trained on the project's own voice actor. Replaces the open-source default with a brand voice. | Replaces a generic-sounding voice with one that sounds *like* Lumo. Permanent quality upgrade. |
 | **3. Multi-language Lummings (JP, FR, ES, DE)** | $325K | The five Lummings speak Japanese, French, Spanish, and German at launch. Localised openers, localised private-language words. | EU + JP backers are the international backer segment. EU+JP shipping alone justifies this. |
-| **4. Lila's Storyteller Mode** | $400K | Lila gains an interactive story-builder: child co-writes a story with Lila, Lila remembers chapters, child can re-tell the story weeks later and Lila prompts them. | Personality-deepens, not feature-bloats. Makes Lila the longest-arc Lumming for ages 8–12. |
+| **4. Lila's Spooky Story Mode** | $400K | Lila gains an interactive spooky story-builder: child co-writes a dark tale with Lila, Lila remembers chapters, child can re-tell the story weeks later and Lila prompts them. | Personality-deepens, not feature-bloats. Makes Lila the longest-arc Lumming for ages 8–12. |
 | **5. Open Personality SDK** | $500K | A documented SDK for writing new Lumming personalities in plain JSON + system-prompt markdown. Anyone can publish a new personality. Hosted on a community registry. | Compounds the open-source moat. Future revenue line: community-published Personality Packs at $5 each (Lummings takes 30%). |
 | **6. The Schoolhouse Edition** | $650K | A hardware variant: 10-device rack with shared charging + classroom management mode (one Lumming per child, with parent + teacher pairing). Available 2027. | Opens the B2B2C school pilot path while honoring the consumer-first ship. |
 
@@ -436,7 +436,7 @@ Three different jobs, three different assets.
 > - Real refund policy (30 days post-ship)
 > - Real warranty (1 year)
 > - Early-bird pricing (20% off MSRP, locked for the first 48 hours)
-> - Stretch goals that deepen the product (the Lummings Origins book, multi-language Lummings, Lila's Storyteller Mode)
+> - Stretch goals that deepen the product (the Lummings Origins book, multi-language Lummings, Lila's Spooky Story Mode)
 >
 > [Set a reminder for T-0 → link]
 >
@@ -451,7 +451,7 @@ Three different jobs, three different assets.
 >
 > Five characters. One small device. All AI runs locally. No cloud. No subscription.
 >
-> Goal: $150K to fund production tooling. Stretch goals unlock deeper features (book, voice cloning, multi-language, Lila's Storyteller Mode, Open Personality SDK).
+> Goal: $150K to fund production tooling. Stretch goals unlock deeper features (book, voice cloning, multi-language, Lila's Spooky Story Mode, Open Personality SDK).
 >
 > Real product. Open source. Real refund policy.
 >
@@ -607,7 +607,7 @@ The Lummings brand is built on warmth and patience. **The campaign should be too
 | **Stretch goal tier 1 ($200K, Origins book)** | Yes | — |
 | **Stretch goal tier 2 ($275K, voice cloning)** | Yes | — |
 | **Stretch goal tier 3 ($325K, multi-language)** | Yes | — |
-| **Stretch goal tier 4 ($400K, Lila's Storyteller Mode)** | Yes | — |
+| **Stretch goal tier 4 ($400K, Lila's Spooky Story Mode)** | Yes | — |
 | **Total raised** | $300K | $500K |
 | **Backers** | 1,500 | 3,000 |
 | **Average pledge** | $200 | $250 |
@@ -696,11 +696,11 @@ These blocks are formatted for direct paste into the KS project page.
 >
 > Lumo, Lila, Pip, Nori, and Moki will ship speaking Japanese, French, Spanish, and German at launch. Localised openers, localised private-language words, localised refusal patterns. We're partnering with [TBD] for native-speaker review.
 
-**$400K — Lila's Storyteller Mode**
+**$400K — Lila's Spooky Story Mode**
 
-> 📚 **UNLOCKED: Lila's Storyteller Mode.**
+> 📚 **UNLOCKED: Lila's Spooky Story Mode.**
 >
-> Lila gains an interactive story-builder. Your child co-writes a story with Lila. Lila remembers the chapters. Weeks later, your child can ask Lila to retell the story — and Lila prompts them back. The longest-arc Lumming, for the most imaginative kids.
+> Lila gains an interactive spooky story-builder. Your child co-writes a dark tale with Lila. Lila remembers the chapters. Weeks later, your child can ask Lila to retell the story — and Lila prompts them back. The longest-arc Lumming, for the most imaginative kids.
 
 **$500K — Open Personality SDK**
 

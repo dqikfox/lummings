@@ -10,7 +10,7 @@ Open the [visual character preview](../docs/marketing/tomorrow-crew.html) to com
 `wordmark/wordmark.svg` — the canonical "The Lummings" wordmark with the glowing i-dots.
 
 ## Portraits
-`portraits/<persona>-<mood>.svg` — 5 personas × 12 moods = 60 SVG portraits.
+`portraits/<persona>-<mood>.svg` — 5 personas × 16 moods = 80 SVG portraits, synchronised to both website portrait directories.
 
 Renders in any modern browser, including on-device (Pi Zero 2 W + 1.5" TFT).
 
@@ -30,5 +30,20 @@ Per-persona colors are in `src/lummings/sprites.py::PERSONA_COLORS`.
 
 ## Regenerate
 ```bash
-python -m lummings.sprites brand/portraits
+python scripts/render_tomorrow_portraits.py
 ```
+
+## Artwork refresh — 13 October 2026
+
+- [Full artwork gallery](../docs/marketing/artwork-gallery.html): illustrated portraits, crew hero, three lifestyle scenes, app icon and all 80 vector expressions.
+- `../marketing/demo-assets/`: the ten campaign PNG masters. Matching web copies live in `../docs/lead-magnet/assets/`.
+- `../src/lummings/artwork.py`: shared vector artwork used by the runtime sprite renderer and export script.
+- `../scripts/render_tomorrow_portraits.py`: exports 80 portraits to each of the three portrait folders and synchronises both landing pages' embedded character drawings.
+- [Generation prompts](artwork-prompts-2026-10-13.json): built-in image generation prompt set and reference.
+- `archive/marketing-images-before-2026-10-13.zip`: original campaign PNGs retained for recovery.
+
+The illustrated scenes portray fictional characters and adventures. They are creative campaign illustrations, not photographs of manufactured toys. Theme-edition ideas in the character bible remain concepts.
+
+## Heartlight canon
+
+[Heartlights and growing together](HEARTLIGHTS.md) defines I-lumming-Nate, each special light, safety-first curiosity and the companion friendship journey. [Structured source](heartlights.json) matches the five runtime persona files.

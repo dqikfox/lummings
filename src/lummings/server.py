@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .engine import (
     load_persona,
+    PERSONA_ALIASES,
     build_system_prompt,
     Memory,
     Mood,
@@ -110,8 +111,8 @@ HTML = """<!doctype html>
 
 <div class="starter-row" id="starterRow">
   <div class="starter active" data-p="lumo"><span class="ico">⚡</span><span class="meta"><small>CURIOUS</small>LUMO</span></div>
-  <div class="starter" data-p="lila"><span class="ico">📖</span><span class="meta"><small>STORY</small>LILA</span></div>
-  <div class="starter" data-p="pip"><span class="ico">🧩</span><span class="meta"><small>BRAVE</small>PIP</span></div>
+  <div class="starter" data-p="lila"><span class="ico">📖</span><span class="meta"><small>STORY</small>LUNA</span></div>
+  <div class="starter" data-p="pip"><span class="ico">🧩</span><span class="meta"><small>BRAVE</small>SPROUT</span></div>
   <div class="starter" data-p="nori"><span class="ico">🌙</span><span class="meta"><small>WISE</small>NORI</span></div>
   <div class="starter" data-p="moki"><span class="ico">🎈</span><span class="meta"><small>FUNNY</small>MOKI</span></div>
 </div>
@@ -142,9 +143,9 @@ HTML = """<!doctype html>
 const PERSONAS={
   lumo:{name:'LUMO',icon:'⚡',tag:'"Wait — what if we tried it backwards?"',accent:'#FFD23F',
     quicks:['Why is the sky blue?','I tried a tiny experiment!','I had an idea!','Tell me a curious thing']},
-  lila:{name:'LILA',icon:'📖',tag:'"Every word is a tiny door. Let\\'s open one."',accent:'#7B5CFF',
+  lila:{name:'LUNA',icon:'📖',tag:'"Every word is a tiny door. Let\\'s open one."',accent:'#7B5CFF',
     quicks:['Once upon a time...','What\\'s a new word for brave?','I\\'m sad. Help?','Make up a story about a cloud']},
-  pip:{name:'PIP',icon:'🧩',tag:'"Try it! Try it! Try it again, but weirder!"',accent:'#2ECC71',
+  pip:{name:'SPROUT',icon:'🧩',tag:'"Try it! Try it! Try it again, but weirder!"',accent:'#2ECC71',
     quicks:['Bim bam pop!','I can\\'t solve this puzzle','AGAIN!','Quick, what should I try next?']},
   nori:{name:'NORI',icon:'🌙',tag:'"Hush. Listen. Did you hear that?"',accent:'#1ABC9C',
     quicks:['What\\'s the weather inside you?','I feel lonely','Tell me a quiet truth','What is time?']},
@@ -244,6 +245,7 @@ def main():
             length = int(self.headers.get("Content-Length", 0))
             body = json.loads(self.rfile.read(length) or b"{}")
             persona_name = body.get("persona", "lumo")
+            persona_name = PERSONA_ALIASES.get(persona_name.lower(), persona_name.lower())
             user_msg = body.get("message", "").strip()
             if not user_msg:
                 self._send(400, {"error": "empty"})

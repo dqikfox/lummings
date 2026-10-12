@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-13",
+  "mode": "built-in image_gen",
+  "reference": "tomorrow-crew-art-direction.png",
+  "shared_prompt": "One finished standalone image, not panels or a contact sheet. Reference supplies style and character identity. Premium warm illustrated storybook, tactile soft fur, expressive luminous eyes, adorable adventurous original characters. Preserve identities. No watermark, captions, file labels or text except letter L icon.",
+  "assets": [
+    {
+      "name": "lumo-portrait.png",
+      "prompt": "Square full-body character portrait of ONLY Lumo amber furry pear-shaped hyperfixation gremlin with oversized amber goggles bent glowing bulb antenna and patched tool satchel in warm solarpunk workshop."
+    },
+    {
+      "name": "lila-portrait.png",
+      "prompt": "Square full-body character portrait of ONLY Lila lilac furry teardrop storyweaver sweeping ribbon ears curling comet scarf holding comet pencil in enchanted library."
+    },
+    {
+      "name": "pip-portrait.png",
+      "prompt": "Square full-body character portrait of ONLY Pip green furry speedy runner with two tall leaf ears acorn compass mismatched large boots in moss forest."
+    },
+    {
+      "name": "nori-portrait.png",
+      "prompt": "Square full-body character portrait of ONLY Nori blue furry cosmic weirdo crescent hood fins pebble pouch holding little golden lantern in night tidepool."
+    },
+    {
+      "name": "moki-portrait.png",
+      "prompt": "Square full-body character portrait of ONLY Moki pink furry asymmetric chaos gremlin one folded ear one zigzag ear long purple cream CHECKER scarf playful grin in colourful repair arcade."
+    },
+    {
+      "name": "hero-screenshot.png",
+      "prompt": "Wide 16:9 cinematic website hero illustration showing all FIVE Lummings together exploring a beautiful tiny solarpunk future garden at sunset. Lumo amber goggled bulb antenna inventor, Lila lilac ribbon ears comet pencil scarf, Pip green tall leaf ears mismatched boots compass, Nori blue crescent hood golden lantern, Moki pink folded and zigzag ears CHECKER scarf. Equal importance all five; no UI text."
+    },
+    {
+      "name": "scene-bedroom.png",
+      "prompt": "Landscape 3:2 warm storybook illustration child reading in cozy bedroom with FIVE adorable small Lummings gathered nearby: amber goggled Lumo bulb antenna satchel, lilac ribbon-eared Lila comet scarf pencil, green leaf-eared Pip compass boots, blue crescent-hooded Nori golden lantern, pink uneven-eared Moki CHECKER scarf. Peaceful bedtime mood."
+    },
+    {
+      "name": "scene-garden.png",
+      "prompt": "Landscape 3:2 storybook illustration two children exploring sunny lush garden with FIVE small Lummings: amber goggled Lumo bulb antenna satchel, lilac ribbon-eared Lila comet scarf pencil, green leaf-eared Pip compass mismatched boots, blue crescent-hooded Nori golden lantern, pink folded and zigzag eared Moki CHECKER scarf. Children observe plants, joyous shared discovery."
+    },
+    {
+      "name": "scene-parent-kid.png",
+      "prompt": "Landscape 3:2 storybook illustration parent and child reading together at kitchen table with FIVE tiny Lummings beside the book: amber goggled Lumo bulb antenna satchel, lilac ribbon-eared Lila comet scarf pencil, green leaf-eared Pip compass mismatched boots, blue crescent-hooded Nori golden lantern, pink uneven-eared Moki CHECKER scarf. Warm afternoon window light."
+    },
+    {
+      "name": "icon-glow-L.png",
+      "prompt": "Square app icon golden glowing rounded letter L with a bent lantern stem above and small star sparkle, deep midnight blue rounded square background subtle leaves. ONLY letter L no other text. Beautiful tactile luminous rendering matching reference icon."
+    }
+  ],
+  "icon_refinement": "Remove every character, prop and landscape. Keep only the rounded golden glowing L, curved lantern stem and star on plain midnight blue. Strong central mark readable at 32 pixels."
+}

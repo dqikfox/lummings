@@ -50,7 +50,7 @@ FACES = {
 
 def main():
     ap = argparse.ArgumentParser(description="Talk to a Lumming in the terminal")
-    ap.add_argument("--persona", default="lumo", choices=["lumo", "lila", "pip", "nori", "moki"])
+    ap.add_argument("--persona", default="lumo", choices=["lumo", "luna", "sprout", "nori", "moki", "lila", "pip"])
     ap.add_argument("--base-url", default="http://127.0.0.1:11434/v1")
     ap.add_argument("--model", default="starscream-64k")
     ap.add_argument("--db", default="./lummings.sqlite")

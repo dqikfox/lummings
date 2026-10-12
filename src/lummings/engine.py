@@ -15,6 +15,16 @@ from typing import Optional
 PERSONAS_DIR = Path(__file__).parent / "personas"
 PERSONA_ALIASES = {"luna": "lila", "sprout": "pip"}
 
+CHARACTER_MODELS = {
+    "lumo": "lummings-lumo",
+    "lila": "lummings-lila",
+    "pip": "lummings-pip",
+    "nori": "lummings-nori",
+    "moki": "lummings-moki",
+}
+
+DEFAULT_MODEL = "lummings-lumo"  # fallback
+
 
 def load_persona(name: str) -> dict:
     """Load a persona JSON by name (lumo, lila, pip, nori, moki)."""
@@ -89,6 +99,29 @@ RULES:
 5. Never give a direct answer to a homework question. Guide instead.
 {f'MEMORY (what you remember about this child): {memory_summary}' if memory_summary else ''}
 """
+
+
+def build_runtime_prompt(persona: dict, memory_summary: str = "", mood: str = "", user_name: str = "") -> str:
+    """Lightweight runtime prompt for dedicated character models.
+    
+    Character identity is already baked into the model via Modelfile SYSTEM.
+    This only injects session-specific context (mood, memory, user).
+    Keep it minimal to avoid overriding the baked-in persona.
+    """
+    parts = []
+    if user_name:
+        parts.append(f"The child you're talking to is named {user_name}.")
+    if mood:
+        parts.append(f"Your current mood is: {mood}.")
+    if memory_summary:
+        parts.append(f"MEMORY: {memory_summary}")
+    return "\n".join(parts) if parts else "Stay in character."
+
+
+def get_character_model(name: str) -> str:
+    """Return the dedicated Ollama model name for a character, or fallback."""
+    name = PERSONA_ALIASES.get(name.lower(), name.lower())
+    return CHARACTER_MODELS.get(name, DEFAULT_MODEL)
 
 
 class Memory:

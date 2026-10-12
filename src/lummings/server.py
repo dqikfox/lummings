@@ -111,8 +111,8 @@ HTML = """<!doctype html>
 
 <div class="starter-row" id="starterRow">
   <div class="starter active" data-p="lumo"><span class="ico">⚡</span><span class="meta"><small>CURIOUS</small>LUMO</span></div>
-  <div class="starter" data-p="lila"><span class="ico">📖</span><span class="meta"><small>STORY</small>LUNA</span></div>
-  <div class="starter" data-p="pip"><span class="ico">🧩</span><span class="meta"><small>BRAVE</small>SPROUT</span></div>
+  <div class="starter" data-p="lila"><span class="ico">📖</span><span class="meta"><small>STORY</small>LILA</span></div>
+  <div class="starter" data-p="pip"><span class="ico">🧩</span><span class="meta"><small>BRAVE</small>PIP</span></div>
   <div class="starter" data-p="nori"><span class="ico">🌙</span><span class="meta"><small>WISE</small>NORI</span></div>
   <div class="starter" data-p="moki"><span class="ico">🎈</span><span class="meta"><small>FUNNY</small>MOKI</span></div>
 </div>
@@ -143,9 +143,9 @@ HTML = """<!doctype html>
 const PERSONAS={
   lumo:{name:'LUMO',icon:'⚡',tag:'"Wait — what if we tried it backwards?"',accent:'#FFD23F',
     quicks:['Why is the sky blue?','I tried a tiny experiment!','I had an idea!','Tell me a curious thing']},
-  lila:{name:'LUNA',icon:'📖',tag:'"Every word is a tiny door. Let\\'s open one."',accent:'#7B5CFF',
+  lila:{name:'LILA',icon:'📖',tag:'"Every word is a tiny door. Let\\'s open one."',accent:'#7B5CFF',
     quicks:['Once upon a time...','What\\'s a new word for brave?','I\\'m sad. Help?','Make up a story about a cloud']},
-  pip:{name:'SPROUT',icon:'🧩',tag:'"Try it! Try it! Try it again, but weirder!"',accent:'#2ECC71',
+  pip:{name:'PIP',icon:'🧩',tag:'"Try it! Try it! Try it again, but weirder!"',accent:'#2ECC71',
     quicks:['Bim bam pop!','I can\\'t solve this puzzle','AGAIN!','Quick, what should I try next?']},
   nori:{name:'NORI',icon:'🌙',tag:'"Hush. Listen. Did you hear that?"',accent:'#1ABC9C',
     quicks:['What\\'s the weather inside you?','I feel lonely','Tell me a quiet truth','What is time?']},

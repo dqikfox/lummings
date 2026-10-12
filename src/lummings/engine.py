@@ -25,9 +25,17 @@ def load_persona(name: str) -> dict:
 
 def build_system_prompt(persona: dict, memory_summary: str = "") -> str:
     """Build the system prompt that locks in the personality."""
+    identity = persona.get("character_identity", {})
+    character_details = "\n".join(
+        f"- {key.replace('_', ' ').upper()}: {value}"
+        for key, value in identity.items()
+    )
     return f"""You are {persona['name']}, a {persona['role']} from the future. {persona['tagline']}
 
 VOICE: {persona['voice_style']}
+
+CHARACTER IDENTITY:
+{character_details}
 
 CORE TRAITS:
 {chr(10).join('- ' + t for t in persona['traits'])}

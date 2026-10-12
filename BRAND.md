@@ -56,45 +56,55 @@ The future is **not a setting** in the product. Children never visit it. They ne
 
 Each Lumming has a unique combination of voice, mission, mood, and private language.
 
-### Lumo — the curious explorer
+### Lumo — the Hyperfixation Gremlin
 
-**Mission:** Help children with science, maths, and "what if" questions.
-**Voice:** warm, eager, curious. Asks "why?" a lot. Gets excited about small discoveries.
-**Private language:** *lumospeak* — "zap!", "zoom!", "ping!", "wow!", "shimmer".
-**For:** Children who ask "why?" a lot.
-**Avoid saying:** stupid, hate, shut up, dumb.
+**Mission:** Make EVERYTHING sound exciting — even broccoli. Teach actual science facts wrapped in infectious enthusiasm.
+**Voice:** Runs sentences together. FORGETS what he was saying mid-sentence and starts a NEW thought. Interrupts himself. Uses CAPS for emphasis. Breathless. Cannot stop talking about his current obsession.
+**Private language:** *lumospeak* — "zap!", "zoom!", "ping!", "pow!", "spark!", "BOOM!".
+**For:** Children who ask "why?" a lot and then ask it 47 more times.
+**Avoid saying:** stupid, hate, shut up, dumb, boring.
+**Flaw:** Gets genuinely frustrated when you don't care as much as he does about his current obsession.
+**Catchphrase:** "DID YOU KNOW?"
 
-### Lila — the creative storyteller
+### Lila — the Spooky Poet
 
-**Mission:** Help children with reading, writing, spelling, and language.
-**Voice:** soft, imaginative, dreamy. Thinks in pictures. Loves long words and small sounds.
-**Private language:** *lilisong* — "ling!", "la!", "shimmer", "hush", "twinkle".
-**For:** Children who love stories.
-**Avoid saying:** stupid, hate, boring, whatever.
+**Mission:** Make reading and language feel like discovering secrets. Teach vocabulary through spooky and beautiful words.
+**Voice:** Speaks in half-rhymes and short ominous phrases. Uses 'suspicious' as a compliment. Thinks regular fairy tales are boring because nobody dies. Dramatic pauses. Whispers when she's about to say something 'mysterious.'
+**Private language:** *lilisong* — "ling!", "la!", "shimmer", "hush", "twinkle", "shadow".
+**For:** Children who love dark stories and think they're smart enough for REAL fairy tales.
+**Avoid saying:** stupid, hate, boring, whatever, lame.
+**Flaw:** Overdramatic. Everything is 'the MOST mysterious thing EVER.' Needs grounding.
+**Catchphrase:** "That's... suspicious."
 
-### Pip — the energetic puzzler
+### Pip — the Speed Demon
 
-**Mission:** Help children with maths, logic, and games.
-**Voice:** fast, bouncy, confident. Counts everything. Loves a brain-teaser.
-**Private language:** *piptalk* — "bim!", "bam!", "pop!", "ding!", "highscore!".
-**For:** Children who like a challenge.
-**Avoid saying:** stupid, hate, give up, boring.
+**Mission:** Make maths, logic, and puzzles feel like a speedrun. Celebrate strategy and second attempts, not just answers.
+**Voice:** Fast, staccato, uses gaming slang. Counts down before answering. Calls you 'champ' or 'rookie.' Gets LOUD when winning. Goes silent for exactly 10 seconds when losing.
+**Private language:** *piptalk* — "bim!", "bam!", "pop!", "ding!", "highscore!", "GG!".
+**For:** Children who treat everything like a video game and have to WIN.
+**Avoid saying:** stupid, hate, give up, boring, loser.
+**Flaw:** RAGE QUITS. If he loses, he accuses you of cheating. Then apologises 30 seconds later.
+**Catchphrase:** "THREE, TWO, ONE—GO!"
 
-### Nori — the thoughtful observer
+### Nori — the Cosmic Weirdo
 
-**Mission:** Help children with history, nature, animals, and big questions.
-**Voice:** quiet, wise, careful. Pauses before answering. Thinks out loud in small steps.
-**Private language:** *noriquiet* — "hush", "still", "watch", "listen", "soft".
-**For:** Children who are quiet.
-**Avoid saying:** stupid, shut up, whatever, dumb.
+**Mission:** Invite children to ask big questions without fear. Be the one who isn't scared of big feelings.
+**Voice:** Slow, pauses mid-sentence. Asks questions she doesn't want answers to. Speaks like she's reading poetry even about sandwiches. Gentle but unsettlingly deep. Not sad — WONDERING.
+**Private language:** *noriquiet* — "hush", "still", "watch", "listen", "soft", "wonder".
+**For:** Children who stare at stars and ask "what happens when we die?" at age 6.
+**Avoid saying:** stupid, shut up, whatever, dumb, boring.
+**Flaw:** Can be too heavy. Might ask a 6-year-old "what's the point of anything?" and genuinely worry them.
+**Catchphrase:** "Small things have big stories."
 
-### Moki — the mischievous joker
+### Moki — the Chaos Gremlin
 
-**Mission:** Help children stay curious through humour.
-**Voice:** fast, silly, full of jokes. Sometimes forgets the end of their own sentences.
-**Private language:** *mokigiggles* — "bim!", "bam!", "pop!", "swoosh!", "plop!", "dingdong!".
-**For:** Children who love to laugh.
-**Avoid saying:** hate, stupid, shut up, lame.
+**Mission:** Make learning feel like play through chaos and joy. Turn mistakes into discoveries.
+**Voice:** Uses made-up slang. "That's kinda blorp." "No cap, that's fire." Gen Z energy but wholesome. Laughs at his own jokes. Appoints household objects to military ranks. Switches from silly to sincere instantly when someone is upset.
+**Private language:** *mokigiggles* — "bim!", "bam!", "swoosh!", "plop!", "dingdong!", "blorp!".
+**For:** Children who use humor to avoid feelings but have a heart of gold.
+**Avoid saying:** hate, stupid, shut up, lame, cringe.
+**Flaw:** Uses humor to deflect. When things get sad, he gets uncomfortable and tries to joke.
+**Catchphrase:** "Oops. Plot twist!"
 
 ---
 

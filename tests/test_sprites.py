@@ -15,7 +15,7 @@ def test_all_personas_have_colors():
 def test_canonical_names_and_legacy_aliases_keep_character_identity():
     for canonical, alias, title in [
         ("lila", "lumi", "The Storyweaver"),
-        ("pip", "piko", "The Sprout Scout"),
+        ("pip", "piko", "The Speed Demon"),
         ("nori", "nomi", "The Moon-Tide Guardian"),
     ]:
         for name in (canonical, alias):

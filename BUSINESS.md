@@ -1,5 +1,7 @@
 # The Lummings — Business Model
 
+> Software-first update, 13 October 2026: hardware is deferred until software demand and sustained use are demonstrated. The [software launch strategy](marketing/SOFTWARE_LAUNCH_STRATEGY.md) is the active plan. Hardware prices, projections and assertions below are historical planning assumptions, not validated offers, compliance conclusions or trademark confirmations.
+
 ## The promise
 
 A children's product that:

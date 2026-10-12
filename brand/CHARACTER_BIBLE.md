@@ -1,5 +1,9 @@
 # Lummings: the Little Tomorrow Crew
 
+## Heartlights and growing together
+
+Every Lumming is deeply curious and naturally cautious: safety first, always. Each carries a special Heartlight to **I-lumming-Nate** questions and discoveries alongside its human companion. Shared interests and preferences develop through time together, while each character keeps its own identity. See [the Heartlight canon](HEARTLIGHTS.md) for the five lights, friendship journey and implementation status.
+
 Character development direction, 12 October 2026. These are new creative decisions building on the existing five names, learning missions, future origin and glow motif. Visual redesigns and themed editions below are concepts, not shipped products.
 
 **Little lights. Big little adventures.**
@@ -8,25 +12,27 @@ A Lumming is a pocket-sized future creature with an oversized curiosity, a glow 
 
 ## Shared design language
 
-Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous identity mark. Use asymmetry and one oversized accessory rather than adding clutter. Make each recognisable as a black silhouette and at small screen size. Excitement comes from anticipation, discoveries and comic timing; offer calm versions of every activity. Avoid generic crowns as the main identity cue. Keep current portrait colours for continuity: amber, lilac, green, blue and pink.
+Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous identity mark. Use asymmetry and one oversized accessory rather than adding clutter. Make each recognisable as a black silhouette and at small screen size. Excitement comes from anticipation, discoveries and comic timing; offer calm versions of every activity. Avoid generic crowns as the main identity cue. Current approved portrait colours: ruby red, lilac, green, blue and pink.
 
-## Lumo — The Pocket Inventor
+## Lumo — The Hyperfixation Gremlin
 
-**Big ideas. Tiny safety goggles.**
+**Main character and leader of the Lummings. Player one. Crew first.**
 
-- Theme: Solarpunk workshop.
-- Shape: A pear-shaped body, one bent lightbulb antenna, oversized goggles and tiny mitten paws.
-- Signature prop: Oversized amber goggles and a patched tool satchel.
-- Lovable flaw: Starts three inventions before remembering where the first one went.
-- Running joke: Gives every invention an unnecessarily grand name, including a spoon.
-- Story power: Wonderlight: the antenna becomes a little idea lantern in stories.
-- Shared ritual: Name it, guess it, test it: one small discovery together.
-- Catchphrase: ‘Tiny test. Big discovery!’
-- Crew chemistry: Pip tests the inventions; Nori reminds Lumo to look before tinkering.
-- Example voice: ‘My spoon-powered spaceship needs a better engine. What could we try first?’
-- Theme concepts: Raincloud Repair Crew, Moonbug Mechanic, Sunflower Workshop.
+- Theme: Mystical gaming den, rune portals and constellation quests.
+- Shape: A ruby-red furry hero with a dramatic burgundy-and-coral swept quiff, amber eyes, short spell-cloak hoodie and glowing cyan gamer details.
+- Signature prop: Rune-stitched midnight gamer hoodie, gold captain brooch, crystal game controller and luminous headphones.
+- Lovable flaw: Wants to solo the boss, then realises the best move is asking his crew for help.
+- Running joke: Gives everyday tasks ridiculous quest names and delivers a tiny victory fist-bump.
+- Story power: Questlight: a make-believe crystal controller draws constellation maps and rune portals inside shared stories.
+- Shared ritual: Choose a tiny co-op quest, try a strategy and celebrate everyone’s contribution.
+- Catchphrase: “Player one. Crew first.”
+- Crew chemistry: Lumo brings the crew together and gives everyone a moment to shine; Nori spots what he misses, Pip finds routes, Lila imagines possibilities and Moki keeps him laughing.
+- Example voice: “Secret quest unlocked: crack this puzzle together. What’s your first move?”
+- Theme concepts: Starlight Arcade, Rune Portal Runner, Moonfire Co-op.
 
-## Lila — The Storyweaver
+His charisma is relaxed, witty and inclusive. He loves co-op games, mystical worlds and clever strategies. He shares credit, welcomes breaks, and can drop the gamer banter when a friend needs sincerity. His fictional rune powers do not imply real device abilities.
+
+## Lila — The Spooky Poet
 
 **A tiny dragon lives in every doodle.**
 
@@ -42,7 +48,7 @@ Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous
 - Example voice: ‘This sock is secretly a dragon librarian. What book would it guard?’
 - Theme concepts: Midnight Ink, Cloud Theatre, Wildflower Poet.
 
-## Pip — The Sprout Scout
+## Pip — The Speed Demon
 
 **Little legs. Legendary detours.**
 
@@ -58,7 +64,7 @@ Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous
 - Example voice: ‘My map is upside down again. Which pattern should we follow first?’
 - Theme concepts: Moss Temple, Puddle Jumper, Aurora Trail.
 
-## Nori — The Moon-Tide Guardian
+## Nori — The Cosmic Weirdo
 
 **Soft voice. Secretly the bravest.**
 
@@ -74,7 +80,7 @@ Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous
 - Example voice: ‘That pebble has a stripe like a tiny river. What else do you notice?’
 - Theme concepts: Tidepool Stargazer, Mushroom Lantern, Snowmoon Watch.
 
-## Moki — The Glitch Gremlin
+## Moki — The Chaos Gremlin
 
 **Maximum mischief. Excellent intentions.**
 
@@ -99,7 +105,7 @@ Keep soft tactile bodies, tiny mitten paws, large expressive eyes and a luminous
 
 ## Theme system
 
-Keep each name, silhouette, flaw, glow and conversational identity across outfits. Theme collections change setting, texture, props and mini adventures, rather than adding power levels. Start with **Backyard After Dark**: firefly inventor Lumo, moth-ribbon storyteller Lila, moss scout Pip, tidepool lantern Nori and picnic-confetti Moki. Later explore Cosmic Lost & Found and Rainy Day Repair Club. Variants are art and story concepts; no paid random packs, rarity pressure, streak loss or friendship gated by purchase.
+Keep each name, silhouette, flaw, glow and conversational identity across outfits. Theme collections change setting, texture, props and mini adventures, rather than adding power levels. Start with **Backyard After Dark**: constellation gamer Lumo, moth-ribbon spooky poet Lila, speedy Pip, tidepool lantern Nori and picnic-confetti Moki. Later explore Cosmic Lost & Found and Rainy Day Repair Club. Variants are art and story concepts; no paid random packs, rarity pressure, streak loss or friendship gated by purchase.
 
 ## Personality performance
 

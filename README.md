@@ -2,6 +2,10 @@
 
 > Little friends from a brighter tomorrow.
 
+**Current direction:** software first; hardware comes later if demand and sustained use justify it. See the [software launch strategy](marketing/SOFTWARE_LAUNCH_STRATEGY.md) for positioning, campaigns, the parent-led funnel and validation milestones. Hardware descriptions below are the longer-term concept.
+
+Open [Lummings-Artwork.html](Lummings-Artwork.html) for the complete local gallery; the ten final campaign PNGs are also saved directly in this project folder. Lumo is now the ruby-red mystical gamer leader.
+
 Meet the [Little Tomorrow Crew](docs/marketing/tomorrow-crew.html): new character themes, lovable flaws, signature looks and shared adventures. Development details live in the [character bible](brand/CHARACTER_BIBLE.md).
 
 An open-source smart-toy platform. Each **Lumming** is a small character from the future who lives on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no telemetry, no subscription.

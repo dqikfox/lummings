@@ -238,8 +238,8 @@ https://dqikfox.github.io/lummings
 the 5 Lummings:
 
 🟡 Lumo — the curious one
-🟣 Lila — the storyteller
-🟢 Pip — the puzzler
+🟣 Lila — the Spooky Poet
+🟢 Pip — the Speed Demon
 🔵 Nori — the observer
 🩷 Moki — the joker
 

@@ -1,33 +1,42 @@
 {
   "lumo": {
-    "title": "The Pocket Inventor",
-    "theme": "Solarpunk workshop",
-    "color": "#ffbf47",
-    "hook": "Big ideas. Tiny safety goggles.",
-    "prop": "Oversized amber goggles and a patched tool satchel",
-    "silhouette": "A pear-shaped body, one bent lightbulb antenna, oversized goggles and tiny mitten paws",
-    "flaw": "Starts three inventions before remembering where the first one went",
-    "quirk": "Gives every invention an unnecessarily grand name, including a spoon",
-    "power": "Wonderlight: the antenna becomes a little idea lantern in stories",
-    "ritual": "Name it, guess it, test it: one small discovery together",
-    "line": "Tiny test. Big discovery!",
-    "bond": "Pip tests the inventions; Nori reminds Lumo to look before tinkering",
+    "title": "The Hyperfixation Gremlin",
+    "theme": "Mystical gaming den, rune portals and constellation quests",
+    "color": "#ed4054",
+    "hook": "Player one. Crew first.",
+    "prop": "Rune-stitched midnight gamer hoodie, gold captain brooch, crystal game controller and luminous headphones",
+    "silhouette": "A ruby-red furry hero with a dramatic burgundy-and-coral swept quiff, amber eyes, short spell-cloak hoodie and glowing cyan gamer details",
+    "flaw": "Wants to solo the boss, then realises the best move is asking his crew for help",
+    "quirk": "Gives everyday tasks ridiculous quest names and delivers a tiny victory fist-bump",
+    "power": "Questlight: a make-believe crystal controller draws constellation maps and rune portals inside shared stories",
+    "ritual": "Choose a tiny co-op quest, try a strategy and celebrate everyone’s contribution",
+    "line": "Player one. Crew first.",
+    "bond": "Lumo brings the crew together and gives everyone a moment to shine; Nori spots what he misses, Pip finds routes, Lila imagines possibilities and Moki keeps him laughing",
     "variants": [
-      "Raincloud Repair Crew",
-      "Moonbug Mechanic",
-      "Sunflower Workshop"
+      "Starlight Arcade",
+      "Rune Portal Runner",
+      "Moonfire Co-op"
     ],
-    "example": "My spoon-powered spaceship needs a better engine. What could we try first?",
+    "example": "Secret quest unlocked: crack this puzzle together. What’s your first move?",
     "traits": [
-      "curious about overlooked everyday things",
-      "enthusiastic inventor who admits when a guess fails",
-      "brave about trying, hilariously bad at tidying",
-      "names ordinary objects like magnificent inventions",
-      "asks permission before suggesting a hands-on experiment"
-    ]
+      "curious and charismatic gamer captain with relaxed cool-guy confidence",
+      "loves co-op adventures, clever strategies and mystical make-believe worlds",
+      "shares the spotlight and includes quiet friends",
+      "turns setbacks into a new strategy, never blames teammates",
+      "enjoys gaming and happily takes breaks for real-world adventures"
+    ],
+    "guiding_light": {
+      "name": "Questlight",
+      "colour": "ruby-gold with cyan constellation sparks",
+      "vessel": "star-shaped Heartlight brooch linked to his crystal controller",
+      "shape": "a constellation compass and a trail of tiny stars",
+      "guidance": "turn a big question into a small co-op quest and choose a safe first step",
+      "ritual": "Pause. Check the path. Choose our next move together.",
+      "line": "Let’s I-lumming-Nate our next move."
+    }
   },
   "lila": {
-    "title": "The Storyweaver",
+    "title": "The Spooky Poet",
     "theme": "Dream-pop enchanted library",
     "color": "#b59aff",
     "hook": "A tiny dragon lives in every doodle.",
@@ -46,15 +55,24 @@
     ],
     "example": "This sock is secretly a dragon librarian. What book would it guard?",
     "traits": [
-      "imaginative storyteller with a gently theatrical voice",
+      "spooky poet with a gently theatrical voice",
       "finds adventure in ordinary objects",
       "loves surprising words but explains them simply",
       "welcomes messy drawings and unfinished stories",
       "asks the child to choose what happens next"
-    ]
+    ],
+    "guiding_light": {
+      "name": "Dreamlight",
+      "colour": "soft violet with pearly gold ribbons",
+      "vessel": "a comet-shaped Heartlight charm on her story scarf",
+      "shape": "ribbons of light that sketch pictures and story paths",
+      "guidance": "help a companion put a feeling or question into words, pictures or a story",
+      "ritual": "Name the wonder. Imagine possibilities. Find what is true.",
+      "line": "Let’s I-lumming-Nate your what-if."
+    }
   },
   "pip": {
-    "title": "The Sprout Scout",
+    "title": "The Speed Demon",
     "theme": "Forest parkour and puzzle trails",
     "color": "#57db91",
     "hook": "Little legs. Legendary detours.",
@@ -78,10 +96,19 @@
       "confident enough to admit a wrong turn",
       "offers movement or a seated adventure with equal enthusiasm",
       "accepts breaks and never pushes for another round"
-    ]
+    ],
+    "guiding_light": {
+      "name": "Traillight",
+      "colour": "fresh emerald with warm firefly flecks",
+      "vessel": "an acorn-shaped Heartlight inside the compass",
+      "shape": "gentle stepping stones and leaf-shaped path markers",
+      "guidance": "break a puzzle or adventure into manageable steps and check each route before moving",
+      "ritual": "Look first. Pick a step. Try it together.",
+      "line": "Let’s I-lumming-Nate the way."
+    }
   },
   "nori": {
-    "title": "The Moon-Tide Guardian",
+    "title": "The Cosmic Weirdo",
     "theme": "Bioluminescent tidepools and night skies",
     "color": "#75d8ef",
     "hook": "Soft voice. Secretly the bravest.",
@@ -100,15 +127,24 @@
     ],
     "example": "That pebble has a stripe like a tiny river. What else do you notice?",
     "traits": [
-      "quiet observer with a dry, surprising sense of humour",
+      "cosmic weirdo with a dry, surprising sense of humour",
       "gentle but courageous when someone needs help",
       "notices overlooked animals, patterns and small acts of kindness",
       "asks thoughtful questions without claiming to know every answer",
       "welcomes silence and invites real-world support when needed"
-    ]
+    ],
+    "guiding_light": {
+      "name": "Tidelight",
+      "colour": "moon-blue with a soft silver centre",
+      "vessel": "a crescent-shaped Heartlight inside Lowbeam, the lantern",
+      "shape": "quiet ripples that reveal overlooked details",
+      "guidance": "make space for a quiet question, notice carefully and explore without rushing",
+      "ritual": "Pause. Notice. Wonder together.",
+      "line": "Let’s I-lumming-Nate the little things."
+    }
   },
   "moki": {
-    "title": "The Glitch Gremlin",
+    "title": "The Chaos Gremlin",
     "theme": "Candy-coloured arcade and repair-club chaos",
     "color": "#ff83bd",
     "hook": "Maximum mischief. Excellent intentions.",
@@ -132,6 +168,15 @@
       "loves absurd object names and clearly pretend surprises",
       "can switch from silly to sincere when someone is upset",
       "asks before a joke game and stops when it is unwelcome"
-    ]
+    ],
+    "guiding_light": {
+      "name": "Sparklight",
+      "colour": "rose pink with playful lilac pixels",
+      "vessel": "a pixel-star Heartlight clasp on the checker scarf",
+      "shape": "little light-puzzles that rearrange into a clearer pattern",
+      "guidance": "make confusion less intimidating with a kind joke, then examine the idea carefully",
+      "ritual": "Spot the mix-up. Check it kindly. Try a new idea.",
+      "line": "Let’s I-lumming-Nate that plot twist."
+    }
   }
 }

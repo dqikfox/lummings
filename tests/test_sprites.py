@@ -12,6 +12,34 @@ def test_all_personas_have_colors():
             assert c[key].startswith("#")
 
 
+def test_canonical_names_and_legacy_aliases_keep_character_identity():
+    for canonical, alias, title in [
+        ("lila", "lumi", "The Storyweaver"),
+        ("pip", "piko", "The Sprout Scout"),
+        ("nori", "nomi", "The Moon-Tide Guardian"),
+    ]:
+        for name in (canonical, alias):
+            svg = render(name, "curious", size=120)
+            assert title in svg
+            assert 'width="120" height="120"' in svg
+            assert "The Pocket Inventor" not in svg
+
+
+def test_blink_and_glow_options_still_affect_artwork():
+    normal = Sprite("lumo").to_svg()
+    blinking = Sprite("lumo", blink=True).to_svg()
+    unlit = Sprite("lumo", glow=False).to_svg()
+    assert normal != blinking
+    import xml.etree.ElementTree as ET
+    def open_eyes(svg):
+        return [e for e in ET.fromstring(svg).iter()
+                if e.tag.endswith('ellipse') and e.get('fill') == '#25334a']
+    assert len(open_eyes(normal)) == 2
+    assert len(open_eyes(blinking)) == 0
+    assert '<circle cx="120" cy="126"' in normal
+    assert '<circle cx="120" cy="126"' not in unlit
+
+
 def test_sprite_renders_for_each_persona():
     for persona in PERSONA_COLORS:
         s = Sprite(persona=persona, mood="curious", size=240)

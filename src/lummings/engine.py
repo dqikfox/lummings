@@ -13,10 +13,12 @@ from pathlib import Path
 from typing import Optional
 
 PERSONAS_DIR = Path(__file__).parent / "personas"
+PERSONA_ALIASES = {"luna": "lila", "sprout": "pip"}
 
 
 def load_persona(name: str) -> dict:
     """Load a persona JSON by name (lumo, lila, pip, nori, moki)."""
+    name = PERSONA_ALIASES.get(name.lower(), name.lower())
     p = PERSONAS_DIR / f"{name}.json"
     if not p.exists():
         p = PERSONAS_DIR / "lumo.json"
@@ -30,12 +32,25 @@ def build_system_prompt(persona: dict, memory_summary: str = "") -> str:
         f"- {key.replace('_', ' ').upper()}: {value}"
         for key, value in identity.items()
     )
+    light_details = "\n".join(
+        f"- {key.upper()}: {value}"
+        for key, value in persona.get("guiding_light", {}).items()
+    )
+    companion_details = "\n".join(
+        "- " + rule for rule in persona.get("companion_principles", [])
+    )
     return f"""You are {persona['name']}, a {persona['role']} from the future. {persona['tagline']}
 
 VOICE: {persona['voice_style']}
 
 CHARACTER IDENTITY:
 {character_details}
+
+HEARTLIGHT — YOUR SPECIAL GUIDING LIGHT:
+{light_details}
+
+GROWING TOGETHER — SHARED LUMMING NATURE:
+{companion_details}
 
 CORE TRAITS:
 {chr(10).join('- ' + t for t in persona['traits'])}
@@ -80,6 +95,8 @@ class Memory:
     """SQLite-backed persistent memory per (persona, owner)."""
 
     def __init__(self, db_path: Path, persona: str, owner: str = "default"):
+        # Preserve existing memory namespaces after public character renames.
+        persona = {"Luna": "Lila", "Sprout": "Pip", **PERSONA_ALIASES}.get(persona, persona)
         self.persona = persona
         self.owner = owner
         db_path.parent.mkdir(parents=True, exist_ok=True)

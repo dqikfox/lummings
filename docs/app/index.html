@@ -203,7 +203,19 @@ const MAGIC_KEYWORDS = ['transform', 'turn into', 'become', 'change to', 'make i
 
 let activeView = 'home';
 let currentChatLumming = null;
+let currentChatName = null;
 let isCreating = false;
+
+// API endpoint - change this if your Lummings server runs elsewhere
+const API_BASE = 'http://127.0.0.1:8511';
+
+// Track whether API is available
+let apiAvailable = false;
+
+// Test API on load
+fetch(`${API_BASE}/ui`, { method: 'HEAD', mode: 'no-cors' })
+    .then(() => { apiAvailable = true; })
+    .catch(() => { apiAvailable = false; });
 
 document.addEventListener('DOMContentLoaded', () => {
     generateFeed();
@@ -276,11 +288,31 @@ function openChat(name) {
     const lumming = LUMINARIES[name];
     if (!lumming) return;
     currentChatLumming = lumming;
+    currentChatName = name.toLowerCase();
     showView('chat');
     document.getElementById('chat-name').innerText = name;
     document.getElementById('chat-avatar').src = lumming.avatar;
     const scroller = document.getElementById('message-scroller');
-    scroller.innerHTML = `<div class="msg msg-lummings"><img src="${lumming.avatar}"><span>Hey! I am ${name}. What are we imagining today? Try: "Transform into a dragon!" 🐉</span></div>`;
+    scroller.innerHTML = '';
+
+    if (apiAvailable) {
+        // Fetch a real greeting from the character
+        fetch(`${API_BASE}/chat`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({persona: currentChatName, message: `Say hello to a new friend in your own voice.`})
+        })
+        .then(r => r.json())
+        .then(data => {
+            const reply = data.reply || data.error || `Hey! I'm ${name}. What are we imagining today?`;
+            appendMessage(reply, 'lummings');
+        })
+        .catch(() => {
+            appendMessage(`Hey! I'm ${name}. What are we imagining today? Try: "Transform into a dragon!" 🐉`, 'lummings');
+        });
+    } else {
+        appendMessage(`Hey! I'm ${name}. What are we imagining today? Try: "Transform into a dragon!" 🐉`, 'lummings');
+    }
 }
 
 function sendMessage() {
@@ -290,18 +322,45 @@ function sendMessage() {
     appendMessage(text, 'user');
     input.value = '';
 
-    setTimeout(() => {
-        const lower = text.toLowerCase();
-        let isMagic = MAGIC_KEYWORDS.some(k => lower.includes(k));
-        let extract = extractTransformationTarget(text);
-        if (isMagic && extract) {
-            performTransformation(extract);
-        } else if (lower.includes('scene') || lower.includes('world') || lower.includes('imagine')) {
-            startSceneryGeneration(text);
-        } else {
-            appendMessage("That sounds wonderful! Keep the story going...", 'lummings');
-        }
-    }, 700);
+    if (apiAvailable && currentChatName) {
+        const btn = document.querySelector('button[onclick="sendMessage()"]');
+        if (btn) { btn.disabled = true; btn.style.opacity = '0.5'; }
+
+        fetch(`${API_BASE}/chat`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({persona: currentChatName, message: text})
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.error) {
+                appendMessage(`(connection issue: ${data.error})`, 'lummings');
+            } else if (data.reply) {
+                appendMessage(data.reply, 'lummings');
+            } else {
+                appendMessage("(silent)", 'lummings');
+            }
+        })
+        .catch(err => {
+            appendMessage(`(couldn't reach the Lummings server — is it running on ${API_BASE}?)`, 'lummings');
+        })
+        .finally(() => {
+            if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+        });
+    } else {
+        setTimeout(() => {
+            const lower = text.toLowerCase();
+            let isMagic = MAGIC_KEYWORDS.some(k => lower.includes(k));
+            let extract = extractTransformationTarget(text);
+            if (isMagic && extract) {
+                performTransformation(extract);
+            } else if (lower.includes('scene') || lower.includes('world') || lower.includes('imagine')) {
+                startSceneryGeneration(text);
+            } else {
+                appendMessage("That sounds wonderful! Keep the story going...", 'lummings');
+            }
+        }, 700);
+    }
 }
 
 function extractTransformationTarget(text) {

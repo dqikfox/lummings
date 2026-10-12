@@ -227,12 +227,31 @@ def main():
             self.end_headers()
             self.wfile.write(json.dumps(body).encode())
 
+        def _serve_file(self, path, content_type="text/html"):
+            try:
+                with open(path, "rb") as f:
+                    data = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", content_type)
+                self.end_headers()
+                self.wfile.write(data)
+            except Exception:
+                self.send_response(404)
+                self.send_header("Content-Type", "text/plain")
+                self.end_headers()
+                self.wfile.write(b"not found")
+
         def do_GET(self):
             if self.path in ("/", "/ui"):
-                self.send_response(200)
-                self.send_header("Content-Type", "text/html")
-                self.end_headers()
-                self.wfile.write(HTML.encode())
+                # Serve the polished app from docs/app/index.html if available
+                app_path = Path(__file__).parent.parent.parent.parent / "docs" / "app" / "index.html"
+                if app_path.exists():
+                    self._serve_file(str(app_path), "text/html")
+                else:
+                    self.send_response(200)
+                    self.send_header("Content-Type", "text/html")
+                    self.end_headers()
+                    self.wfile.write(HTML.encode())
             elif self.path.startswith("/persona/"):
                 name = self.path.split("/")[-1]
                 self._send(200, load_persona(name))

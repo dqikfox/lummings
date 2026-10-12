@@ -32,7 +32,11 @@ def chat(base_url: str, model: str, system: str, user: str, history=None,
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             data = json.loads(r.read())
-            return {"ok": True, "content": data["choices"][0]["message"]["content"]}
+            msg = data["choices"][0]["message"]
+            content = msg.get("content", "")
+            if not content:
+                content = msg.get("reasoning", "")
+            return {"ok": True, "content": content}
     except Exception as e:
         return {"ok": False, "error": str(e)[:120]}
 
@@ -46,9 +50,9 @@ FACES = {
 
 def main():
     ap = argparse.ArgumentParser(description="Talk to a Lumming in the terminal")
-    ap.add_argument("--persona", default="lumo", choices=["lumo", "lumi", "piko", "nomi", "moki"])
+    ap.add_argument("--persona", default="lumo", choices=["lumo", "lila", "pip", "nori", "moki"])
     ap.add_argument("--base-url", default="http://127.0.0.1:11434/v1")
-    ap.add_argument("--model", default="qwen2.5-3b-instruct")
+    ap.add_argument("--model", default="starscream-64k")
     ap.add_argument("--db", default="./lummings.sqlite")
     args = ap.parse_args()
 

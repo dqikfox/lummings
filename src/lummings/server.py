@@ -258,7 +258,7 @@ def main():
             history = [{"role": e["role"], "content": e["text"]} for e in st["memory"].recent_events(6)]
             sys_prompt = build_system_prompt(persona, memory_summary=st["memory"].summarize())
             r = chat(body.get("base_url", "http://127.0.0.1:11434/v1"),
-                     body.get("model", "qwen2.5-3b-instruct"),
+                     body.get("model", "starscream-64k"),
                      sys_prompt, user_msg, history=history)
             if not r["ok"]:
                 self._send(502, {"error": r["error"]})

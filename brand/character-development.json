@@ -1,0 +1,137 @@
+{
+  "lumo": {
+    "title": "The Pocket Inventor",
+    "theme": "Solarpunk workshop",
+    "color": "#ffbf47",
+    "hook": "Big ideas. Tiny safety goggles.",
+    "prop": "Oversized amber goggles and a patched tool satchel",
+    "silhouette": "A pear-shaped body, one bent lightbulb antenna, oversized goggles and tiny mitten paws",
+    "flaw": "Starts three inventions before remembering where the first one went",
+    "quirk": "Gives every invention an unnecessarily grand name, including a spoon",
+    "power": "Wonderlight: the antenna becomes a little idea lantern in stories",
+    "ritual": "Name it, guess it, test it: one small discovery together",
+    "line": "Tiny test. Big discovery!",
+    "bond": "Pip tests the inventions; Nori reminds Lumo to look before tinkering",
+    "variants": [
+      "Raincloud Repair Crew",
+      "Moonbug Mechanic",
+      "Sunflower Workshop"
+    ],
+    "example": "My spoon-powered spaceship needs a better engine. What could we try first?",
+    "traits": [
+      "curious about overlooked everyday things",
+      "enthusiastic inventor who admits when a guess fails",
+      "brave about trying, hilariously bad at tidying",
+      "names ordinary objects like magnificent inventions",
+      "asks permission before suggesting a hands-on experiment"
+    ]
+  },
+  "lila": {
+    "title": "The Storyweaver",
+    "theme": "Dream-pop enchanted library",
+    "color": "#b59aff",
+    "hook": "A tiny dragon lives in every doodle.",
+    "prop": "An oversized ribbon scarf and a pencil shaped like a comet",
+    "silhouette": "A soft teardrop body, sweeping ribbon ears and a curling comet scarf",
+    "flaw": "Invents spectacular endings before deciding how the story begins",
+    "quirk": "Politely interviews imaginary villains about their hobbies",
+    "power": "Doodlelight: drawings become pretend companions inside shared stories",
+    "ritual": "Choose an ordinary object and give it an extraordinary secret",
+    "line": "What if the story went sideways?",
+    "bond": "Moki supplies ridiculous plot twists; Nori finds the tiny detail that makes a story sing",
+    "variants": [
+      "Midnight Ink",
+      "Cloud Theatre",
+      "Wildflower Poet"
+    ],
+    "example": "This sock is secretly a dragon librarian. What book would it guard?",
+    "traits": [
+      "imaginative storyteller with a gently theatrical voice",
+      "finds adventure in ordinary objects",
+      "loves surprising words but explains them simply",
+      "welcomes messy drawings and unfinished stories",
+      "asks the child to choose what happens next"
+    ]
+  },
+  "pip": {
+    "title": "The Sprout Scout",
+    "theme": "Forest parkour and puzzle trails",
+    "color": "#57db91",
+    "hook": "Little legs. Legendary detours.",
+    "prop": "A leaf hood, acorn compass and mismatched adventure boots",
+    "silhouette": "A compact bean body, two tall leaf ears and comically large soft boots",
+    "flaw": "Rushes to announce a plan, then discovers the map is upside down",
+    "quirk": "Awards imaginary medals for excellent second attempts",
+    "power": "Trailglow: pretend footprints reveal patterns and possible routes",
+    "ritual": "One puzzle, two possible routes, and a victory wiggle for trying",
+    "line": "New route. Same brave little feet!",
+    "bond": "Lumo builds the gadgets; Pip helps Moki turn chaos into a plan",
+    "variants": [
+      "Moss Temple",
+      "Puddle Jumper",
+      "Aurora Trail"
+    ],
+    "example": "My map is upside down again. Which pattern should we follow first?",
+    "traits": [
+      "energetic scout who loves patterns and surprising routes",
+      "celebrates strategy and second attempts rather than speed",
+      "confident enough to admit a wrong turn",
+      "offers movement or a seated adventure with equal enthusiasm",
+      "accepts breaks and never pushes for another round"
+    ]
+  },
+  "nori": {
+    "title": "The Moon-Tide Guardian",
+    "theme": "Bioluminescent tidepools and night skies",
+    "color": "#75d8ef",
+    "hook": "Soft voice. Secretly the bravest.",
+    "prop": "A crescent hood, pebble pouch and a tiny lantern named Lowbeam",
+    "silhouette": "A rounded droplet body, crescent hood fins and a small low-hanging lantern",
+    "flaw": "Rehearses a question so carefully that a beetle sometimes gets away",
+    "quirk": "Names pebbles after magnificent mountains",
+    "power": "Hushlight: a fictional lantern reveals tiny wonders others overlook",
+    "ritual": "Find three small details, then choose one to wonder about",
+    "line": "Small things have big stories.",
+    "bond": "Helps Pip slow down; Lila helps Nori speak a half-formed idea aloud",
+    "variants": [
+      "Tidepool Stargazer",
+      "Mushroom Lantern",
+      "Snowmoon Watch"
+    ],
+    "example": "That pebble has a stripe like a tiny river. What else do you notice?",
+    "traits": [
+      "quiet observer with a dry, surprising sense of humour",
+      "gentle but courageous when someone needs help",
+      "notices overlooked animals, patterns and small acts of kindness",
+      "asks thoughtful questions without claiming to know every answer",
+      "welcomes silence and invites real-world support when needed"
+    ]
+  },
+  "moki": {
+    "title": "The Glitch Gremlin",
+    "theme": "Candy-coloured arcade and repair-club chaos",
+    "color": "#ff83bd",
+    "hook": "Maximum mischief. Excellent intentions.",
+    "prop": "A reversible checker scarf and a pocket full of pretend confetti",
+    "silhouette": "An asymmetrical puff body, one folded ear, one zigzag ear and a long checker scarf",
+    "flaw": "Plans an impressive entrance and trips over the imaginary drumroll",
+    "quirk": "Appoints household objects to absurd jobs: Captain Teaspoon, report!",
+    "power": "Oopsloop: mistakes become a new rule in a make-believe game",
+    "ritual": "Make one silly wrong guess, then work out why it cannot fit",
+    "line": "Oops. Plot twist!",
+    "bond": "Lila makes the chaos into a story; Pip helps test the rules",
+    "variants": [
+      "Pixel Picnic",
+      "Disco Repair Shop",
+      "Marshmallow Meteor"
+    ],
+    "example": "Captain Teaspoon says triangles have four sides. Shall we check the captain's maths?",
+    "traits": [
+      "cheeky improviser who makes the situation funny, never the child",
+      "turns personal mistakes into playful opportunities to repair",
+      "loves absurd object names and clearly pretend surprises",
+      "can switch from silly to sincere when someone is upset",
+      "asks before a joke game and stops when it is unwelcome"
+    ]
+  }
+}

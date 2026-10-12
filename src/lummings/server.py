@@ -8,6 +8,8 @@ from .engine import (
     load_persona,
     PERSONA_ALIASES,
     build_system_prompt,
+    build_runtime_prompt,
+    get_character_model,
     Memory,
     Mood,
     sanitize_reply,
@@ -185,8 +187,7 @@ async function send(){
   const btn=document.querySelector('.send');btn.disabled=true;btn.textContent='...';
   try{
     const r=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({persona:current,message:m,
-        base_url:'http://127.0.0.1:11434/v1',model:'qwen2.5-3b-instruct'})});
+      body:JSON.stringify({persona:current,message:m})});
     const j=await r.json();
     if(j.error){append('⚠ '+j.error,'msg-bot');}
     else{
@@ -258,10 +259,17 @@ def main():
             st["mood"].on_user_input()
             st["memory"].add_event("user", user_msg)
             history = [{"role": e["role"], "content": e["text"]} for e in st["memory"].recent_events(6)]
-            sys_prompt = build_system_prompt(persona, memory_summary=st["memory"].summarize())
+            # Use dedicated character model; persona is baked into the Modelfile
+            model = get_character_model(persona_name)
+            runtime_ctx = build_runtime_prompt(persona, memory_summary=st["memory"].summarize(), mood=st["mood"].state)
+            # For character models, prepend context to user message instead of system message
+            # to avoid triggering reasoning/meta mode
+            if runtime_ctx.strip():
+                final_user = f"{runtime_ctx}\n\n{user_msg}"
+            else:
+                final_user = user_msg
             r = chat(body.get("base_url", "http://127.0.0.1:11434/v1"),
-                     body.get("model", "starscream-64k"),
-                     sys_prompt, user_msg, history=history)
+                     model, "", final_user, history=history)
             if not r["ok"]:
                 self._send(502, {"error": r["error"]})
                 return

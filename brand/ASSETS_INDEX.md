@@ -49,3 +49,13 @@ High-res PNG masters: lumo, luna/lila, moki, nori, pip
 - brand/intros/ — per-character intro videos
 - brand/plush/, brand/dashboard/, brand/gtm/
 - Root portraits + scene-*.png
+
+## App mockups (updated)
+| File | Screen |
+|------|--------|
+| 06-onboarding-welcome.jpg | Onboarding welcome |
+| 07-onboarding-pick-friend.jpg | Pick first Lumming |
+| 08-onboarding-parent-safety.jpg | Parent safety gate |
+| 09-talk-mode.jpg | Talk / voice mode |
+
+Full app design: `docs/app/APP_DESIGN.md`

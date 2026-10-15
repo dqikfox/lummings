@@ -1,0 +1,214 @@
+{
+  "id": "growing_together_001",
+  "title": "The Night Forest Awakens",
+  "subtitle": "A first Heartlight adventure",
+  "synopsis": "The Little Tomorrow Crew finds a dim lantern path in the Night Forest. Together you learn what a Heartlight really is — not a pet, not a separate creature, but the glowing essence of who each Lumming is — and you take your first safe steps of Growing Together.",
+  "estimated_minutes": 6,
+  "crew": ["lumo", "lila", "pip", "nori", "moki"],
+  "start": "wake",
+  "completion_bond_xp": 45,
+  "completion_shards": 4,
+  "nodes": [
+    {
+      "id": "wake",
+      "title": "Soft glow between the mushrooms",
+      "speaker": "narrator",
+      "mood": "wonder",
+      "body": "Fireflies drift like tiny punctuation marks. Five small friends stand on a wooden path: Lumo with his crystal controller, Lila with her story scarf, Pip with an acorn compass, Nori with Lowbeam the lantern, and Moki bouncing on pixel toes.\n\nA quieter light flickers ahead — a trail that forgot how to shine.",
+      "choices": [
+        {
+          "id": "c_look",
+          "label": "Look carefully first (Pip would approve)",
+          "next": "look",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We looked before we leaped.",
+          "line": "Look first. Pick a step. Try it together."
+        },
+        {
+          "id": "c_ask",
+          "label": "Ask the crew what they notice",
+          "next": "council",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We asked the crew before deciding.",
+          "line": "Let’s I-lumming-Nate our next move."
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "title": "Traillight steps",
+      "speaker": "pip",
+      "mood": "steady",
+      "body": "Pip holds up the acorn compass. Traillight paints soft leaf-shaped markers on the path.\n\n“See? Three safe steps. The middle one is a little wobbly — that’s okay if we go slow. Rushing is how fireflies bump their noses.”",
+      "choices": [
+        {
+          "id": "c_slow",
+          "label": "Take the path one step at a time",
+          "next": "lantern",
+          "bond_xp": 10,
+          "memory": "We walked the Night Forest path carefully with Pip."
+        },
+        {
+          "id": "c_council2",
+          "label": "Call the others over first",
+          "next": "council",
+          "bond_xp": 6
+        }
+      ]
+    },
+    {
+      "id": "council",
+      "title": "Crew circle",
+      "speaker": "lumo",
+      "mood": "captain",
+      "body": "Lumo taps the crystal controller. Questlight sparks like a tiny constellation.\n\n“Player one — that’s you. Crew first. We don’t split up in a dim forest. We co-op.”\n\nLila smiles. “Maybe the dim light is a feeling, not a monster.”\nNori whispers, “Or a question that wants quiet.”\nMoki grins. “Or a plot twist with sparkles!”",
+      "choices": [
+        {
+          "id": "c_feeling",
+          "label": "Wonder if the dim light is a feeling (with Lila)",
+          "next": "dream",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "We treated the dim light like a feeling, not a foe."
+        },
+        {
+          "id": "c_quiet",
+          "label": "Approach quietly with Nori",
+          "next": "tide",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "We practiced quiet noticing with Nori."
+        },
+        {
+          "id": "c_joke",
+          "label": "Let Moki make the fear smaller with a kind joke",
+          "next": "spark",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "Moki helped us laugh the wobble away — kindly."
+        }
+      ]
+    },
+    {
+      "id": "dream",
+      "title": "Dreamlight ribbons",
+      "speaker": "lila",
+      "mood": "gentle",
+      "body": "Lila’s Dreamlight unfurls violet-gold ribbons that sketch pictures in the air: a worried lantern, a child holding a friend’s hand, a heart that glows from the inside.\n\n“A Heartlight isn’t a pet you chase,” she says softly. “It’s who we are — our essence. When it dims, we don’t scold it. We name the wonder… then find what is true.”",
+      "choices": [
+        {
+          "id": "c_name",
+          "label": "Name the wonder: “The forest feels shy tonight.”",
+          "next": "lantern",
+          "bond_xp": 12,
+          "memory": "We named the Night Forest’s shy feeling."
+        }
+      ]
+    },
+    {
+      "id": "tide",
+      "title": "Tidelight ripples",
+      "speaker": "nori",
+      "mood": "calm",
+      "body": "Nori lifts Lowbeam. Tidelight makes quiet ripples on the wood. Tiny details appear: a snail trail, a soft moth, a single bead of dew.\n\n“Big bright is not the only brave,” Nori murmurs. “Little true is brave too. Pause. Notice. Wonder together.”",
+      "choices": [
+        {
+          "id": "c_dew",
+          "label": "Notice the dew and keep going gently",
+          "next": "lantern",
+          "bond_xp": 12,
+          "memory": "We found bravery in a single bead of dew."
+        }
+      ]
+    },
+    {
+      "id": "spark",
+      "title": "Sparklight puzzle",
+      "speaker": "moki",
+      "mood": "playful",
+      "body": "Moki’s Sparklight scatters rose pixels that rearrange into a silly face, then a clear arrow.\n\n“Plot twist! The dark wasn’t mean — it was just confused. Like socks in the wrong drawer. Spot the mix-up. Check it kindly. Try a new idea.”",
+      "choices": [
+        {
+          "id": "c_kind",
+          "label": "Check the mix-up kindly and follow the arrow",
+          "next": "lantern",
+          "bond_xp": 12,
+          "memory": "We untangled a mix-up without mean jokes."
+        }
+      ]
+    },
+    {
+      "id": "lantern",
+      "title": "The dim lantern",
+      "speaker": "narrator",
+      "mood": "tender",
+      "body": "At the bend stands an old garden lantern. Its glass is dusty, not broken. Inside, a soft light flutters — not a creature trapped… a reminder of every Heartlight that has ever needed care.\n\nLumo looks at you. “Sometimes lights need a friend more than a fix.”",
+      "choices": [
+        {
+          "id": "c_care",
+          "label": "Offer a gentle Care Ritual — wipe the glass, share warmth",
+          "next": "essence",
+          "bond_xp": 15,
+          "shards": 2,
+          "memory": "We cared for the dim lantern like a friend."
+        },
+        {
+          "id": "c_adult",
+          "label": "If it felt unsafe in real life, we’d tell a trusted adult",
+          "next": "essence",
+          "bond_xp": 15,
+          "shards": 2,
+          "safety_check": true,
+          "memory": "We remembered: real-world worries → trusted adult."
+        }
+      ]
+    },
+    {
+      "id": "essence",
+      "title": "What a Heartlight is",
+      "speaker": "lumo",
+      "mood": "sincere",
+      "body": "The lantern brightens. Five Heartlights answer — Questlight, Dreamlight, Traillight, Tidelight, Sparklight — each a different colour of the same truth.\n\n“These aren’t separate critters floating beside us,” Lumo says. “They’re our essence. Our soul-signal. Who we are when we grow with you.”\n\nLila adds, “When you care for us, you don’t feed a pet-light. You practice friendship.”\nPip: “Step by step.”\nNori: “Quietly true.”\nMoki: “With excellent plot twists.”",
+      "choices": [
+        {
+          "id": "c_promise",
+          "label": "Promise to grow together — Safety First, always",
+          "next": "ending_bonded",
+          "bond_xp": 18,
+          "shards": 2,
+          "memory": "We promised Safety First and Growing Together."
+        },
+        {
+          "id": "c_question",
+          "label": "Ask one more wonder-question before the end",
+          "next": "ending_curious",
+          "bond_xp": 18,
+          "shards": 2,
+          "memory": "We left the forest with a new wonder still glowing."
+        }
+      ]
+    },
+    {
+      "id": "ending_bonded",
+      "title": "Growing Together",
+      "speaker": "lila",
+      "mood": "warm",
+      "ending": true,
+      "ending_kind": "bonded",
+      "body": "Dreamlight ribbons weave a soft circle around the crew and you.\n\n“Tonight the Night Forest learned your footsteps,” Lila says. “Tomorrow we can I-lumming-Nate something new — a feeling, a puzzle, a joke, a path.”\n\nThe lantern stays lit. So do you.\n\nLittle lights. Big little adventures. Lifelong bonds.",
+      "choices": []
+    },
+    {
+      "id": "ending_curious",
+      "title": "A wonder left glowing",
+      "speaker": "nori",
+      "mood": "curious",
+      "ending": true,
+      "ending_kind": "curious",
+      "body": "Nori cups Lowbeam. Tidelight holds one last question like dew:\n\n“What will we notice tomorrow that we rushed past today?”\n\nNobody answers yet. That’s the point. The forest listens. The crew walks you home, Heartlights humming like a quiet song.\n\nCome back for Care. Come back for the next path. We’ll be here — essence shining, Safety First.",
+      "choices": []
+    }
+  ]
+}

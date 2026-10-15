@@ -122,3 +122,17 @@ Core bond never paywalled.
 
 ---
 *Locked style · Safety First · Growing Together*
+
+## 13. Flutter scaffold (v0.1) — shipped
+
+Path: `app/`
+
+- Heartlight state machine + bond XP + care streak (`HeartlightController`)
+- Bottom nav shell + Home / Care / Adventures / Collection / Parent / Talk / Onboarding
+- Adventure engine + **The Night Forest Awakens** (`assets/adventures/growing_together_001.json`)
+- Local parent PIN gate
+- Brand theme (Star Yellow / Dream Teal / Future Purple / Glow Pink)
+
+```bash
+cd app && flutter pub get && flutter run
+```

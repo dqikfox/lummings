@@ -39,12 +39,14 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
 
     final pack = adv.pack!;
     final node = adv.node!;
-    final speaker = node.speaker == null
-        ? null
-        : Lumming.crew.cast<Lumming?>().firstWhere(
-              (l) => l?.id.name == node.speaker,
-              orElse: () => null,
-            );
+    Lumming? speaker;
+    if (node.speaker != null) {
+      try {
+        speaker = Lumming.crew.firstWhere((l) => l.id.name == node.speaker);
+      } catch (_) {
+        speaker = null;
+      }
+    }
 
     return ListView(
       padding: const EdgeInsets.all(20),

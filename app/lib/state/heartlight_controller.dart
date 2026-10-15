@@ -160,7 +160,7 @@ class HeartlightController extends ChangeNotifier {
       state: s,
       xpGained: xpGain,
       streak: streak,
-      leveledUp: s.bond.level > (s.bond.level), // set properly below
+      leveledUp: s.phase == HeartlightPhase.radiant,
     );
   }
 

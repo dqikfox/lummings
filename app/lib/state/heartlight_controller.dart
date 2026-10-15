@@ -134,10 +134,15 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     notifyListeners();
 
-    // Brief "caring" pulse then glow
+    // Brief "caring" pulse then glow / radiant
     await Future<void>.delayed(const Duration(milliseconds: 600));
+    final levelBefore = s.bond.level;
     s = await _addXp(s, xpGain, shards: 1);
-    s = s.copyWith(phase: HeartlightPhase.glowing);
+    final didLevel = s.bond.level > levelBefore;
+    // Keep radiant on level-up for a beat; otherwise settle to glowing.
+    if (!didLevel) {
+      s = s.copyWith(phase: HeartlightPhase.glowing);
+    }
     if (missed) {
       s = s.copyWith(
         memoryHighlights: [
@@ -160,7 +165,7 @@ class HeartlightController extends ChangeNotifier {
       state: s,
       xpGained: xpGain,
       streak: streak,
-      leveledUp: s.phase == HeartlightPhase.radiant,
+      leveledUp: didLevel,
     );
   }
 

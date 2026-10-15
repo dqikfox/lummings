@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/heartlight_state.dart';
+import '../models/charm.dart';
 import '../models/lumming.dart';
 
 /// Owns Heartlight essence state, bond XP, care streak, and gentle hooks.
@@ -23,6 +24,9 @@ class HeartlightController extends ChangeNotifier {
       _companions[activeId.name] ?? _fresh(activeId.name);
 
   Lumming get activeLumming => Lumming.byId(activeId);
+
+  CompanionState companionOf(LummingId id) =>
+      _companions[id.name] ?? _fresh(id.name);
 
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
@@ -222,6 +226,89 @@ class HeartlightController extends ChangeNotifier {
     await prefs.setStringList('memories_$key', s.memoryHighlights);
   }
 
+
+  /// Global owned charms (shared across crew) stored under active companion list
+  /// plus a global key for "all" charms.
+  List<String> get allOwnedCharms {
+    final set = <String>{};
+    for (final s in _companions.values) {
+      set.addAll(s.ownedCharms);
+    }
+    return set.toList()..sort();
+  }
+
+  bool ownsCharm(String charmId) => allOwnedCharms.contains(charmId);
+
+  /// Spend essence shards to unlock a charm. Core bond is never paywalled —
+  /// charms are cosmetic collectibles only.
+  Future<CharmPurchaseResult> purchaseCharm(String charmId) async {
+    final charm = Charm.byId(charmId);
+    if (charm == null) {
+      return CharmPurchaseResult(ok: false, message: 'Unknown charm.');
+    }
+    if (ownsCharm(charmId)) {
+      return CharmPurchaseResult(ok: false, message: 'You already own ${charm.name}!');
+    }
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    if (s.bond.level < charm.minBondLevel) {
+      return CharmPurchaseResult(
+        ok: false,
+        message:
+            'Need Bond Level ${charm.minBondLevel} for ${charm.name}. Keep glowing!',
+      );
+    }
+    if (s.essenceShards < charm.shardCost) {
+      return CharmPurchaseResult(
+        ok: false,
+        message:
+            'Need ${charm.shardCost} shards (you have ${s.essenceShards}). Care & Adventures earn more!',
+      );
+    }
+    s = s.copyWith(
+      essenceShards: s.essenceShards - charm.shardCost,
+      ownedCharms: [...s.ownedCharms, charmId],
+      memoryHighlights: [
+        ...s.memoryHighlights,
+        'Unlocked ${charm.name} — a spark of ${activeLumming.name}\'s Heartlight.',
+      ],
+      phase: HeartlightPhase.radiant,
+    );
+    _companions[key] = s;
+    await _persist(s);
+    notifyListeners();
+    return CharmPurchaseResult(
+      ok: true,
+      message: '${charm.emoji} ${charm.name} unlocked! Collection grows brighter.',
+      state: s,
+    );
+  }
+
+  /// Soft Talk XP — never more than once-light reward; does not replace daily Care.
+  Future<CareResult> rewardTalk({
+    required int bondXp,
+    required int shards,
+    String memory = '',
+  }) async {
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    s = await _addXp(s, bondXp, shards: shards);
+    if (memory.isNotEmpty) {
+      s = s.copyWith(memoryHighlights: [...s.memoryHighlights, memory]);
+    }
+    s = s.copyWith(phase: HeartlightPhase.glowing);
+    _companions[key] = s;
+    await _persist(s);
+    notifyListeners();
+    return CareResult(
+      alreadyDone: false,
+      message: activeLumming.heartlight.line,
+      state: s,
+      xpGained: bondXp,
+      streak: s.careStreak,
+    );
+  }
+
   bool verifyParentPin(String attempt) =>
       parentPin == null || parentPin!.isEmpty || parentPin == attempt;
 }
@@ -241,5 +328,18 @@ class CareResult {
     this.xpGained = 0,
     this.streak = 0,
     this.leveledUp = false,
+  });
+}
+
+
+class CharmPurchaseResult {
+  final bool ok;
+  final String message;
+  final CompanionState? state;
+
+  CharmPurchaseResult({
+    required this.ok,
+    required this.message,
+    this.state,
   });
 }

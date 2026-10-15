@@ -1,55 +1,45 @@
-# Lummings App (Flutter)
+# Lummings Flutter App
 
-> Little lights. Big little adventures. Lifelong bonds.
+Companion app for the **Little Tomorrow Crew** — Heartlight essence, Care rituals, Charms, Adventures, offline Talk, Parent safety.
 
-Mobile companion for the Little Tomorrow Crew — **Lumo, Lila, Pip, Nori, Moki**.  
-Each Lumming carries a **Heartlight** (essence/soul, not a separate creature).
+## Features (Phase 0)
 
-## Quick start
+| Area | Status |
+|------|--------|
+| Onboarding + parent PIN | ✅ |
+| Heartlight Nest (Home) | ✅ |
+| Daily Care (hug / talk / story) | ✅ |
+| Soft miss hook (no punishment) | ✅ |
+| Adventures (2 packs) | ✅ Night Forest · Kind Mix-Up |
+| Collection & Charm shop (shards) | ✅ |
+| Offline Talk (moderated chips) | ✅ |
+| Parent dashboard + memories | ✅ |
+| Live voice LLM Talk | Phase 1.1 |
+| NFC plush sync | Phase 1.1 |
+
+## Run
 
 ```bash
 cd app
 flutter pub get
+flutter analyze
+flutter test
 flutter run
 ```
 
-## What's in v0.1 scaffold
+Logic tests without Flutter:
 
-| Area | Status |
-|------|--------|
-| Bottom nav (Home / Adventures / Collection / Care / Parent) | ✅ |
-| Heartlight state machine (dimmed → caring → glowing + bond XP) | ✅ |
-| Daily Care Ritual | ✅ |
-| Growing Together adventure engine + first story pack | ✅ |
-| Parent PIN gate (local) | ✅ shell |
-| Talk mode UI | ✅ shell |
-| Onboarding flow | ✅ shell |
-| NFC/BLE plush | 🔜 Phase 1.1 |
-| Cloud LLM + moderation | 🔜 Phase 1.1 |
-
-## Design canon
-
-- Heartlights = essence, never separate creatures  
-- Safety First · I-lumming-Nate · Growing Together  
-- Locked visual style: cinematic fluffy crew  
-- See `../docs/app/APP_DESIGN.md` and `../brand/HEARTLIGHTS.md`
-
-## Adventure content
-
-Stories live in `assets/adventures/*.json`.  
-First pack: **The Night Forest Awakens** (`growing_together_001.json`).
-
-## Project layout
-
+```bash
+python3 test/logic_feature_test.py
+python3 test/adventure_graph_check.py
 ```
-lib/
-  main.dart
-  app.dart
-  theme/lummings_theme.dart
-  models/          # Lumming, Heartlight, Bond, Adventure
-  state/           # HeartlightController, AdventureController, ParentController
-  screens/         # Home, Care, Adventures, Collection, Parent, Talk, Onboarding
-  widgets/         # HeartlightBar, LummingAvatar, CareButton, ...
-  data/            # seed personas
-assets/adventures/ # JSON story packs
-```
+
+## Architecture
+
+- `lib/state/heartlight_controller.dart` — bond XP, care, charms, talk rewards
+- `lib/state/adventure_controller.dart` — branching story engine
+- `lib/models/` — Lumming, Heartlight phase, Charm, Adventure
+- `lib/data/talk_replies.dart` — offline Safety-First replies per persona
+- `assets/adventures/*.json` — story packs
+
+**Canon:** Heartlights are each Lumming's essence/soul — never separate creatures.

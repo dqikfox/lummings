@@ -1,0 +1,161 @@
+{
+  "id": "spark_mixup_001",
+  "title": "The Kind Mix-Up",
+  "subtitle": "A Sparklight adventure with Moki",
+  "synopsis": "Something feels tangled. Moki helps turn a confusing mix-up into a clearer pattern — with kindness, never mean jokes. Heartlights stay essence, not separate pets.",
+  "estimated_minutes": 5,
+  "crew": ["moki", "lumo", "lila"],
+  "start": "tangle",
+  "completion_bond_xp": 35,
+  "completion_shards": 3,
+  "nodes": [
+    {
+      "id": "tangle",
+      "title": "Pixels out of place",
+      "speaker": "narrator",
+      "mood": "curious",
+      "body": "Checker-scarf Moki bounces in place. Sparklight flickers like a puzzle that won't sit still.\n\n\"Something's mixed up,\" Moki grins. \"Not broken. Just… rearrangeable.\"",
+      "choices": [
+        {
+          "id": "c_laugh",
+          "label": "Make a kind joke first (with Moki)",
+          "next": "joke",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We laughed kindly at a mix-up.",
+          "line": "Spot the mix-up. Check it kindly. Try a new idea."
+        },
+        {
+          "id": "c_map",
+          "label": "Ask Lumo to map the tangle",
+          "next": "map",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We mapped the mix-up like a co-op quest."
+        }
+      ]
+    },
+    {
+      "id": "joke",
+      "title": "Soft sparkle joke",
+      "speaker": "moki",
+      "mood": "playful",
+      "body": "\"What if the mix-up is just a sock that thinks it's a hat?\" Moki's joke is gentle — never about a person.\n\nThe tangle loosens a little. Sparklight rearranges into a clearer star.",
+      "choices": [
+        {
+          "id": "c_check",
+          "label": "Check the idea carefully",
+          "next": "clear",
+          "bond_xp": 10,
+          "memory": "We checked the idea carefully after laughing."
+        },
+        {
+          "id": "c_lila",
+          "label": "Ask Lila to put the feeling into words",
+          "next": "words",
+          "bond_xp": 8,
+          "shards": 1
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "title": "Questlight map",
+      "speaker": "lumo",
+      "mood": "captain",
+      "body": "Lumo taps the crystal controller. \"Three safe tiles: notice, name, try one new idea. No rush mode.\"",
+      "choices": [
+        {
+          "id": "c_notice",
+          "label": "Notice first",
+          "next": "clear",
+          "bond_xp": 10,
+          "memory": "We noticed before we fixed."
+        },
+        {
+          "id": "c_adult",
+          "label": "If it feels too big, ask a trusted adult",
+          "next": "adult",
+          "bond_xp": 12,
+          "shards": 1,
+          "safety_check": true,
+          "memory": "We chose Safety First — asked a trusted adult."
+        }
+      ]
+    },
+    {
+      "id": "words",
+      "title": "Dreamlight words",
+      "speaker": "lila",
+      "mood": "gentle",
+      "body": "Lila's ribbons sketch the tangle as a cloud with a door.\n\n\"Naming it doesn't erase it. It gives you a handle.\"",
+      "choices": [
+        {
+          "id": "c_try",
+          "label": "Try one new idea together",
+          "next": "clear",
+          "bond_xp": 10
+        }
+      ]
+    },
+    {
+      "id": "adult",
+      "title": "Trusted hand",
+      "speaker": "lumo",
+      "mood": "steady",
+      "body": "Questlight glows warm. \"Best co-op move sometimes is inviting a trusted adult. That isn't quitting — that's leveling up the party.\"",
+      "choices": [
+        {
+          "id": "c_ok",
+          "label": "Thank the crew and keep glowing",
+          "next": "ending_bonded",
+          "bond_xp": 10,
+          "shards": 1
+        }
+      ]
+    },
+    {
+      "id": "clear",
+      "title": "Clearer pattern",
+      "speaker": "moki",
+      "mood": "bright",
+      "body": "The pixels settle. Sparklight is still Moki's essence — not a separate creature — just brighter.\n\n\"Plot twist solved. Kindly.\"",
+      "choices": [
+        {
+          "id": "c_end",
+          "label": "Celebrate the clear pattern",
+          "next": "ending_bonded",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "We cleared a mix-up with kindness."
+        },
+        {
+          "id": "c_more",
+          "label": "Wonder what else we might notice",
+          "next": "ending_curious",
+          "bond_xp": 8
+        }
+      ]
+    },
+    {
+      "id": "ending_bonded",
+      "title": "Sparklight steady",
+      "speaker": "narrator",
+      "mood": "warm",
+      "body": "You and the crew made confusion smaller without making anyone small. Heartlights glow as essence — who each Lumming is.",
+      "ending": true,
+      "ending_kind": "bonded",
+      "choices": []
+    },
+    {
+      "id": "ending_curious",
+      "title": "More sparks ahead",
+      "speaker": "narrator",
+      "mood": "curious",
+      "body": "The path is clearer, and curiosity stays soft. More adventures wait when you're ready.",
+      "ending": true,
+      "ending_kind": "curious",
+      "choices": []
+    }
+  ]
+}

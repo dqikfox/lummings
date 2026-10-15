@@ -108,15 +108,42 @@ class _ParentScreenState extends State<ParentScreen> {
         const SizedBox(height: 8),
         ...Lumming.crew.map((l) {
           final active = l.id == hl.activeId;
+          // Bond for each friend — load uses active; show active details + names
+          final cs = hl.companionOf(l.id);
+          final bondLine =
+              'Bond L${cs.bond.level} · 🔥 ${cs.careStreak} · ✨ ${cs.essenceShards}';
           return ListTile(
             leading: Text(l.emoji, style: const TextStyle(fontSize: 24)),
             title: Text(l.name),
-            subtitle: Text(l.heartlight.name),
+            subtitle: Text(bondLine),
             trailing: active
                 ? const Icon(Icons.star_rounded, color: Colors.amber)
-                : null,
+                : IconButton(
+                    icon: const Icon(Icons.swap_horiz),
+                    onPressed: () => hl.setActive(l.id),
+                  ),
           );
         }),
+        const SizedBox(height: 8),
+        Text(
+          'Memories (${hl.active.memoryHighlights.length})',
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(fontWeight: FontWeight.w800),
+        ),
+        const SizedBox(height: 6),
+        if (hl.active.memoryHighlights.isEmpty)
+          const Text('No memories yet — Care, Talk, and Adventures write soft highlights.',
+              style: TextStyle(color: Colors.white54))
+        else
+          ...hl.active.memoryHighlights.reversed.take(8).map(
+                (m) => ListTile(
+                  dense: true,
+                  leading: const Icon(Icons.auto_awesome, size: 18),
+                  title: Text(m, style: const TextStyle(fontSize: 13)),
+                ),
+              ),
         const SizedBox(height: 12),
         OutlinedButton.icon(
           onPressed: () {

@@ -67,7 +67,7 @@ class LummingsTheme {
           ),
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: const Color(0xFF1A2238),
         elevation: 0,
         shape: RoundedRectangleBorder(

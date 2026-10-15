@@ -1,30 +1,42 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lummings_app/main.dart';
+import 'package:lummings_app/models/heartlight_state.dart';
+import 'package:lummings_app/models/lumming.dart';
+import 'package:lummings_app/state/heartlight_controller.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  test('crew has five Lummings with Heartlights', () {
+    expect(Lumming.crew.length, 5);
+    expect(Lumming.byId(LummingId.lumo).heartlight.name, 'Questlight');
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('HeartlightController loads and completes onboarding', () async {
+    final hl = HeartlightController();
+    await hl.load();
+    expect(hl.onboarded, isFalse);
+    await hl.completeOnboarding(LummingId.lila, pin: '1234');
+    expect(hl.onboarded, isTrue);
+    expect(hl.activeId, LummingId.lila);
+    expect(hl.verifyParentPin('1234'), isTrue);
+    expect(hl.verifyParentPin('0000'), isFalse);
+  });
+
+  test('performCare awards XP once per day', () async {
+    final hl = HeartlightController();
+    await hl.load();
+    await hl.completeOnboarding(LummingId.lumo);
+    final r1 = await hl.performCare(kind: 'hug');
+    expect(r1.alreadyDone, isFalse);
+    expect(r1.xpGained, 20);
+    expect(hl.active.phase, anyOf(HeartlightPhase.glowing, HeartlightPhase.radiant));
+    final r2 = await hl.performCare(kind: 'talk');
+    expect(r2.alreadyDone, isTrue);
   });
 }

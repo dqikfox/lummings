@@ -45,6 +45,13 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
       emoji: '🌙',
       accent: LummingsColors.tidelight,
     ),
+    _PackMeta(
+      asset: 'assets/adventures/star_garden_001.json',
+      title: 'The Star Garden',
+      subtitle: 'Questlight adventure with Lumo · ~5 min',
+      emoji: '⭐',
+      accent: LummingsColors.questlight,
+    ),
   ];
 
   bool _inStory = false;

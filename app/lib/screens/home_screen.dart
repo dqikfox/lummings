@@ -11,9 +11,14 @@ import '../theme/lummings_theme.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/nest_section_header.dart';
 import '../widgets/heartlight_bar.dart';
+import '../widgets/streak_flame.dart';
 import '../widgets/lumming_avatar.dart';
+import 'memory_journal_screen.dart';
 import 'plus_screen.dart';
 import 'talk_screen.dart';
+import 'bedtime_screen.dart';
+import 'memory_journal_screen.dart';
+import '../models/nest_badge.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -101,7 +106,13 @@ class HomeScreen extends StatelessWidget {
           heartlightName: lumming.heartlight.name,
           accent: lumming.heartlight.accent,
         ).animate().fadeIn(delay: 80.ms, duration: 450.ms),
-        const SizedBox(height: 28),
+        const SizedBox(height: 12),
+        StreakFlame(
+          streak: state.careStreak,
+          caredToday: state.caredToday,
+          accent: lumming.heartlight.accent,
+        ).animate().fadeIn(delay: 100.ms),
+        const SizedBox(height: 20),
         // Hero glow behind avatar
         Center(
           child: Stack(
@@ -125,6 +136,7 @@ class HomeScreen extends StatelessWidget {
                 size: 168,
                 glowing: state.phase != HeartlightPhase.dimmed,
                 phase: state.phase,
+                equippedCharmId: state.equippedCharmId,
               ),
             ],
           ),
@@ -203,16 +215,12 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: _ActionTile(
-                icon: Icons.nfc_rounded,
-                label: 'Plush',
-                color: LummingsColors.futurePurple,
+                icon: Icons.nights_stay_rounded,
+                label: 'Bedtime',
+                color: LummingsColors.tidelight,
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Plush NFC/BLE sync lands in Phase 1.1 — Heartlight lives fully in the app for now ✨',
-                      ),
-                    ),
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const BedtimeScreen()),
                   );
                 },
               ),
@@ -222,9 +230,75 @@ class HomeScreen extends StatelessWidget {
         const SizedBox(height: 22),
         _DailyQuestsCard(hl: hl, nav: nav),
         const SizedBox(height: 14),
+        _BadgesStrip(hl: hl),
+        const SizedBox(height: 16),
+        GlassCard(
+          elevated: false,
+          accent: LummingsColors.dreamTeal,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const MemoryJournalScreen()),
+            );
+          },
+          child: const Row(
+            children: [
+              Text('📔', style: TextStyle(fontSize: 22)),
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Memory Journal',
+                        style: TextStyle(fontWeight: FontWeight.w900)),
+                    Text('Essence moments that define who they are',
+                        style: TextStyle(
+                            fontSize: 12, color: LummingsColors.muted)),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: LummingsColors.dreamTeal),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
         _FestivalCard(hl: hl),
         const SizedBox(height: 14),
         _PlusBanner(hl: hl),
+        const SizedBox(height: 12),
+        GlassCard(
+          elevated: false,
+          accent: lumming.heartlight.accent,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const MemoryJournalScreen()),
+            );
+          },
+          child: Row(
+            children: [
+              const Text('📖', style: TextStyle(fontSize: 22)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Memory Journal',
+                      style: TextStyle(fontWeight: FontWeight.w900),
+                    ),
+                    Text(
+                      '${state.memoryHighlights.length} Heartlight moments',
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: LummingsColors.muted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: lumming.heartlight.accent),
+            ],
+          ),
+        ),
         const SizedBox(height: 22),
         NestSectionHeader(
           title: 'Your Crew',
@@ -574,6 +648,108 @@ class _PlusBanner extends StatelessWidget {
             ),
           ),
           const Icon(Icons.chevron_right_rounded, color: LummingsColors.starYellow),
+        ],
+      ),
+    );
+  }
+}
+
+
+class _BadgesStrip extends StatelessWidget {
+  final HeartlightController hl;
+  const _BadgesStrip({required this.hl});
+
+  @override
+  Widget build(BuildContext context) {
+    final owned = NestBadge.catalog
+        .where((b) => hl.ownedBadges.contains(b.id))
+        .toList();
+    final locked = NestBadge.catalog.length - owned.length;
+    return GlassCard(
+      accent: LummingsColors.starYellow,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                'Nest Badges',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+              ),
+              const Spacer(),
+              Text(
+                '${owned.length}/${NestBadge.catalog.length}',
+                style: const TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: LummingsColors.starYellow,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            locked == 0
+                ? 'All stickers unlocked — soft collection complete ✨'
+                : 'Earn stickers with Care, bond, adventures & bedtime. Never expire.',
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.white.withOpacity(0.55),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 72,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: NestBadge.catalog.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              itemBuilder: (context, i) {
+                final b = NestBadge.catalog[i];
+                final has = hl.ownedBadges.contains(b.id);
+                return Tooltip(
+                  message: has ? '${b.name}: ${b.blurb}' : 'Locked: ${b.name}',
+                  child: Container(
+                    width: 64,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: has
+                          ? LummingsColors.starYellow.withOpacity(0.18)
+                          : Colors.white.withOpacity(0.04),
+                      border: Border.all(
+                        color: has
+                            ? LummingsColors.starYellow.withOpacity(0.45)
+                            : Colors.white.withOpacity(0.08),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          has ? b.emoji : '🔒',
+                          style: const TextStyle(fontSize: 22),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          has ? b.name.split(' ').first : '???',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 9,
+                            fontWeight: FontWeight.w800,
+                            color: has
+                                ? LummingsColors.warmWhite
+                                : LummingsColors.muted,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

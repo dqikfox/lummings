@@ -71,7 +71,10 @@ void main() {
     await tester.tap(find.text('Continue'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 50));
-    expect(find.textContaining('Parents & Safety'), findsOneWidget);
+    expect(
+      find.textContaining('Parent'),
+      findsWidgets,
+    ); // Parent gate / Parent PIN
 
     await tester.tap(find.text('Start Growing Together'));
     await tester.pump();
@@ -132,7 +135,7 @@ void main() {
     );
     await tester.pump(); // draw once
     expect(find.textContaining('Questlight'), findsOneWidget);
-    expect(find.textContaining('Bond Level 2'), findsOneWidget);
+    expect(find.textContaining('Bond L2'), findsOneWidget);
     // Tear down: dispose infinite flutter_animate timers cleanly
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump(const Duration(seconds: 2));

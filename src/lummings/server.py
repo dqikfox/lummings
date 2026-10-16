@@ -209,109 +209,21 @@ append(`<b>★ LUMO</b> appeared! Try saying hi.`, 'msg-bot');
 
 def main():
     import argparse
+    import os
+    from .http_app import make_server
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8511)
-    ap.add_argument("--db", default="./lummings.sqlite")
+    ap.add_argument("--db", default=None, help="Creator memory database (separate from legacy/family data)")
+    ap.add_argument("--base-url", default=os.environ.get("LUMMINGS_OLLAMA_URL", "http://127.0.0.1:11434/v1"))
     args = ap.parse_args()
-
-    states = {}
-
-    class H(BaseHTTPRequestHandler):
-        def log_message(self, *a, **k):
-            pass
-
-        def _send(self, status, body):
-            self.send_response(status)
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.end_headers()
-            self.wfile.write(json.dumps(body).encode())
-
-        def _serve_file(self, path, content_type="text/html"):
-            try:
-                with open(path, "rb") as f:
-                    data = f.read()
-                self.send_response(200)
-                self.send_header("Content-Type", content_type)
-                self.end_headers()
-                self.wfile.write(data)
-            except Exception:
-                self.send_response(404)
-                self.send_header("Content-Type", "text/plain")
-                self.end_headers()
-                self.wfile.write(b"not found")
-
-        def do_GET(self):
-            if self.path in ("/", "/ui"):
-                # Serve the polished app from docs/app/index.html if available
-                app_path = Path(__file__).parent.parent.parent.parent / "docs" / "app" / "index.html"
-                if app_path.exists():
-                    self._serve_file(str(app_path), "text/html")
-                else:
-                    self.send_response(200)
-                    self.send_header("Content-Type", "text/html")
-                    self.end_headers()
-                    self.wfile.write(HTML.encode())
-            elif self.path.startswith("/persona/"):
-                name = self.path.split("/")[-1]
-                self._send(200, load_persona(name))
-            else:
-                self._send(404, {"error": "not found"})
-
-        def do_POST(self):
-            if not self.path.startswith("/chat"):
-                self._send(404, {"error": "not found"})
-                return
-            length = int(self.headers.get("Content-Length", 0))
-            body = json.loads(self.rfile.read(length) or b"{}")
-            persona_name = body.get("persona", "lumo")
-            persona_name = PERSONA_ALIASES.get(persona_name.lower(), persona_name.lower())
-            user_msg = body.get("message", "").strip()
-            if not user_msg:
-                self._send(400, {"error": "empty"})
-                return
-            persona = load_persona(persona_name)
-            st = states.setdefault(persona_name, {
-                "memory": Memory(Path(args.db), persona_name),
-                "mood": Mood(persona),
-            })
-            st["mood"].on_user_input()
-            st["memory"].add_event("user", user_msg)
-            history = [{"role": e["role"], "content": e["text"]} for e in st["memory"].recent_events(6)]
-            # Use dedicated character model; persona is baked into the Modelfile
-            model = get_character_model(persona_name)
-            runtime_ctx = build_runtime_prompt(persona, memory_summary=st["memory"].summarize(), mood=st["mood"].state)
-            # For character models, prepend context to user message instead of system message
-            # to avoid triggering reasoning/meta mode
-            if runtime_ctx.strip():
-                final_user = f"{runtime_ctx}\n\n{user_msg}"
-            else:
-                final_user = user_msg
-            r = chat(body.get("base_url", "http://127.0.0.1:11434/v1"),
-                     model, "", final_user, history=history)
-            if not r["ok"]:
-                self._send(502, {"error": r["error"]})
-                return
-            reply = sanitize_reply(r["content"], persona)
-            st["memory"].add_event("assistant", reply)
-            for f in extract_facts(user_msg, reply):
-                st["memory"].add_fact(f)
-            st["mood"].state = st["mood"].next_mood_after_response()
-            faces = {"curious":"( o_o )?", "excited":"( ^o^ )!", "playful":"( ^_^ )",
-                     "calm":"( ._. )", "drowsy":"( -.- )..zz", "tired":"( -_- )"}
-            self._send(200, {
-                "reply": reply,
-                "mood": st["mood"].state,
-                "face": faces.get(st["mood"].state, "( ._. )"),
-                "elapsed": r.get("elapsed", 0),
-            })
-
-    server = ThreadingHTTPServer(("127.0.0.1", args.port), H)
-    print(f"The Lummings HTTP API on http://127.0.0.1:{args.port}")
+    server = make_server(args.port, args.db, args.base_url)
+    print(f"Lummings creator app: http://127.0.0.1:{server.server_port}", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\nbye.")
+        pass
+    finally:
+        server.server_close()
 
 
 if __name__ == "__main__":

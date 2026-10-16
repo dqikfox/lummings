@@ -45,3 +45,6 @@ Thumbs.db
 *.run.xml
 *.synctex.gz
 *.toc
+
+# Private creator data (Living Lummings)
+/data/creator/

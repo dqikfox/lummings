@@ -2,6 +2,8 @@
 
 > Little friends from a brighter tomorrow.
 
+**Family browser app:** the [companion app](docs/companion/index.html) now includes five interactive adventures, a parent dashboard, separate explorer profiles, optional local saving, and a creative notebook. Run `python -m http.server 8512 --bind 127.0.0.1 --directory docs`, then open `http://127.0.0.1:8512/companion/`. See [release notes](docs/companion/RELEASE_NOTES.md) and the [parent-facing landing page](docs/companion/for-parents.html).
+
 **Current direction:** software first; hardware comes later if demand and sustained use justify it. See the [software launch strategy](marketing/SOFTWARE_LAUNCH_STRATEGY.md) for positioning, campaigns, the parent-led funnel and validation milestones. Hardware descriptions below are the longer-term concept.
 
 Open [Lummings-Artwork.html](Lummings-Artwork.html) for the complete local gallery; the ten final campaign PNGs are also saved directly in this project folder. Lumo is now the ruby-red mystical gamer leader.

@@ -14,9 +14,9 @@ def test_all_personas_have_colors():
 
 def test_canonical_names_and_legacy_aliases_keep_character_identity():
     for canonical, alias, title in [
-        ("lila", "lumi", "The Storyweaver"),
+        ("lila", "lumi", "The Spooky Poet"),
         ("pip", "piko", "The Speed Demon"),
-        ("nori", "nomi", "The Moon-Tide Guardian"),
+        ("nori", "nomi", "The Cosmic Weirdo"),
     ]:
         for name in (canonical, alias):
             svg = render(name, "curious", size=120)

@@ -68,8 +68,13 @@
 
         .ring-glow { box-shadow: 0 0 60px rgba(255, 159, 67, 0.3); }
     </style>
+<link rel="stylesheet" href="/app/stage.css">
+<link rel="stylesheet" href="/app/library.css">
+<link rel="stylesheet" href="/app/creator.css">
 </head>
 <body>
+<div role="status" id="connection-status" style="position:fixed;bottom:0;left:0;right:0;z-index:100;background:#17171c;color:#fff;padding:8px 16px;font:12px system-ui;text-align:center">Checking local character models…</div>
+
 
 <div id="app-container">
     <main class="view-content" id="view-scroller">
@@ -79,6 +84,7 @@
                 <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500 tracking-tight">Hi, friend!</h1>
                 <p class="text-gray-500 italic mt-1 px-1">What shall we imagine today?</p>
             </div>
+            <button class="library-entry" onclick="showView('library')">Your artwork &amp; films <span>Explore the collection →</span></button>
             <div id="discovery-feed" class="space-y-6"></div>
         </section>
 
@@ -91,20 +97,68 @@
                     <p id="chat-name" class="font-bold text-white tracking-tight"></p>
                     <div class="flex items-center gap-1">
                         <span class="w-2 h-2 bg-green-500 rounded-full pulse"></span>
-                        <p class="text-[9px] uppercase opacity-60 font-semibold tracking-widest">Listening...</p>
+                        <p id="chat-state" role="status" class="text-[9px] uppercase opacity-60 font-semibold tracking-widest">Ready to imagine</p>
                     </div>
                 </div>
             </header>
+            <section id="character-studio" aria-label="Character studio">
+                <div id="character-picker" aria-label="Choose a Lumming"></div>
+                <div id="character-stage" data-backdrop="observatory">
+                    <div class="stage-orbit" aria-hidden="true"></div>
+                    <img id="stage-portrait" alt="" width="240" height="240">
+                    <div class="stage-caption"><span id="stage-heartlight"></span><p id="stage-role"></p></div>
+                    <span class="stage-label">YOUR LUMMING</span>
+                </div>
+                <details id="appearance-panel">
+                    <summary>Make this moment yours <span>Atmosphere</span></summary>
+                    <div class="appearance-controls">
+                        <label hidden for="appearance-expression">Expression<select id="appearance-expression" aria-label="Expression"></select></label>
+                        <label for="appearance-backdrop">Atmosphere<select id="appearance-backdrop" aria-label="Atmosphere"></select></label>
+                        <button id="save-appearance" type="button">Save look</button>
+                        <button id="undo-appearance" type="button" disabled>Undo</button>
+                    </div>
+                </details>
+                <p id="appearance-status" role="status">Loading your saved look...</p>
+            </section>
             <div id="message-scroller" class="py-4 px-4 flex flex-col space-y-3"></div>
             <div class="mt-auto p-4 pb-6 bg-[#0d0d0e] border-t border-zinc-800">
                 <div class="relative flex items-center">
-                    <input type="text" id="chat-input" placeholder="Try: 'Transform into a dragon'..."
+                    <input type="text" id="chat-input" placeholder="Imagine a tiny adventure together..."
                            class="w-full bg-zinc-900 rounded-full py-3 pl-5 pr-12 text-white focus:outline-none focus:ring-2 ring-orange-500/50 transition-all font-medium border border-zinc-800 text-sm">
                     <button onclick="sendMessage()" class="absolute right-1.5 w-9 h-9 rounded-full bg-orange-500 hover:bg-orange-400 flex items-center justify-center text-black font-bold transition-transform active:scale-90 text-lg">&rarr;</button>
                 </div>
             </div>
         </section>
 
+        <section id="library-view" style="display:none" aria-labelledby="library-title">
+            <div class="library-heading"><div><p class="library-eyebrow">THE LUMMINGS COLLECTION</p><h1 id="library-title">A world of little wonders.</h1><p>Your original artwork, ideas and films, together.</p></div></div>
+            <div class="library-tools">
+                <label>Find an asset<input id="library-search" type="search" placeholder="Search titles or filenames"></label>
+                <label>Collection<select id="library-filter"><option value="all">Everything</option><option value="current-portrait">Current portraits</option><option value="concept">Concept artwork</option><option value="video">Films</option><option value="shortlist">My shortlist</option></select></label>
+            </div>
+            <p class="library-note">Concepts may show earlier designs or names. Shortlisting saves a choice for review; it does not change your characters.</p>
+            <p id="library-status" role="status"></p>
+            <button id="library-retry" type="button" hidden>Try loading again</button>
+            <div id="library-grid"></div>
+        </section>
+        <section id="creator-view" style="display:none" aria-labelledby="creator-title">
+            <div class="creator-heading"><p class="creator-eyebrow">LUMMINGS STUDIO</p><h1 id="creator-title">Make a little magic.</h1><p>Choose a look, imagine a scene, then review it before it becomes part of your collection.</p></div>
+            <form id="creator-form" class="creator-form">
+                <label>Lumming<select id="creator-character" required></select></label>
+                <label>Outfit<select id="creator-wardrobe" required><option value="heartlight-explorer">Heartlight explorer</option><option value="starlight-storyteller">Starlight storyteller</option><option value="garden-inventor">Garden inventor</option></select></label>
+                <div class="creator-reference-card"><img id="creator-reference" alt=""><div><strong id="creator-reference-name"></strong><p>Approved portrait reference · original artwork stays unchanged</p></div></div>
+                <label>Setting<select id="creator-scene" required><option value="observatory">Moon observatory</option><option value="moon-garden">Moon garden</option><option value="cloud-kingdom">Cloud kingdom</option><option value="undersea-library">Undersea library</option></select></label>
+                <label class="creator-prompt-label">Describe the moment<textarea id="creator-prompt" maxlength="800" rows="3" placeholder="Lumo follows a trail of glowing seeds through a moon garden…" required></textarea></label>
+                <p class="creator-note">Your approved illustrated portrait stays unchanged. New images are saved as separate drafts and need your review.</p>
+                <label class="creator-consent"><input id="creator-consent" type="checkbox"><span>I agree to send the approved Lumming portrait and prompt to the configured service and incur the displayed quote.</span></label>
+                <p id="creator-quote" role="status">A quote appears when a provider is configured and a draft is selected.</p>
+                <p id="creator-capability" role="status"></p>
+                <div class="creator-actions"><button type="submit">Create scene draft</button><button type="button" id="creator-generate" disabled>Generate scene</button></div>
+            </form>
+            <div class="creator-jobs-heading"><h2>Your creations</h2><button id="creator-refresh" type="button">Refresh</button></div>
+            <p id="creator-status" role="status"></p>
+            <div id="creator-jobs"></div>
+        </section>
         <!-- WORLD VIEW -->
         <section id="world-view" class="hidden opacity-0 transform scale-95 transition-all duration-700 ease-out pt-8">
             <div class="text-center space-y-2 mb-10 px-6">
@@ -114,11 +168,11 @@
             <div class="island-container">
                 <div class="absolute top-[20%] left-[25%] w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="absolute bottom-[10%] right-[10%] w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <img src="/assets/portraits/lumo-warm.svg" class="lummings-node w-16 h-16 top-[28%] left-[22%]" onclick="openChat('Lumo')" title="Visit Lumo">
-                <img src="/assets/portraits/lila-playful.svg" class="lummings-node w-14 h-14 bottom-[22%] right-[18%]" onclick="openChat('Lila')" title="Visit Lila">
-                <img src="/assets/portraits/moki-excited.svg" class="lummings-node w-12 h-12 top-[55%] left-[45%] opacity-70" onclick="openChat('Moki')" title="Visit Moki">
-                <img src="/assets/portraits/nori-warm.svg" class="lummings-node w-14 h-14 top-[15%] right-[30%] opacity-80" onclick="openChat('Nori')" title="Visit Nori">
-                <img src="/assets/portraits/pip-warm.svg" class="lummings-node w-12 h-12 bottom-[15%] left-[20%] opacity-70" onclick="openChat('Pip')" title="Visit Pip">
+                <img src="/assets/characters/lumo-portrait.png" class="lummings-node w-16 h-16 top-[28%] left-[22%]" onclick="openChat('Lumo')" title="Visit Lumo">
+                <img src="/assets/characters/lila-portrait.png" class="lummings-node w-14 h-14 bottom-[22%] right-[18%]" onclick="openChat('Lila')" title="Visit Lila">
+                <img src="/assets/characters/moki-portrait.png" class="lummings-node w-12 h-12 top-[55%] left-[45%] opacity-70" onclick="openChat('Moki')" title="Visit Moki">
+                <img src="/assets/characters/nori-portrait.png" class="lummings-node w-14 h-14 top-[15%] right-[30%] opacity-80" onclick="openChat('Nori')" title="Visit Nori">
+                <img src="/assets/characters/pip-portrait.png" class="lummings-node w-12 h-12 bottom-[15%] left-[20%] opacity-70" onclick="openChat('Pip')" title="Visit Pip">
             </div>
         </section>
 
@@ -126,7 +180,7 @@
         <section id="profile-view" class="hidden opacity-0 py-16 space-y-8 px-6 transition-all duration-700 text-center scale-95">
             <div class="relative mx-auto w-32 h-32 mb-4">
                 <div class="absolute -inset-2 bg-gradient-to-tr from-orange-500 to-pink-500 rounded-full blur opacity-50 ring-glow"></div>
-                <img src="/assets/portraits/lumo-warm.svg" class="relative w-full h-full rounded-full object-cover border-4 border-[#1a1a1c] grayscale hover:grayscale-0 transition-all">
+                <img src="/assets/characters/lumo-portrait.png" class="relative w-full h-full rounded-full object-cover border-4 border-[#1a1a1c] grayscale hover:grayscale-0 transition-all">
             </div>
             <div>
                 <h2 class="text-3xl font-extrabold text-white tracking-tighter italic uppercase">Settings</h2>
@@ -144,11 +198,19 @@
         </section>
     </main>
 
+    <dialog id="media-dialog" aria-labelledby="media-title">
+        <header><h2 id="media-title"></h2><button id="media-close" aria-label="Close preview">×</button></header>
+        <div id="media-preview"></div>
+        <p id="media-detail"></p><p id="media-source"></p>
+        <div class="media-actions"><button id="media-shortlist">Add to shortlist</button><a id="media-original" target="_blank" rel="noopener">Open original</a></div>
+        <p id="media-status" role="status"></p>
+    </dialog>
     <!-- BOTTOM NAV -->
     <nav id="bottom-nav">
         <button onclick="showView('home')" class="nav-item active" id="nav-home"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span class="mt-1 font-semibold">Home</span></button>
         <button onclick="openChat('Lumo')" class="nav-item" id="nav-chat"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l-2 3 6-6V4c0-1.1-.9-2-2-2z"/></svg><span class="mt-1 font-semibold">Chat</span></button>
-        <div id="create-button-trigger" onclick="toggleCreateMenu()" title="Create"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
+        <button id="create-button-trigger" onclick="toggleCreateMenu()" title="Create" aria-label="Open create menu"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+        <button onclick="showView('library')" class="nav-item" id="nav-library"><svg viewBox="0 0 24 24"><path d="M3 3h7v7H3zm11 0h7v7h-7zM3 14h7v7H3zm11 0h7v7h-7z"/></svg><span class="mt-1 font-semibold">Library</span></button>
         <button onclick="showView('world')" class="nav-item" id="nav-world"><svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg><span class="mt-1 font-semibold">World</span></button>
         <button onclick="showView('profile')" class="nav-item" id="nav-profile"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><span class="mt-1 font-semibold">Me</span></button>
     </nav>
@@ -160,6 +222,7 @@
             <button onclick="toggleCreateMenu()" class="p-3 bg-zinc-700 rounded-full hover:bg-red-500/40 transition-colors text-xl leading-none ring-1 ring-black/30 active:scale-90">&times;</button>
         </div>
         <div class="grid grid-cols-2 gap-5 h-[65%] overflow-y-auto pr-1 pb-10 px-2 items-stretch content-start">
+            <button class="creator-entry" type="button" onclick="openCreatorStudio()"><span class="text-5xl">✨</span><span class="text-center"><strong>Character Studio</strong><small>Choose a look, create a scene, review it</small></span></button>
             <div class="group flex flex-col items-center space-y-3 bg-[#2a2a2c] p-6 rounded-3xl border border-orange-500/30 hover:border-orange-500 transition-all active:scale-95 cursor-pointer" onclick="startStoryMode('Lumo')">
                 <span class="text-5xl">📖</span>
                 <div class="text-center"><p class="font-bold text-white tracking-tight">Lumming Story</p><p class="text-[10px] opacity-50 mt-1 font-medium uppercase tracking-wider">Transform characters into tales</p></div>
@@ -170,7 +233,7 @@
             </div>
             <div class="group flex flex-col items-center space-y-3 bg-[#2a2a2c] p-6 rounded-3xl border border-zinc-700 hover:border-pink-500/50 transition-all active:scale-95 cursor-pointer" onclick="startMoodMode()">
                 <span class="text-5xl">🔮</span>
-                <div class="text-center"><p class="font-bold text-white tracking-tight">Magic Ring</p><p class="text-[10px] opacity-50 mt-1 font-medium uppercase tracking-wider">Predict your mood today</p></div>
+                <div class="text-center"><p class="font-bold text-white tracking-tight">Magic Ring</p><p class="text-[10px] opacity-50 mt-1 font-medium uppercase tracking-wider">Choose a quiet moment</p></div>
             </div>
             <div class="group flex flex-col items-center space-y-3 bg-[#2a2a2c] p-6 rounded-3xl border border-zinc-700 hover:border-green-500/50 transition-all active:scale-95 cursor-pointer" onclick="startSceneryMode()">
                 <span class="text-5xl">🏔️</span>
@@ -190,365 +253,9 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script>
-const LUMINARIES = {
-    Lumo: { color: '#ff9f43', avatar: '/assets/portraits/lumo-warm.svg', role: 'Hyperfixation Gremlin' },
-    Lila: { color: '#a55eea', avatar: '/assets/portraits/lila-playful.svg', role: 'Spooky Poet' },
-    Moki: { color: '#ef5777', avatar: '/assets/portraits/moki-excited.svg', role: 'Chaos Gremlin' },
-    Nori: { color: '#1dd1a1', avatar: '/assets/portraits/nori-warm.svg', role: 'Cosmic Weirdo' },
-    Pip:  { color: '#54a0ff', avatar: '/assets/portraits/pip-warm.svg', role: 'Speed Demon' }
-};
-
-const MAGIC_KEYWORDS = ['transform', 'turn into', 'become', 'change to', 'make it a', 'morph', 'convert'];
-
-let activeView = 'home';
-let currentChatLumming = null;
-let currentChatName = null;
-let isCreating = false;
-
-// API endpoint - change this if your Lummings server runs elsewhere
-const API_BASE = 'http://127.0.0.1:8511';
-
-// Track whether API is available
-let apiAvailable = false;
-
-// Test API on load
-fetch(`${API_BASE}/ui`, { method: 'HEAD', mode: 'no-cors' })
-    .then(() => { apiAvailable = true; })
-    .catch(() => { apiAvailable = false; });
-
-document.addEventListener('DOMContentLoaded', () => {
-    generateFeed();
-    generateArtifacts();
-});
-
-function generateFeed() {
-    const feed = document.getElementById('discovery-feed');
-    const adventures = [
-        { title: "The Great Quill Quest", text: "Lila is searching for the legendary quill in the Whispering Woods!", author: "Lila (Spooky Poet)", img: "/assets/portraits/lila-curious.svg", key: 'Lila' },
-        { title: "Moki's Prank Gone Wild", text: "A tiny prank with a magic wand turned everything pink...", author: "Moki (Chaos Gremlin)", img: "/assets/portraits/moki-excited.svg", key: 'Moki' },
-        { title: "Deep Space Discovery", text: "Lumo discovered a new constellation! Is it part of the mission?", author: "Lumo (Hyperfixation Gremlin)", img: "/assets/portraits/lumo-warm.svg", key: 'Lumo' }
-    ];
-    feed.innerHTML = adventures.map(adv => `
-        <div class="feed-card" onclick="openChat('${adv.key}')">
-            <div class="text-[10px] uppercase tracking-widest opacity-50 mb-2 font-bold">${adv.author}</div>
-            <div class="feed-image-container">
-                <img src="${adv.img}">
-            </div>
-            <h3 class="font-extrabold text-lg mb-1 tracking-tight text-white">${adv.title}</h3>
-            <p class="text-sm text-gray-400 line-clamp-2 mb-4 leading-snug">${adv.text}</p>
-            <button class="w-full py-3 rounded-xl bg-zinc-800/50 hover:bg-orange-500/20 font-semibold transition-colors border border-white/5">Join Adventure</button>
-        </div>
-    `).join('');
-}
-
-function generateArtifacts() {
-    const gallery = document.getElementById('artifact-gallery');
-    if (!gallery) return;
-    const icons = ['✨', '🖋️', '🎲', '⏸️', '📢', '🌟', '🔮'];
-    gallery.innerHTML = icons.map(i => `
-        <div class="w-16 h-16 flex-shrink-0 bg-[#0d0d0e] rounded-xl border border-zinc-700 flex items-center justify-center text-2xl">${i}</div>
-    `).join('');
-}
-
-function showView(viewId) {
-    const views = ['home', 'chat', 'world', 'profile'];
-    views.forEach(v => {
-        const el = document.getElementById(v + '-view');
-        if (el) {
-            el.style.display = 'none';
-            el.classList.add('opacity-0', 'scale-95');
-            el.classList.remove('opacity-100', 'scale-100');
-        }
-    });
-
-    const target = document.getElementById(viewId + '-view');
-    if (!target) return;
-    target.style.display = (viewId === 'chat') ? 'flex' : 'block';
-    setTimeout(() => {
-        target.classList.remove('opacity-0', 'scale-95');
-        target.classList.add('opacity-100', 'scale-100');
-        if (viewId === 'chat') scrollToBottom();
-    }, 50);
-
-    activeView = viewId;
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    const activeNav = document.getElementById('nav-' + viewId);
-    if (activeNav) activeNav.classList.add('active');
-    if (isCreating) toggleCreateMenu();
-}
-
-function toggleCreateMenu() {
-    const overlay = document.getElementById('create-overlay');
-    isCreating = !isCreating;
-    overlay.classList.toggle('active', isCreating);
-}
-
-function openChat(name) {
-    const lumming = LUMINARIES[name];
-    if (!lumming) return;
-    currentChatLumming = lumming;
-    currentChatName = name.toLowerCase();
-    showView('chat');
-    document.getElementById('chat-name').innerText = name;
-    document.getElementById('chat-avatar').src = lumming.avatar;
-    const scroller = document.getElementById('message-scroller');
-    scroller.innerHTML = '';
-
-    if (apiAvailable) {
-        // Fetch a real greeting from the character
-        fetch(`${API_BASE}/chat`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({persona: currentChatName, message: `Say hello to a new friend in your own voice.`})
-        })
-        .then(r => r.json())
-        .then(data => {
-            const reply = data.reply || data.error || `Hey! I'm ${name}. What are we imagining today?`;
-            appendMessage(reply, 'lummings');
-        })
-        .catch(() => {
-            appendMessage(`Hey! I'm ${name}. What are we imagining today? Try: "Transform into a dragon!" 🐉`, 'lummings');
-        });
-    } else {
-        appendMessage(`Hey! I'm ${name}. What are we imagining today? Try: "Transform into a dragon!" 🐉`, 'lummings');
-    }
-}
-
-function sendMessage() {
-    const input = document.getElementById('chat-input');
-    const text = input.value.trim();
-    if (!text) return;
-    appendMessage(text, 'user');
-    input.value = '';
-
-    if (apiAvailable && currentChatName) {
-        const btn = document.querySelector('button[onclick="sendMessage()"]');
-        if (btn) { btn.disabled = true; btn.style.opacity = '0.5'; }
-
-        fetch(`${API_BASE}/chat`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({persona: currentChatName, message: text})
-        })
-        .then(r => r.json())
-        .then(data => {
-            if (data.error) {
-                appendMessage(`(connection issue: ${data.error})`, 'lummings');
-            } else if (data.reply) {
-                appendMessage(data.reply, 'lummings');
-            } else {
-                appendMessage("(silent)", 'lummings');
-            }
-        })
-        .catch(err => {
-            appendMessage(`(couldn't reach the Lummings server — is it running on ${API_BASE}?)`, 'lummings');
-        })
-        .finally(() => {
-            if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
-        });
-    } else {
-        setTimeout(() => {
-            const lower = text.toLowerCase();
-            let isMagic = MAGIC_KEYWORDS.some(k => lower.includes(k));
-            let extract = extractTransformationTarget(text);
-            if (isMagic && extract) {
-                performTransformation(extract);
-            } else if (lower.includes('scene') || lower.includes('world') || lower.includes('imagine')) {
-                startSceneryGeneration(text);
-            } else {
-                appendMessage("That sounds wonderful! Keep the story going...", 'lummings');
-            }
-        }, 700);
-    }
-}
-
-function extractTransformationTarget(text) {
-    const lower = text.toLowerCase();
-    for (const k of MAGIC_KEYWORDS) {
-        const idx = lower.indexOf(k);
-        if (idx !== -1) {
-            let t = text.substring(idx + k.length).trim();
-            t = t.replace(/^(into|to|as|a|an)\s+/i, '').trim();
-            t = t.replace(/^(a|an|the)\s+/i, '').trim();
-            return t || 'Magic Object';
-        }
-    }
-    return null;
-}
-
-function appendMessage(text, sender) {
-    const scroller = document.getElementById('message-scroller');
-    const msg = document.createElement('div');
-    msg.className = 'msg msg-' + sender;
-    if (sender === 'lummings') {
-        msg.innerHTML = `<img src="${currentChatLumming.avatar}"><span>${text}</span>`;
-    } else {
-        msg.innerText = text;
-    }
-    scroller.appendChild(msg);
-    scrollToBottom();
-}
-
-function scrollToBottom() {
-    const s = document.getElementById('message-scroller');
-    s.scrollTop = s.scrollHeight;
-}
-
-async function performTransformation(target) {
-    const stage = document.getElementById('transformation-stage');
-    const morphTarget = document.getElementById('morph-target');
-    const title = document.getElementById('morph-title');
-    const caption = document.getElementById('morph-caption');
-
-    stage.style.display = 'flex';
-    title.innerText = 'The Magic is Waking...';
-    caption.innerText = '';
-
-    const color = currentChatLumming.color;
-    morphTarget.innerHTML = `<path d="M120,40 C80,40 40,80 40,132 C40,184 80,200 120,200 C160,200 200,184 200,132 C200,80 160,40 120,40" fill="${color}" opacity="0.7"/><circle cx="120" cy="120" r="50" fill="white" opacity="0.3"/>`;
-    morphTarget.style.transform = 'scale(1) rotate(0deg)';
-    morphTarget.style.opacity = '1';
-
-    await delay(1500);
-    title.innerText = 'TRANSFORMING...';
-    caption.innerText = `Morphing into: ${target}`;
-    morphTarget.style.transform = 'scale(3) rotate(720deg)';
-    morphTarget.style.opacity = '0';
-
-    await delay(1800);
-
-    const emoji = inferEmoji(target);
-    morphTarget.innerHTML = `<text x="50%" y="50%" text-anchor="middle" font-size="120" fill="white">${emoji}</text>`;
-    morphTarget.style.transform = 'scale(1) rotate(-360deg)';
-    morphTarget.style.opacity = '1';
-    title.innerText = 'COMPLETE!';
-    caption.innerText = `${currentChatLumming === LUMINARIES.Lumo ? 'Lumo' : 'Your Lumming'} became: ${target}`;
-
-    if (typeof confetti !== 'undefined') {
-        confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 }, colors: [color, '#ffffff', '#ffcf7a'] });
-    }
-
-    await delay(3500);
-    stage.style.display = 'none';
-    appendMessage(`WOW! We just made a <strong>${target}</strong>! Saved to your artifacts.`, 'lummings');
-    addArtifact(emoji);
-}
-
-function inferEmoji(target) {
-    const t = target.toLowerCase();
-    if (t.includes('dragon')) return '🐉';
-    if (t.includes('sword') || t.includes('blade')) return '⚔️';
-    if (t.includes('shield')) return '🛡️';
-    if (t.includes('wand') || t.includes('magic')) return '🪄';
-    if (t.includes('crown')) return '👑';
-    if (t.includes('star')) return '⭐';
-    if (t.includes('rocket')) return '🚀';
-    if (t.includes('tree')) return '🌳';
-    if (t.includes('flower')) return '🌸';
-    if (t.includes('book')) return '📚';
-    if (t.includes('key')) return '🔑';
-    if (t.includes('gem') || t.includes('diamond') || t.includes('crystal')) return '💎';
-    if (t.includes('fire')) return '🔥';
-    if (t.includes('water') || t.includes('ocean')) return '🌊';
-    if (t.includes('moon')) return '🌙';
-    if (t.includes('sun')) return '☀️';
-    return '✨';
-}
-
-function addArtifact(emoji) {
-    const gallery = document.getElementById('artifact-gallery');
-    if (!gallery) return;
-    const div = document.createElement('div');
-    div.className = 'w-16 h-16 flex-shrink-0 bg-[#0d0d0e] rounded-xl border border-orange-500/50 flex items-center justify-center text-2xl';
-    div.innerText = emoji;
-    gallery.insertBefore(div, gallery.firstChild);
-}
-
-async function startSceneryGeneration(prompt) {
-    const stage = document.getElementById('transformation-stage');
-    const morphTarget = document.getElementById('morph-target');
-    const title = document.getElementById('morph-title');
-    const caption = document.getElementById('morph-caption');
-
-    stage.style.display = 'flex';
-    title.innerText = 'IMAGINING...';
-    caption.innerText = `Building: ${prompt}`;
-
-    let progress = 0;
-    morphTarget.innerHTML = '';
-    return new Promise(resolve => {
-        const interval = setInterval(async () => {
-            progress += 3;
-            const r = progress * 2.5;
-            morphTarget.innerHTML = `
-                <defs>
-                    <radialGradient id="skyGrad">
-                        <stop offset="0%" stop-color="${currentChatLumming.color}" stop-opacity="0.6"/>
-                        <stop offset="100%" stop-color="#0d0d0e" stop-opacity="0"/>
-                    </radialGradient>
-                </defs>
-                <circle cx="120" cy="120" r="${r}" fill="url(#skyGrad)" opacity="0.5"/>
-                <circle cx="120" cy="120" r="${Math.max(0, r-15)}" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
-                <text x="50%" y="50%" text-anchor="middle" font-size="14" fill="white" opacity="0.8">${progress}%</text>
-            `;
-            if (progress >= 100) {
-                clearInterval(interval);
-                morphTarget.innerHTML = `
-                    <rect x="0" y="160" width="240" height="80" fill="#2a2a2c"/>
-                    <polygon points="0,160 80,80 160,140 240,60 240,160" fill="#1a1a1c"/>
-                    <circle cx="190" cy="50" r="20" fill="${currentChatLumming.color}" opacity="0.8"/>
-                    <text x="50%" y="220" text-anchor="middle" font-size="40">🏔️✨</text>
-                `;
-                title.innerText = 'SCENERY COMPLETE!';
-                caption.innerText = `World "${prompt}" added to your map.`;
-                if (typeof confetti !== 'undefined') confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-                await delay(3000);
-                stage.style.display = 'none';
-                appendMessage(`The world <strong>${prompt}</strong> has been imagined! Check the World Map.`, 'lummings');
-                resolve();
-            }
-        }, 80);
-    });
-}
-
-function startStoryMode(name) {
-    toggleCreateMenu();
-    openChat(name);
-    setTimeout(() => {
-        appendMessage(`Let's write a story! Tell me to <strong>"transform into..."</strong> anything you can dream of.`, 'lummings');
-    }, 400);
-}
-
-function startMoodMode() {
-    toggleCreateMenu();
-    showView('profile');
-    alert("Your Magic Ring is active! The Lummings sense your vibe. ✨");
-}
-
-function startSceneryMode() {
-    toggleCreateMenu();
-    openChat('Lumo');
-    setTimeout(() => {
-        const prompt = window.prompt('Describe a world you want to imagine:');
-        if (prompt) {
-            appendMessage(prompt, 'user');
-            startSceneryGeneration(prompt);
-        }
-    }, 400);
-}
-
-function startComicMode() {
-    toggleCreateMenu();
-    showView('home');
-    alert("Comic Maker: Choose a Lumming and type 'transform into [panel]' to draw their story! (Visual panels coming in v2)");
-}
-
-function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-document.getElementById('chat-input').addEventListener('keypress', e => {
-    if (e.key === 'Enter') sendMessage();
-});
-</script>
+<script src="/app/app.js"></script>
+<script src="/app/stage.js"></script>
+<script src="/app/creator.js"></script>
+<script src="/app/library.js"></script>
 </body>
 </html>

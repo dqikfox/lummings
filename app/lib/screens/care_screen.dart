@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../state/heartlight_controller.dart';
 import '../widgets/heartlight_bar.dart';
 import '../widgets/lumming_avatar.dart';
+import '../widgets/bond_levelup_dialog.dart';
 
 class CareScreen extends StatefulWidget {
   const CareScreen({super.key});
@@ -27,6 +28,13 @@ class _CareScreenState extends State<CareScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(result.message)),
     );
+    if (result.leveledUp) {
+      await showBondLevelUpDialog(
+        context,
+        lumming: hl.activeLumming,
+        newLevel: hl.active.bond.level,
+      );
+    }
   }
 
   @override

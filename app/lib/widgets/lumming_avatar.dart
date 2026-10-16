@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../models/charm.dart';
 import '../models/heartlight_state.dart';
 import '../models/lumming.dart';
 
@@ -8,6 +9,8 @@ class LummingAvatar extends StatelessWidget {
   final double size;
   final bool glowing;
   final HeartlightPhase? phase;
+  /// Optional equipped charm id — shows as corner badge.
+  final String? equippedCharmId;
 
   const LummingAvatar({
     super.key,
@@ -15,12 +18,14 @@ class LummingAvatar extends StatelessWidget {
     this.size = 120,
     this.glowing = true,
     this.phase,
+    this.equippedCharmId,
   });
 
   @override
   Widget build(BuildContext context) {
     final accent = lumming.heartlight.accent;
     final isDim = phase == HeartlightPhase.dimmed || !glowing;
+    final charm = equippedCharmId != null ? Charm.byId(equippedCharmId!) : null;
 
     final portrait = ClipOval(
       child: Image.asset(
@@ -75,6 +80,7 @@ class LummingAvatar extends StatelessWidget {
       alignment: Alignment.center,
       child: Stack(
         alignment: Alignment.center,
+        clipBehavior: Clip.none,
         children: [
           Container(
             width: size * 0.9,
@@ -91,6 +97,31 @@ class LummingAvatar extends StatelessWidget {
             ),
           ),
           portrait,
+          if (charm != null)
+            Positioned(
+              right: size * 0.02,
+              bottom: size * 0.02,
+              child: Container(
+                width: size * 0.28,
+                height: size * 0.28,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF12182C),
+                  border: Border.all(color: accent, width: 1.5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: accent.withOpacity(0.5),
+                      blurRadius: 8,
+                    ),
+                  ],
+                ),
+                child: Text(
+                  charm.emoji,
+                  style: TextStyle(fontSize: size * 0.14),
+                ),
+              ),
+            ),
         ],
       ),
     );

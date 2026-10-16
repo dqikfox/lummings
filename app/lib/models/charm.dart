@@ -7,7 +7,7 @@ class Charm {
   final String lummingId; // 'lumo'|'lila'|'pip'|'nori'|'moki'|'all'
   final int shardCost;
   final int minBondLevel;
-  final String rarity; // common | rare | seasonal
+  final String rarity; // common | rare | seasonal | legendary
   final String emoji;
 
   const Charm({
@@ -101,6 +101,26 @@ class Charm {
       minBondLevel: 1,
       rarity: 'seasonal',
       emoji: '🎇',
+    ),
+    Charm(
+      id: 'nest_pillow',
+      name: 'Nest Pillow Charm',
+      blurb: 'Cozy soft-hook collectible — kids want one for every Lumming nest.',
+      lummingId: 'all',
+      shardCost: 4,
+      minBondLevel: 1,
+      rarity: 'common',
+      emoji: '🛏️',
+    ),
+    Charm(
+      id: 'heartlight_crown',
+      name: 'Heartlight Crown',
+      blurb: 'Legendary set-completion glow. Equip to show your full bond.',
+      lummingId: 'all',
+      shardCost: 20,
+      minBondLevel: 5,
+      rarity: 'legendary',
+      emoji: '👑',
     ),
   ];
 

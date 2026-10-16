@@ -23,6 +23,7 @@ src/lummings/      # Personality engine (Python)
 crates/            # Device runtime (Rust) — Pi Zero 2 W
 site/              # Marketing site (dqikfox.github.io/lummings-style)
 notebooks/         # Persona exploration notebooks
+app/               # Flutter mobile companion (Heartlight + adventures)
 docs/              # Brand bible, architecture, bibliography, roadmap
 tests/             # pytest suite (12 tests, all passing)
 scripts/           # Persona evaluation

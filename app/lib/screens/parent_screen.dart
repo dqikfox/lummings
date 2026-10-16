@@ -5,6 +5,7 @@ import '../state/heartlight_controller.dart';
 import '../theme/lummings_theme.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/nest_section_header.dart';
+import 'plus_screen.dart';
 
 class ParentScreen extends StatefulWidget {
   const ParentScreen({super.key});
@@ -278,6 +279,16 @@ class _ParentScreenState extends State<ParentScreen> {
                 ),
               ),
         const SizedBox(height: 16),
+        FilledButton.tonalIcon(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const PlusScreen()),
+            );
+          },
+          icon: const Icon(Icons.auto_awesome),
+          label: const Text('Heartlight Plus / Nest Family'),
+        ),
+        const SizedBox(height: 10),
         OutlinedButton.icon(
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(

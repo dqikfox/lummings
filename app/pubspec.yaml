@@ -1,7 +1,7 @@
 name: lummings_app
 description: Lummings — little lights, big little adventures. Heartlight companions for growing together.
 publish_to: "none"
-version: 0.1.0+1
+version: 0.2.0+2
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
@@ -14,6 +14,7 @@ dependencies:
   shared_preferences: ^2.3.2
   google_fonts: ^6.2.1
   flutter_animate: ^4.5.0
+  flutter_svg: ^2.0.10+1
   uuid: ^4.5.1
   collection: ^1.18.0
 
@@ -27,3 +28,5 @@ flutter:
   assets:
     - assets/adventures/
     - assets/images/
+    - assets/images/crew/
+    - assets/images/portraits/

@@ -5,6 +5,7 @@ import '../state/heartlight_controller.dart';
 import '../theme/lummings_theme.dart';
 import '../widgets/heartlight_bar.dart';
 import '../widgets/lumming_avatar.dart';
+import '../services/feedback.dart';
 import '../widgets/bond_levelup_dialog.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/nest_section_header.dart';
@@ -23,16 +24,20 @@ class _CareScreenState extends State<CareScreen> {
   Future<void> _care(String kind) async {
     setState(() => busy = true);
     final hl = context.read<HeartlightController>();
+    final messenger = ScaffoldMessenger.of(context);
+    await NestFeedback.carePulse();
     final result = await hl.performCare(kind: kind);
+    if (!mounted) return;
     setState(() {
       busy = false;
       lastMessage = result.message;
     });
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
+    messenger.showSnackBar(
       SnackBar(content: Text(result.message)),
     );
     if (result.leveledUp) {
+      await NestFeedback.levelUpBurst();
+      if (!mounted) return;
       await showBondLevelUpDialog(
         context,
         lumming: hl.activeLumming,

@@ -1,0 +1,167 @@
+{
+  "id": "quiet_tide_001",
+  "title": "The Quiet Tide",
+  "subtitle": "A Tidelight adventure with Nori · ~5 min",
+  "synopsis": "Nori’s Tidelight helps you notice the little things at the Moonpool. Heartlight is essence — never a separate creature. Pause. Notice. Wonder together.",
+  "estimated_minutes": 5,
+  "crew": ["nori", "lila", "lumo"],
+  "start": "moonpool",
+  "completion_bond_xp": 35,
+  "completion_shards": 3,
+  "nodes": [
+    {
+      "id": "moonpool",
+      "title": "Moonpool hush",
+      "speaker": "narrator",
+      "mood": "soft",
+      "body": "The Moonpool is very quiet tonight. Nori’s Tidelight glows soft moon-blue inside Lowbeam.\n\nA tiny ripple appears… something small is waiting to be noticed.",
+      "choices": [
+        {
+          "id": "c_listen",
+          "label": "Sit still and listen with Nori",
+          "next": "listen",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We sat still at the Moonpool with Nori.",
+          "line": "Pause. Notice. Wonder together."
+        },
+        {
+          "id": "c_ask",
+          "label": "Gently ask what the ripple wants",
+          "next": "ask",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We asked the quiet ripple a kind question."
+        }
+      ]
+    },
+    {
+      "id": "listen",
+      "title": "Little things",
+      "speaker": "nori",
+      "mood": "calm",
+      "body": "Do you hear it? A pebble singing a tiny song. Rushing past would miss it.\n\nHeartlights are essence — my Tidelight is how I notice. Let’s I-lumming-Nate the little things.",
+      "choices": [
+        {
+          "id": "c_pebble",
+          "label": "Notice the pebble together",
+          "next": "pebble",
+          "bond_xp": 10,
+          "memory": "We noticed a pebble’s tiny song."
+        },
+        {
+          "id": "c_help",
+          "label": "Wonder if someone needs help (safe check)",
+          "next": "help",
+          "bond_xp": 12,
+          "shards": 1,
+          "safety_check": true,
+          "memory": "We chose Safety First before rushing.",
+          "line": "Safety First: we check before we rush."
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "title": "The ripple speaks",
+      "speaker": "nori",
+      "mood": "gentle",
+      "body": "The ripple is shy. It says: “I feel small.”\n\nFeelings count even when quiet. We can hold them softly.",
+      "choices": [
+        {
+          "id": "c_name",
+          "label": "Name the feeling kindly",
+          "next": "pebble",
+          "bond_xp": 10,
+          "memory": "We named a quiet feeling with Nori."
+        },
+        {
+          "id": "c_lila",
+          "label": "Invite Lila to help with words",
+          "next": "lila",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "Lila helped us put a feeling into words."
+        }
+      ]
+    },
+    {
+      "id": "help",
+      "title": "Safe check",
+      "speaker": "lumo",
+      "mood": "steady",
+      "body": "Questlight says: first we make sure everyone is safe. No rushing into deep water.\n\nSmall steps. Together. Let’s I-lumming-Nate our next move.",
+      "choices": [
+        {
+          "id": "c_shallow",
+          "label": "Stay at the shallow edge together",
+          "next": "pebble",
+          "bond_xp": 12,
+          "shards": 1,
+          "safety_check": true,
+          "memory": "We stayed safe at the shallow edge."
+        }
+      ]
+    },
+    {
+      "id": "lila",
+      "title": "Words of light",
+      "speaker": "lila",
+      "mood": "warm",
+      "body": "Dreamlight sketches a soft picture: a small heart glowing beside a big one.\n\nFeeling small is still feeling. We can hold it gently.",
+      "choices": [
+        {
+          "id": "c_back",
+          "label": "Thank Lila and return to Nori",
+          "next": "pebble",
+          "bond_xp": 10,
+          "memory": "Lila’s Dreamlight helped a quiet feeling become a picture."
+        }
+      ]
+    },
+    {
+      "id": "pebble",
+      "title": "Tidelight bright",
+      "speaker": "nori",
+      "mood": "radiant",
+      "body": "The pebble’s song gets braver. Your noticing made the Moonpool kinder.\n\nTidelight essence shimmers — not a separate creature, just me being me.",
+      "choices": [
+        {
+          "id": "c_share",
+          "label": "Share the quiet with a friend",
+          "next": "end_kind",
+          "bond_xp": 12,
+          "shards": 1,
+          "memory": "We shared the Moonpool hush with a friend."
+        },
+        {
+          "id": "c_still",
+          "label": "Sit one more minute in the hush",
+          "next": "end_still",
+          "bond_xp": 12,
+          "memory": "We sat one more soft minute with Nori."
+        }
+      ]
+    },
+    {
+      "id": "end_kind",
+      "title": "Shared hush",
+      "speaker": "narrator",
+      "mood": "bonded",
+      "body": "You and Nori share the quiet with the whole Nest. Little things, big Heartlight.\n\nAdventure complete.",
+      "choices": [],
+      "ending": true,
+      "ending_kind": "bonded"
+    },
+    {
+      "id": "end_still",
+      "title": "Still water",
+      "speaker": "nori",
+      "mood": "warm",
+      "body": "Sometimes the bravest quest is waiting softly. Tidelight holds the hush for you.\n\nAdventure complete.",
+      "choices": [],
+      "ending": true,
+      "ending_kind": "warm"
+    }
+  ]
+}

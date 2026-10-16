@@ -32,7 +32,9 @@ class Lumming {
   final String title;
   final String blurb;
   final Heartlight heartlight;
-  final String emoji; // fallback until art assets wired
+  final String emoji; // fallback if art missing
+  final String crewAsset; // assets/images/crew/<id>.png
+  final String portraitHappy; // assets/images/portraits/<id>-happy.svg
 
   const Lumming({
     required this.id,
@@ -41,6 +43,8 @@ class Lumming {
     required this.blurb,
     required this.heartlight,
     required this.emoji,
+    required this.crewAsset,
+    required this.portraitHappy,
   });
 
   static const crew = <Lumming>[
@@ -50,6 +54,8 @@ class Lumming {
       title: 'Quest Captain',
       blurb: 'Ruby-red mystical gamer. Turns big questions into small co-op quests.',
       emoji: '🎮',
+      crewAsset: 'assets/images/crew/lumo.png',
+      portraitHappy: 'assets/images/portraits/lumo-happy.svg',
       heartlight: Heartlight(
         name: 'Questlight',
         colour: 'ruby-gold with cyan constellation sparks',
@@ -67,6 +73,8 @@ class Lumming {
       title: 'Dream Weaver',
       blurb: 'Soft violet story-poet. Helps feelings become words, pictures, and paths.',
       emoji: '🌙',
+      crewAsset: 'assets/images/crew/lila.png',
+      portraitHappy: 'assets/images/portraits/lila-happy.svg',
       heartlight: Heartlight(
         name: 'Dreamlight',
         colour: 'soft violet with pearly gold ribbons',
@@ -84,6 +92,8 @@ class Lumming {
       title: 'Trail Scout',
       blurb: 'Emerald pathfinder. Breaks adventures into safe, leafy steps.',
       emoji: '🍃',
+      crewAsset: 'assets/images/crew/pip.png',
+      portraitHappy: 'assets/images/portraits/pip-happy.svg',
       heartlight: Heartlight(
         name: 'Traillight',
         colour: 'fresh emerald with warm firefly flecks',
@@ -101,6 +111,8 @@ class Lumming {
       title: 'Tide Keeper',
       blurb: 'Moon-blue quiet wonderer. Notices the little things others rush past.',
       emoji: '🌊',
+      crewAsset: 'assets/images/crew/nori.png',
+      portraitHappy: 'assets/images/portraits/nori-happy.svg',
       heartlight: Heartlight(
         name: 'Tidelight',
         colour: 'moon-blue with a soft silver centre',
@@ -118,6 +130,8 @@ class Lumming {
       title: 'Spark Trickster',
       blurb: 'Rose-pixel chaos gremlin. Kind jokes that untangle mix-ups.',
       emoji: '✨',
+      crewAsset: 'assets/images/crew/moki.png',
+      portraitHappy: 'assets/images/portraits/moki-happy.svg',
       heartlight: Heartlight(
         name: 'Sparklight',
         colour: 'rose pink with playful lilac pixels',

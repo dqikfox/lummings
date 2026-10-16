@@ -5,6 +5,7 @@ import '../models/charm.dart';
 import '../models/lumming.dart';
 import '../state/heartlight_controller.dart';
 import '../theme/lummings_theme.dart';
+import '../services/feedback.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/nest_section_header.dart';
 
@@ -114,6 +115,7 @@ class CollectionScreen extends StatelessWidget {
                   return;
                 }
                 final result = await hl.purchaseCharm(charm.id);
+                if (result.ok) await NestFeedback.unlockCharm();
                 if (!context.mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(result.message)),

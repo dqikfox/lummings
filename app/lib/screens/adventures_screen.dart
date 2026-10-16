@@ -38,6 +38,13 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
       emoji: '🍃',
       accent: LummingsColors.dreamTeal,
     ),
+    _PackMeta(
+      asset: 'assets/adventures/quiet_tide_001.json',
+      title: 'The Quiet Tide',
+      subtitle: 'Tidelight adventure with Nori · ~5 min',
+      emoji: '🌙',
+      accent: LummingsColors.tidelight,
+    ),
   ];
 
   bool _inStory = false;

@@ -85,18 +85,43 @@ class _ParentScreenState extends State<ParentScreen> {
             subtitle: Text('Bond Level ${hl.active.bond.level}'),
           ),
         ),
-        const Card(
+        Card(
           child: ListTile(
-            leading: Icon(Icons.timer),
-            title: Text('Gentle screen-time limit'),
-            subtitle: Text('1h 30m / 2h (set in settings soon)'),
+            leading: const Icon(Icons.timer),
+            title: const Text('Gentle screen-time limit'),
+            subtitle: Text(
+              hl.screenTimeLimitMinutes == 0
+                  ? 'Off — no soft reminder'
+                  : '${hl.screenTimeLimitMinutes} minutes (soft reminder only, never locks kid out mid-story)',
+            ),
           ),
         ),
-        const Card(
-          child: ListTile(
-            leading: Icon(Icons.privacy_tip),
-            title: Text('Privacy & Content Filters'),
-            subtitle: Text('ON by default · COPPA-minded'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            children: [
+              const Text('0'),
+              Expanded(
+                child: Slider(
+                  value: hl.screenTimeLimitMinutes.toDouble(),
+                  min: 0,
+                  max: 180,
+                  divisions: 12,
+                  label: '${hl.screenTimeLimitMinutes}m',
+                  onChanged: (v) => hl.setScreenTimeLimit(v.round()),
+                ),
+              ),
+              const Text('3h'),
+            ],
+          ),
+        ),
+        Card(
+          child: SwitchListTile(
+            secondary: const Icon(Icons.privacy_tip),
+            title: const Text('Privacy & Content Filters'),
+            subtitle: const Text('ON by default · COPPA-minded · Safety First'),
+            value: hl.contentFiltersOn,
+            onChanged: (v) => hl.setContentFilters(v),
           ),
         ),
         const SizedBox(height: 12),

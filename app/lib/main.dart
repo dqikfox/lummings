@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'app.dart';
 import 'state/adventure_controller.dart';
 import 'state/heartlight_controller.dart';
+import 'state/nav_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +14,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider.value(value: heartlight),
         ChangeNotifierProvider(create: (_) => AdventureController()),
+        ChangeNotifierProvider(create: (_) => NavController()),
       ],
       child: const LummingsApp(),
     ),

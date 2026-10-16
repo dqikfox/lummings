@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/heartlight_state.dart';
 import '../models/charm.dart';
+import '../models/daily_quest.dart';
 import '../models/lumming.dart';
 
 /// Owns Heartlight essence state, bond XP, care streak, and gentle hooks.
@@ -20,6 +21,14 @@ class HeartlightController extends ChangeNotifier {
   String? parentPin;
   final Map<String, CompanionState> _companions = {};
 
+  /// Soft daily quests (gentle FOMO — incomplete never punishes).
+  DailyQuestProgress quests = DailyQuestProgress.emptyToday();
+
+  /// Parent soft screen-time minutes (0 = off).
+  int screenTimeLimitMinutes = 90;
+  bool contentFiltersOn = true;
+
+
   CompanionState get active =>
       _companions[activeId.name] ?? _fresh(activeId.name);
 
@@ -37,6 +46,27 @@ class HeartlightController extends ChangeNotifier {
       (e) => e.name == idName,
       orElse: () => LummingId.lumo,
     );
+
+    // Daily quests — reset if day rolled over
+    final today = DailyQuestProgress.todayKey();
+    final qDay = prefs.getString('quest_day') ?? today;
+    final qDone = prefs.getStringList('quest_done') ?? <String>[];
+    final qBonus = prefs.getBool('quest_bonus') ?? false;
+    if (qDay == today) {
+      quests = DailyQuestProgress(
+        dayKey: today,
+        completedIds: qDone.toSet(),
+        bonusClaimed: qBonus,
+      );
+    } else {
+      quests = DailyQuestProgress.emptyToday();
+      await prefs.setString('quest_day', today);
+      await prefs.setStringList('quest_done', []);
+      await prefs.setBool('quest_bonus', false);
+    }
+
+    screenTimeLimitMinutes = prefs.getInt('screen_time_limit') ?? 90;
+    contentFiltersOn = prefs.getBool('content_filters') ?? true;
 
     for (final l in Lumming.crew) {
       final key = l.id.name;
@@ -162,11 +192,13 @@ class HeartlightController extends ChangeNotifier {
     final missLine = missed
         ? ' I missed you… thank you for coming back. Your return lit an extra spark!'
         : '';
+    final questNote = await completeQuest(QuestKind.care);
     return CareResult(
       alreadyDone: false,
       message:
-          '${activeLumming.heartlight.ritual}$missLine Heartlight brighter. +$xpGain bond.',
-      state: s,
+          '${activeLumming.heartlight.ritual}$missLine Heartlight brighter. +$xpGain bond.'
+          '${questNote != null ? ' · $questNote' : ''}',
+      state: _companions[key] ?? s,
       xpGained: xpGain,
       streak: streak,
       leveledUp: didLevel,
@@ -209,6 +241,7 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     await _persist(s);
     notifyListeners();
+    await completeQuest(QuestKind.adventure);
   }
 
   Future<void> _persist(CompanionState s) async {
@@ -277,10 +310,11 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     await _persist(s);
     notifyListeners();
+    await completeQuest(QuestKind.collect);
     return CharmPurchaseResult(
       ok: true,
       message: '${charm.emoji} ${charm.name} unlocked! Collection grows brighter.',
-      state: s,
+      state: _companions[key] ?? s,
     );
   }
 
@@ -300,13 +334,73 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     await _persist(s);
     notifyListeners();
+    await completeQuest(QuestKind.talk);
     return CareResult(
       alreadyDone: false,
       message: activeLumming.heartlight.line,
-      state: s,
+      state: _companions[key] ?? s,
       xpGained: bondXp,
-      streak: s.careStreak,
+      streak: (_companions[key] ?? s).careStreak,
     );
+  }
+
+
+  Future<void> setScreenTimeLimit(int minutes) async {
+    screenTimeLimitMinutes = minutes.clamp(0, 240);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('screen_time_limit', screenTimeLimitMinutes);
+    notifyListeners();
+  }
+
+  Future<void> setContentFilters(bool on) async {
+    contentFiltersOn = on;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('content_filters', on);
+    notifyListeners();
+  }
+
+  Future<void> _persistQuests() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('quest_day', quests.dayKey);
+    await prefs.setStringList('quest_done', quests.completedIds.toList());
+    await prefs.setBool('quest_bonus', quests.bonusClaimed);
+  }
+
+  /// Mark a daily quest done. Idempotent. Never punishes incomplete days.
+  Future<String?> completeQuest(QuestKind kind) async {
+    final today = DailyQuestProgress.todayKey();
+    if (quests.dayKey != today) {
+      quests = DailyQuestProgress.emptyToday();
+    }
+    final def = DailyQuest.roster.firstWhere((q) => q.kind == kind);
+    if (quests.completedIds.contains(def.id)) return null;
+
+    final next = {...quests.completedIds, def.id};
+    quests = quests.copyWith(completedIds: next);
+
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    if (def.bondXpReward > 0 || def.shardReward > 0) {
+      s = await _addXp(s, def.bondXpReward, shards: def.shardReward);
+    }
+    String? bonusMsg;
+    if (quests.allDone && !quests.bonusClaimed) {
+      s = await _addXp(s, 10, shards: 2);
+      quests = quests.copyWith(bonusClaimed: true);
+      s = s.copyWith(
+        phase: HeartlightPhase.radiant,
+        memoryHighlights: [
+          ...s.memoryHighlights,
+          'All four daily sparks complete — Heartlight festival glow!',
+        ],
+      );
+      bonusMsg = '🎉 All daily sparks complete! +10 bond · +2 shards.';
+    }
+    _companions[key] = s;
+    await _persist(s);
+    await _persistQuests();
+    notifyListeners();
+    return bonusMsg ?? 'Quest done: ${def.title} ✨';
   }
 
   bool verifyParentPin(String attempt) =>

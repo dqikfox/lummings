@@ -36,7 +36,9 @@ void main() {
       final ok = await hl.purchaseCharm('questlight_charm');
       expect(ok.ok, isTrue);
       expect(hl.ownsCharm('questlight_charm'), isTrue);
-      expect(hl.active.essenceShards, lessThan(10));
+      // 10 (grant) + 2 (adventure quest) - 3 (cost) + 1 (collect quest) = 10
+      expect(hl.active.essenceShards, lessThan(12));
+      expect(hl.active.essenceShards, greaterThanOrEqualTo(8));
 
       // Second purchase blocked
       final again = await hl.purchaseCharm('questlight_charm');
@@ -74,9 +76,11 @@ void main() {
         memory: 'Talked with Moki: story',
       );
       expect(r.xpGained, 8);
-      expect(hl.active.bond.xp, greaterThanOrEqualTo(before));
+      // Talk grants 8 XP; talk quest marks done without double-pay
+      expect(hl.active.bond.xp, greaterThanOrEqualTo(before + 8));
       expect(hl.active.essenceShards, 1);
       expect(hl.active.memoryHighlights, contains('Talked with Moki: story'));
+      expect(hl.quests.completedIds, contains('talk_today'));
     });
 
     test('safety language present in feel replies', () {

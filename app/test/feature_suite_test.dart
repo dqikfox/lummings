@@ -89,9 +89,15 @@ void main() {
       expect(first.alreadyDone, isFalse);
       expect(first.xpGained, 20);
       expect(hl.active.caredToday, isTrue);
-      expect(hl.active.phase, HeartlightPhase.glowing);
+      // glowing or radiant (radiant if rare level-up); never dimmed after care
+      expect(
+        hl.active.phase,
+        anyOf(HeartlightPhase.glowing, HeartlightPhase.radiant),
+      );
       expect(hl.active.careStreak, 1);
+      // Care grants +1 shard; care quest marks done without double-pay
       expect(hl.active.essenceShards, 1);
+      expect(hl.quests.completedIds, contains('care_today'));
 
       final second = await hl.performCare(kind: 'talk');
       expect(second.alreadyDone, isTrue);

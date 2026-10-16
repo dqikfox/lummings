@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../state/nav_controller.dart';
 import 'home_screen.dart';
 import 'adventures_screen.dart';
 import 'collection_screen.dart';
 import 'care_screen.dart';
 import 'parent_screen.dart';
 
-class AppShell extends StatefulWidget {
+class AppShell extends StatelessWidget {
   const AppShell({super.key});
-
-  @override
-  State<AppShell> createState() => _AppShellState();
-}
-
-class _AppShellState extends State<AppShell> {
-  int index = 0;
 
   static const _pages = <Widget>[
     HomeScreen(),
@@ -25,11 +20,17 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
+    final nav = context.watch<NavController>();
     return Scaffold(
-      body: SafeArea(child: _pages[index]),
+      body: SafeArea(
+        child: IndexedStack(
+          index: nav.index,
+          children: _pages,
+        ),
+      ),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: index,
-        onDestinationSelected: (i) => setState(() => index = i),
+        selectedIndex: nav.index,
+        onDestinationSelected: nav.go,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_rounded), label: 'Home'),
           NavigationDestination(

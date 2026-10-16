@@ -29,4 +29,11 @@ class NestFeedback {
   static Future<void> unlockCharm() async {
     await HapticFeedback.mediumImpact();
   }
+
+  static Future<void> softSuccess() async {
+    await HapticFeedback.lightImpact();
+    await Future<void>.delayed(const Duration(milliseconds: 60));
+    await HapticFeedback.selectionClick();
+  }
 }
+

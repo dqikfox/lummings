@@ -5,6 +5,7 @@ import '../models/charm.dart';
 import '../models/daily_quest.dart';
 import '../models/festival.dart';
 import '../models/heartlight_plus.dart';
+import '../models/nest_badge.dart';
 import '../models/lumming.dart';
 
 /// Owns Heartlight essence state, bond XP, care streak, and gentle hooks.
@@ -30,9 +31,21 @@ class HeartlightController extends ChangeNotifier {
   int screenTimeLimitMinutes = 90;
   bool contentFiltersOn = true;
 
+  /// Parent-gated soft bedtime wind-down reminder preference (no hard lock).
+  bool softBedtimeReminder = true;
+
   /// Heartlight Plus tier: free | plus | family (mock IAP until store hooks).
   String plusTierId = HeartlightPlusTier.free.id;
   FestivalProgress festival = FestivalProgress.emptyThisWeek();
+
+  /// Global Nest Badges (stickers) — unlocked once, never expire.
+  Set<String> ownedBadges = {};
+
+  /// Adventures completed (any ending) — drives Pathfinder badges.
+  int adventuresCompleted = 0;
+
+  /// Last bedtime nest completion day key (yyyy-mm-dd). Once per night soft ritual.
+  String? lastBedtimeDay;
 
 
   CompanionState get active =>
@@ -79,7 +92,11 @@ class HeartlightController extends ChangeNotifier {
 
     screenTimeLimitMinutes = prefs.getInt('screen_time_limit') ?? 90;
     contentFiltersOn = prefs.getBool('content_filters') ?? true;
+    softBedtimeReminder = prefs.getBool('soft_bedtime') ?? true;
     plusTierId = prefs.getString('plus_tier') ?? HeartlightPlusTier.free.id;
+    ownedBadges = (prefs.getStringList('nest_badges') ?? <String>[]).toSet();
+    adventuresCompleted = prefs.getInt('adventures_completed') ?? 0;
+    lastBedtimeDay = prefs.getString('last_bedtime_day');
 
     final fWeek = prefs.getString('festival_week') ?? NestFestival.weekKey();
     final thisWeek = NestFestival.weekKey();
@@ -121,6 +138,7 @@ class HeartlightController extends ChangeNotifier {
         essenceShards: shards,
         ownedCharms: prefs.getStringList('charms_$key') ?? const [],
         memoryHighlights: prefs.getStringList('memories_$key') ?? const [],
+        equippedCharmId: prefs.getString('equipped_$key'),
       );
       _companions[key] = _applyDailyPhase(state);
     }
@@ -216,6 +234,7 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     await _persist(s);
     await markFestivalEngaged();
+    await _evaluateBadges();
     notifyListeners();
 
     final missLine = missed
@@ -270,6 +289,10 @@ class HeartlightController extends ChangeNotifier {
     _companions[key] = s;
     await _persist(s);
     await markFestivalEngaged();
+    adventuresCompleted += 1;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('adventures_completed', adventuresCompleted);
+    await _evaluateBadges();
     notifyListeners();
     await completeQuest(QuestKind.adventure);
   }
@@ -287,6 +310,11 @@ class HeartlightController extends ChangeNotifier {
     }
     await prefs.setStringList('charms_$key', s.ownedCharms);
     await prefs.setStringList('memories_$key', s.memoryHighlights);
+    if (s.equippedCharmId != null) {
+      await prefs.setString('equipped_$key', s.equippedCharmId!);
+    } else {
+      await prefs.remove('equipped_$key');
+    }
   }
 
 
@@ -342,6 +370,7 @@ class HeartlightController extends ChangeNotifier {
     await markFestivalEngaged();
     notifyListeners();
     await completeQuest(QuestKind.collect);
+    await _evaluateBadges();
     return CharmPurchaseResult(
       ok: true,
       message: '${charm.emoji} ${charm.name} unlocked! Collection grows brighter.',
@@ -391,6 +420,37 @@ class HeartlightController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setSoftBedtimeReminder(bool on) async {
+    softBedtimeReminder = on;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('soft_bedtime', on);
+    notifyListeners();
+  }
+
+  /// Equip an owned charm as a cosmetic badge on the active Lumming.
+  /// Core bond is never gated — this is pure collectible flair.
+  Future<String> equipCharm(String? charmId) async {
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    if (charmId == null) {
+      s = s.copyWith(clearEquipped: true);
+      _companions[key] = s;
+      await _persist(s);
+      notifyListeners();
+      return 'Charm badge tucked away — Heartlight still shines.';
+    }
+    if (!ownsCharm(charmId) && !s.ownedCharms.contains(charmId)) {
+      return 'Unlock this charm first in Collection.';
+    }
+    final charm = Charm.byId(charmId);
+    if (charm == null) return 'Unknown charm.';
+    s = s.copyWith(equippedCharmId: charmId);
+    _companions[key] = s;
+    await _persist(s);
+    notifyListeners();
+    return '${charm.emoji} ${charm.name} equipped on ${activeLumming.name}!';
+  }
+
   Future<void> _persistQuests() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('quest_day', quests.dayKey);
@@ -434,6 +494,108 @@ class HeartlightController extends ChangeNotifier {
     notifyListeners();
     return bonusMsg ?? 'Quest done: ${def.title} ✨';
   }
+
+
+  bool get bedtimeDoneToday {
+    final today = DailyQuestProgress.todayKey();
+    return lastBedtimeDay == today;
+  }
+
+  /// Soft Bedtime Nest — once per evening. Dims glow gently, never locks app.
+  Future<CareResult> performBedtime({String note = ''}) async {
+    final today = DailyQuestProgress.todayKey();
+    if (lastBedtimeDay == today) {
+      return CareResult(
+        alreadyDone: true,
+        message: 'Bedtime Nest already shared tonight. Sleep well — glow waits kindly.',
+        state: active,
+      );
+    }
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    s = await _addXp(s, 12, shards: 1);
+    final mem = note.isEmpty
+        ? 'Bedtime Nest with ${activeLumming.name} — soft wind-down glow.'
+        : 'Bedtime Nest: $note';
+    s = s.copyWith(
+      phase: HeartlightPhase.glowing,
+      memoryHighlights: [...s.memoryHighlights, mem],
+    );
+    lastBedtimeDay = today;
+    _companions[key] = s;
+    await _persist(s);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('last_bedtime_day', today);
+    await markFestivalEngaged();
+    await _evaluateBadges();
+    notifyListeners();
+    return CareResult(
+      alreadyDone: false,
+      message:
+          '🌙 Bedtime Nest complete. ${activeLumming.heartlight.name} tucks soft light away until morning. +12 bond · +1 shard.',
+      state: _companions[key] ?? s,
+      xpGained: 12,
+      streak: s.careStreak,
+    );
+  }
+
+  Future<void> _persistBadges() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('nest_badges', ownedBadges.toList()..sort());
+  }
+
+  /// Unlock any newly earned Nest Badges. Idempotent. Never removes.
+  Future<List<NestBadge>> _evaluateBadges() async {
+    final newly = <NestBadge>[];
+    final s = active;
+    final crewBond2 = Lumming.crew
+        .where((l) => companionOf(l.id).bond.level >= 2)
+        .length;
+
+    for (final b in NestBadge.catalog) {
+      if (ownedBadges.contains(b.id)) continue;
+      var earn = false;
+      if (b.id == 'crew_heart') {
+        earn = crewBond2 >= 3;
+      } else if (b.requiresFestivalClaim) {
+        earn = festival.claimed;
+      } else if (b.requiresBedtime) {
+        earn = lastBedtimeDay != null;
+      } else if (b.minAdventures > 0) {
+        earn = adventuresCompleted >= b.minAdventures;
+      } else if (b.minCharms > 0) {
+        earn = s.ownedCharms.length >= b.minCharms;
+      } else if (b.minStreak > 0) {
+        earn = s.careStreak >= b.minStreak;
+      } else if (b.minBondLevel > 0) {
+        earn = s.bond.level >= b.minBondLevel;
+      }
+      if (earn) {
+        ownedBadges = {...ownedBadges, b.id};
+        newly.add(b);
+      }
+    }
+    if (newly.isNotEmpty) {
+      await _persistBadges();
+      final key = activeId.name;
+      var st = _companions[key] ?? _fresh(key);
+      for (final b in newly) {
+        st = st.copyWith(
+          memoryHighlights: [
+            ...st.memoryHighlights,
+            '${b.emoji} Badge unlocked: ${b.name}',
+          ],
+          phase: HeartlightPhase.radiant,
+        );
+      }
+      _companions[key] = st;
+      await _persist(st);
+    }
+    return newly;
+  }
+
+  /// Public hook after major actions (tests + UI can await).
+  Future<List<NestBadge>> refreshBadges() => _evaluateBadges();
 
   Future<void> setPlusTier(String tierId) async {
     plusTierId = tierId;
@@ -483,6 +645,7 @@ class HeartlightController extends ChangeNotifier {
     festival = festival.copyWith(claimed: true);
     _companions[key] = s;
     await _persist(s);
+    await _evaluateBadges();
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('festival_week', festival.weekKey);
     await prefs.setBool('festival_claimed', true);

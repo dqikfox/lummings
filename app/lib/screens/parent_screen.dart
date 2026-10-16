@@ -202,6 +202,26 @@ class _ParentScreenState extends State<ParentScreen> {
             onChanged: (v) => hl.setContentFilters(v),
           ),
         ),
+        const SizedBox(height: 12),
+        GlassCard(
+          accent: LummingsColors.tidelight,
+          child: SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            secondary: const Icon(
+              Icons.nights_stay_rounded,
+              color: LummingsColors.tidelight,
+            ),
+            title: const Text(
+              'Soft bedtime wind-down',
+              style: TextStyle(fontWeight: FontWeight.w800),
+            ),
+            subtitle: const Text(
+              'Gentle evening reminder only — never locks the Nest mid-adventure',
+            ),
+            value: hl.softBedtimeReminder,
+            onChanged: (v) => hl.setSoftBedtimeReminder(v),
+          ),
+        ),
         const SizedBox(height: 18),
         const NestSectionHeader(
           title: 'Crew bond overview',

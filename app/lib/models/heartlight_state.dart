@@ -45,6 +45,8 @@ class CompanionState {
   final int essenceShards;
   final List<String> ownedCharms;
   final List<String> memoryHighlights;
+  /// Cosmetic equip — which charm badge shows on the avatar (must be owned).
+  final String? equippedCharmId;
 
   const CompanionState({
     required this.lummingId,
@@ -55,6 +57,7 @@ class CompanionState {
     required this.essenceShards,
     required this.ownedCharms,
     required this.memoryHighlights,
+    this.equippedCharmId,
   });
 
   CompanionState copyWith({
@@ -65,6 +68,8 @@ class CompanionState {
     int? essenceShards,
     List<String>? ownedCharms,
     List<String>? memoryHighlights,
+    String? equippedCharmId,
+    bool clearEquipped = false,
   }) {
     return CompanionState(
       lummingId: lummingId,
@@ -75,6 +80,9 @@ class CompanionState {
       essenceShards: essenceShards ?? this.essenceShards,
       ownedCharms: ownedCharms ?? this.ownedCharms,
       memoryHighlights: memoryHighlights ?? this.memoryHighlights,
+      equippedCharmId: clearEquipped
+          ? null
+          : (equippedCharmId ?? this.equippedCharmId),
     );
   }
 

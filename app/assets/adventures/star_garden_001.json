@@ -1,0 +1,163 @@
+{
+  "id": "star_garden_001",
+  "title": "The Star Garden",
+  "subtitle": "A Questlight adventure with Lumo · ~6 min",
+  "synopsis": "A tiny star fell into the Nest garden. Lumo’s Questlight helps you choose a safe first step. Heartlights are essence — never separate creatures.",
+  "estimated_minutes": 6,
+  "crew": ["lumo", "pip", "lila", "moki"],
+  "start": "garden",
+  "completion_bond_xp": 40,
+  "completion_shards": 4,
+  "nodes": [
+    {
+      "id": "garden",
+      "title": "Fallen spark",
+      "speaker": "narrator",
+      "mood": "wonder",
+      "body": "The Star Garden glows. A tiny star rests between soft moss and Pip’s leaf markers.\n\nLumo’s Questlight pulse-beats like a friendly game save point.",
+      "choices": [
+        {
+          "id": "c_look",
+          "label": "Look carefully before touching",
+          "next": "scout",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We looked carefully at the fallen star.",
+          "line": "Pause. Check the path. Choose our next move together."
+        },
+        {
+          "id": "c_ask",
+          "label": "Ask the star if it wants help (kind)",
+          "next": "ask_star",
+          "bond_xp": 8,
+          "shards": 1,
+          "memory": "We asked the tiny star a kind question."
+        }
+      ]
+    },
+    {
+      "id": "scout",
+      "title": "Trail Scout check",
+      "speaker": "pip",
+      "mood": "steady",
+      "body": "Traillight says: small steps. The star is warm, not hot. No deep holes. Safe edge first.\n\nLet’s I-lumming-Nate the way.",
+      "choices": [
+        {
+          "id": "c_path",
+          "label": "Follow Pip’s leafy steps",
+          "next": "edge",
+          "bond_xp": 10,
+          "memory": "Pip marked safe leafy steps to the star."
+        },
+        {
+          "id": "c_safety",
+          "label": "Safety First: call a grown-up if needed",
+          "next": "safety",
+          "bond_xp": 12,
+          "shards": 1,
+          "safety_check": true,
+          "memory": "We chose Safety First before helping the star."
+        }
+      ]
+    },
+    {
+      "id": "ask_star",
+      "title": "A tiny wish",
+      "speaker": "lumo",
+      "mood": "warm",
+      "body": "The star whispers: “I got lost on a big map.”\n\nBig maps need small co-op quests. Let’s pick one safe move.",
+      "choices": [
+        {
+          "id": "c_map",
+          "label": "Turn it into a tiny co-op quest",
+          "next": "edge",
+          "bond_xp": 10,
+          "shards": 1,
+          "memory": "We turned a big lost-star problem into a small quest."
+        },
+        {
+          "id": "c_lila",
+          "label": "Invite Lila to name the feeling",
+          "next": "lila",
+          "bond_xp": 10,
+          "memory": "Lila helped name the star’s lost feeling."
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Safe co-op",
+      "speaker": "lumo",
+      "mood": "steady",
+      "body": "Questlight says: when something feels bigger than us, we check with a grown-up first.\n\nThat is not quitting — that is teamwork.",
+      "choices": [
+        {
+          "id": "c_ok",
+          "label": "Teamwork accepted — continue gently",
+          "next": "edge",
+          "bond_xp": 12,
+          "shards": 1,
+          "safety_check": true,
+          "memory": "We treated Safety First as teamwork, not a stop."
+        }
+      ]
+    },
+    {
+      "id": "lila",
+      "title": "Words of light",
+      "speaker": "lila",
+      "mood": "soft",
+      "body": "Dreamlight sketches a path of stars home.\n\nFeeling lost can become a picture — then a plan.",
+      "choices": [
+        {
+          "id": "c_plan",
+          "label": "Carry the picture back to Lumo",
+          "next": "edge",
+          "bond_xp": 10,
+          "memory": "A Dreamlight picture became our next plan."
+        }
+      ]
+    },
+    {
+      "id": "edge",
+      "title": "Gentle lift",
+      "speaker": "lumo",
+      "mood": "playful",
+      "body": "Together we cup the star. It giggles light.\n\nMoki pops in with a kind joke: “Plot twist — friendship is the map!”",
+      "choices": [
+        {
+          "id": "c_moki",
+          "label": "Laugh kindly and place the star high",
+          "next": "end_home",
+          "bond_xp": 12,
+          "shards": 1,
+          "memory": "Moki’s kind joke made the star garden braver."
+        },
+        {
+          "id": "c_nest",
+          "label": "Offer the Nest as a soft rest stop",
+          "next": "end_rest",
+          "bond_xp": 12,
+          "shards": 1,
+          "memory": "We offered the Nest as a rest stop for a tired star."
+        }
+      ]
+    },
+    {
+      "id": "end_home",
+      "title": "Home constellation",
+      "speaker": "narrator",
+      "mood": "radiant",
+      "body": "The star finds its place above the garden. Questlight, Traillight, Dreamlight, and Sparklight shimmer as essence — not separate creatures.\n\nYou chose a safe first step. That is how big maps get small.",
+      "choices": []
+    },
+    {
+      "id": "end_rest",
+      "title": "Nest rest",
+      "speaker": "narrator",
+      "mood": "soft",
+      "body": "The star naps in a moss bowl. Tomorrow it can try again.\n\nHeartlights glow quiet and proud. Rest is part of every good quest.",
+      "choices": []
+    }
+  ]
+}

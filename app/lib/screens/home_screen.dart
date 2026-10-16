@@ -17,7 +17,6 @@ import 'memory_journal_screen.dart';
 import 'plus_screen.dart';
 import 'talk_screen.dart';
 import 'bedtime_screen.dart';
-import 'memory_journal_screen.dart';
 import '../models/nest_badge.dart';
 
 class HomeScreen extends StatelessWidget {

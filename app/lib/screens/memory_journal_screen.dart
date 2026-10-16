@@ -76,9 +76,9 @@ class MemoryJournalScreen extends StatelessWidget {
                 accent: l.heartlight.accent,
                 child: Column(
                   children: [
-                    Text('🌟', style: TextStyle(fontSize: 36)),
+                    const Text('🌟', style: TextStyle(fontSize: 36)),
                     const SizedBox(height: 10),
-                    Text(
+                    const Text(
                       'No memories yet',
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
@@ -90,7 +90,7 @@ class MemoryJournalScreen extends StatelessWidget {
                       'Care, Talk, Adventures, and Charms write soft sparks here. '
                       'Come back after a hug — ${l.name} will remember.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: LummingsColors.muted,
                         height: 1.4,
                       ),

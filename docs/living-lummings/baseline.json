@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-15",
+  "timezone": "Australia/Sydney",
+  "scope": "Planning only; hashes are continuity checks, not backups.",
+  "lummingsHead": "b43886d1c0e73911a87e7f21a3197efd59a86792",
+  "pixelHead": "647cb05f62c7ef4bf4a6a8e24d71aec71f6548c7",
+  "workingTree": [
+    " M README.md",
+    " M lummings.sqlite",
+    "?? brand/INTERACTIVE_STORIES.md",
+    "?? docs/APP_DESIGN_PLAN.md",
+    "?? docs/APP_IMPLEMENTATION_BACKLOG.md",
+    "?? docs/avatar-generation/",
+    "?? docs/companion/",
+    "?? docs/living-lummings/",
+    "?? docs/marketing/app-design-preview.html",
+    "?? docs/marketing/heartlight-adventures.html",
+    "?? marketing/FAMILY_APP_CAMPAIGN.md",
+    "?? src/lummings/family_server.py",
+    "?? tests/family-store.test.cjs",
+    "?? tests/story-engine.test.cjs"
+  ],
+  "sha256": {
+    "docs/app/index.html": "2fc4c911fab69baa84b7c0f94837f4e929b4ba8489e896119e3e682a295e909e",
+    "src/lummings/server.py": "bd7b689b673025b452f82a1a658e75dee550afa3fb7581d5c66d95ffbac3996d",
+    "src/lummings/engine.py": "d90e09353c634c53e1097289e948ad76b08b265d84795686b904284f2eed3427",
+    "src/lummings/family_server.py": "c3d822eb4d50646626595cf0f40d01398436425f180cbe15a7e721ec8751f6c2",
+    "docs/companion/index.html": "e844bd67f00a60cb2c1c60065fbbed6250e24b49efdfb5cc31d59ece64dee2a5",
+    "docs/companion/project-store.js": "bbdceef7f75a061284d2926d24ca4f5487074a9b44b6ed4a0631710acd533bed",
+    "brand/CHARACTER_BIBLE.md": "9a1b3c62a93cc115701bf47412d4fef7504e2990da0d934ebc9fecc4b6681c1b",
+    "brand/HEARTLIGHTS.md": "5b9a667753819c8f65c5c4ed0b6115cf67ad1953f8b6639b39657c94f9c74e57",
+    "lummings.sqlite": "dc265e2a45f1076a70690b575fdeff390bcb81c39a33e9c0ba8b353fbf29807e"
+  }
+}

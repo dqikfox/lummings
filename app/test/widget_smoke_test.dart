@@ -9,6 +9,7 @@ import 'package:lummings_app/models/heartlight_state.dart';
 import 'package:lummings_app/models/lumming.dart';
 import 'package:lummings_app/screens/shell.dart';
 import 'package:lummings_app/state/adventure_controller.dart';
+import 'package:lummings_app/state/nav_controller.dart';
 import 'package:lummings_app/state/heartlight_controller.dart';
 import 'package:lummings_app/widgets/heartlight_bar.dart';
 import 'package:lummings_app/widgets/lumming_avatar.dart';
@@ -33,6 +34,7 @@ void main() {
         providers: [
           ChangeNotifierProvider.value(value: hl),
           ChangeNotifierProvider(create: (_) => AdventureController()),
+          ChangeNotifierProvider(create: (_) => NavController()),
         ],
         child: const LummingsApp(),
       ),
@@ -51,6 +53,7 @@ void main() {
         providers: [
           ChangeNotifierProvider.value(value: hl),
           ChangeNotifierProvider(create: (_) => AdventureController()),
+          ChangeNotifierProvider(create: (_) => NavController()),
         ],
         child: const LummingsApp(),
       ),
@@ -86,6 +89,7 @@ void main() {
         providers: [
           ChangeNotifierProvider.value(value: hl),
           ChangeNotifierProvider(create: (_) => AdventureController()),
+          ChangeNotifierProvider(create: (_) => NavController()),
         ],
         child: const MaterialApp(home: AppShell()),
       ),

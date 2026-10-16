@@ -26,6 +26,12 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
       subtitle: 'Sparklight adventure with Moki · ~5 min',
       emoji: '✨',
     ),
+    _PackMeta(
+      asset: 'assets/adventures/leafy_steps_001.json',
+      title: 'Three Leafy Steps',
+      subtitle: 'Traillight adventure with Pip · ~5 min',
+      emoji: '🍃',
+    ),
   ];
 
   bool _inStory = false;

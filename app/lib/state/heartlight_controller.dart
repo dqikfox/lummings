@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/heartlight_state.dart';
 import '../models/charm.dart';
 import '../models/daily_quest.dart';
+import '../models/festival.dart';
+import '../models/heartlight_plus.dart';
 import '../models/lumming.dart';
 
 /// Owns Heartlight essence state, bond XP, care streak, and gentle hooks.
@@ -28,11 +30,21 @@ class HeartlightController extends ChangeNotifier {
   int screenTimeLimitMinutes = 90;
   bool contentFiltersOn = true;
 
+  /// Heartlight Plus tier: free | plus | family (mock IAP until store hooks).
+  String plusTierId = HeartlightPlusTier.free.id;
+  FestivalProgress festival = FestivalProgress.emptyThisWeek();
+
 
   CompanionState get active =>
       _companions[activeId.name] ?? _fresh(activeId.name);
 
   Lumming get activeLumming => Lumming.byId(activeId);
+
+  bool get isPlus =>
+      plusTierId == HeartlightPlusTier.plus.id ||
+      plusTierId == HeartlightPlusTier.family.id;
+
+  NestFestival get currentFestival => NestFestival.forWeek();
 
   CompanionState companionOf(LummingId id) =>
       _companions[id.name] ?? _fresh(id.name);
@@ -67,6 +79,22 @@ class HeartlightController extends ChangeNotifier {
 
     screenTimeLimitMinutes = prefs.getInt('screen_time_limit') ?? 90;
     contentFiltersOn = prefs.getBool('content_filters') ?? true;
+    plusTierId = prefs.getString('plus_tier') ?? HeartlightPlusTier.free.id;
+
+    final fWeek = prefs.getString('festival_week') ?? NestFestival.weekKey();
+    final thisWeek = NestFestival.weekKey();
+    if (fWeek == thisWeek) {
+      festival = FestivalProgress(
+        weekKey: fWeek,
+        claimed: prefs.getBool('festival_claimed') ?? false,
+        engaged: prefs.getBool('festival_engaged') ?? false,
+      );
+    } else {
+      festival = FestivalProgress.emptyThisWeek();
+      await prefs.setString('festival_week', thisWeek);
+      await prefs.setBool('festival_claimed', false);
+      await prefs.setBool('festival_engaged', false);
+    }
 
     for (final l in Lumming.crew) {
       final key = l.id.name;
@@ -187,6 +215,7 @@ class HeartlightController extends ChangeNotifier {
     }
     _companions[key] = s;
     await _persist(s);
+    await markFestivalEngaged();
     notifyListeners();
 
     final missLine = missed
@@ -240,6 +269,7 @@ class HeartlightController extends ChangeNotifier {
     s = s.copyWith(phase: HeartlightPhase.radiant);
     _companions[key] = s;
     await _persist(s);
+    await markFestivalEngaged();
     notifyListeners();
     await completeQuest(QuestKind.adventure);
   }
@@ -309,6 +339,7 @@ class HeartlightController extends ChangeNotifier {
     );
     _companions[key] = s;
     await _persist(s);
+    await markFestivalEngaged();
     notifyListeners();
     await completeQuest(QuestKind.collect);
     return CharmPurchaseResult(
@@ -333,6 +364,7 @@ class HeartlightController extends ChangeNotifier {
     s = s.copyWith(phase: HeartlightPhase.glowing);
     _companions[key] = s;
     await _persist(s);
+    await markFestivalEngaged();
     notifyListeners();
     await completeQuest(QuestKind.talk);
     return CareResult(
@@ -401,6 +433,63 @@ class HeartlightController extends ChangeNotifier {
     await _persistQuests();
     notifyListeners();
     return bonusMsg ?? 'Quest done: ${def.title} ✨';
+  }
+
+  Future<void> setPlusTier(String tierId) async {
+    plusTierId = tierId;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('plus_tier', tierId);
+    notifyListeners();
+  }
+
+  Future<void> markFestivalEngaged() async {
+    final week = NestFestival.weekKey();
+    if (festival.weekKey != week) {
+      festival = FestivalProgress.emptyThisWeek();
+    }
+    if (festival.engaged) return;
+    festival = festival.copyWith(engaged: true);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('festival_week', festival.weekKey);
+    await prefs.setBool('festival_engaged', true);
+    notifyListeners();
+  }
+
+  /// Soft festival claim — requires any engage this week. Never punishes miss.
+  Future<String> claimFestivalBonus() async {
+    final week = NestFestival.weekKey();
+    if (festival.weekKey != week) {
+      festival = FestivalProgress.emptyThisWeek();
+    }
+    if (festival.claimed) {
+      return 'Festival glow already claimed this week — see you next weekend ✨';
+    }
+    if (!festival.engaged) {
+      return 'Do one Care, Talk, Adventure, or Charm first — then claim Festival glow!';
+    }
+    final fest = NestFestival.forWeek();
+    final key = activeId.name;
+    var s = _companions[key] ?? _fresh(key);
+    final bonusShards = fest.bonusShards + (isPlus ? 2 : 0);
+    final bonusXp = fest.bonusXp + (isPlus ? 5 : 0);
+    s = await _addXp(s, bonusXp, shards: bonusShards);
+    s = s.copyWith(
+      phase: HeartlightPhase.radiant,
+      memoryHighlights: [
+        ...s.memoryHighlights,
+        '${fest.emoji} ${fest.title} — Heartlights celebrated together.',
+      ],
+    );
+    festival = festival.copyWith(claimed: true);
+    _companions[key] = s;
+    await _persist(s);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('festival_week', festival.weekKey);
+    await prefs.setBool('festival_claimed', true);
+    await prefs.setBool('festival_engaged', true);
+    notifyListeners();
+    return '${fest.emoji} ${fest.title}! +$bonusXp bond · +$bonusShards shards'
+        '${isPlus ? ' (Plus bonus)' : ''}.';
   }
 
   bool verifyParentPin(String attempt) =>

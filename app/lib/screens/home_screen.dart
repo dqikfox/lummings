@@ -6,11 +6,13 @@ import '../models/heartlight_state.dart';
 import '../models/lumming.dart';
 import '../state/heartlight_controller.dart';
 import '../state/nav_controller.dart';
+import '../services/feedback.dart';
 import '../theme/lummings_theme.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/nest_section_header.dart';
 import '../widgets/heartlight_bar.dart';
 import '../widgets/lumming_avatar.dart';
+import 'plus_screen.dart';
 import 'talk_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -122,6 +124,7 @@ class HomeScreen extends StatelessWidget {
                 lumming: lumming,
                 size: 168,
                 glowing: state.phase != HeartlightPhase.dimmed,
+                phase: state.phase,
               ),
             ],
           ),
@@ -218,6 +221,10 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: 22),
         _DailyQuestsCard(hl: hl, nav: nav),
+        const SizedBox(height: 14),
+        _FestivalCard(hl: hl),
+        const SizedBox(height: 14),
+        _PlusBanner(hl: hl),
         const SizedBox(height: 22),
         NestSectionHeader(
           title: 'Your Crew',
@@ -234,7 +241,10 @@ class HomeScreen extends StatelessWidget {
               final l = Lumming.crew[i];
               final selected = l.id == hl.activeId;
               return GestureDetector(
-                onTap: () => hl.setActive(l.id),
+                onTap: () async {
+                  await NestFeedback.softSelect();
+                  await hl.setActive(l.id);
+                },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 220),
                   width: 96,
@@ -458,6 +468,112 @@ class _DailyQuestsCard extends StatelessWidget {
                     ),
             );
           }),
+        ],
+      ),
+    );
+  }
+}
+
+class _FestivalCard extends StatelessWidget {
+  final HeartlightController hl;
+  const _FestivalCard({required this.hl});
+
+  @override
+  Widget build(BuildContext context) {
+    final fest = hl.currentFestival;
+    final progress = hl.festival;
+    return GlassCard(
+      accent: LummingsColors.futurePurple,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          NestSectionHeader(
+            title: '${fest.emoji} ${fest.title}',
+            trailing: progress.claimed ? 'Done' : 'Weekly',
+            accent: LummingsColors.futurePurple,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            fest.blurb,
+            style: const TextStyle(color: LummingsColors.muted, height: 1.35),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            progress.claimed
+                ? 'Festival glow claimed — soft FOMO only. Missed weeks never punish.'
+                : progress.engaged
+                    ? 'You engaged this week! Claim your Festival glow.'
+                    : 'Do Care, Talk, Adventure, or a Charm — then claim. No pressure.',
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.white.withOpacity(0.55),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: progress.claimed
+                  ? null
+                  : () async {
+                      await NestFeedback.lightTap();
+                      final msg = await hl.claimFestivalBonus();
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(msg)),
+                        );
+                      }
+                    },
+              child: Text(
+                progress.claimed
+                    ? 'Claimed ✨'
+                    : 'Claim Festival glow',
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PlusBanner extends StatelessWidget {
+  final HeartlightController hl;
+  const _PlusBanner({required this.hl});
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      accent: LummingsColors.starYellow,
+      elevated: false,
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const PlusScreen()),
+        );
+      },
+      child: Row(
+        children: [
+          const Text('✨', style: TextStyle(fontSize: 22)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  hl.isPlus ? 'Heartlight Plus active' : 'Heartlight Plus',
+                  style: const TextStyle(fontWeight: FontWeight.w900),
+                ),
+                const Text(
+                  'Cosmetic glow & early stories — bond stays free forever',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: LummingsColors.muted,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right_rounded, color: LummingsColors.starYellow),
         ],
       ),
     );

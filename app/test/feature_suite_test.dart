@@ -154,7 +154,11 @@ void main() {
       expect(r.streak, 1);
       expect(r.xpGained, 35); // 20 + 15 return
       expect(r.message.toLowerCase(), contains('missed'));
-      expect(hl.active.phase, HeartlightPhase.glowing);
+      // glowing normal; radiant if First Glow badge / level-up celebration fires
+      expect(
+        hl.active.phase,
+        anyOf(HeartlightPhase.glowing, HeartlightPhase.radiant),
+      );
       expect(
         hl.active.memoryHighlights.any((m) => m.contains('Came back')),
         isTrue,

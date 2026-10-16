@@ -18,20 +18,18 @@ class NestSectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final a = accent ?? LummingsColors.starYellow;
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
           width: 4,
-          height: 22,
+          height: 18,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [a, a.withOpacity(0.25)],
-            ),
+            color: a,
             boxShadow: [
-              BoxShadow(color: a.withOpacity(0.45), blurRadius: 8),
+              BoxShadow(
+                color: a.withOpacity(0.5),
+                blurRadius: 8,
+              ),
             ],
           ),
         ),
@@ -39,27 +37,19 @@ class NestSectionHeader extends StatelessWidget {
         Expanded(
           child: Text(
             title,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w900,
                   letterSpacing: -0.2,
                 ),
           ),
         ),
         if (trailing != null)
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: a.withOpacity(0.15),
-              border: Border.all(color: a.withOpacity(0.35)),
-            ),
-            child: Text(
-              trailing!,
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 12,
-                color: a,
-              ),
+          Text(
+            trailing!,
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: a,
+              fontSize: 13,
             ),
           ),
       ],

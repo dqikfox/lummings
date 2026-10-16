@@ -16,7 +16,7 @@ class OnboardingFlow extends StatefulWidget {
 
 class _OnboardingFlowState extends State<OnboardingFlow> {
   int step = 0;
-  LummingId? chosen;
+  LummingId? chosen = LummingId.lumo;
   final pinCtrl = TextEditingController();
 
   @override

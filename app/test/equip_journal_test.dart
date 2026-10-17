@@ -42,7 +42,7 @@ void main() {
       SharedPreferences.setMockInitialValues({});
       final hl = HeartlightController();
       await hl.load();
-      await hl.completeOnboarding(LummingId.lila);
+      await hl.completeOnboarding(LummingId.luna);
       await hl.rewardAdventure(bondXp: 5, shards: 10);
       await hl.purchaseCharm('dreamlight_charm');
       await hl.equipCharm('dreamlight_charm');
@@ -50,7 +50,7 @@ void main() {
 
       final hl2 = HeartlightController();
       await hl2.load();
-      expect(hl2.activeId, LummingId.lila);
+      expect(hl2.activeId, LummingId.luna);
       expect(hl2.active.equippedCharmId, 'dreamlight_charm');
     });
   });

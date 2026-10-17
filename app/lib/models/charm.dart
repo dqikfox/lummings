@@ -4,7 +4,7 @@ class Charm {
   final String id;
   final String name;
   final String blurb;
-  final String lummingId; // 'lumo'|'lila'|'pip'|'nori'|'moki'|'all'
+  final String lummingId; // 'lumo'|'luna'|'sprout'|'nori'|'moki'|'all'
   final int shardCost;
   final int minBondLevel;
   final String rarity; // common | rare | seasonal | legendary
@@ -36,7 +36,7 @@ class Charm {
       id: 'dreamlight_charm',
       name: 'Dreamlight Charm',
       blurb: 'Soft violet ribbon that sketches feelings into pictures.',
-      lummingId: 'lila',
+      lummingId: 'luna',
       shardCost: 3,
       minBondLevel: 1,
       rarity: 'common',
@@ -46,7 +46,7 @@ class Charm {
       id: 'traillight_charm',
       name: 'Traillight Charm',
       blurb: 'An acorn-shaped marker for safe next steps.',
-      lummingId: 'pip',
+      lummingId: 'sprout',
       shardCost: 3,
       minBondLevel: 1,
       rarity: 'common',

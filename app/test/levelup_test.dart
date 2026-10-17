@@ -35,7 +35,7 @@ void main() {
   test('leveledUp false for normal care under threshold', () async {
     final hl = HeartlightController();
     await hl.load();
-    await hl.completeOnboarding(LummingId.pip);
+    await hl.completeOnboarding(LummingId.sprout);
     final r = await hl.performCare(kind: 'hug');
     expect(r.leveledUp, isFalse);
     expect(hl.active.bond.level, 1);

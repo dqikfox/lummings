@@ -1,20 +1,9 @@
 # Lummings Brand Kit
 
-## Start here
-1. **[BRAND_GUIDELINES.md](BRAND_GUIDELINES.md)** — master rules (LOCKED style)
-2. **[BRAND_RULES_ONEPAGER.md](BRAND_RULES_ONEPAGER.md)** — print / pin for every teammate
-3. [CHARACTER_BIBLE.md](CHARACTER_BIBLE.md) — five characters
-4. [HEARTLIGHTS.md](HEARTLIGHTS.md) — essence canon
-5. [../docs/brand-use-guidelines.md](../docs/brand-use-guidelines.md) — community / legal use
-6. [NAME_CANON.md](NAME_CANON.md)
-7. [../BRAND.md](../BRAND.md) — long-form brand narrative
+1. [BRAND_GUIDELINES.md](BRAND_GUIDELINES.md) — master rules  
+2. [BRAND_RULES_ONEPAGER.md](BRAND_RULES_ONEPAGER.md) — pin this  
+3. [NAME_CANON.md](NAME_CANON.md) — **Lumo · Luna · Sprout · Nori · Moki**  
+4. [CHARACTER_BIBLE.md](CHARACTER_BIBLE.md) · [HEARTLIGHTS.md](HEARTLIGHTS.md)
 
-## Visual lock (do not restyle)
-- `character-masters/` · `character-lineup/` · `locked-style-references/`
-- `branding-guide/` (8-page deck)
-- `tiktok-ready/` · `intros/` · `trailers/`
-- App: `../app/assets/images/crew/`
-
-## Rule zero
-**Maintain consistency. Do not change looks and styles.**  
-Heartlights are essence — not separate creatures.
+**Rule zero:** Do not change looks. Heartlights = essence.  
+**Official names:** Lumo · Luna · Sprout · Nori · Moki.

@@ -65,8 +65,8 @@ It defines who they are. It is never a second living being, pet, or companion-of
 | Lumming | Heartlight | Colour essence | Vessel (visual) |
 |---|---|---|---|
 | **Lumo** | Questlight | Ruby-gold + cyan constellation sparks | Star brooch / crystal controller link |
-| **Lila** | Dreamlight | Soft violet + pearly gold ribbons | Comet charm on story scarf |
-| **Pip** | Traillight | Fresh emerald + firefly flecks | Acorn in compass |
+| **Luna** | Dreamlight | Soft violet + pearly gold ribbons | Comet charm on story scarf |
+| **Sprout** | Traillight | Fresh emerald + firefly flecks | Acorn in compass |
 | **Nori** | Tidelight | Moon-blue + soft silver centre | Crescent in lantern (Lowbeam) |
 | **Moki** | Sparklight | Rose pink + playful lilac pixels | Pixel-star clasp on checker scarf |
 
@@ -84,18 +84,18 @@ Public / product names (use **only** these):
 | Official | Role (public-friendly) | Legacy file aliases (internal only) |
 |---|---|---|
 | **Lumo** | Quest Captain | — |
-| **Lila** | Dream Weaver | old files: `luna_*` |
-| **Pip** | Trail Scout | old files: `sprout_*` |
+| **Luna** | Storyweaver | Internal ids may still be `lila` |
+| **Sprout** | Trail Scout | Internal ids may still be `pip` |
 | **Nori** | Tide Keeper | — |
 | **Moki** | Spark Trickster | — |
 
 **Rules:**
-- Marketing, packaging, app UI, captions: **Lila** and **Pip** only.  
+- Marketing, packaging, app UI, captions: **Lumo · Luna · Sprout · Nori · Moki** only. Never public-use Lila or Pip.
 - Do not invent a sixth main Lumming without a formal brand revision.  
 - Catchphrases (use as written):
   - Lumo: “Player one. Crew first.” / “Let’s I-lumming-Nate our next move.”
-  - Lila: “What if the story went sideways?” / “Let’s I-lumming-Nate your what-if.”
-  - Pip: “New route. Same brave little feet.” / “Let’s I-lumming-Nate the way.”
+  - Luna: “What if the story went sideways?” / “Let’s I-lumming-Nate your what-if.”
+  - Sprout: “New route. Same brave little feet.” / “Let’s I-lumming-Nate the way.”
   - Nori: “Small things have big stories.” / “Let’s I-lumming-Nate the little things.”
   - Moki: “Plot twist!” / “Let’s I-lumming-Nate that.”
 
@@ -136,8 +136,8 @@ Full bios: [CHARACTER_BIBLE.md](CHARACTER_BIBLE.md)
 | Token | Hex | Character |
 |---|---|---|
 | Questlight | `#FF4D6D` | Lumo |
-| Dreamlight | `#C77DFF` | Lila |
-| Traillight | `#52B788` | Pip |
+| Dreamlight | `#C77DFF` | Luna |
+| Traillight | `#52B788` | Sprout |
 | Tidelight | `#4CC9F0` | Nori |
 | Sparklight | `#FF85A2` | Moki |
 
@@ -270,7 +270,7 @@ marketing/tiktok/from-intros/  ← post-ready social
 
 ## 10. Pre-flight checklist (before any public asset ships)
 
-- [ ] Uses official names (Lumo / Lila / Pip / Nori / Moki)  
+- [ ] Uses official names (Lumo / Luna / Sprout / Nori / Moki)  
 - [ ] Heartlight described as **essence**, not a separate creature  
 - [ ] Visual matches locked masters / crew style  
 - [ ] No child-horror VO or “why why”  
@@ -287,7 +287,8 @@ marketing/tiktok/from-intros/  ← post-ready social
 | Ver | Date | Notes |
 |---|---|---|
 | 1.x | 2026-09 / 10 | Early BRAND.md, character bible, Heartlights, branding-guide pages |
-| **2.0** | **2026-10-18** | Master lock: consistency rules, ad kill-list, name aliases, colour tokens, asset map, role instructions |
+| **2.0** | **2026-10-18** | Master lock: consistency rules, ad kill-list, colour tokens, asset map, role instructions |
+| **2.1** | **2026-10-18** | **Official names locked: Lumo · Luna · Sprout · Nori · Moki** (not Lila/Pip) |
 
 ---
 
@@ -304,11 +305,11 @@ Pages live in `brand/branding-guide/`:
 |---|---|---|
 | 01 | cover | Brand cover |
 | 02 | brand-essence-heartlight | Essence + Heartlight |
-| 03 | character-definitions | **Official names:** Pip · Lila · Lumo · Nori · Moki (updated 18 Oct 2026; art unchanged) |
+| 03 | character-definitions | **Official names:** Sprout · Luna · Lumo · Nori · Moki (LOCKED; art unchanged) |
 | 04 | product-ecosystem-accessories | App / plush / charms |
 | 05 | pricing-architecture | Free bond + Plus |
 | 06 | engagement-gentle-hook | Soft hooks |
 | 07 | visual-identity-voice | Voice + visual |
 | 08 | summary-back-cover | Summary |
 
-Legacy Sprout/Luna label version of page 03 archived under `brand/branding-guide/archive/`.
+Rejected Pip/Lila label experiment archived under `brand/branding-guide/archive/`. Official page uses Sprout/Luna.

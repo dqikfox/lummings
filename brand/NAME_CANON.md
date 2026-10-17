@@ -1,12 +1,23 @@
-# Name Canon (public)
+# Name Canon (public) — LOCKED
 
-| Official | Heartlight | Legacy file prefixes (internal only) |
+**Official cast (use everywhere public):**
+
+| Official | Heartlight | Role (branding guide) |
 |---|---|---|
-| **Lumo** | Questlight | lumo |
-| **Lila** | Dreamlight | luna, lila |
-| **Pip** | Traillight | sprout, pip |
-| **Nori** | Tidelight | nori |
-| **Moki** | Sparklight | moki |
+| **Lumo** | Questlight | Mystical Gamer Captain |
+| **Luna** | Dreamlight | Storyweaver |
+| **Sprout** | Traillight | Sprout Scout |
+| **Nori** | Tidelight | Moon-Tide Guardian |
+| **Moki** | Sparklight | Glitch Gremlin |
 
-Public marketing, packaging, app UI, branding-guide text, captions: **official names only**.
-Looks never change when renaming labels.
+## Internal aliases only (never public)
+| Alias | = Official |
+|---|---|
+| Lila | **Luna** |
+| Pip | **Sprout** |
+
+Marketing, packaging, branding-guide, captions, parent UI: **Lumo · Luna · Sprout · Nori · Moki**.
+
+## Branding guide page 03
+`brand/branding-guide/03-character-definitions.jpg` — **Sprout · Luna · Lumo · Nori · Moki**  
+Looks locked. Names confirmed by founders 18 Oct 2026.

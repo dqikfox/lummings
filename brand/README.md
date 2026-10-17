@@ -6,7 +6,8 @@
 3. [CHARACTER_BIBLE.md](CHARACTER_BIBLE.md) — five characters
 4. [HEARTLIGHTS.md](HEARTLIGHTS.md) — essence canon
 5. [../docs/brand-use-guidelines.md](../docs/brand-use-guidelines.md) — community / legal use
-6. [../BRAND.md](../BRAND.md) — long-form brand narrative
+6. [NAME_CANON.md](NAME_CANON.md)
+7. [../BRAND.md](../BRAND.md) — long-form brand narrative
 
 ## Visual lock (do not restyle)
 - `character-masters/` · `character-lineup/` · `locked-style-references/`

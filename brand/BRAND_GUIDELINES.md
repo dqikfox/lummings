@@ -293,3 +293,22 @@ marketing/tiktok/from-intros/  ← post-ready social
 
 **End of master guidelines.**  
 When in doubt: *soft, safe, consistent, essence — not separate creatures.*
+
+---
+
+## 12. Branding guide deck (visual)
+
+Pages live in `brand/branding-guide/`:
+
+| # | File | Content |
+|---|---|---|
+| 01 | cover | Brand cover |
+| 02 | brand-essence-heartlight | Essence + Heartlight |
+| 03 | character-definitions | **Official names:** Pip · Lila · Lumo · Nori · Moki (updated 18 Oct 2026; art unchanged) |
+| 04 | product-ecosystem-accessories | App / plush / charms |
+| 05 | pricing-architecture | Free bond + Plus |
+| 06 | engagement-gentle-hook | Soft hooks |
+| 07 | visual-identity-voice | Voice + visual |
+| 08 | summary-back-cover | Summary |
+
+Legacy Sprout/Luna label version of page 03 archived under `brand/branding-guide/archive/`.

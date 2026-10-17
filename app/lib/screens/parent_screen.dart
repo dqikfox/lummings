@@ -322,6 +322,94 @@ class _ParentScreenState extends State<ParentScreen> {
           icon: const Icon(Icons.delete_forever_outlined),
           label: const Text('Request data deletion'),
         ),
+
+        const SizedBox(height: 16),
+        GlassCard(
+          accent: LummingsColors.tidelight,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Weekly glow digest',
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                hl.weeklyDigestLine(),
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
+                  height: 1.4,
+                  fontSize: 13,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Soft bedtime window (nudge only — never locks)',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: LummingsColors.tidelight.withOpacity(0.95),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: DropdownButtonFormField<int>(
+                      value: hl.bedtimeWindowStartHour,
+                      decoration: const InputDecoration(
+                        labelText: 'From',
+                        isDense: true,
+                      ),
+                      items: List.generate(
+                        24,
+                        (h) => DropdownMenuItem(
+                          value: h,
+                          child: Text('${h.toString().padLeft(2, '0')}:00'),
+                        ),
+                      ),
+                      onChanged: (v) {
+                        if (v != null) hl.setBedtimeWindow(startHour: v);
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: DropdownButtonFormField<int>(
+                      value: hl.bedtimeWindowEndHour,
+                      decoration: const InputDecoration(
+                        labelText: 'Until',
+                        isDense: true,
+                      ),
+                      items: List.generate(
+                        24,
+                        (h) => DropdownMenuItem(
+                          value: h,
+                          child: Text('${h.toString().padLeft(2, '0')}:00'),
+                        ),
+                      ),
+                      onChanged: (v) {
+                        if (v != null) hl.setBedtimeWindow(endHour: v);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              if (hl.isInBedtimeWindow) ...[
+                const SizedBox(height: 10),
+                Text(
+                  '🌙 Inside window now — Bedtime Nest nudge is gentle & optional.',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: LummingsColors.tidelight.withOpacity(0.9),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
       ],
     );
   }

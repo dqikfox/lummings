@@ -34,7 +34,7 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
     _PackMeta(
       asset: 'assets/adventures/leafy_steps_001.json',
       title: 'Three Leafy Steps',
-      subtitle: 'Traillight adventure with Pip · ~5 min',
+      subtitle: 'Traillight adventure with Sprout · ~5 min',
       emoji: '🍃',
       accent: LummingsColors.dreamTeal,
     ),

@@ -1,7 +1,7 @@
 {
   "id": "leafy_steps_001",
   "title": "Three Leafy Steps",
-  "subtitle": "A Traillight adventure with Pip · ~5 min",
+  "subtitle": "A Traillight adventure with Sprout · ~5 min",
   "synopsis": "Pip breaks a big path into three safe leafy steps. Look first. Pick a step. Try it together. Heartlight is essence — never a separate creature.",
   "estimated_minutes": 5,
   "crew": ["pip", "nori", "lumo"],
@@ -18,7 +18,7 @@
       "choices": [
         {
           "id": "c_look",
-          "label": "Look first with Pip",
+          "label": "Look first with Sprout",
           "next": "look",
           "bond_xp": 8,
           "shards": 1,
@@ -135,7 +135,7 @@
       "title": "Traillight steady",
       "speaker": "narrator",
       "mood": "warm",
-      "body": "One safe step. A kinder path. Pip's Traillight is his essence — the scout in him that loves little next moves.",
+      "body": "One safe step. A kinder path. Sprout's Traillight is his essence — the scout in him that loves little next moves.",
       "ending": true,
       "ending_kind": "bonded",
       "choices": []

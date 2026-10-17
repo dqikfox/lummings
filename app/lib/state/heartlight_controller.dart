@@ -34,6 +34,10 @@ class HeartlightController extends ChangeNotifier {
   /// Parent-gated soft bedtime wind-down reminder preference (no hard lock).
   bool softBedtimeReminder = true;
 
+  /// Soft bedtime window (local hour 0-23). Reminder only — never hard-locks app.
+  int bedtimeWindowStartHour = 19;
+  int bedtimeWindowEndHour = 21;
+
   /// Heartlight Plus tier: free | plus | family (mock IAP until store hooks).
   String plusTierId = HeartlightPlusTier.free.id;
   FestivalProgress festival = FestivalProgress.emptyThisWeek();
@@ -93,6 +97,8 @@ class HeartlightController extends ChangeNotifier {
     screenTimeLimitMinutes = prefs.getInt('screen_time_limit') ?? 90;
     contentFiltersOn = prefs.getBool('content_filters') ?? true;
     softBedtimeReminder = prefs.getBool('soft_bedtime') ?? true;
+    bedtimeWindowStartHour = prefs.getInt('bedtime_start_h') ?? 19;
+    bedtimeWindowEndHour = prefs.getInt('bedtime_end_h') ?? 21;
     plusTierId = prefs.getString('plus_tier') ?? HeartlightPlusTier.free.id;
     ownedBadges = (prefs.getStringList('nest_badges') ?? <String>[]).toSet();
     adventuresCompleted = prefs.getInt('adventures_completed') ?? 0;
@@ -425,6 +431,35 @@ class HeartlightController extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('soft_bedtime', on);
     notifyListeners();
+  }
+
+  Future<void> setBedtimeWindow({int? startHour, int? endHour}) async {
+    if (startHour != null) bedtimeWindowStartHour = startHour.clamp(0, 23);
+    if (endHour != null) bedtimeWindowEndHour = endHour.clamp(0, 23);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('bedtime_start_h', bedtimeWindowStartHour);
+    await prefs.setInt('bedtime_end_h', bedtimeWindowEndHour);
+    notifyListeners();
+  }
+
+  /// True when local time is inside soft bedtime window (for gentle UI nudge).
+  bool get isInBedtimeWindow {
+    final h = DateTime.now().hour;
+    final a = bedtimeWindowStartHour;
+    final b = bedtimeWindowEndHour;
+    if (a <= b) return h >= a && h < b;
+    // overnight window e.g. 21–7
+    return h >= a || h < b;
+  }
+
+  /// One-line parent weekly digest (local, no cloud).
+  String weeklyDigestLine() {
+    final s = active;
+    final badges = ownedBadges.length;
+    final care = s.caredToday ? 'cared today' : 'care waiting (no pressure)';
+    return 'This week with ${activeLumming.name}: Bond L${s.bond.level} · '
+        '${s.careStreak}d streak · ${s.essenceShards} shards · '
+        '$badges badges · $care · Festival ${festival.claimed ? "claimed" : (festival.engaged ? "ready to claim" : "open")}.';
   }
 
   /// Equip an owned charm as a cosmetic badge on the active Lumming.

@@ -1,3 +1,16 @@
+## Name correction — Sprout/Luna official (18 Oct 2026)
+
+- Founders: public names are **Sprout** and **Luna** (not Pip/Lila)
+- Restored branding-guide page 03 Sprout/Luna labels
+- NAME_CANON + guidelines + one-pager corrected
+
+## Brand v2.1 — Official names: Sprout & Luna (18 Oct 2026)
+
+- LOCKED public names: Lumo · Luna · Sprout · Nori · Moki
+- Rejected Lila/Pip as public names (archived label experiment)
+- Restored branding-guide page 03 Sprout/Luna art labels
+- App display names + adventures + tests aligned
+
 ## Brand v2.0 — Master guidelines lock (18 Oct 2026)
 
 - brand/BRAND_GUIDELINES.md master rules for all teams

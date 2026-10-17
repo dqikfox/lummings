@@ -48,7 +48,7 @@
           "label": "Take the path one step at a time",
           "next": "lantern",
           "bond_xp": 10,
-          "memory": "We walked the Night Forest path carefully with Pip."
+          "memory": "We walked the Night Forest path carefully with Sprout."
         },
         {
           "id": "c_council2",
@@ -67,7 +67,7 @@
       "choices": [
         {
           "id": "c_feeling",
-          "label": "Wonder if the dim light is a feeling (with Lila)",
+          "label": "Wonder if the dim light is a feeling (with Luna)",
           "next": "dream",
           "bond_xp": 10,
           "shards": 1,
@@ -96,7 +96,7 @@
       "title": "Dreamlight ribbons",
       "speaker": "lila",
       "mood": "gentle",
-      "body": "Lila’s Dreamlight unfurls violet-gold ribbons that sketch pictures in the air: a worried lantern, a child holding a friend’s hand, a heart that glows from the inside.\n\n“A Heartlight isn’t a pet you chase,” she says softly. “It’s who we are — our essence. When it dims, we don’t scold it. We name the wonder… then find what is true.”",
+      "body": "Luna’s Dreamlight unfurls violet-gold ribbons that sketch pictures in the air: a worried lantern, a child holding a friend’s hand, a heart that glows from the inside.\n\n“A Heartlight isn’t a pet you chase,” she says softly. “It’s who we are — our essence. When it dims, we don’t scold it. We name the wonder… then find what is true.”",
       "choices": [
         {
           "id": "c_name",

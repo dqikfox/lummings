@@ -14,7 +14,7 @@
       "title": "Fallen spark",
       "speaker": "narrator",
       "mood": "wonder",
-      "body": "The Star Garden glows. A tiny star rests between soft moss and Pip’s leaf markers.\n\nLumo’s Questlight pulse-beats like a friendly game save point.",
+      "body": "The Star Garden glows. A tiny star rests between soft moss and Sprout’s leaf markers.\n\nLumo’s Questlight pulse-beats like a friendly game save point.",
       "choices": [
         {
           "id": "c_look",
@@ -44,7 +44,7 @@
       "choices": [
         {
           "id": "c_path",
-          "label": "Follow Pip’s leafy steps",
+          "label": "Follow Sprout’s leafy steps",
           "next": "edge",
           "bond_xp": 10,
           "memory": "Pip marked safe leafy steps to the star."

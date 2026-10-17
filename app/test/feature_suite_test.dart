@@ -25,7 +25,7 @@ void main() {
       expect(Lumming.crew.length, 5);
       expect(
         Lumming.crew.map((l) => l.name).toSet(),
-        containsAll(['Lumo', 'Lila', 'Pip', 'Nori', 'Moki']),
+        containsAll(['Lumo', 'Luna', 'Sprout', 'Nori', 'Moki']),
       );
       expect(
         Lumming.crew.map((l) => l.heartlight.name).toSet(),

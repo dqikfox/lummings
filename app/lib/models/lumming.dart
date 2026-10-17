@@ -69,7 +69,7 @@ class Lumming {
     ),
     Lumming(
       id: LummingId.lila,
-      name: 'Lila',
+      name: 'Luna',
       title: 'Dream Weaver',
       blurb: 'Soft violet story-poet. Helps feelings become words, pictures, and paths.',
       emoji: '🌙',
@@ -88,7 +88,7 @@ class Lumming {
     ),
     Lumming(
       id: LummingId.pip,
-      name: 'Pip',
+      name: 'Sprout',
       title: 'Trail Scout',
       blurb: 'Emerald pathfinder. Breaks adventures into safe, leafy steps.',
       emoji: '🍃',

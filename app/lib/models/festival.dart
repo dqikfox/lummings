@@ -37,7 +37,7 @@ class NestFestival {
       NestFestival(
         id: 'leafy_lanterns',
         title: 'Leafy Lanterns',
-        blurb: 'Pip’s trails light the forest path — walk one adventure.',
+        blurb: 'Sprout’s trails light the forest path — walk one adventure.',
         emoji: '🏮',
       ),
       NestFestival(

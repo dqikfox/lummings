@@ -1,5 +1,7 @@
 # Heartlight Adventures
 
+> **Official names (2026-10-18):** Pip (not Sprout) · Lila (not Luna). Looks and stories unchanged except names.
+
 Fifteen interactive stories. Three for each Lumming. Editable source for the storybook.
 
 Writing a child types into the page is not stored and is not sent. These are fictional demonstrations of supportive behaviour, not evidence of improved grades, less anxiety, or guaranteed safety.
@@ -9,12 +11,12 @@ Writing a child types into the page is not stored and is not sent. These are fic
 | Lumo | Questlight | The Gate of Sixes | Different strategies can reach the same answer. |
 | Lumo | Questlight | The Save-Point Bridge | Stopping can be part of the plan. |
 | Lumo | Questlight | The Rumour Rune | Check the words before you believe a big claim. |
-| Sprout | Traillight | The Upside-Down Map | A thoughtful second look can be the brave part. |
-| Sprout | Traillight | Two Paths, One Puddle | You can choose a route, then switch. |
-| Sprout | Traillight | The Medal for Slow | Looking can matter more than being first. |
-| Luna | Dreamlight | Weather Inside | A feeling does not have to be explained. |
-| Luna | Dreamlight | The Library of Almosts | An unfinished idea can be enough. |
-| Luna | Dreamlight | The Scarf Offer | Sharing a feeling is a choice. |
+| Pip | Traillight | The Upside-Down Map | A thoughtful second look can be the brave part. |
+| Pip | Traillight | Two Paths, One Puddle | You can choose a route, then switch. |
+| Pip | Traillight | The Medal for Slow | Looking can matter more than being first. |
+| Lila | Dreamlight | Weather Inside | A feeling does not have to be explained. |
+| Lila | Dreamlight | The Library of Almosts | An unfinished idea can be enough. |
+| Lila | Dreamlight | The Scarf Offer | Sharing a feeling is a choice. |
 | Nori | Tidelight | Lowbeam’s Offer | A calming idea can be declined. |
 | Nori | Tidelight | Three Small Things | One careful question is enough. |
 | Nori | Tidelight | The Trusted Door | Some questions belong with a person you trust. |
@@ -121,24 +123,24 @@ What would you want to check before you believed a big rumour?
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Sprout — The Upside-Down Map
+## Pip — The Upside-Down Map
 
 **Heartlight:** Traillight  
 **Id:** `upside-down-map`
 
 > I announced the plan. Then I noticed the map was upside down. Second try?
 
-Sprout’s leaf-map was the wrong way up. Which move now?
+Pip’s leaf-map was the wrong way up. Which move now?
 
 ### Choose a strategy
 
 - **Turn it and look again.** The leaf arrows point the other way once the map is the right way up.
 - **Test the first path slowly.** One careful step. If the moss thins out, come back. That is still a plan.
-- **Ask what Nori notices.** A second pair of eyes. Sprout does not have to spot everything alone.
+- **Ask what Nori notices.** A second pair of eyes. Pip does not have to spot everything alone.
 
 ### Reveal the explanation
 
-The trail marks were leaves pointing toward the moss gate, not away from it. Sprout’s medal is for the second look. Traillight brightens when a plan gets repaired, not when it was perfect the first time.
+The trail marks were leaves pointing toward the moss gate, not away from it. Pip’s medal is for the second look. Traillight brightens when a plan gets repaired, not when it was perfect the first time.
 
 ### Try this next
 
@@ -146,7 +148,7 @@ Turn a drawing upside down and find one thing you missed. Then turn it back and 
 
 ### Grown-up note
 
-Sprout celebrates a thoughtful retry instead of hiding the mix-up. Skip “you should have looked first.” The repair is the point. This does not promise fewer mistakes at school.
+Pip celebrates a thoughtful retry instead of hiding the mix-up. Skip “you should have looked first.” The repair is the point. This does not promise fewer mistakes at school.
 
 ### Writing prompt
 
@@ -154,7 +156,7 @@ Tell about a second try that helped — or invent one.
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Sprout — Two Paths, One Puddle
+## Pip — Two Paths, One Puddle
 
 **Heartlight:** Traillight  
 **Id:** `two-paths`
@@ -187,7 +189,7 @@ Which path would you pick, and what would you watch for?
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Sprout — The Medal for Slow
+## Pip — The Medal for Slow
 
 **Heartlight:** Traillight  
 **Id:** `medal-for-slow`
@@ -204,7 +206,7 @@ The moss gate asks which footprint is the thoughtful one. What do you think?
 
 ### Reveal the explanation
 
-The gate opens for the print that turned around. Sprout pins the medal on that second attempt. Fast was not wrong for every day. Today the riddle was about noticing. Traillight makes the medal glow emerald, then fades so nobody has to wear it.
+The gate opens for the print that turned around. Pip pins the medal on that second attempt. Fast was not wrong for every day. Today the riddle was about noticing. Traillight makes the medal glow emerald, then fades so nobody has to wear it.
 
 ### Try this next
 
@@ -220,14 +222,14 @@ What did a slower try notice?
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Luna — Weather Inside
+## Lila — Weather Inside
 
 **Heartlight:** Dreamlight  
 **Id:** `weather-inside`
 
 > You don’t have to explain the sky. I can sit in it with you.
 
-A friend’s feeling is stormy, and they do not want to say why. What can Luna offer?
+A friend’s feeling is stormy, and they do not want to say why. What can Lila offer?
 
 ### Choose a strategy
 
@@ -237,7 +239,7 @@ A friend’s feeling is stormy, and they do not want to say why. What can Luna o
 
 ### Reveal the explanation
 
-None of these asks “why”. Luna does not demand an explanation for a feeling. If words come later, there is room. If they don’t, company was the whole help. Dreamlight does not dim when a feeling stays unnamed.
+None of these asks “why”. Lila does not demand an explanation for a feeling. If words come later, there is room. If they don’t, company was the whole help. Dreamlight does not dim when a feeling stays unnamed.
 
 ### Try this next
 
@@ -253,7 +255,7 @@ A weather word for right now, if you want one. Blank is welcome.
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Luna — The Library of Almosts
+## Lila — The Library of Almosts
 
 **Heartlight:** Dreamlight  
 **Id:** `library-of-almosts`
@@ -270,7 +272,7 @@ The sentence waiting on the shelf is “And then the moon…” How might it go?
 
 ### Reveal the explanation
 
-All three endings are kind. Luna used to hide unfinished stories because they felt not-wonderful-enough. Dreamlight shows that a beginning can be the gift. Stopping is part of writing, not a hole in it.
+All three endings are kind. Lila used to hide unfinished stories because they felt not-wonderful-enough. Dreamlight shows that a beginning can be the gift. Stopping is part of writing, not a hole in it.
 
 ### Try this next
 
@@ -286,24 +288,24 @@ Finish “And then the moon…” in your own way, or leave it almost.
 
 The writing field is optional. Leave it blank. Do not put secrets in it. The page does not save it.
 
-## Luna — The Scarf Offer
+## Lila — The Scarf Offer
 
 **Heartlight:** Dreamlight  
 **Id:** `scarf-offer`
 
 > Words are an invitation, not a test.
 
-Luna’s comet scarf can hold a feeling-word. Do you want to offer one?
+Lila’s comet scarf can hold a feeling-word. Do you want to offer one?
 
 ### Choose a strategy
 
-- **I’ll pick a word.** Any word. Luna does not grade it or ask you to explain it.
-- **Not today.** A complete answer. Luna nods and lets the scarf rest.
+- **I’ll pick a word.** Any word. Lila does not grade it or ask you to explain it.
+- **Not today.** A complete answer. Lila nods and lets the scarf rest.
 - **A colour instead.** Violet, moss, gold, moon-blue, rose. A colour can be the whole reply.
 
 ### Reveal the explanation
 
-“Not today” does not need a follow-up question. Luna does not chase a feeling to make the story neat. Dreamlight stays soft either way. An invitation can be declined and still have been kind.
+“Not today” does not need a follow-up question. Lila does not chase a feeling to make the story neat. Dreamlight stays soft either way. An invitation can be declined and still have been kind.
 
 ### Try this next
 

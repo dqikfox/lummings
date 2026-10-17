@@ -10,7 +10,7 @@
 |------|-------------|
 | 01-cover.jpg | Branding guide cover (locked style) |
 | 02-brand-essence-heartlight.jpg | Heartlight = essence/soul (not separate creature) |
-| 03-character-definitions.jpg | Lumo / Luna / Sprout / Nori / Moki |
+| 03-character-definitions.jpg | Lumo / Lila / Pip / Nori / Moki (official) |
 | 04-product-ecosystem-accessories.jpg | App, plush, charms, hook system |
 | 05-pricing-architecture.jpg | App / Physical / Accessories pricing |
 | 06-engagement-gentle-hook.jpg | Daily care, collection, bond levels |
@@ -38,7 +38,7 @@
 | File | Description |
 |------|-------------|
 | locked-style-crew-lineup.jpg | Official 5-crew lineup locked style |
-| sprout-portrait-locked.jpg | Sprout full portrait |
+| sprout-portrait-locked.jpg | Pip (legacy filename sprout) full portrait |
 | early-summary-page.jpg | Early summary composition |
 
 ### brand/character-masters/

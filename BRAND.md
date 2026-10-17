@@ -1,5 +1,10 @@
 # The Lummings — Brand Guidelines
 
+> **STYLE LOCK (v2.0 · 18 Oct 2026):** Do not change character looks or art style.  
+> Master rules for everyone: [`brand/BRAND_GUIDELINES.md`](brand/BRAND_GUIDELINES.md) · one-pager: [`brand/BRAND_RULES_ONEPAGER.md`](brand/BRAND_RULES_ONEPAGER.md).  
+> Heartlights = each Lumming’s **essence/soul**, never separate creatures. Official names: Lumo · Lila · Pip · Nori · Moki.
+
+
 ## Heartlights and growing together
 
 Every Lumming is deeply curious and naturally cautious: safety first, always. Each carries a special Heartlight to **I-lumming-Nate** questions and discoveries alongside its human companion. Shared interests and preferences develop through time together, while each character keeps its own identity. See [the Heartlight canon](brand/HEARTLIGHTS.md) for the five lights, friendship journey and implementation status.

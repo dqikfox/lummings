@@ -4,7 +4,7 @@
   "subtitle": "A Sparklight adventure with Moki",
   "synopsis": "Something feels tangled. Moki helps turn a confusing mix-up into a clearer pattern — with kindness, never mean jokes. Heartlights stay essence, not separate pets.",
   "estimated_minutes": 5,
-  "crew": ["moki", "lumo", "lila"],
+  "crew": ["moki", "lumo", "luna"],
   "start": "tangle",
   "completion_bond_xp": 35,
   "completion_shards": 3,
@@ -51,7 +51,7 @@
         },
         {
           "id": "c_lila",
-          "label": "Ask Lila to put the feeling into words",
+          "label": "Ask Luna to put the feeling into words",
           "next": "words",
           "bond_xp": 8,
           "shards": 1
@@ -86,7 +86,7 @@
     {
       "id": "words",
       "title": "Dreamlight words",
-      "speaker": "lila",
+      "speaker": "luna",
       "mood": "gentle",
       "body": "Luna's ribbons sketch the tangle as a cloud with a door.\n\n\"Naming it doesn't erase it. It gives you a handle.\"",
       "choices": [

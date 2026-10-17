@@ -4,7 +4,7 @@
   "subtitle": "A Questlight adventure with Lumo · ~6 min",
   "synopsis": "A tiny star fell into the Nest garden. Lumo’s Questlight helps you choose a safe first step. Heartlights are essence — never separate creatures.",
   "estimated_minutes": 6,
-  "crew": ["lumo", "pip", "lila", "moki"],
+  "crew": ["lumo", "sprout", "luna", "moki"],
   "start": "garden",
   "completion_bond_xp": 40,
   "completion_shards": 4,
@@ -38,7 +38,7 @@
     {
       "id": "scout",
       "title": "Trail Scout check",
-      "speaker": "pip",
+      "speaker": "sprout",
       "mood": "steady",
       "body": "Traillight says: small steps. The star is warm, not hot. No deep holes. Safe edge first.\n\nLet’s I-lumming-Nate the way.",
       "choices": [
@@ -47,7 +47,7 @@
           "label": "Follow Sprout’s leafy steps",
           "next": "edge",
           "bond_xp": 10,
-          "memory": "Pip marked safe leafy steps to the star."
+          "memory": "Sprout marked safe leafy steps to the star."
         },
         {
           "id": "c_safety",
@@ -77,10 +77,10 @@
         },
         {
           "id": "c_lila",
-          "label": "Invite Lila to name the feeling",
-          "next": "lila",
+          "label": "Invite Luna to name the feeling",
+          "next": "luna",
           "bond_xp": 10,
-          "memory": "Lila helped name the star’s lost feeling."
+          "memory": "Luna helped name the star’s lost feeling."
         }
       ]
     },
@@ -103,9 +103,9 @@
       ]
     },
     {
-      "id": "lila",
+      "id": "luna",
       "title": "Words of light",
-      "speaker": "lila",
+      "speaker": "luna",
       "mood": "soft",
       "body": "Dreamlight sketches a path of stars home.\n\nFeeling lost can become a picture — then a plan.",
       "choices": [

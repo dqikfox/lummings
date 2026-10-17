@@ -60,7 +60,7 @@ void main() {
   test('Care engages festival soft hook', () async {
     final hl = HeartlightController();
     await hl.load();
-    await hl.completeOnboarding(LummingId.pip);
+    await hl.completeOnboarding(LummingId.sprout);
     expect(hl.festival.engaged, isFalse);
     await hl.performCare(kind: 'hug');
     expect(hl.festival.engaged, isTrue);

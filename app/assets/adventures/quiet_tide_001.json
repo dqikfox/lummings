@@ -4,7 +4,7 @@
   "subtitle": "A Tidelight adventure with Nori · ~5 min",
   "synopsis": "Nori’s Tidelight helps you notice the little things at the Moonpool. Heartlight is essence — never a separate creature. Pause. Notice. Wonder together.",
   "estimated_minutes": 5,
-  "crew": ["nori", "lila", "lumo"],
+  "crew": ["nori", "luna", "lumo"],
   "start": "moonpool",
   "completion_bond_xp": 35,
   "completion_shards": 3,
@@ -77,11 +77,11 @@
         },
         {
           "id": "c_lila",
-          "label": "Invite Lila to help with words",
-          "next": "lila",
+          "label": "Invite Luna to help with words",
+          "next": "luna",
           "bond_xp": 10,
           "shards": 1,
-          "memory": "Lila helped us put a feeling into words."
+          "memory": "Luna helped us put a feeling into words."
         }
       ]
     },
@@ -104,15 +104,15 @@
       ]
     },
     {
-      "id": "lila",
+      "id": "luna",
       "title": "Words of light",
-      "speaker": "lila",
+      "speaker": "luna",
       "mood": "warm",
       "body": "Dreamlight sketches a soft picture: a small heart glowing beside a big one.\n\nFeeling small is still feeling. We can hold it gently.",
       "choices": [
         {
           "id": "c_back",
-          "label": "Thank Lila and return to Nori",
+          "label": "Thank Luna and return to Nori",
           "next": "pebble",
           "bond_xp": 10,
           "memory": "Luna’s Dreamlight helped a quiet feeling become a picture."

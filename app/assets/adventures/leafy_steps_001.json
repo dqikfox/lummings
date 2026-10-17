@@ -2,9 +2,9 @@
   "id": "leafy_steps_001",
   "title": "Three Leafy Steps",
   "subtitle": "A Traillight adventure with Sprout · ~5 min",
-  "synopsis": "Pip breaks a big path into three safe leafy steps. Look first. Pick a step. Try it together. Heartlight is essence — never a separate creature.",
+  "synopsis": "Sprout breaks a big path into three safe leafy steps. Look first. Pick a step. Try it together. Heartlight is essence — never a separate creature.",
   "estimated_minutes": 5,
-  "crew": ["pip", "nori", "lumo"],
+  "crew": ["sprout", "nori", "lumo"],
   "start": "edge",
   "completion_bond_xp": 35,
   "completion_shards": 3,
@@ -14,7 +14,7 @@
       "title": "Edge of the green path",
       "speaker": "narrator",
       "mood": "curious",
-      "body": "Emerald Pip stands at the trailhead, Traillight glowing like a warm firefly in his acorn compass.\n\n\"Big path. Three little steps. We never rush the whole forest.\"",
+      "body": "Emerald Sprout stands at the trailhead, Traillight glowing like a warm firefly in his acorn compass.\n\n\"Big path. Three little steps. We never rush the whole forest.\"",
       "choices": [
         {
           "id": "c_look",
@@ -38,9 +38,9 @@
     {
       "id": "look",
       "title": "Map the three stones",
-      "speaker": "pip",
+      "speaker": "sprout",
       "mood": "steady",
-      "body": "Pip points: \"Stone one — safe. Stone two — maybe damp. Stone three — we check with a trusted adult if it feels too steep.\"",
+      "body": "Sprout points: \"Stone one — safe. Stone two — maybe damp. Stone three — we check with a trusted adult if it feels too steep.\"",
       "choices": [
         {
           "id": "c_one",
@@ -78,9 +78,9 @@
     {
       "id": "step",
       "title": "First step glowing",
-      "speaker": "pip",
+      "speaker": "sprout",
       "mood": "bright",
-      "body": "Traillight marks the stone. Pip smiles. \"One step is still an adventure. The rest of the forest waits patiently.\"",
+      "body": "Traillight marks the stone. Sprout smiles. \"One step is still an adventure. The rest of the forest waits patiently.\"",
       "choices": [
         {
           "id": "c_lumo",

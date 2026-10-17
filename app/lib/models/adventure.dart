@@ -35,7 +35,7 @@ class AdventureNode {
   final String id;
   final String title;
   final String body;
-  final String? speaker; // lumo | lila | pip | nori | moki | narrator
+  final String? speaker; // lumo | luna | sprout | nori | moki | narrator
   final String? mood;
   final List<AdventureChoice> choices;
   final bool isEnding;

@@ -42,7 +42,7 @@ void main() {
   test('all four quests claim festival bonus once', () async {
     final hl = HeartlightController();
     await hl.load();
-    await hl.completeOnboarding(LummingId.lila);
+    await hl.completeOnboarding(LummingId.luna);
     await hl.rewardAdventure(bondXp: 5, shards: 20); // shards for collect later
 
     await hl.completeQuest(QuestKind.care);
@@ -57,7 +57,7 @@ void main() {
   test('care path auto-completes care quest', () async {
     final hl = HeartlightController();
     await hl.load();
-    await hl.completeOnboarding(LummingId.pip);
+    await hl.completeOnboarding(LummingId.sprout);
     await hl.performCare(kind: 'hug');
     expect(hl.quests.completedIds, contains('care_today'));
   });

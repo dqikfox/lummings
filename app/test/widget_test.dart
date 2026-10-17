@@ -21,9 +21,9 @@ void main() {
     final hl = HeartlightController();
     await hl.load();
     expect(hl.onboarded, isFalse);
-    await hl.completeOnboarding(LummingId.lila, pin: '1234');
+    await hl.completeOnboarding(LummingId.luna, pin: '1234');
     expect(hl.onboarded, isTrue);
-    expect(hl.activeId, LummingId.lila);
+    expect(hl.activeId, LummingId.luna);
     expect(hl.verifyParentPin('1234'), isTrue);
     expect(hl.verifyParentPin('0000'), isFalse);
   });

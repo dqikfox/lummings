@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/lummings_theme.dart';
 
-enum LummingId { lumo, lila, pip, nori, moki }
+enum LummingId { lumo, luna, sprout, nori, moki }
 
 /// Heartlight is the Lumming's essence / soul — never a separate creature.
 class Heartlight {
@@ -68,13 +68,13 @@ class Lumming {
       ),
     ),
     Lumming(
-      id: LummingId.lila,
+      id: LummingId.luna,
       name: 'Luna',
-      title: 'Dream Weaver',
+      title: 'Storyweaver',
       blurb: 'Soft violet story-poet. Helps feelings become words, pictures, and paths.',
       emoji: '🌙',
-      crewAsset: 'assets/images/crew/lila.png',
-      portraitHappy: 'assets/images/portraits/lila-happy.svg',
+      crewAsset: 'assets/images/crew/luna.png',
+      portraitHappy: 'assets/images/portraits/luna-happy.svg',
       heartlight: Heartlight(
         name: 'Dreamlight',
         colour: 'soft violet with pearly gold ribbons',
@@ -87,13 +87,13 @@ class Lumming {
       ),
     ),
     Lumming(
-      id: LummingId.pip,
+      id: LummingId.sprout,
       name: 'Sprout',
-      title: 'Trail Scout',
+      title: 'Sprout Scout',
       blurb: 'Emerald pathfinder. Breaks adventures into safe, leafy steps.',
       emoji: '🍃',
-      crewAsset: 'assets/images/crew/pip.png',
-      portraitHappy: 'assets/images/portraits/pip-happy.svg',
+      crewAsset: 'assets/images/crew/sprout.png',
+      portraitHappy: 'assets/images/portraits/sprout-happy.svg',
       heartlight: Heartlight(
         name: 'Traillight',
         colour: 'fresh emerald with warm firefly flecks',

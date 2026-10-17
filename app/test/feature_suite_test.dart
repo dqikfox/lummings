@@ -74,9 +74,9 @@ void main() {
     test('onboarding + PIN gate', () async {
       final hl = HeartlightController();
       await hl.load();
-      await hl.completeOnboarding(LummingId.lila, pin: '4242');
+      await hl.completeOnboarding(LummingId.luna, pin: '4242');
       expect(hl.onboarded, isTrue);
-      expect(hl.activeId, LummingId.lila);
+      expect(hl.activeId, LummingId.luna);
       expect(hl.verifyParentPin('4242'), isTrue);
       expect(hl.verifyParentPin('1111'), isFalse);
     });
@@ -106,7 +106,7 @@ void main() {
     test('story care grants +5 XP over hug', () async {
       final hl = HeartlightController();
       await hl.load();
-      await hl.completeOnboarding(LummingId.pip);
+      await hl.completeOnboarding(LummingId.sprout);
       final r = await hl.performCare(kind: 'story');
       expect(r.xpGained, 25);
     });
@@ -201,7 +201,7 @@ void main() {
           .map((n) => n.speaker)
           .whereType<String>()
           .toSet();
-      expect(speakers, containsAll(['lumo', 'lila', 'pip', 'nori', 'moki']));
+      expect(speakers, containsAll(['lumo', 'luna', 'sprout', 'nori', 'moki']));
     });
 
     test('has safety_check choice and essence teaching beat', () {

@@ -54,7 +54,7 @@ class TalkCatalog {
                 'Let\'s I-lumming-Nate our next move. I\'m listening — story, hug, adventure, or a feeling you want to map.',
           ),
         ];
-      case LummingId.lila:
+      case LummingId.luna:
         return const [
           TalkReply(
             promptKey: 'story',
@@ -88,7 +88,7 @@ class TalkCatalog {
                 'Let\'s I-lumming-Nate your what-if. I\'m here for stories, soft hugs, and careful feelings.',
           ),
         ];
-      case LummingId.pip:
+      case LummingId.sprout:
         return const [
           TalkReply(
             promptKey: 'story',

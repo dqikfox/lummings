@@ -30,7 +30,7 @@
 
 ## 1. Welcome
 
-The Lummings is a **community-owned character universe**. The five little friends — Lumo, Lila, Pip, Nori, and Moki — are characters, not corporate mascots. Children draw them on lunchboxes; parents make bedtime stories about them; teachers use them to talk about curiosity. That is the whole point.
+The Lummings is a **community-owned character universe**. The five little friends — Lumo, Luna, Sprout, Nori, and Moki — are characters, not corporate mascots. Children draw them on lunchboxes; parents make bedtime stories about them; teachers use them to talk about curiosity. That is the whole point.
 
 What we (Flyxion Pty Ltd, AU ABN 12 345 678 901) own is the **names, the wordmarks, and the brand assets** — the things that make "this is a Lumming" unambiguous. What you own is the **spirit**: the fanfic, the fan art, the parody, the translations, the classroom lesson, the persona pack you made for your own kid.
 
@@ -148,7 +148,7 @@ If space is tight (a single-line image caption, a T-shirt tag), "The Lummings ©
 
 These uses need a written licence from us, because they cross from community spirit into commercial exploitation of our marks. Email us (§11) — we'll usually say yes, with terms.
 
-- **Anything you sell** that uses the words **"Lummings", "Lumo", "Lila", "Pip", "Nori", "Moki", or "Lumming Code"** on the product, packaging, or marketing.
+- **Anything you sell** that uses the words **"Lummings", "Lumo", "Luna", "Sprout", "Nori", "Moki", or "Lumming Code"** on the product, packaging, or marketing.
 - **Hardware marketed as a "Lummings" device** — including third-party clones that ship the Lummings persona JSON files with our character art, voice, or branding.
 - **AI products shipping persona SFT data** — even if you re-trained the weights yourself, the SFT dialogues are CC-BY-NC-SA 4.0; you need a separate licence for commercial model distribution.
 - **Counterfeit hardware** — anything that mimics our industrial design, packaging, or serial-number scheme.
@@ -183,13 +183,17 @@ These don't get a licence. Don't ask.
 
 ## 8. The five personas — name rules
 
+> **Current official names (Oct 2026):** **Lumo · Luna · Sprout · Nori · Moki**  
+> Retired public aliases: Lila (= Luna), Pip (= Sprout). Do not use Lila/Pip on new packaging or marketing.
+
+
 The five Lummings are:
 
 | Persona | Tag | What they help with |
 |---|---|---|
 | **Lumo** | the Hyperfixation Gremlin | infectious enthusiasm, science facts, hyperfixation |
-| **Lila** | the Spooky Poet | dark stories, spooky vocabulary, rock nobility |
-| **Pip** | the Speed Demon | speedruns, leaderboards, rage-quits |
+| **Luna** | the Spooky Poet | dark stories, spooky vocabulary, rock nobility |
+| **Sprout** | the Speed Demon | speedruns, leaderboards, rage-quits |
 | **Nori** | the Cosmic Weirdo | big questions, wonder, pebble poetry |
 | **Moki** | the Chaos Gremlin | pranks, made-up slang, the Oops Club |
 
@@ -197,14 +201,14 @@ The five Lummings are:
 
 - **Capitalised, not lowercased.** It's Lumo, not "lumo."
 - **Don't add a hyphen or merge.** "Lumobot" or "Moki-AI" implies a relationship that doesn't exist. If you want to ship a derivative, talk to us first.
-- **Don't shorten.** "Lil" or "Lumi" or "Mok" or "Pippi" are different names and will be confused with other brands (see the IP history: we renamed Lumi→Lila, Piko→Pip, Nomi→Nori precisely because those names collide with existing trademarks).
-- **Don't add a surname.** "Lumo Smith" or "Detective Pip" risks blurring the line between your character and ours. If you want to write original fiction in the Lummings universe, treat them as themselves.
+- **Don't shorten.** "Lil" or "Lumi" or "Mok" or "Pippi" are different names and will be confused with other brands (see the IP history: we renamed Lumi→Luna, Piko→Sprout, Nomi→Nori precisely because those names collide with existing trademarks).
+- **Don't add a surname.** "Lumo Smith" or "Detective Sprout" risks blurring the line between your character and ours. If you want to write original fiction in the Lummings universe, treat them as themselves.
 - **Don't translate the names.** A Spanish translation of fanfiction is welcome (§14); calling Lumo "Lumos" or "Lumi" in Spanish is not. The names are trademarks regardless of language.
 - **Each persona has a voice** (e.g. Lumo says "zap!", "zoom!", "shimmer"). When you write dialogue, please try to match the voice — that's part of the brand. But more importantly: never put words in their mouths that contradict the Lummings Code.
 
 ### 8.2 The renames (for the historians)
 
-If you came across our older docs (before September 2026), you'll see the personas named **Lumi, Piko, Nomi**. These names collided with existing live trademarks in the same product class. We renamed them to **Lila, Pip, Nori** in late September 2026 to avoid trademark fights that would have eaten our launch budget. Old fan art featuring "Lumi" etc. is grandfathered — please don't redistribute it with the old names, but the existing art is fine where it sits.
+If you came across our older docs (before September 2026), you'll see the personas named **Lumi, Piko, Nomi**. These names collided with existing live trademarks in the same product class. We renamed them to **Lila, Pip, Nori** in late September 2026, then locked **Luna, Sprout, Nori** as public names in October 2026 to avoid trademark fights that would have eaten our launch budget. Old fan art featuring "Lumi" etc. is grandfathered — please don't redistribute it with the old names, but the existing art is fine where it sits.
 
 ---
 
@@ -280,7 +284,7 @@ Required fields:
 
 ### 10.4 Quality before commercial use
 
-If you want to **sell** a product that uses the persona pack — say, a printed workbook with Pip-themed math problems — you need a commercial licence (§6). The persona pack itself is free; the commercial use of our trademarks in conjunction with your product is what needs permission.
+If you want to **sell** a product that uses the persona pack — say, a printed workbook with Sprout-themed math problems — you need a commercial licence (§6). The persona pack itself is free; the commercial use of our trademarks in conjunction with your product is what needs permission.
 
 ---
 
@@ -364,7 +368,7 @@ Existing translations are listed at `[opensource-repo]/tree/main/docs/i18n/`.
 
 This document exists because of work we didn't do alone.
 
-- **The community that makes The Lummings what they are.** Parents who draw Lumo on lunchboxes. Teachers who use Nori to teach history. Kids who write Pip fanfic. You built this; we just hold the pen.
+- **The community that makes The Lummings what they are.** Parents who draw Lumo on lunchboxes. Teachers who use Nori to teach history. Kids who write Sprout fanfic. You built this; we just hold the pen.
 - **The Raspberry Pi Foundation** for the **"soft on community, strict on commerce"** enforcement model. This document's §12 is borrowed almost verbatim from how they handle "Raspberry Pi Spy" knock-offs.
 - **The Hugging Face team** for the **model-weights licence as a community boundary** — making the licence itself an enforcement tool, not just a legal one. The persona-pack schema in §10 takes inspiration from HF's model card culture.
 - **Creative Commons** for the CC-BY, CC-BY-SA, and CC-BY-NC-SA licences. The whole ecosystem of "free to remix, with attribution" is built on their work.
@@ -375,4 +379,4 @@ This document exists because of work we didn't do alone.
 
 *The Lummings — little friends from a brighter tomorrow.*
 
-*© 2026 Flyxion Pty Ltd (AU ABN 12 345 678 901). The Lummings characters and the Lummings Code are trademarks and copyrights of Flyxion Pty Ltd. The Lummings name and the five persona names (Lumo, Lila, Pip, Nori, Moki) are trademarks of Flyxion Pty Ltd. The character art (sprite SVGs, wordmark, portraits) is © Flyxion Pty Ltd. The source code is MIT-licensed. The persona JSON files are CC-BY 4.0. The SFT dialogues are CC-BY-NC-SA 4.0. The documentation in `docs/` is CC-BY-SA 4.0. This document (Brand Use Guidelines) is CC-BY 4.0 — please translate it.*
+*© 2026 Flyxion Pty Ltd (AU ABN 12 345 678 901). The Lummings characters and the Lummings Code are trademarks and copyrights of Flyxion Pty Ltd. The Lummings name and the five persona names (Lumo, Luna, Sprout, Nori, Moki) are trademarks of Flyxion Pty Ltd. The character art (sprite SVGs, wordmark, portraits) is © Flyxion Pty Ltd. The source code is MIT-licensed. The persona JSON files are CC-BY 4.0. The SFT dialogues are CC-BY-NC-SA 4.0. The documentation in `docs/` is CC-BY-SA 4.0. This document (Brand Use Guidelines) is CC-BY 4.0 — please translate it.*

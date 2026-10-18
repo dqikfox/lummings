@@ -153,6 +153,14 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                               fontWeight: FontWeight.w700,
                             ),
                           ),
+                          Text(
+                            'Heartlight · ${l.heartlight.name}',
+                            style: TextStyle(
+                              color: l.heartlight.accent.withOpacity(0.85),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                           const SizedBox(height: 4),
                           Text(
                             l.blurb,

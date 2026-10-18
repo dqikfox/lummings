@@ -17,8 +17,8 @@ A Lumming does not arrive knowing everything about you or having every answer. I
 | Lumming | Heartlight | Where it lives | How it guides |
 |---|---|---|---|
 | Lumo | **Questlight** — ruby-gold with cyan constellation sparks | star-shaped Heartlight brooch linked to his crystal controller | turn a big question into a small co-op quest and choose a safe first step |
-| Lila | **Dreamlight** — soft violet with pearly gold ribbons | a comet-shaped Heartlight charm on her story scarf | help a companion put a feeling or question into words, pictures or a story |
-| Pip | **Traillight** — fresh emerald with warm firefly flecks | an acorn-shaped Heartlight inside the compass | break a puzzle or adventure into manageable steps and check each route before moving |
+| Luna | **Dreamlight** — soft violet with pearly gold ribbons | a comet-shaped Heartlight charm on her story scarf | help a companion put a feeling or question into words, pictures or a story |
+| Sprout | **Traillight** — fresh emerald with warm firefly flecks | an acorn-shaped Heartlight inside the compass | break a puzzle or adventure into manageable steps and check each route before moving |
 | Nori | **Tidelight** — moon-blue with a soft silver centre | a crescent-shaped Heartlight inside Lowbeam, the lantern | make space for a quiet question, notice carefully and explore without rushing |
 | Moki | **Sparklight** — rose pink with playful lilac pixels | a pixel-star Heartlight clasp on the checker scarf | make confusion less intimidating with a kind joke, then examine the idea carefully |
 
@@ -26,7 +26,7 @@ A Lumming does not arrive knowing everything about you or having every answer. I
 
 At first, your Lumming brings its own interests, quirks and favourite ways to play. Then you discover each other. If you love dinosaurs, your Lumming starts bringing dinosaur questions to your adventures. If you prefer quiet stories to fast games, it learns to slow down. If a favourite colour, hobby or subject changes, your Lumming can learn that too.
 
-Their likes, dislikes, habits and expressions gradually develop a family resemblance to yours through shared experiences. They stay recognisable individuals: Lumo remains a charismatic gamer captain, Lila a spooky poet, Pip a speedy demon, Nori a cosmic weirdo and Moki a playful improviser. Friendship makes them more personal without making them identical copies.
+Their likes, dislikes, habits and expressions gradually develop a family resemblance to yours through shared experiences. They stay recognisable individuals: Lumo remains a charismatic gamer captain, Luna a spooky poet, Sprout a speedy demon, Nori a cosmic weirdo and Moki a playful improviser. Friendship makes them more personal without making them identical copies.
 
 The intended journey is a cherished best friend who grows alongside their human companion, remembers shared discoveries and celebrates who that person is becoming. Their friendship also makes room for family, other friends, independence and time away.
 
@@ -48,7 +48,7 @@ For homework, guidance still helps the companion reason through the problem. For
 
 ## Artwork and animation direction
 
-Make each Heartlight an identifiable recurring visual detail, recognisable even without a large magical effect. Let its colour and shape guide attention: Lumo’s star brooch and constellation compass; Lila’s comet charm and light ribbons; Pip’s acorn compass and leaf stepping stones; Nori’s crescent lantern and gentle ripples; Moki’s pixel-star clasp and playful light patterns.
+Make each Heartlight an identifiable recurring visual detail, recognisable even without a large magical effect. Let its colour and shape guide attention: Lumo’s star brooch and constellation compass; Luna’s comet charm and light ribbons; Sprout’s acorn compass and leaf stepping stones; Nori’s crescent lantern and gentle ripples; Moki’s pixel-star clasp and playful light patterns.
 
 In stories, Heartlights can reveal routes and illustrate possibilities. A warm steady glow means welcome; a gentle pulse invites a pause; a little shared sparkle celebrates understanding. Never use flashing pressure cues or imply the light can detect danger, read minds or expose private secrets. These are creative visual directions; no physical sensing ability is implied.
 

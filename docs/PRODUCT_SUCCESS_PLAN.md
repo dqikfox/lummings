@@ -2,7 +2,7 @@
 
 > Strategy update, 13 October 2026: the current priority is software and marketing. Hardware is deferred. See [Software launch strategy](../marketing/SOFTWARE_LAUNCH_STRATEGY.md) for the active launch sequence; hardware milestones below are future considerations.
 
-Assessment: 13 October 2026. Current cast: Lumo, Lila, Pip, Nori and Moki. Recommendations below are proposed product decisions, not validated demand or delivery promises.
+Assessment: 13 October 2026. Current cast: Lumo, Luna, Sprout, Nori and Moki. Recommendations below are proposed product decisions, not validated demand or delivery promises.
 
 ## Product proposition
 

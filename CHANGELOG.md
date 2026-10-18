@@ -1,3 +1,11 @@
+## Continue build — name sweep + content (18 Oct 2026)
+
+- Core docs aligned to **Lumo · Luna · Sprout · Nori · Moki** (HEARTLIGHTS, parent guide, privacy, campaigns)
+- `brand/MEET_THE_CREW.md` parent one-pager
+- `docs/app/FEATURE_STATUS.md` shipped vs next
+- Onboarding shows Heartlight name under each friend
+- Adventures: *Library of Almosts* (Luna), *Medal for Slow* (Sprout)
+
 ## Name correction — Sprout/Luna official (18 Oct 2026)
 
 - Founders: public names are **Sprout** and **Luna** (not Pip/Lila)

@@ -52,6 +52,20 @@ class _AdventuresScreenState extends State<AdventuresScreen> {
       emoji: '⭐',
       accent: LummingsColors.questlight,
     ),
+    _AdventurePreview(
+      asset: 'assets/adventures/luna_almost_001.json',
+      title: 'The Library of Almosts',
+      subtitle: 'Dreamlight adventure with Luna · ~4 min',
+      emoji: '📖',
+      accent: LummingsColors.dreamlight,
+    ),
+    _AdventurePreview(
+      asset: 'assets/adventures/sprout_medal_001.json',
+      title: 'The Medal for Slow',
+      subtitle: 'Traillight adventure with Sprout · ~4 min',
+      emoji: '🍃',
+      accent: LummingsColors.traillight,
+    ),
   ];
 
   bool _inStory = false;

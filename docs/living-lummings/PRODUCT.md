@@ -9,8 +9,8 @@ Canonical IDs: `lumo`, `lila`, `pip`, `nori`, `moki`. Accept `luna → lila`, `s
 | Character | Creative contribution | Heartlight |
 |---|---|---|
 | Lumo | Ruby-red mystical gamer captain; co-op quest director and inclusive leader | Questlight, star brooch/controller |
-| Lila | Lilac spooky poet; story, illustration and imaginative alternatives | Dreamlight, comet charm |
-| Pip | Green speedy explorer; routes, puzzles and testing ideas | Traillight, acorn compass |
+| Luna | Lilac spooky poet; story, illustration and imaginative alternatives | Dreamlight, comet charm |
+| Sprout | Green speedy explorer; routes, puzzles and testing ideas | Traillight, acorn compass |
 | Nori | Moon-blue cosmic observer; detail and careful explanations | Tidelight, Lowbeam lantern |
 | Moki | Pink chaos gremlin; comic twists and learning through mistakes | Sparklight, pixel-star scarf clasp |
 
@@ -43,7 +43,7 @@ Resolve scene/current identity → reference-conditioned image → reviewable re
 
 ### Make a film with the crew
 
-Lumo outlines a three-shot rescue; Lila proposes dialogue; user chooses. Freeze continuity references, generate shots independently, review thumbnails before video spending, rerender rejected shots only, assemble timeline and add captions/audio. Show the whole bounded plan and estimate before execution. Additional shots require an explicit expansion. Benchmark multi-character composition separately.
+Lumo outlines a three-shot rescue; Luna proposes dialogue; user chooses. Freeze continuity references, generate shots independently, review thumbnails before video spending, rerender rejected shots only, assemble timeline and add captions/audio. Show the whole bounded plan and estimate before execution. Additional shots require an explicit expansion. Benchmark multi-character composition separately.
 
 ### Grow together
 

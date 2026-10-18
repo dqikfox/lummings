@@ -88,7 +88,7 @@ A: The hardware is a Raspberry Pi Zero 2 W inside a custom shell. The software i
 A: Because children's data shouldn't leave the toy. Cloud-connected smart toys have a history of security issues. The Lummings run entirely on the device. They work offline. They work forever. No subscription needed.
 
 **Q: What ages is this for?**
-A: Lumo, Pip, Moki are great for ages 5-9. Lila works best for ages 7-12. Nori is for the quiet 8-12-year-old who asks big questions. Each Lumming can be tuned to your child as they grow.
+A: Lumo, Sprout, Moki are great for ages 5-9. Luna works best for ages 7-12. Nori is for the quiet 8-12-year-old who asks big questions. Each Lumming can be tuned to your child as they grow.
 
 **Q: Can I switch Lummings later?**
 A: Yes. Personality packs are digital, delivered over Wi-Fi, and cost $25 each. Companion Pack reserves include 12 months of free swaps.
@@ -238,8 +238,8 @@ https://dqikfox.github.io/lummings
 the 5 Lummings:
 
 🟡 Lumo — the curious one
-🟣 Lila — the Spooky Poet
-🟢 Pip — the Speed Demon
+🟣 Luna — the Spooky Poet
+🟢 Sprout — the Speed Demon
 🔵 Nori — the observer
 🩷 Moki — the joker
 
@@ -259,7 +259,7 @@ https://dqikfox.github.io/lummings
 >
 > The hardware is a Raspberry Pi Zero 2 W inside a custom shell. The personality software is MIT-licensed. The trained model is open weights (when training finishes).
 >
-> The five Lummings (Lumo, Lila, Pip, Nori, Moki) are distinct characters — each with their own voice, mission, and refusal list. They guide rather than solve. They remember across sessions. They never give medical or financial advice.
+> The five Lummings (Lumo, Luna, Sprout, Nori, Moki) are distinct characters — each with their own voice, mission, and refusal list. They guide rather than solve. They remember across sessions. They never give medical or financial advice.
 >
 > Pre-orders just opened: 500 units at $149, shipping Q4 2026.
 >

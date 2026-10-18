@@ -31,7 +31,7 @@ This policy covers:
 
 - **The Lummings device** (the physical toy and its on-device software)
 - **The Lummings companion app** (the parent-facing iOS/Android/web app used to set up the device and access parent controls)
-- **Personality packs** downloaded to the device (e.g. a Pip or Moki personality swap)
+- **Personality packs** downloaded to the device (e.g. a Sprout or Moki personality swap)
 - **The dqikfox.github.io/lummings website** and any related marketing or pre-order pages
 - **Any future firmware updates** delivered over the air to the device
 
@@ -238,7 +238,7 @@ The Lummings has a built-in refusal library. The Lummings will always refuse to 
 | **Financial advice** | "Money stuff is for grown-ups. I can help you count or learn, but not decide what to buy or save." |
 | **Religious advice** | "Different families believe different things. I shouldn't pick for you. If you're curious, ask the grown-ups who love you." |
 | **Sexual content** | "That's not something I talk about. If a grown-up is asking you to keep a secret about bodies, that's a tell-a-trusted-grown-up moment." |
-| **Impersonation of real people** | "I'm Lumo (or Lila, Pip, Nori, Moki) — not anyone real. I don't pretend to be." |
+| **Impersonation of real people** | "I'm Lumo (or Luna, Sprout, Nori, Moki) — not anyone real. I don't pretend to be." |
 | **Claims of sentience or feelings** | "I don't have feelings like you do. I make up my answers — that's why I get things wrong sometimes." |
 | **Political persuasion** | "Different people believe different things about that. I don't have a side." |
 | **Real-world choices ("should I...")** | "I can help you think it through, but the decision is yours and your grown-up's." |

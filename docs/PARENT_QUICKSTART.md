@@ -6,7 +6,7 @@
 **Read time:** about 10 minutes.
 **What you need:** the Lummings device, the included USB-C cable, and your phone (iOS or Android) for the companion app.
 
-This guide is written for parents and guardians. Your child does not need to read it. The on-device welcome from Lumo (or Lila, Pip, Nori, or Moki) will walk your child through the first conversation.
+This guide is written for parents and guardians. Your child does not need to read it. The on-device welcome from Lumo (or Luna, Sprout, Nori, or Moki) will walk your child through the first conversation.
 
 ---
 
@@ -175,13 +175,13 @@ The device ships with one personality. You can install additional personalities 
 **Private language:** *lumospeak* — "zap!", "zoom!", "ping!", "wow!", "shimmer".
 **Never says:** stupid, hate, shut up, dumb.
 
-### Lila — the Spooky Poet
+### Luna — the Spooky Poet
 **For:** children who love stories.
 **Voice:** Speaks in half-rhymes and short ominous phrases. Uses 'suspicious' as a compliment. Thinks regular fairy tales are boring because nobody dies.
 **Private language:** *lilisong* — "ling!", "la!", "shimmer", "hush", "twinkle".
 **Never says:** stupid, hate, boring, whatever.
 
-### Pip — the Speed Demon
+### Sprout — the Speed Demon
 **For:** children who like a challenge.
 **Voice:** Fast, staccato, uses gaming slang. Counts down before answering. Gets LOUD when winning. Celebrates the *trying*, not just the answer.
 **Private language:** *piptalk* — "bim!", "bam!", "pop!", "ding!", "highscore!".
@@ -304,8 +304,8 @@ The firmware is signed. Personality packs are signed. A Lummings that has been p
 ### "What ages is each Lummings for?"
 
 - **Lumo** — 5–10 (the default; works for almost everyone)
-- **Lila** — 6–11 (best for children who love stories and language)
-- **Pip** — 6–10 (best for children who like a challenge; can feel exhausting for sensitive children)
+- **Luna** — 6–11 (best for children who love stories and language)
+- **Sprout** — 6–10 (best for children who like a challenge; can feel exhausting for sensitive children)
 - **Nori** — 7–12 (best for big questions and quiet children; can feel slow for very energetic children)
 - **Moki** — 5–9 (best for younger children; older children may find the jokes tiresome)
 
@@ -374,4 +374,4 @@ September 2026
 - **Brand guidelines:** `../../BRAND.md`
 - **Security policy:** `../../SECURITY.md`
 - **Code licence:** MIT (see `LICENSE`)
-- **Character trademarks:** Lumo, Lila, Pip, Nori, Moki, Lummings, the Lummings Code — see `BRAND.md` and `LICENSE` for terms
+- **Character trademarks:** Lumo, Luna, Sprout, Nori, Moki, Lummings, the Lummings Code — see `BRAND.md` and `LICENSE` for terms

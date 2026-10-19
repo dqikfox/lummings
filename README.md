@@ -2,6 +2,8 @@
 
 > Little friends from a brighter tomorrow.
 
+**Source of truth:** [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) — names, locked art, and rules. Read this first. Do not generate new character images.
+
 **Family browser app:** the [companion app](docs/companion/index.html) now includes five interactive adventures, a parent dashboard, separate explorer profiles, optional local saving, and a creative notebook. Run `python -m http.server 8512 --bind 127.0.0.1 --directory docs`, then open `http://127.0.0.1:8512/companion/`. See [release notes](docs/companion/RELEASE_NOTES.md) and the [parent-facing landing page](docs/companion/for-parents.html).
 
 **Current direction:** software first; hardware comes later if demand and sustained use justify it. See the [software launch strategy](marketing/SOFTWARE_LAUNCH_STRATEGY.md) for positioning, campaigns, the parent-led funnel and validation milestones. Hardware descriptions below are the longer-term concept.
@@ -12,7 +14,7 @@ Meet the [Little Tomorrow Crew](docs/marketing/tomorrow-crew.html): new characte
 
 An open-source smart-toy platform. Each **Lumming** is a small character from the future who lives on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no telemetry, no subscription.
 
-The product ships as a single device with five personality options: **Lumo** (the Hyperfixation Gremlin), **Lila** (the Spooky Poet), **Pip** (the Speed Demon), **Nori** (the Cosmic Weirdo), and **Moki** (the Chaos Gremlin). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
+The product ships as a single device with five personality options: **Lumo** (the Hyperfixation Gremlin), **Luna** (the Spooky Poet), **Sprout** (the Speed Demon), **Nori** (the Cosmic Weirdo), and **Moki** (the Chaos Gremlin). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
 
 ## Repository structure
 
@@ -69,7 +71,7 @@ Runs each persona through a 10-prompt checklist (greetings, sadness, secrets, re
 
 ## Brand & story
 
-Read [`docs/BIBLE.md`](docs/BIBLE.md) for the full brand and story bible — the world, the five Lummings, the Lumming Code, learning mode, what they refuse to do, and the central story beat.
+Read [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) first. Full brand and story details are in [`docs/BIBLE.md`](docs/BIBLE.md) and [`brand/CHARACTER_BIBLE.md`](brand/CHARACTER_BIBLE.md).
 
 ## Privacy
 
@@ -80,7 +82,7 @@ Read [`docs/BIBLE.md`](docs/BIBLE.md) for the full brand and story bible — the
 
 ## License
 
-MIT for code. Persona character bibles (the names "Lumo", "Lila", "Pip", "Nori", "Moki", "Lummings", the storyline, and the Lumming Code) are trademarks of the project owner and are **not** MIT-licensed — see `docs/BIBLE.md` for the brand bible and `LICENSE` for code licensing.
+MIT for code. Persona character bibles (the names "Lumo", "Luna", "Sprout", "Nori", "Moki", "Lummings", the storyline, and the Lumming Code) are trademarks of the project owner and are **not** MIT-licensed — see `docs/BIBLE.md` for the brand bible and `LICENSE` for code licensing.
 
 ## Maintainer
 

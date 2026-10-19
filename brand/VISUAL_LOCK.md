@@ -1,7 +1,8 @@
 # VISUAL LOCK — The Lummings / Little Tomorrow Crew
 
-**Status:** LOCKED. Do not generate, redesign, or substitute character art.
-**Date:** 19 October 2026
+**Master source of truth:** [`../SOURCE_OF_TRUTH.md`](../SOURCE_OF_TRUTH.md)  
+**Status:** LOCKED. Do not generate, redesign, or substitute character art.  
+**Date:** 19 October 2026  
 **Audience:** Every human and every AI working on this project.
 
 ## Absolute rules
@@ -17,7 +18,8 @@
 
 3. **Names are locked:**
    - Public and product names: **Lumo · Luna · Sprout · Nori · Moki**
-   - Lila and Pip are retired names. Do not use them.
+   - Lila and Pip are retired names. Do not use them in public or new work.
+   - Internal code IDs may still be `lila`/`pip` for compatibility. Public text must use Luna/Sprout.
 
 4. **If you need a new asset** (expression, pose, icon, scene):
    - Reference the canonical portraits exactly.
@@ -32,8 +34,8 @@ These files in the repository root are the locked character looks:
 | Character | File |
 |-----------|------|
 | Lumo | `lumo-portrait.png` |
-| Luna | `lila-portrait.png` (file name pending rename) |
-| Sprout | `pip-portrait.png` (file name pending rename) |
+| Luna | `lila-portrait.png` (legacy filename; this is Luna) |
+| Sprout | `pip-portrait.png` (legacy filename; this is Sprout) |
 | Nori | `nori-portrait.png` |
 | Moki | `moki-portrait.png` |
 | Crew hero | `hero-screenshot.png` |
@@ -58,7 +60,7 @@ App runtime versions (same looks):
 - Root-level ChatGPT image dumps
 - Early concept art that does not match the portraits above
 - Any newly generated character image not explicitly approved and committed as a replacement of one of the canonical files
-- Files or references using the retired names Lila or Pip in public-facing work
+- Public-facing references using the retired names Lila or Pip
 
 ## Enforcement
 
@@ -67,4 +69,4 @@ Before using or committing any character image:
 - Are the public names Lumo / Luna / Sprout / Nori / Moki?
 - If no to either, do not use it.
 
-This document overrides any conflicting notes. Official names are Lumo · Luna · Sprout · Nori · Moki.
+This document is subordinate to [`SOURCE_OF_TRUTH.md`](../SOURCE_OF_TRUTH.md). Official names are Lumo · Luna · Sprout · Nori · Moki.

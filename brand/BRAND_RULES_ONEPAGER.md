@@ -1,18 +1,19 @@
 # Lummings — Brand Rules One-Pager
 
-**Pin this. Follow this. Do not redesign the cast.**
+**Pin this. Follow this. Do not redesign the cast. Do not generate new character art.**
 
 ## 1. Style lock
-- Look = **Cinematic Nest / Little Tomorrow Crew**.
-- **Do not** change looks or invent a new art style.
+- Look = the production portraits in the repo root (`lumo-portrait.png`, `lila-portrait.png`, `pip-portrait.png`, `nori-portrait.png`, `moki-portrait.png`, `hero-screenshot.png`).
+- **Do not** generate new character images. **Do not** use older Luna/Sprout art.
+- Full rule: [`brand/VISUAL_LOCK.md`](VISUAL_LOCK.md)
 
 ## 2. Heartlight
 - **Essence / soul** of that Lumming — **NOT** a separate creature.
 - Questlight · Dreamlight · Traillight · Tidelight · Sparklight.
 
 ## 3. Official names only
-**Lumo · Luna · Sprout · Nori · Moki**  
-(Internal aliases Lila/Pip — **never** public.)
+**Lumo · Lila · Pip · Nori · Moki**  
+(Luna / Sprout are retired. Do not use.)
 
 ## 4. Taglines
 - *Little lights. Big little adventures.*
@@ -25,14 +26,13 @@ Safety First. Soft hooks. Never punish missed days. Never paywall bond.
 
 ## 6. Colours
 Nest `#070A14` · CTA `#FFC857`  
-Lumo `#FF4D6D` · Luna `#C77DFF` · Sprout `#52B788` · Nori `#4CC9F0` · Moki `#FF85A2`
+Lumo `#FF4D6D` · Lila `#C77DFF` · Pip `#52B788` · Nori `#4CC9F0` · Moki `#FF85A2`
 
 ## 7. Marketing ban list
-❌ “why why” / horror-parent ads · random redesigns · Heartlight as pet · dark FOMO  
-❌ Public Lila or Pip (use Luna / Sprout)  
-✅ `marketing/tiktok/from-intros/`
+❌ New character generations · older Luna/Sprout images · “why why” / horror-parent ads · Heartlight as pet · dark FOMO  
+✅ Canonical portraits listed in `brand/VISUAL_LOCK.md`
 
 ## 8. Before ship
-Names (Sprout/Luna)? Essence? Style match? Soft & safe?
+Names (Lila/Pip)? Matches `*-portrait.png`? Essence? Style match? Soft & safe?
 
-**Full:** `brand/BRAND_GUIDELINES.md` · **Names:** `brand/NAME_CANON.md`
+**Full:** `brand/BRAND_GUIDELINES.md` · **Visual lock:** `brand/VISUAL_LOCK.md`

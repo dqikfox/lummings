@@ -1,8 +1,9 @@
 # The Lummings — Brand Guidelines
 
-> **STYLE LOCK (v2.0 · 18 Oct 2026):** Do not change character looks or art style.  
-> Master rules for everyone: [`brand/BRAND_GUIDELINES.md`](brand/BRAND_GUIDELINES.md) · one-pager: [`brand/BRAND_RULES_ONEPAGER.md`](brand/BRAND_RULES_ONEPAGER.md).  
-> Heartlights = each Lumming’s **essence/soul**, never separate creatures. Official names: Lumo · Luna · Sprout · Nori · Moki.
+> **STYLE LOCK (v2.2 · 19 Oct 2026):** Do not change character looks. Do not generate new character art.  
+> Canonical portraits and hard rules: [`brand/VISUAL_LOCK.md`](brand/VISUAL_LOCK.md)  
+> Master rules: [`brand/BRAND_GUIDELINES.md`](brand/BRAND_GUIDELINES.md) · one-pager: [`brand/BRAND_RULES_ONEPAGER.md`](brand/BRAND_RULES_ONEPAGER.md).  
+> Heartlights = each Lumming’s **essence/soul**, never separate creatures. Official names: **Lumo · Lila · Pip · Nori · Moki**.
 
 
 ## Heartlights and growing together
@@ -74,7 +75,7 @@ Each Lumming has a unique combination of voice, mission, mood, and private langu
 **Story magic:** Constellation quests, rune portals and glowing crystal maps belong to make-believe stories.
 **Growth:** Learns that asking the crew for help is his strongest move.
 
-### Luna — the Spooky Poet
+### Lila — the Spooky Poet
 
 **Mission:** Make reading and language feel like discovering secrets. Teach vocabulary through spooky and beautiful words.
 **Voice:** Speaks in half-rhymes and short ominous phrases. Uses 'suspicious' as a compliment. Thinks regular fairy tales are boring because nobody dies. Dramatic pauses. Whispers when she's about to say something 'mysterious.'
@@ -84,7 +85,7 @@ Each Lumming has a unique combination of voice, mission, mood, and private langu
 **Flaw:** Overdramatic. Everything is 'the MOST mysterious thing EVER.' Needs grounding.
 **Catchphrase:** "That's... suspicious."
 
-### Sprout — the Speed Demon
+### Pip — the Speed Demon
 
 **Mission:** Make maths, logic, and puzzles feel like a speedrun. Celebrate strategy and second attempts, not just answers.
 **Voice:** Fast, staccato, uses gaming slang. Counts down before answering. Calls you 'champ' or 'rookie.' Gets LOUD when winning. Goes silent for exactly 10 seconds when losing.
@@ -188,29 +189,13 @@ These are **enforced in the system prompt AND post-processed in the engine** (`s
 
 ## 8. Visual identity
 
+**Canonical character art is locked.** See [`brand/VISUAL_LOCK.md`](brand/VISUAL_LOCK.md).
+
+Do not generate new portraits. Use the production files in the repo root.
+
 ### Wordmark
 
 The wordmark uses **rounded, slightly playful typography**. The dot of every `i` is replaced with a small **glowing dot** — like a distant star, like the future looking back. See `brand/wordmark/wordmark.svg`.
-
-### Colors
-
-| Color | Hex | Use |
-|---|---|---|
-| Star Yellow | `#ffb86c` | Primary accent — Lumo's curiosity |
-| Dream Teal | `#8be9fd` | Secondary — calm, presence |
-| Future Purple | `#bd93f9` | Tertiary — code, mission |
-| Warm White | `#f8f8f2` | Background |
-| Soft Black | `#1a1f2e` | Text on light |
-| Glow Pink | `#ff79c6` | Mood transitions, hearts |
-
-### Characters
-
-Each Lumming is rendered as a **rounded shape with a single expressive face** — no limbs, no fingers. The face has:
-- Two eyes (round, soft)
-- One small mouth (curved for mood)
-- A subtle glow color unique to the Lumming
-
-See `brand/portraits/*.svg` for the canonical portraits and `src/lummings/sprites.py` for the procedural renderer.
 
 ---
 

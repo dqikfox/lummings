@@ -1,23 +1,21 @@
-# Name Canon (public) — LOCKED
+# Name Canon — LOCKED
 
-**Official cast (use everywhere public):**
+**Official cast (use everywhere):**
 
-| Official | Heartlight | Role (branding guide) |
+| Official | Heartlight | Role |
 |---|---|---|
-| **Lumo** | Questlight | Mystical Gamer Captain |
-| **Luna** | Dreamlight | Storyweaver |
-| **Sprout** | Traillight | Sprout Scout |
-| **Nori** | Tidelight | Moon-Tide Guardian |
-| **Moki** | Sparklight | Glitch Gremlin |
+| **Lumo** | Questlight | Hyperfixation Gremlin / Player one |
+| **Lila** | Dreamlight | Spooky Poet |
+| **Pip** | Traillight | Speed Demon |
+| **Nori** | Tidelight | Cosmic Weirdo |
+| **Moki** | Sparklight | Chaos Gremlin |
 
-## Internal aliases only (never public)
-| Alias | = Official |
+## Retired (do not use)
+| Retired | Replaced by |
 |---|---|
-| Lila | **Luna** |
-| Pip | **Sprout** |
+| Luna | **Lila** |
+| Sprout | **Pip** |
 
-Marketing, packaging, branding-guide, captions, parent UI: **Lumo · Luna · Sprout · Nori · Moki**.
+Marketing, packaging, site, app UI, captions: **Lumo · Lila · Pip · Nori · Moki**.
 
-## Branding guide page 03
-`brand/branding-guide/03-character-definitions.jpg` — **Sprout · Luna · Lumo · Nori · Moki**  
-Looks locked. Names confirmed by founders 18 Oct 2026.
+Visual lock (canonical files): [`brand/VISUAL_LOCK.md`](VISUAL_LOCK.md)

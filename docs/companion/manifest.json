@@ -1,0 +1,15 @@
+{
+  "name": "Lummings",
+  "short_name": "Lummings",
+  "description": "Little friends. Big discoveries. Five interactive adventures with the Little Tomorrow Crew.",
+  "start_url": "/lummings/companion/",
+  "display": "standalone",
+  "background_color": "#110e20",
+  "theme_color": "#171225",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "../assets/wordmark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "kids"],
+  "lang": "en-AU"
+}

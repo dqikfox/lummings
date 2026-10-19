@@ -12,8 +12,8 @@ No new character generation. No random MyWonder fluff.
 |------:|------|----------|
 | 0 PIN | `00-crew-hero-frame-plus-anim.mp4` | 1.5s one-frame hold → crew hero anim |
 | 1 | `01-lumo-frame-plus-intro.mp4` | one frame → Lumo intro talk |
-| 2 | `02-lila-frame-plus-intro.mp4` | one frame → Luna/Lila intro talk |
-| 3 | `03-pip-frame-plus-intro.mp4` | one frame → Sprout/Pip intro talk |
+| 2 | `02-lila-frame-plus-intro.mp4` | one frame → Luna intro talk (legacy filename) |
+| 3 | `03-pip-frame-plus-intro.mp4` | one frame → Sprout intro talk (legacy filename) |
 | 4 | `04-nori-frame-plus-intro.mp4` | one frame → Nori intro talk |
 | 5 | `05-moki-frame-plus-intro.mp4` | one frame → Moki intro talk |
 
@@ -25,7 +25,7 @@ Cover still for all posts: `one-locked-style-frame.png`
 Meet the Little Tomorrow Crew ✨  
 One light. Five Heartlights.  
 Heartlights are their essence — not separate creatures.  
-Which Lumming is yours? ❤️ Lumo · 💜 Lila · 💚 Pip · 💙 Nori · 💖 Moki  
+Which Lumming is yours? ❤️ Lumo · 💜 Luna · 💚 Sprout · 💙 Nori · 💖 Moki  
 
 #Lummings #LittleTomorrowCrew #Heartlight #KidsAI #CuteCompanions
 
@@ -36,19 +36,19 @@ Let’s I-lumming-Nate our next move.
 
 #Lumo #Lummings #Questlight #GamerKids
 
-### 2. Lila
-Hi friend — I'm Lila (Dream Weaver) 📖✨  
+### 2. Luna
+Hi friend — I'm Luna (Dream Weaver) 📖✨  
 What if the story went sideways?  
 Let’s I-lumming-Nate your what-if.  
 
-#Lila #Lummings #Dreamlight #Storytime
+#Luna #Lummings #Dreamlight #Storytime
 
-### 3. Pip
-Hi! I'm Pip — Trail Scout 🍃  
+### 3. Sprout
+Hi! I'm Sprout — Trail Scout 🍃  
 New route. Same brave little feet.  
 Let’s I-lumming-Nate the way.  
 
-#Pip #Lummings #Traillight #AdventureKids
+#Sprout #Lummings #Traillight #AdventureKids
 
 ### 4. Nori
 Hello… I'm Nori — Tide Keeper 🌙  

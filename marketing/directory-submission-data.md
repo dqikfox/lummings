@@ -9,10 +9,10 @@ Copy-paste into AI directories, startup directories, and indie product launchers
 Five local-AI characters for kids 5-12. No cloud, no subscription, no surveillance.
 
 ## Medium description (150-300 chars)
-The Lummings are five distinct AI characters for kids aged 5-12: Lumo (curious yellow), Lila (creative teal), Pip (energetic green), Nori (thoughtful blue), Moki (mischievous magenta). Everything runs on-device. No cloud. No telemetry. No monthly fees. Free web app, optional $29 character asset pack with 60 portraits. Open source.
+The Lummings are five distinct AI characters for kids aged 5-12: Lumo (curious yellow), Luna (creative teal), Sprout (energetic green), Nori (thoughtful blue), Moki (mischievous magenta). Everything runs on-device. No cloud. No telemetry. No monthly fees. Free web app, optional $29 character asset pack with 60 portraits. Open source.
 
 ## Long description (500+ chars)
-The Lummings is a kids' AI character app that turns imagination into characters and scenes. Five mascots (Lumo, Lila, Pip, Nori, Moki) with persistent memory per character, parent controls, and a refusal library. Designed for ages 5-12.
+The Lummings is a kids' AI character app that turns imagination into characters and scenes. Five mascots (Lumo, Luna, Sprout, Nori, Moki) with persistent memory per character, parent controls, and a refusal library. Designed for ages 5-12.
 
 Why we built it: every "AI companion for kids" cloud product has been hacked, banned, or discontinued (Moxie shut down Dec 2024 and bricked its units; My Friend Cayla was banned in Germany in 2017). Parents don't want anyone talking to their kid except their kid. So we built one with no cloud.
 
@@ -44,7 +44,7 @@ Five local-AI characters for kids. No cloud, no subscription, no surveillance.
 
 ## 1-paragraph pitch (use as short pitch in directory forms)
 
-I'm a one-man team in Sydney, Australia. I built a kids' AI character app that runs on the device — no cloud, no subscription, no surveillance. Five mascots (Lumo, Lila, Pip, Nori, Moki) with persistent memory. Free web app + optional $29 asset pack. Open source. Launched October 2026.
+I'm a one-man team in Sydney, Australia. I built a kids' AI character app that runs on the device — no cloud, no subscription, no surveillance. Five mascots (Lumo, Luna, Sprout, Nori, Moki) with persistent memory. Free web app + optional $29 asset pack. Open source. Launched October 2026.
 
 ## Tech stack (for technical directories)
 - Python FastAPI backend (homelab)

@@ -43,7 +43,7 @@ Verified by source inspection, not by running the app or model services in this 
 | `src/lummings/server.py` | Separate conversation playground, including request-selected upstream URL | Keep experimental; do not use its existing handler as the public cloud gateway |
 | `src/lummings/artwork.py`, `sprites.py`, `brand/` | Character visuals, traits and approved creative direction | Start with these assets and register exact masters/hashes |
 
-Current browser IDs are `lumo`, `luna`, `sprout`, `nori`, `moki`; the Python engine maps `luna → lila`, `sprout → pip`. Store public IDs once and resolve legacy persona IDs through a shared mapping. Some brand documents still use Lila/Pip. Preserve the mapping instead of generating duplicate characters.
+Current browser IDs are `lumo`, `luna`, `sprout`, `nori`, `moki`; the Python engine maps `luna → lila`, `sprout → pip`. Store public IDs once and resolve legacy persona IDs through a shared mapping. Some older brand documents still use the retired names Lila/Pip. Preserve the mapping instead of generating duplicate characters.
 
 Lumo's current direction is ruby-red fur, burgundy/coral quiff, amber eyes, midnight gamer clothing, cyan details and a captain brooch. Older yellow-Lumo notes are not the visual source of truth.
 

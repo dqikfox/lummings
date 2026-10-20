@@ -31,7 +31,7 @@ These establish source presence and specific gaps, not complete runtime correctn
 
 - APP_DESIGN_PLAN prioritised authored-only release and described docs/app as disconnected. The later commit connects chat; current user direction makes creative AI central. Preserve authored stories while updating sequencing.
 - The old avatar blueprint selected docs/companion as the main integration surface. Use newer docs/app for creative companions and shared services for the separate adventure app.
-- Current canonical names are Lila/Pip; older Luna/Sprout IDs require compatibility, not duplicate characters or destructive renaming.
+- Current canonical names are Luna/Sprout; older Lila/Pip IDs require compatibility, not duplicate characters or destructive renaming.
 - HEARTLIGHTS.md governs light names where older character descriptions disagree.
 - README's static startup, model details and blanket local/cloud statements require implementation-time reconciliation. Do not use them to infer current runtime health or silently constrain optional cloud design.
 

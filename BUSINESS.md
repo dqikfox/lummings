@@ -15,7 +15,7 @@ This isn't a feature list. It's the moat.
 
 ## The product
 
-A single device with one of five pre-installed Lummings (Lumo, Lila, Pip, Nori, Moki). The hardware is a Raspberry Pi Zero 2 W inside a child-friendly shell. The personality is local-only AI that runs on the device.
+A single device with one of five pre-installed Lummings (Lumo, Luna, Sprout, Nori, Moki). The hardware is a Raspberry Pi Zero 2 W inside a child-friendly shell. The personality is local-only AI that runs on the device.
 
 **Key components:**
 - Device (~$40 BOM)
@@ -58,7 +58,7 @@ Hardware sells once. Margins are decent but not infinite. The goal is **cash flo
 
 ### Personality packs (margin + retention)
 
-The real moat. Once a child has Lumo, they may want Lila or Pip. Personality packs are digital, delivered via Wi-Fi to the existing device, and cost near-zero to deliver.
+The real moat. Once a child has Lumo, they may want Luna or Sprout. Personality packs are digital, delivered via Wi-Fi to the existing device, and cost near-zero to deliver.
 
 - Year 2: assume 15k devices × 0.4 packs/device × $25 = $150k
 - Year 3: assume 30k active devices × 0.8 packs/device × $25 = $600k

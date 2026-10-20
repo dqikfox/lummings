@@ -21,7 +21,7 @@ Bond stays free forever.
 #Lummings #Heartlight #KidsAI #GentleParenting #ScreenSmart #AICompanions #FamilyApp #GrowingTogether
 
 ## Caption B (curiosity kid hook)
-Meet Lumo, Lila, Pip, Nori & Moki 🌟  
+Meet Lumo, Luna, Sprout, Nori & Moki 🌟  
 Your Heartlight friends for co-op quests, feelings words, and bedtime glow.  
 
 They remember what you learn.  

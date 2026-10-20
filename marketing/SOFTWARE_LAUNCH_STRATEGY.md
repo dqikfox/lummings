@@ -10,7 +10,7 @@ Parent-facing proposition: **Meet Lumo and the Lummings: magical companions that
 
 First audience hypothesis: parents of children aged 6–9 who already enjoy imaginative stories, puzzles and asking questions together. Confirm through interviews and supervised trials. Market to the adult purchaser; let characters make the experience appealing to the child.
 
-Launch offer: a parent-led early-access software experience featuring Lumo, with Lila, Pip, Nori and Moki introduced through the world. Do not imply that all five have equally complete interactive experiences until demonstrated. Choose supported devices and the inference architecture before promising availability, offline operation or setup simplicity.
+Launch offer: a parent-led early-access software experience featuring Lumo, with Luna, Sprout, Nori and Moki introduced through the world. Do not imply that all five have equally complete interactive experiences until demonstrated. Choose supported devices and the inference architecture before promising availability, offline operation or setup simplicity.
 
 ## The first conversion journey
 
@@ -33,7 +33,7 @@ Repeatable content formats:
 | Format | Example hook | Proof or payoff | CTA |
 |---|---|---|---|
 | One question, one discovery | Why does the moon seem to follow the car? | A brief accurate explanation and an invitation to notice something | Explore with Lumo |
-| Meet your crew | Meet Lila. Even shadows have stories. | A distinctive character moment; label noninteractive character previews | Meet the Lummings |
+| Meet your crew | Meet Luna. Even shadows have stories. | A distinctive character moment; label noninteractive character previews | Meet the Lummings |
 | Co-op quest | Lumo found a locked constellation. Can you spot the pattern? | A solvable visual puzzle, with a friendly hint | Try the next quest |
 | Parent walkthrough | Here is exactly what a first Lumo adventure looks like | Actual setup and interaction footage | Join parent early access |
 | Build with us | We changed this after parents tried it | A concrete improvement and honest limitation | Help shape the beta |

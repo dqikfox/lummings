@@ -9,8 +9,8 @@
 The Lummings are five local-AI characters for kids aged 5-12. Each has a distinct personality:
 
 - Lumo (yellow) — the curious one, asks "why?" about everything
-- Lila (teal) — the creative one, sees stories in everything
-- Pip (green) — the energetic one, always running, always trying
+- Luna (teal) — the creative one, sees stories in everything
+- Sprout (green) — the energetic one, always running, always trying
 - Nori (blue) — the thoughtful one, listens carefully before answering
 - Moki (magenta) — the mischievous one, tells you when your joke is bad
 

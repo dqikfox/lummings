@@ -208,7 +208,7 @@ The five Lummings are:
 
 ### 8.2 The renames (for the historians)
 
-If you came across our older docs (before September 2026), you'll see the personas named **Lumi, Piko, Nomi**. These names collided with existing live trademarks in the same product class. We renamed them to **Lila, Pip, Nori** in late September 2026, then locked **Luna, Sprout, Nori** as public names in October 2026 to avoid trademark fights that would have eaten our launch budget. Old fan art featuring "Lumi" etc. is grandfathered — please don't redistribute it with the old names, but the existing art is fine where it sits.
+If you came across our older docs (before September 2026), you'll see the personas named **Lumi, Piko, Nomi**. These names collided with existing live trademarks in the same product class. We renamed them to **Luna, Sprout, Nori** in late September 2026, then locked **Luna, Sprout, Nori** as public names in October 2026 to avoid trademark fights that would have eaten our launch budget. Old fan art featuring "Lumi" etc. is grandfathered — please don't redistribute it with the old names, but the existing art is fine where it sits.
 
 ---
 

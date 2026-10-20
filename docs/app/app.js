@@ -1,10 +1,10 @@
 
 const LUMINARIES = {
     Lumo: { color: '#ed4054', avatar: '/assets/characters/lumo-portrait.png', role: 'Hyperfixation Gremlin' },
-    Lila: { color: '#b59aff', avatar: '/assets/characters/lila-portrait.png', role: 'Spooky Poet' },
+    Luna: { color: '#b59aff', avatar: '/assets/characters/lila-portrait.png', role: 'Spooky Poet' },
     Moki: { color: '#ff83bd', avatar: '/assets/characters/moki-portrait.png', role: 'Chaos Gremlin' },
     Nori: { color: '#75d8ef', avatar: '/assets/characters/nori-portrait.png', role: 'Cosmic Weirdo' },
-    Pip:  { color: '#57db91', avatar: '/assets/characters/pip-portrait.png', role: 'Speed Demon' }
+    Sprout:  { color: '#57db91', avatar: '/assets/characters/pip-portrait.png', role: 'Speed Demon' }
 };
 
 const MAGIC_KEYWORDS = ['transform', 'turn into', 'become', 'change to', 'make it a', 'morph', 'convert'];
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function generateFeed() {
     const feed = document.getElementById('discovery-feed');
     const adventures = [
-        { title: "The Great Quill Quest", text: "Lila is searching for the legendary quill in the Whispering Woods!", author: "Lila (Spooky Poet)", img: "/assets/characters/lila-portrait.png", key: 'Lila' },
+        { title: "The Great Quill Quest", text: "Luna is searching for the legendary quill in the Whispering Woods!", author: "Luna (Spooky Poet)", img: "/assets/characters/lila-portrait.png", key: 'Luna' },
         { title: "Moki's Prank Gone Wild", text: "A tiny prank with a magic wand turned everything pink...", author: "Moki (Chaos Gremlin)", img: "/assets/characters/moki-portrait.png", key: 'Moki' },
         { title: "Deep Space Discovery", text: "Lumo discovered a new constellation! Is it part of the mission?", author: "Lumo (Hyperfixation Gremlin)", img: "/assets/characters/lumo-portrait.png", key: 'Lumo' }
     ];

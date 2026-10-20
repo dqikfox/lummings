@@ -23,7 +23,7 @@
       }
     },
     {
-      id: 'lila', name: 'Lila', light: 'Dreamlight', color: '#b59aff',
+      id: 'lila', name: 'Luna', light: 'Dreamlight', color: '#b59aff',
       portrait: '../portraits/lila-happy.svg',
       description: 'A gentle spooky poet who finds a story in the ordinary.',
       catchphrase: 'What if the story went sideways?',
@@ -40,7 +40,7 @@
       }
     },
     {
-      id: 'pip', name: 'Pip', light: 'Traillight', color: '#57db91',
+      id: 'pip', name: 'Sprout', light: 'Traillight', color: '#57db91',
       portrait: '../portraits/pip-happy.svg',
       description: 'A curious scout with a new route for every puzzle.',
       catchphrase: 'New route. Same brave little feet!',
@@ -179,97 +179,97 @@
   // PIP 1 — The Upside-Down Map
   const upsideDownMap = story(
     'upside-down-map', 'pip', 'The Upside-Down Map',
-    'Pip holds the leaf-map up proudly. The arrows point confidently to the left. Then Pip tilts their head sideways. "I announced the plan. Then I noticed the map was upside down." Traillight blinks kindly. "Second try?"',
+    'Sprout holds the leaf-map up proudly. The arrows point confidently to the left. Then Sprout tilts their head sideways. "I announced the plan. Then I noticed the map was upside down." Traillight blinks kindly. "Second try?"',
     'What should the crew do now?',
     'The leaf-map was the wrong way up. There are a few good moves from here.',
     [
-      ['Turn it and look again', 'Pip flips the map carefully. The leaf arrows now point toward the moss gate. "The second look is always part of the plan," Pip says, already moving.', 'excited'],
-      ['Test the first path slowly', '"One careful step. If the moss thins out, we come back," Pip says. A test is still a plan. Noticing what happens is the whole point.', 'curious'],
+      ['Turn it and look again', 'Sprout flips the map carefully. The leaf arrows now point toward the moss gate. "The second look is always part of the plan," Sprout says, already moving.', 'excited'],
+      ['Test the first path slowly', '"One careful step. If the moss thins out, we come back," Sprout says. A test is still a plan. Noticing what happens is the whole point.', 'curious'],
       ['Ask what Nori notices', 'A second pair of eyes. Sprout does not have to spot everything alone. Nori squints at a small trail mark and points quietly in a different direction.', 'warm'],
     ],
-    'The trail marks were leaves pointing toward the moss gate, not away from it. Pip\'s medal is for the second look. Traillight brightens when a plan gets repaired, not when it was perfect the first time.',
+    'The trail marks were leaves pointing toward the moss gate, not away from it. Sprout\'s medal is for the second look. Traillight brightens when a plan gets repaired, not when it was perfect the first time.',
     'Tell about a second try that helped — or invent one. No need to write it down. Saying it to yourself counts.',
-    '"Medal for the second look," Pip says, pinning an imaginary badge. "You earned it for trying again." Traillight glows emerald and then softly fades.',
+    '"Medal for the second look," Sprout says, pinning an imaginary badge. "You earned it for trying again." Traillight glows emerald and then softly fades.',
   );
 
   // PIP 2 — Two Paths, One Puddle
   const twoPaths = story(
     'two-paths', 'pip', 'Two Paths, One Puddle',
-    'A puddle sits right across the path. It is wide enough to matter. Pip examines both sides and grins. "New route. Same brave little feet. Which one shall we try?" Traillight traces two possible lines in the air.',
+    'A puddle sits right across the path. It is wide enough to matter. Sprout examines both sides and grins. "New route. Same brave little feet. Which one shall we try?" Traillight traces two possible lines in the air.',
     'How will the crew cross?',
     'Every choice here is a good one. There is no punished path.',
     [
-      ['Stepping stones', '"Look at each stone before a boot goes down," Pip says. "Slippery is information." The crew moves carefully, one step at a time, checking as they go.', 'curious'],
-      ['A leaf boat', 'Small, slightly silly, and only for a very shallow puddle. Pip names it the S.S. Second-Attempt. "She sails on the first try. Mostly." Traillight giggles.', 'playful'],
-      ['The drier pebbles', 'Nori points at a line of pebbles easy to miss near the edge. "You may change your mind," Nori says. "Noticing is allowed to happen late." Pip switches course cheerfully.', 'warm'],
+      ['Stepping stones', '"Look at each stone before a boot goes down," Sprout says. "Slippery is information." The crew moves carefully, one step at a time, checking as they go.', 'curious'],
+      ['A leaf boat', 'Small, slightly silly, and only for a very shallow puddle. Sprout names it the S.S. Second-Attempt. "She sails on the first try. Mostly." Traillight giggles.', 'playful'],
+      ['The drier pebbles', 'Nori points at a line of pebbles easy to miss near the edge. "You may change your mind," Nori says. "Noticing is allowed to happen late." Sprout switches course cheerfully.', 'warm'],
     ],
     'Every choice was a kind plan. The drier pebbles were there the whole time. Traillight marks the way you pick, and it does not sulk if you switch. Noticing is allowed to happen late.',
     'On paper or in your head: draw a puddle and two ways around it. Circle the way that feels safest. What would you watch for?',
-    '"Both paths led here," Pip says on the other side. "That means both paths worked." Traillight traces a small victory arc in the air.',
+    '"Both paths led here," Sprout says on the other side. "That means both paths worked." Traillight traces a small victory arc in the air.',
   );
 
   // PIP 3 — The Medal for Slow
   const medalForSlow = story(
     'medal-for-slow', 'pip', 'The Medal for Slow',
-    'The moss gate asks which footprint is the thoughtful one. Pip reads the riddle twice and looks at the prints in the soft earth. "I almost sprinted. But this riddle wants the careful second attempt." Traillight waits.',
+    'The moss gate asks which footprint is the thoughtful one. Sprout reads the riddle twice and looks at the prints in the soft earth. "I almost sprinted. But this riddle wants the careful second attempt." Traillight waits.',
     'Which footprint is the thoughtful one?',
     'Three prints are pressed into the moss. Each one tells a different story.',
     [
-      ['The fastest print', 'Speed is a guess here. The gate does not open for it — and that is all right. Not every door asks for the quickest move. "Interesting," Pip says, not embarrassed.', 'thoughtful'],
-      ['The one that stopped to look', '"A pause left a deeper print beside a tiny trail mark," Pip says. The gate creaks open. Traillight glows emerald. The careful moment was the key.', 'excited'],
-      ['The one that turned around', '"Going back, then trying again, is still a footprint," Pip says. The gate swings wide. Traillight sparkles. Returning counts as brave.', 'warm'],
+      ['The fastest print', 'Speed is a guess here. The gate does not open for it — and that is all right. Not every door asks for the quickest move. "Interesting," Sprout says, not embarrassed.', 'thoughtful'],
+      ['The one that stopped to look', '"A pause left a deeper print beside a tiny trail mark," Sprout says. The gate creaks open. Traillight glows emerald. The careful moment was the key.', 'excited'],
+      ['The one that turned around', '"Going back, then trying again, is still a footprint," Sprout says. The gate swings wide. Traillight sparkles. Returning counts as brave.', 'warm'],
     ],
-    'The gate opened for the print that paused or turned around. Pip pins the medal on that second attempt. Fast was not wrong for every day. Today the riddle was about noticing.',
+    'The gate opened for the print that paused or turned around. Sprout pins the medal on that second attempt. Fast was not wrong for every day. Today the riddle was about noticing.',
     'Try a tiny task twice: once in a rush, once slower. What did the slower try notice? You can tell someone, or keep the answer.',
-    '"Traillight makes the medal glow emerald," Pip says, "then fades so nobody has to wear it forever." The mossy gate stays open for the whole crew.',
+    '"Traillight makes the medal glow emerald," Sprout says, "then fades so nobody has to wear it forever." The mossy gate stays open for the whole crew.',
   );
 
   // LILA 1 — Weather Inside
   const weatherInside = story(
     'weather-inside', 'lila', 'Weather Inside',
-    'A friend\'s feeling is stormy, and they do not want to say why. Lila finds them sitting with a cloudy look and a quiet Dreamlight. "You don\'t have to explain the sky. I can sit in it with you." What can Lila offer?',
-    'What can Lila offer?',
+    'A friend\'s feeling is stormy, and they do not want to say why. Luna finds them sitting with a cloudy look and a quiet Dreamlight. "You don\'t have to explain the sky. I can sit in it with you." What can Luna offer?',
+    'What can Luna offer?',
     'There is no wrong answer here. Every option is a kind one.',
     [
       ['Quiet company', 'Sit nearby. No questions. Dreamlight stays low and steady, a small warm glow. Not helping is sometimes the whole help.', 'calm'],
-      ['A story they can change', 'Lila offers a tale with a loose ending. "You may change the ending. Or close the book. Or leave it open." The story belongs to whoever holds it.', 'warm'],
-      ['A drawing, no words', '"Weather on paper," Lila says, sliding over a pencil. "The reason can stay private." The pencil is an invitation, not a question.', 'thoughtful'],
+      ['A story they can change', 'Luna offers a tale with a loose ending. "You may change the ending. Or close the book. Or leave it open." The story belongs to whoever holds it.', 'warm'],
+      ['A drawing, no words', '"Weather on paper," Luna says, sliding over a pencil. "The reason can stay private." The pencil is an invitation, not a question.', 'thoughtful'],
     ],
-    'None of these asks "why." Lila does not demand an explanation for a feeling. If words come later, there is room. If they do not, company was the whole help. Dreamlight does not dim when a feeling stays unnamed.',
+    'None of these asks "why." Luna does not demand an explanation for a feeling. If words come later, there is room. If they do not, company was the whole help. Dreamlight does not dim when a feeling stays unnamed.',
     'If you want, draw today\'s feeling as weather. You may keep the reason to yourself. Blank paper is a finished drawing too.',
-    '"The sky inside can stay yours," Lila says, closing the sketchbook. "I\'ll sit here." Dreamlight glows softly and does not ask for anything.',
+    '"The sky inside can stay yours," Luna says, closing the sketchbook. "I\'ll sit here." Dreamlight glows softly and does not ask for anything.',
   );
 
   // LILA 2 — The Library of Almosts
   const libraryOfAlmosts = story(
     'library-of-almosts', 'lila', 'The Library of Almosts',
-    'A shelf in Lila\'s dream-library holds one sentence: "And then the moon…" The rest of the page is empty. Dreamlight shivers with possibility. "An unfinished page is a door left kindly open. How might it go?"',
+    'A shelf in Luna\'s dream-library holds one sentence: "And then the moon…" The rest of the page is empty. Dreamlight shivers with possibility. "An unfinished page is a door left kindly open. How might it go?"',
     'How might the moon\'s sentence end?',
     'All three endings belong here. Pick the one that feels right, or invent your own.',
     [
-      ['…lent us a lantern', '"A borrowed light. Very polite of the moon." Lila writes it carefully. Dreamlight paints a small crescent beside the words.', 'playful'],
-      ['…waited while we thought', '"No rush in the margin," Lila says. "The moon can hover." Dreamlight agrees, drifting slowly overhead.', 'calm'],
-      ['…asked nothing and glowed', '"Some lights do not need a speech," Lila says softly. Dreamlight dims to a comfortable glow, and that is the whole ending.', 'warm'],
+      ['…lent us a lantern', '"A borrowed light. Very polite of the moon." Luna writes it carefully. Dreamlight paints a small crescent beside the words.', 'playful'],
+      ['…waited while we thought', '"No rush in the margin," Luna says. "The moon can hover." Dreamlight agrees, drifting slowly overhead.', 'calm'],
+      ['…asked nothing and glowed', '"Some lights do not need a speech," Luna says softly. Dreamlight dims to a comfortable glow, and that is the whole ending.', 'warm'],
     ],
-    'All three endings are kind. Lila used to hide unfinished stories because they felt not-wonderful-enough. Dreamlight shows that a beginning can be the gift. Stopping is part of writing, not a hole in it.',
+    'All three endings are kind. Luna used to hide unfinished stories because they felt not-wonderful-enough. Dreamlight shows that a beginning can be the gift. Stopping is part of writing, not a hole in it.',
     'Write one sentence and stop. You do not have to read it to anyone. You do not have to finish it tomorrow. Blank is also fine.',
-    '"An almost is a real thing," Lila says, placing the book back on the shelf. "The shelf is for keeping them." Dreamlight holds the door open.',
+    '"An almost is a real thing," Luna says, placing the book back on the shelf. "The shelf is for keeping them." Dreamlight holds the door open.',
   );
 
   // LILA 3 — The Scarf Offer
   const scarfOffer = story(
     'scarf-offer', 'lila', 'The Scarf Offer',
-    'Lila\'s comet scarf drifts nearby, its ends curling softly. "Words are an invitation, not a test," Lila says. "If you want, the scarf can hold a feeling-word. Or it can rest." There is no hurry.',
+    'Luna\'s comet scarf drifts nearby, its ends curling softly. "Words are an invitation, not a test," Luna says. "If you want, the scarf can hold a feeling-word. Or it can rest." There is no hurry.',
     'What would you like?',
     'Any answer is fine. Not-today is a complete answer.',
     [
-      ['I\'ll pick a word', '"Any word," Lila says. "I\'m not going to grade it or ask you to explain it." Dreamlight traces the word softly into the air, then lets it drift away.', 'warm'],
-      ['Not today', '"A complete answer," Lila says immediately, letting the scarf rest. Dreamlight does not dim. The offer was the whole kindness.', 'calm'],
-      ['A colour instead', '"Violet, moss, gold, moon-blue, rose." Lila offers them like swatches. "A colour can be the whole reply." Dreamlight matches it, glowing gently.', 'thoughtful'],
+      ['I\'ll pick a word', '"Any word," Luna says. "I\'m not going to grade it or ask you to explain it." Dreamlight traces the word softly into the air, then lets it drift away.', 'warm'],
+      ['Not today', '"A complete answer," Luna says immediately, letting the scarf rest. Dreamlight does not dim. The offer was the whole kindness.', 'calm'],
+      ['A colour instead', '"Violet, moss, gold, moon-blue, rose." Luna offers them like swatches. "A colour can be the whole reply." Dreamlight matches it, glowing gently.', 'thoughtful'],
     ],
-    '"Not today" does not need a follow-up question. Lila does not chase a feeling to make the story neat. Dreamlight stays soft either way. An invitation can be declined and still have been kind.',
+    '"Not today" does not need a follow-up question. Luna does not chase a feeling to make the story neat. Dreamlight stays soft either way. An invitation can be declined and still have been kind.',
     'If you like, match three feelings to three colours. Skip any you\'d rather not name. The scarf is patient.',
-    '"The scarf stays folded," Lila says. "It will offer again another time, if you want." Dreamlight glows once, softly, and rests.',
+    '"The scarf stays folded," Luna says. "It will offer again another time, if you want." Dreamlight glows once, softly, and rests.',
   );
 
   // NORI 1 — Lowbeam's Offer
@@ -390,7 +390,7 @@
   };
 
   // ── Story catalogue ─────────────────────────────────────────────────────
-  // Ordered: Lumo × 3 → Pip × 3 → Lila × 3 → Nori × 3 → Moki × 3
+  // Ordered: Lumo × 3 → Sprout × 3 → Luna × 3 → Nori × 3 → Moki × 3
   const stories = [
     gateOfSixes, savePointBridge, rumourRune,
     upsideDownMap, twoPaths, medalForSlow,

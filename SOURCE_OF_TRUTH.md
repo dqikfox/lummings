@@ -20,7 +20,7 @@ If anything else contradicts it, this file wins. Update this file first when nam
 | **Nori** | Cosmic Weirdo | Tidelight | Blue | Crescent hood, lantern |
 | **Moki** | Chaos Gremlin | Sparklight | Pink | Checker scarf, zigzag ear |
 
-**Retired names (do not use in public or new work):** Lila, Pip.
+**Retired names (do not use in public or new work):** Luna, Sprout.
 
 Internal code and some legacy filenames still use `lila` / `pip` as IDs. That is a compatibility mapping only. Public-facing text, marketing, and new docs must use Luna and Sprout.
 

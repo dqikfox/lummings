@@ -16,12 +16,12 @@ Inspected 15 October 2026. Extraction timestamps do not establish design approva
 | Character | Extracted master filename | Comparison |
 |---|---|---|
 | Lumo | `lumo-master.png` | Exact match |
-| Lila | `luna-lila-master.png` | Exact match |
-| Pip | `pip-sprout-related.png` | Different image - do not substitute automatically |
+| Luna | `luna-lila-master.png` | Exact match |
+| Sprout | `pip-sprout-related.png` | Different image - do not substitute automatically |
 | Nori | `nori-master.png` | Exact match |
 | Moki | `moki-master.png` | Exact match |
 
-The differing Pip master is a flat green fox-like drawing on a pale background. Current campaign Pip is the detailed leaf-eared green character with a compass and boots. New concept images 21 and 25 show additional green leaf-eared character variants. No automatic character replacement was made from this mixed collection.
+The differing Sprout master is a flat green fox-like drawing on a pale background. Current campaign Sprout is the detailed leaf-eared green character with a compass and boots. New concept images 21 and 25 show additional green leaf-eared character variants. No automatic character replacement was made from this mixed collection.
 
 ## Review files
 

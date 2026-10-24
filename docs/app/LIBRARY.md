@@ -10,7 +10,7 @@ From the project root with the existing Python/Pillow and FFmpeg tools:
 python scripts/catalog_creator_media.py --root C:\Users\KING\projects\lumming
 ```
 
-Restart the Lummings server after rebuilding. The script scans only the five campaign portraits, `imagine_images/imagine_images/*.jpg`, `imagine_videos/imagine_videos/*.mp4` and the root `lummings-heartlight-story.mp4`. It preserves originals, hashes bytes, deduplicates identical content, reads dimensions/durations, and produces preview JPEGs. Concept descriptions come from the extracted image inventory; video titles describe sampled posters rather than a full audio/content review.
+Restart the Lummings server after rebuilding. The script scans only the five campaign portraits, `imagine_images/imagine_images/*.jpg`, `imagine_videos/*.mp4` and the root `lummings-heartlight-story.mp4`. It preserves originals, hashes bytes, deduplicates identical content, reads dimensions/durations, and produces preview JPEGs. Concept descriptions come from the extracted image inventory; video titles describe sampled posters rather than a full audio/content review.
 
 Generated catalog/previews and shortlist SQLite files live under the Git-ignored `data/creator/` directory. A missing source is shown as unavailable; restore the file to the displayed path or rebuild the catalog. New bytes get a new ID, so an old shortlist does not silently approve changed content. The service reads the catalog at startup. Source files should remain unchanged during a server session; rerun the index and restart after edits.
 

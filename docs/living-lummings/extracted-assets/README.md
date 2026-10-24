@@ -6,7 +6,7 @@ Inspected 15 October 2026. Extraction timestamps do not establish design approva
 
 - `lumming/lumming/marketing/demo-assets/`: all five portrait files are byte-identical to the current project campaign portraits used by the corrected app.
 - `imagine_images/imagine_images/`: 29 JPEG files, visually inventoried in the numbered contact sheet and manifest. These include illustrated crew designs, different round-bodied characters, earlier names, app concepts, branding and product mockups. They are not one consistent replacement character set.
-- `imagine_videos/imagine_videos/`: 14 MP4 files found. Video contents and audio have not been reviewed in this audit.
+- `imagine_videos/`: 14 MP4 files found. Video contents and audio have not been reviewed in this audit.
 - `tmp/tmp/`: portrait copies, a grid, and five MP3 introductions with timestamp JSON files. Audio has not been reviewed.
 - `lumming/lumming/brand/character-masters/`: the folder name alone does not establish these as the latest approved artwork. See exact comparisons below.
 - The root also contains `lummings-heartlight-story.mp4` and the four source ZIP archives.

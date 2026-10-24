@@ -48,3 +48,11 @@ Thumbs.db
 
 # Private creator data (Living Lummings)
 /data/creator/
+
+# --- local scratch (verified duplicate/self-copy artefacts) ---
+/lumming/
+/tmp/
+/lumming.zip
+/tmp.zip
+/imagine_images.zip
+/imagine_videos.zip

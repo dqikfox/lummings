@@ -17,3 +17,8 @@ jobs:
           make init
           make lint
           make test
+      - name: Audit site links (mount-aware)
+        # The site is published from docs/ and served from the /lummings/ mount.
+        # This fails the build if any reference escapes the mount or points at a
+        # file that is not in the published tree.
+        run: python scripts/audit_site_links.py

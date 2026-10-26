@@ -11,6 +11,15 @@
     --green:   #2ECC71;
     --teal:    #1ABC9C;
     --pink:    #FF5CA7;
+    /* the CHARACTER colours, from the locked artwork and the canon hues:
+       Lumo ruby red, Luna lilac, Sprout green, Nori blue, Moki pink.
+       The pages used to paint Lumo yellow and Nori teal, so the same
+       character was two colours across the site. */
+    --lumo: #ed4054;
+    --luna: #b59aff;
+    --sprout: #57db91;
+    --nori: #75d8ef;
+    --moki: #ff83bd;
     --ink:     #1a1a2e;
     --paper:   #fff8e7;
     --shadow:  0 8px 0 rgba(0,0,0,.18);
@@ -31,13 +40,19 @@
   .hero h1 {
     font-size: clamp(40px, 7vw, 84px);
     line-height: .95;
+    letter-spacing: -1px;
+    transform: rotate(-2deg);
+  }
+  /* The gradient and the comic shadow belong to the HEADLINE. They used to
+     sit on the h1 itself, and the .alt span inherited both while forcing
+     its own fill back to ink - so the subtitle was drawn twice, offset, on
+     top of itself, and could not be read. */
+  .hero h1 .ttl {
     background: linear-gradient(135deg, #FFD23F 0%, #FF5CA7 45%, #7B5CFF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 4px 4px 0 var(--ink);
-    letter-spacing: -1px;
-    transform: rotate(-2deg);
   }
   .hero h1 .alt {
     display: block;
@@ -46,6 +61,7 @@
     margin-top: 8px;
     color: var(--ink);
     -webkit-text-fill-color: var(--ink);
+    text-shadow: none;
   }
   .hero p {
     max-width: 760px;
@@ -89,11 +105,11 @@
     transition: transform .15s, box-shadow .15s;
   }
   nav.codex-nav a:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
-  nav.codex-nav a.y { background: var(--yellow); }
-  nav.codex-nav a.p { background: var(--purple); color: #fff; }
-  nav.codex-nav a.g { background: var(--green); color: #fff; }
-  nav.codex-nav a.t { background: var(--teal);  color: #fff; }
-  nav.codex-nav a.k { background: var(--pink);  color: #fff; }
+  nav.codex-nav a.y { background: var(--lumo);   color: var(--ink); }
+  nav.codex-nav a.p { background: var(--luna);   color: var(--ink); }
+  nav.codex-nav a.g { background: var(--sprout); color: var(--ink); }
+  nav.codex-nav a.t { background: var(--nori);   color: var(--ink); }
+  nav.codex-nav a.k { background: var(--moki);   color: var(--ink); }
 
   section.codex { max-width: 1180px; margin: 0 auto; padding: 30px 20px; }
   .char-card {
@@ -118,11 +134,11 @@
     z-index: 0;
   }
   .char-card > * { position: relative; z-index: 1; }
-  .char-card.lumo::before  { background: var(--yellow); }
-  .char-card.lila::before  { background: var(--purple); }
-  .char-card.pip::before   { background: var(--green); }
-  .char-card.nori::before  { background: var(--teal); }
-  .char-card.moki::before  { background: var(--pink); }
+  .char-card.lumo::before  { background: var(--lumo); }
+  .char-card.lila::before  { background: var(--luna); }
+  .char-card.pip::before   { background: var(--sprout); }
+  .char-card.nori::before  { background: var(--nori); }
+  .char-card.moki::before  { background: var(--moki); }
 
   .char-header {
     display: grid;
@@ -146,11 +162,11 @@
     box-shadow: 0 6px 0 rgba(0,0,0,.15);
     position: relative;
   }
-  .lumo .avatar  { background: linear-gradient(135deg, #FFE17A, var(--yellow)); }
-  .lila .avatar  { background: linear-gradient(135deg, #B8A8FF, var(--purple)); color: #fff; }
-  .pip  .avatar  { background: linear-gradient(135deg, #6FE89E, var(--green)); color: #fff; }
-  .nori .avatar  { background: linear-gradient(135deg, #5BD9C5, var(--teal)); color: #fff; }
-  .moki .avatar  { background: linear-gradient(135deg, #FF8FC4, var(--pink)); color: #fff; }
+  .lumo .avatar  { background: linear-gradient(135deg, #F2607A, var(--lumo)); }
+  .lila .avatar  { background: linear-gradient(135deg, #C7B4FF, var(--luna)); }
+  .pip  .avatar  { background: linear-gradient(135deg, #8BEBB4, var(--sprout)); }
+  .nori .avatar  { background: linear-gradient(135deg, #A6E6F7, var(--nori)); }
+  .moki .avatar  { background: linear-gradient(135deg, #FFB0D3, var(--moki)); }
   
 
   .char-id { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
@@ -165,11 +181,11 @@
     background: var(--yellow);
     letter-spacing: 1px;
   }
-  .tag.type-curious { background: var(--yellow); }
-  .tag.type-story   { background: var(--purple); color: #fff; border-color: var(--ink); }
-  .tag.type-brave   { background: var(--green);  color: #fff; border-color: var(--ink); }
-  .tag.type-wise    { background: var(--teal);   color: #fff; border-color: var(--ink); }
-  .tag.type-funny   { background: var(--pink);   color: #fff; border-color: var(--ink); }
+  .tag.type-curious { background: var(--lumo);   color: var(--ink); border-color: var(--ink); }
+  .tag.type-story   { background: var(--luna);   color: var(--ink); border-color: var(--ink); }
+  .tag.type-brave   { background: var(--sprout); color: var(--ink); border-color: var(--ink); }
+  .tag.type-wise    { background: var(--nori);   color: var(--ink); border-color: var(--ink); }
+  .tag.type-funny   { background: var(--moki);   color: var(--ink); border-color: var(--ink); }
 
   .char-tagline { margin-top: 10px; font-size: 18px; font-weight: 700; font-style: italic; }
   .char-lore {
@@ -208,11 +224,11 @@
     border: 2px solid var(--ink);
   }
   .stat .bar > span { display: block; height: 100%; }
-  .lumo  .stat .bar > span { background: var(--yellow); }
-  .lila  .stat .bar > span { background: var(--purple); }
-  .pip   .stat .bar > span { background: var(--green); }
-  .nori  .stat .bar > span { background: var(--teal); }
-  .moki  .stat .bar > span { background: var(--pink); }
+  .lumo  .stat .bar > span { background: var(--lumo); }
+  .lila  .stat .bar > span { background: var(--luna); }
+  .pip   .stat .bar > span { background: var(--sprout); }
+  .nori  .stat .bar > span { background: var(--nori); }
+  .moki  .stat .bar > span { background: var(--moki); }
   .stat .num { font-size: 13px; font-weight: 800; }
 
   @media (max-width: 820px) { }
@@ -294,7 +310,7 @@
 <header class="hero">
   <span class="badge">★ OFFICIAL CHARACTER CODEX · 2ND EDITION ★</span>
   <h1>
-    MEET THE LUMMINGS
+    <span class="ttl">MEET THE LUMMINGS</span>
     <span class="alt">Five tiny creatures. Big personalities. From a brighter tomorrow.</span>
   </h1>
   <p>

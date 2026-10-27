@@ -60,7 +60,7 @@ export const CREW: Crew[] = [
     light: "Dreamlight",
     charm: "dreamlight",
     src: "/crew/luna.jpg",
-    voiceId: "v62eofGuJeiHm0z2U3Hc",
+    voiceId: "ILlSg5Jt8r3V71f2WdL3",
     agentId: "agent_8201m5ycxe1ke2hbsrd07wqykycf",
     line: "Welcome to a world of stories.",
     hello: "Hi friend, I'm Luna the Storyweaver. What if the story went sideways? Let's illuminate your what-if.",

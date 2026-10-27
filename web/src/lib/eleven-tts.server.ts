@@ -4,6 +4,7 @@ import { createServerFn } from "@tanstack/react-start";
 const VOICES = new Set([
   "7VqZXEDC0ddU1b0F0jq9",
   "v62eofGuJeiHm0z2U3Hc",
+  "ILlSg5Jt8r3V71f2WdL3",
   "eekTT2qA38B1zCMMefpZ",
   "Y2TS7tIZ7rATjbXnOgU5",
   "XzPT0rXcwuZbTnbHcb6R",

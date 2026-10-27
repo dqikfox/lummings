@@ -62,6 +62,9 @@ describe("voices", () => {
       assert.equal(clipFor(friend.hug, id), undefined);
       assert.equal(clipFor(friend.sleep, id), undefined);
       assert.equal(storiesFor(id).length, 7);
+      const book = storiesFor(id)[0];
+      assert.equal(Object.keys(book.beats).length, 7);
+      assert.ok(book.beats.p4.play);
       assert.equal(originFor(id).origin, true);
       assert.equal(storiesFor(id).filter((story) => story.shared).length, 1);
     }

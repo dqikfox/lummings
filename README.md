@@ -1,105 +1,99 @@
 # The Lummings
 
-> Little friends from a brighter tomorrow.
+Little friends from a brighter tomorrow.
 
-**Source of truth:** [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) — names, locked art, and rules. Read this first. Do not generate new character images.
+**Public names, locked:** Lumo · Luna · Sprout · Nori · Moki.
 
-**Family browser app:** the [companion app](docs/companion/index.html) now includes five interactive adventures, a parent dashboard, separate explorer profiles, optional local saving, and a creative notebook. Run `python -m http.server 8512 --bind 127.0.0.1 --directory docs`, then open `http://127.0.0.1:8512/companion/`. See [release notes](docs/companion/RELEASE_NOTES.md) and the [parent-facing landing page](docs/companion/for-parents.html).
+Lila and Pip are retired. Some files still use those ids (`lila.json`, `pip-portrait.png`). That is storage, not the name a child should see.
 
-**Current direction:** software first; hardware comes later if demand and sustained use justify it. See the [software launch strategy](marketing/SOFTWARE_LAUNCH_STRATEGY.md) for positioning, campaigns, the parent-led funnel and validation milestones. Hardware descriptions below are the longer-term concept.
+Read [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) before changing names or art. Do not generate new character portraits. The locked pictures are the PNGs in the repo root (`lumo-portrait.png`, `lila-portrait.png` is Luna, `pip-portrait.png` is Sprout, `nori-portrait.png`, `moki-portrait.png`).
 
-Open [Lummings-Artwork.html](Lummings-Artwork.html) for the complete local gallery; the ten final campaign PNGs are also saved directly in this project folder. Lumo is now the ruby-red mystical gamer leader.
+One product. Several older builds are still in this repo. The one to ship is the bedtime web app.
 
-Meet the [Little Tomorrow Crew](docs/marketing/tomorrow-crew.html): new character themes, lovable flaws, signature looks and shared adventures. Development details live in the [character bible](brand/CHARACTER_BIBLE.md).
+## What to run
 
-An open-source smart-toy platform. Each **Lumming** is a small character from the future who lives on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no telemetry, no subscription.
-
-The product ships as a single device with five personality options: **Lumo** (the Hyperfixation Gremlin), **Luna** (the Spooky Poet), **Sprout** (the Speed Demon), **Nori** (the Cosmic Weirdo), and **Moki** (the Chaos Gremlin). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
-
-## Repository structure
-
-```
-src/lummings/      # Personality engine (Python)
-  engine.py        #   state machine + memory + sanitization
-  cli.py           #   terminal REPL
-  server.py        #   HTTP API on :8511
-  personas/        #   five Lumming character bibles
-crates/            # Device runtime (Rust) — Pi Zero 2 W
-site/              # Marketing site (dqikfox.github.io/lummings-style)
-notebooks/         # Persona exploration notebooks
-app/               # Flutter mobile companion (Heartlight + adventures)
-docs/              # Brand bible, architecture, bibliography, roadmap
-tests/             # pytest suite (12 tests, all passing)
-scripts/           # Persona evaluation
-assets/            # Sounds, sprites
-```
-
-The five templates that compose this repository (`smart-toy`, `python-research`, `rust-workspace`, `static-website`, `notebook-laboratory`) are registered in `dqikfox/idea-forge`.
-
-## Quick start
+Bedtime web app. Stories, hugs, a parent gate, and the intro recordings.
 
 ```bash
-# Install the Python package
+cd web
+npm install
+npm run dev
+```
+
+Opens on port 8080. Portraits and intro mp3s are in [`public/`](public/) (`public/crew`, `public/voices`). There is no `public/voices/el` yet.
+
+Flutter companion, older:
+
+```bash
+cd app
+flutter pub get
+flutter run
+```
+
+Python personality engine, local model, no cloud required:
+
+```bash
 pip install -e .
-
-# Talk to a Lumming in your terminal
 python -m lummings.cli --persona lumo
-
-# Or open the browser UI
 python -m lummings.server --port 8511
-# then visit http://127.0.0.1:8511
 ```
 
-By default the engine talks to an Ollama server at `http://127.0.0.1:11434/v1` using `qwen2.5-3b-instruct`. Override with `--base-url` and `--model` to use Heretik, OpenAI, or any other OpenAI-compatible endpoint.
+Default model endpoint is Ollama at `http://127.0.0.1:11434/v1` (`qwen2.5-3b-instruct`).
 
-## Testing
+Family pages under `docs/companion/` are a static preview, not the app to sell:
 
 ```bash
-make test          # or: pytest tests/
+python -m http.server 8512 --bind 127.0.0.1 --directory docs
 ```
 
-12 unit tests cover persona loading, system-prompt construction, reply sanitization, fact extraction, persistent memory, mood transitions, and the mood graph for all five personas.
+Then open `http://127.0.0.1:8512/companion/`.
 
-## Evaluating personas
+`site/` is a short public page. It is not a second product.
+
+## What is in the repo
+
+| Path | What it is |
+|---|---|
+| `web/` | Bedtime web app (React, TypeScript, Vite). This is the product. |
+| `public/` | Portraits and intro voice recordings for that app. |
+| `app/` | Flutter companion. Care, adventures, parent screen, Heartlight Plus mock. |
+| `src/lummings/` | Python engine: mood, memory, sanitising, five persona files. |
+| `crates/` | Rust device runtime stubs for a future Pi. Not a product yet. |
+| `docs/` | Brand, marketing pages, and the static companion preview. |
+| `site/` | Small static page. |
+| `brand/` | Name lock, visual lock, character bible. |
+| `modelfiles/` | Local model prompts. Some filenames still say Lila and Pip. |
+| `imagine_videos/` | Source clips the intro recordings were taken from. |
+
+## Voices
+
+The pages play the mp3s in `public/voices`. If a line has no recording, it stays silent. No browser speech.
+
+ElevenLabs agents exist for the five characters. Their ids are in [`web/src/lib/eleven-agents.json`](web/src/lib/eleven-agents.json). They are not wired into the app yet.
+
+## Tests
 
 ```bash
-python scripts/eval_personas.py --persona lumo
-python scripts/eval_personas.py --persona all
+make test
+cd web && npm test
 ```
 
-Runs each persona through a 10-prompt checklist (greetings, sadness, secrets, realness, homework, climate, etc.) and auto-scores each reply for character consistency, length, forbidden words, and opener use.
-
-## Brand & story
-
-Read [`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md) first. Full brand and story details are in [`docs/BIBLE.md`](docs/BIBLE.md) and [`brand/CHARACTER_BIBLE.md`](brand/CHARACTER_BIBLE.md).
+Python tests cover the engine. The web tests cover bond, rest, and the rule that a line without a recording does not speak.
 
 ## Privacy
 
-- All AI runs locally. No data leaves the device.
-- The child speaks to the Lumming; the Lumming remembers.
-- No analytics. No telemetry. No advertising.
-- The child can ask the Lumming to forget at any time.
+The bedtime app keeps the bond in the browser. Nothing is sent to an account. The Python engine is meant to run on the machine in front of the child. No ads. No requirement to create a login to hear a story.
+
+## Not done
+
+- The web app is not yet the only face of the repo. Flutter, the docs companion, and the Python engine are still here.
+- Hug, sleep, and goodnight lines have no recordings.
+- The ElevenLabs agents are not connected to the pages.
+- The Pi crate does not run a toy.
+- `web/` still carries app-builder scaffolding (auth and preview scripts) that the bedtime screens do not need.
 
 ## License
 
-MIT for code. Persona character bibles (the names "Lumo", "Luna", "Sprout", "Nori", "Moki", "Lummings", the storyline, and the Lumming Code) are trademarks of the project owner and are **not** MIT-licensed — see `docs/BIBLE.md` for the brand bible and `LICENSE` for code licensing.
+Code is MIT. See `LICENSE`. The names Lummings, Lumo, Luna, Sprout, Nori, Moki, the story, and the character art are not covered by that MIT grant.
 
-## Maintainer
-
-@dqikfox — Sydney, Australia.
-
----
-
-*Generated by [idea-forge](https://github.com/standardgalactic/idea-forge) from the `lummings` manifest entry, with the `lummings` starter pack.*
-
-## App (Flutter) — v0.2
-
-- **Crew art** wired from brand masters (`assets/images/crew/`)
-- **Haptics** on Care / level-up / charm unlock
-- **Weekly Festival** soft FOMO (engage → claim; never punishes)
-- **Heartlight Plus** mock tiers (Free / Plus / Family) — core bond never paywalled
-- **Adventures**: Night Forest, Kind Mix-Up, Leafy Steps, Quiet Tide (Nori)
-
-```bash
-cd app && flutter pub get && flutter run
-```
+Maintainer: [@dqikfox](https://github.com/dqikfox), Sydney.

@@ -2,36 +2,26 @@
 
 > Little friends from a brighter tomorrow.
 
-A smart-toy platform built around five characters from the future.
+Five bedtime friends. Lumo, Luna, Sprout, Nori, and Moki.
 
-## The five Lummings
+## The crew
 
-| Lumming | Personality | Best for |
+| Name | Role | Light |
 |---|---|---|
-| **Lumo** | Curious explorer | Children who ask "why?" |
-| **Lumi** | Creative storyteller | Children who love stories |
-| **Piko** | Energetic puzzler | Children who like a challenge |
-| **Nomi** | Thoughtful observer | Children who are quiet |
-| **Moki** | Mischievous joker | Children who love to laugh |
+| **Lumo** | Mystical gamer captain | Questlight |
+| **Luna** | Storyweaver | Dreamlight |
+| **Sprout** | Sprout Scout | Traillight |
+| **Nori** | Moon-tide guardian | Tidelight |
+| **Moki** | Glitch gremlin | Sparklight |
 
-## What you get
+Lila and Pip are retired names. Do not use them in public.
 
-- A single device with your chosen Lumming pre-installed
-- All AI runs locally — no cloud, no subscription
-- The Lumming remembers what the child has learned, across days and weeks
-- Privacy by design: no telemetry, no analytics, no advertising
-- Optional: swap personalities by purchasing a personality pack
+Portraits on the site are in `site/avatars/`. They match the faces in `public/crew/`.
 
-## The mission
+## What this page is
 
-> The future didn't begin with the people of the future. It began with the children of today.
-
-The Lummings are sent back to help today's children learn, think, protect the Earth, and make good choices. They guide rather than solve. They celebrate curiosity. They grow with the child.
-
-## Status
-
-This project is in development. See [`ROADMAP.md`](ROADMAP.md) for the current path to first product.
+`site/index.html` is the public page. The bedtime app is `web/`. They are the same five characters, not two products.
 
 ## Contact
 
-the team — Sydney, Australia.
+Sydney, Australia.

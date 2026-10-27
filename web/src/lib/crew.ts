@@ -1,3 +1,5 @@
+import { lengthen } from "@/lib/long-stories";
+
 export type CrewId = "sprout" | "luna" | "lumo" | "nori" | "moki";
 
 export type CharmId =
@@ -171,8 +173,14 @@ export const CHARMS: Charm[] = [
 
 export const MAIN_CHARMS = CHARMS.filter((c) => !c.soon).map((c) => c.id);
 
+export type Play =
+  | { kind: "dice"; prompt: string; faces: string[] }
+  | { kind: "sum"; prompt: string; a: number; b: number }
+  | { kind: "guess"; prompt: string; options: string[]; answer: string }
+  | { kind: "spot"; prompt: string; items: string[]; odd: string };
+
 export type Choice = { label: string; next: string; playful?: boolean };
-export type Beat = { text: string; choices?: Choice[]; end?: boolean; plus?: boolean };
+export type Beat = { text: string; choices?: Choice[]; end?: boolean; plus?: boolean; play?: Play };
 export type Story = {
   id: string;
   crew: CrewId;
@@ -926,7 +934,7 @@ export function storiesFor(id: CrewId): Story[] {
   const shared = STORIES.filter((s) => s.shared);
   const origins = own.filter((s) => s.origin);
   const rest = own.filter((s) => !s.origin);
-  return [...origins, ...shared, ...rest];
+  return [...origins, ...shared, ...rest].map(lengthen);
 }
 
 export function originFor(id: CrewId): Story {

@@ -27,6 +27,7 @@ import {
   roster,
   storiesFor,
   todayKey,
+  type Play,
 } from "@/lib/crew";
 import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View } from "@/lib/store";
 import { listen, speak, stopSpeak, TOGETHER } from "@/lib/voice";
@@ -449,6 +450,114 @@ function Home() {
   );
 }
 
+function PlayBox({ play, onSolved }: { play: Play; onSolved: () => void }) {
+  const [note, setNote] = useState("");
+  const [done, setDone] = useState(false);
+  const [roll, setRoll] = useState<number | null>(null);
+
+  function finish(line: string) {
+    setNote(line);
+    setDone(true);
+    onSolved();
+  }
+
+  if (play.kind === "dice") {
+    return (
+      <div className="space-y-3 rounded-3xl border border-gold/40 bg-dusk p-4">
+        <p className="text-base">{play.prompt}</p>
+        <button
+          type="button"
+          disabled={done}
+          className="min-h-16 w-full rounded-full bg-gold font-display text-2xl text-night disabled:opacity-60"
+          onClick={() => {
+            const face = 1 + Math.floor(Math.random() * play.faces.length);
+            setRoll(face);
+            finish(`You rolled ${face}. ${play.faces[face - 1]}.`);
+          }}
+        >
+          {roll ? `Rolled ${roll}` : "Roll the die"}
+        </button>
+        {note && <p className="text-gold">{note}</p>}
+      </div>
+    );
+  }
+
+  if (play.kind === "sum") {
+    const right = play.a + play.b;
+    const options = [right, right + 1, Math.max(0, right - 1)].filter((n, i, all) => all.indexOf(n) === i);
+    return (
+      <div className="space-y-3 rounded-3xl border border-gold/40 bg-dusk p-4">
+        <p className="text-base">{play.prompt}</p>
+        <div className="grid grid-cols-3 gap-2">
+          {options.map((n) => (
+            <button
+              key={n}
+              type="button"
+              disabled={done}
+              className="min-h-16 rounded-2xl border border-gold/40 font-display text-3xl"
+              onClick={() => {
+                if (n === right) finish("Yes. That many.");
+                else setNote("Not yet. Count once more.");
+              }}
+            >
+              {n}
+            </button>
+          ))}
+        </div>
+        {note && <p className="text-gold">{note}</p>}
+      </div>
+    );
+  }
+
+  if (play.kind === "guess") {
+    return (
+      <div className="space-y-3 rounded-3xl border border-gold/40 bg-dusk p-4">
+        <p className="text-base">{play.prompt}</p>
+        <div className="grid gap-2">
+          {play.options.map((option) => (
+            <button
+              key={option}
+              type="button"
+              disabled={done}
+              className="min-h-14 rounded-full border border-gold/40 px-4 text-left text-lg"
+              onClick={() => {
+                if (option === play.answer) finish(`${play.answer}. You found it.`);
+                else setNote("Close. Try another.");
+              }}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        {note && <p className="text-gold">{note}</p>}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3 rounded-3xl border border-gold/40 bg-dusk p-4">
+      <p className="text-base">{play.prompt}</p>
+      <div className="grid grid-cols-2 gap-2">
+        {play.items.map((item, index) => (
+          <button
+            key={`${item}-${index}`}
+            type="button"
+            disabled={done}
+            className="min-h-16 rounded-2xl border border-gold/40 text-lg"
+            onClick={() => {
+              if (item === play.odd) finish(`The ${play.odd.toLowerCase()}. Good eyes.`);
+              else setNote("That one matches. Look for the different one.");
+            }}
+          >
+            {item}
+          </button>
+        ))}
+      </div>
+      {note && <p className="text-gold">{note}</p>}
+    </div>
+  );
+}
+
 function Story() {
   const go = useLumm((s) => s.go);
   const finishStory = useLumm((s) => s.finishStory);
@@ -462,6 +571,7 @@ function Story() {
   const [picked, setPicked] = useState<string | null>(null);
   const story = list.find((item) => item.id === picked) ?? null;
   const [beatId, setBeatId] = useState(story?.start ?? "");
+  const [solved, setSolved] = useState(false);
   const granted = useRef(false);
   const beat = story ? (story.beats[beatId] ?? story.beats[story.start]) : undefined;
 
@@ -474,6 +584,7 @@ function Story() {
   useEffect(() => {
     if (!story) return;
     setBeatId(story.start);
+    setSolved(false);
     granted.current = false;
   }, [story]);
 
@@ -525,8 +636,18 @@ function Story() {
         Back
       </button>
       <p className="font-display text-2xl text-gold">{friend.name}</p>
+      <p className="text-sm text-mist">
+        Page {["p1", "p2", "p3", "p4", "p5", "p6", "end"].indexOf(beatId) + 1} of 7
+      </p>
       <img src={friend.src} alt="" className="h-48 w-full rounded-3xl object-cover object-top" />
       <p className="text-lg leading-relaxed">{beat.text}</p>
+      {beat.play && (
+        <PlayBox
+          key={beatId}
+          play={beat.play}
+          onSolved={() => setSolved(true)}
+        />
+      )}
       {beat.end && plus && <p className="leading-relaxed text-gold">{AFTER[active]}</p>}
       {beat.end && !plus && (
         <p className="text-sm text-mist">
@@ -534,9 +655,10 @@ function Story() {
         </p>
       )}
       <div className="grid gap-2">
-        {beat.choices
-          ?.filter((choice) => !(filters && choice.playful))
-          .map((choice) => (
+        {(!beat.play || solved) &&
+          (beat.choices ?? [])
+            .filter((choice) => !(filters && choice.playful))
+            .map((choice) => (
             <button
               key={choice.label}
               type="button"
@@ -544,6 +666,7 @@ function Story() {
               onClick={() => {
                 const next = story.beats[choice.next];
                 setBeatId(choice.next);
+                setSolved(false);
                 if (next?.text) speak(next.text, muted, active);
                 if (next?.end && !granted.current) {
                   granted.current = true;
@@ -553,7 +676,7 @@ function Story() {
             >
               {choice.label}
             </button>
-          ))}
+            ))}
       </div>
       {beat.end && (
         <button

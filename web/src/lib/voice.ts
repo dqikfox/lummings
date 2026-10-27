@@ -64,6 +64,26 @@ const EXTRA: Record<string, string> = {
   [TOGETHER]: "/voices/together.mp3",
 };
 
+export function pageLine(
+  text: string,
+  choices?: { label: string }[],
+  game?: boolean,
+): string {
+  const body = text.trim();
+  if (game) return `${body} Ready? This page is a game, and I am grinning.`;
+  const labels = (choices ?? []).map((choice) => choice.label.trim()).filter(Boolean);
+  if (labels.length === 0) return `${body} That was my favourite page.`;
+  if (labels.length === 1) {
+    return `${body} Ooh, I love this part. Shall we ${labels[0].toLowerCase()}?`;
+  }
+  const last = labels[labels.length - 1].toLowerCase();
+  const rest = labels
+    .slice(0, -1)
+    .map((label) => label.toLowerCase())
+    .join(", or ");
+  return `${body} Your turn, and I am so excited! Will you ${rest}, or ${last}?`;
+}
+
 export function clipFor(text: string, crew?: CrewId): string | undefined {
   if (!text) return undefined;
   if (EXTRA[text]) return EXTRA[text];

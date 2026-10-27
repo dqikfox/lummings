@@ -31,7 +31,7 @@ import {
 } from "@/lib/crew";
 import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View } from "@/lib/store";
 import { pageCount, pageOf } from "@/lib/long-stories";
-import { listen, speak, stopSpeak, TOGETHER } from "@/lib/voice";
+import { listen, pageLine, speak, stopSpeak, TOGETHER } from "@/lib/voice";
 
 const NAV: { id: View; label: string; icon: typeof House }[] = [
   { id: "home", label: "Home", icon: House },
@@ -576,10 +576,16 @@ function Story() {
   useEffect(() => {
     if (!story) return;
     const saved = useLumm.getState().place;
-    setBeatId(saved?.story === story.id && story.beats[saved.beat] ? saved.beat : story.start);
+    const id = saved?.story === story.id && story.beats[saved.beat] ? saved.beat : story.start;
+    const page = story.beats[id];
+    setBeatId(id);
     setSolved(false);
     granted.current = false;
-  }, [story]);
+    if (page?.text) {
+      const choices = (page.choices ?? []).filter((choice) => !(useLumm.getState().filters && choice.playful));
+      speak(pageLine(page.text, page.play ? undefined : choices, Boolean(page.play)), useLumm.getState().muted, active);
+    }
+  }, [story?.id, active]);
 
   useEffect(() => {
     return () => stopSpeak();
@@ -602,7 +608,6 @@ function Story() {
               onClick={() => {
                 setPicked(item.id);
                 useLumm.setState({ focusStory: null });
-                speak(friend.hello, muted, active);
               }}
             >
               <span className="block text-sm text-gold">
@@ -656,7 +661,10 @@ function Story() {
                 setBeatId(choice.next);
                 setSolved(false);
                 setPlace(story.id, choice.next);
-                if (next?.text) speak(next.text, muted, active);
+                if (next?.text) {
+                  const choices = (next.choices ?? []).filter((choice) => !(filters && choice.playful));
+                  speak(pageLine(next.text, next.play ? undefined : choices, Boolean(next.play)), muted, active);
+                }
                 if (next?.end && !granted.current) {
                   granted.current = true;
                   finishStory(active);

@@ -19,7 +19,7 @@ export const speakWithVoice = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => {
     const data = input as { voiceId?: string; text?: string };
     const voiceId = data?.voiceId ?? "";
-    const text = (data?.text ?? "").replace(/\s+/g, " ").trim().slice(0, 800);
+    const text = (data?.text ?? "").replace(/\s+/g, " ").trim().slice(0, 1400);
     if (!VOICES.has(voiceId) || text.length < 1) throw new Error("Unknown voice");
     return { voiceId, text };
   })
@@ -34,7 +34,7 @@ export const speakWithVoice = createServerFn({ method: "POST" })
       body: JSON.stringify({
         text: data.text,
         model_id: "eleven_multilingual_v2",
-        voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.15, use_speaker_boost: true },
+        voice_settings: { stability: 0.32, similarity_boost: 0.75, style: 0.72, use_speaker_boost: true },
       }),
     });
     if (!res.ok) throw new Error("Voice did not answer");

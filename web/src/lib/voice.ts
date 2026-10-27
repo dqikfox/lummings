@@ -99,6 +99,18 @@ export function clipFor(text: string, crew?: CrewId): string | undefined {
 
 let current: HTMLAudioElement | null = null;
 let token = 0;
+const waiters = new Set<(waiting: boolean) => void>();
+
+export function onVoiceWait(fn: (waiting: boolean) => void) {
+  waiters.add(fn);
+  return () => {
+    waiters.delete(fn);
+  };
+}
+
+function setVoiceWait(waiting: boolean) {
+  waiters.forEach((fn) => fn(waiting));
+}
 
 function play(src: string, mine: number) {
   if (mine !== token || typeof window === "undefined") return;
@@ -109,6 +121,7 @@ function play(src: string, mine: number) {
 
 export function stopSpeak() {
   token += 1;
+  setVoiceWait(false);
   if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
   if (current) {
     current.pause();
@@ -132,13 +145,18 @@ export function speak(text: string, muted: boolean, crew?: CrewId) {
   }
   if (!crew) return;
   const voiceId = crewById(crew).voiceId;
-  void import("@/lib/eleven-tts.functions")
+  setVoiceWait(true);
+  void import("@/lib/eleven-tts.server")
     .then((mod) => mod.speakWithVoice({ data: { voiceId, text } }))
     .then((res) => {
-      if (!res?.audio || mine !== token) return;
+      if (mine !== token) return;
+      setVoiceWait(false);
+      if (!res?.audio) return;
       play(`data:audio/mpeg;base64,${res.audio}`, mine);
     })
-    .catch(() => {});
+    .catch(() => {
+      if (mine === token) setVoiceWait(false);
+    });
 }
 
 type Rec = {

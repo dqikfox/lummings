@@ -31,7 +31,7 @@ import {
 } from "@/lib/crew";
 import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View } from "@/lib/store";
 import { pageCount, pageOf } from "@/lib/long-stories";
-import { listen, pageLine, speak, stopSpeak, TOGETHER } from "@/lib/voice";
+import { listen, onVoiceWait, pageLine, speak, stopSpeak, TOGETHER } from "@/lib/voice";
 
 const HUE: Record<CrewId, string> = {
   lumo: "border-quest text-quest",
@@ -96,12 +96,51 @@ export function Grove() {
   return <Shell />;
 }
 
+const ROUNDS = [
+  { ask: "Tap the gold light.", answer: "Gold", options: ["Gold", "Blue", "Green"] },
+  { ask: "Tap Sprout's light.", answer: "Green", options: ["Pink", "Green", "Blue"] },
+  { ask: "Tap Luna's light.", answer: "Lilac", options: ["Lilac", "Red", "Gold"] },
+  { ask: "Tap Moki's light.", answer: "Pink", options: ["Blue", "Pink", "Green"] },
+];
+
+function LanternGame() {
+  const [round, setRound] = useState(0);
+  const [note, setNote] = useState("");
+  const play = ROUNDS[round % ROUNDS.length];
+  return (
+    <div className="w-full max-w-sm space-y-3 rounded-3xl border border-gold/40 bg-dusk p-4 text-left">
+      <p className="font-display text-2xl text-gold">{play.ask}</p>
+      <div className="grid grid-cols-3 gap-2">
+        {play.options.map((option) => (
+          <button
+            key={option}
+            type="button"
+            className="min-h-16 rounded-2xl border border-gold/30 bg-night font-display text-lg"
+            onClick={() => {
+              if (option === play.answer) {
+                setNote("Yes!");
+                setRound((n) => n + 1);
+              } else {
+                setNote("Almost. Try the other one.");
+              }
+            }}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
+      {note && <p className="text-gold">{note}</p>}
+    </div>
+  );
+}
+
 function Splash() {
   return (
     <main className="grid min-h-dvh place-items-center bg-night px-6 text-center text-ink">
-      <div>
-        <p className="font-display text-4xl text-gold">Lummings</p>
-        <p className="mt-2 text-mist">A little light is waking.</p>
+      <div className="w-full max-w-sm space-y-4">
+        <p className="font-display text-4xl text-gold">The Lummings</p>
+        <p className="text-mist">While the light wakes, play.</p>
+        <LanternGame />
       </div>
     </main>
   );
@@ -271,12 +310,13 @@ function Pick() {
   const go = useLumm((s) => s.go);
   const choose = useLumm((s) => s.choose);
   return (
-    <main className="space-y-4">
+    <main className="flex min-h-full flex-col gap-3">
       <button type="button" onClick={() => go("welcome")} className="min-h-11 text-sm text-mist">
         Back
       </button>
       <h1 className="font-display text-4xl text-gold">Who first?</h1>
-      <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-3">
+      <p className="text-sm text-mist">All five. Tap the one you want tonight.</p>
+      <div className="grid flex-1 grid-cols-5 content-start gap-1">
         {CREW.map((c) => (
           <button
             key={c.id}
@@ -285,12 +325,10 @@ function Pick() {
               speak(c.hello, useLumm.getState().muted, c.id);
               choose(c.id);
             }}
-            className={`w-56 shrink-0 snap-center overflow-hidden rounded-3xl border-2 bg-panel text-left ${HUE[c.id]}`}
+            className={`flex min-w-0 flex-col rounded-2xl border-2 bg-panel px-0.5 pb-2 ${HUE[c.id]}`}
           >
-            <img src={c.src} alt="" className="h-96 w-full bg-dusk object-contain object-center" />
-            <span className="block px-3 pt-3 font-display text-2xl text-ink">{c.name}</span>
-            <span className="block px-3 pb-3 text-sm">{c.role}</span>
-            <span className="block px-3 pb-3 text-xs text-mist">{c.light}</span>
+            <img src={c.src} alt="" className="h-28 w-full object-contain object-center sm:h-36" />
+            <span className="truncate text-center font-display text-sm text-ink">{c.name}</span>
           </button>
         ))}
       </div>
@@ -430,10 +468,9 @@ function Home() {
       <div className="grid grid-cols-2 gap-2">
         <Action
           icon={<BookOpen className="size-6" />}
-          label="Their story"
+          label={s.place ? "Continue" : "Their story"}
           onClick={() => {
-            speak(friend.hello, s.muted, friend.id);
-            s.openTale(originFor(friend.id).id);
+            s.openTale(s.place?.story ?? originFor(friend.id).id);
           }}
         />
         <Action
@@ -564,6 +601,9 @@ function PlayBox({ play, onSolved }: { play: Play; onSolved: () => void }) {
 function Story() {
   const go = useLumm((s) => s.go);
   const finishStory = useLumm((s) => s.finishStory);
+  const read = useLumm((s) => s.read);
+  const place = useLumm((s) => s.place);
+  const markRead = useLumm((s) => s.markRead);
   const setPlace = useLumm((s) => s.setPlace);
   const filters = useLumm((s) => s.filters);
   const muted = useLumm((s) => s.muted);
@@ -575,6 +615,7 @@ function Story() {
   const story = list.find((item) => item.id === picked) ?? null;
   const [beatId, setBeatId] = useState(story?.start ?? "");
   const [solved, setSolved] = useState(false);
+  const [voiceWait, setVoiceWait] = useState(false);
   const granted = useRef(false);
   const beat = story ? (story.beats[beatId] ?? story.beats[story.start]) : undefined;
 
@@ -597,6 +638,8 @@ function Story() {
       speak(pageLine(page.text, page.play ? undefined : choices, Boolean(page.play)), useLumm.getState().muted, active);
     }
   }, [story?.id, active]);
+
+  useEffect(() => onVoiceWait(setVoiceWait), []);
 
   useEffect(() => {
     return () => stopSpeak();
@@ -623,6 +666,8 @@ function Story() {
             >
               <span className="block text-sm text-gold">
                 {item.origin ? "Their story" : item.shared ? "How we met" : "A night"}
+                {read.includes(item.id) ? " · read" : ""}
+                {place?.story === item.id ? ` · page ${pageOf(place.beat)}` : ""}
               </span>
               <span className="font-display text-2xl">{item.title}</span>
             </button>
@@ -650,6 +695,7 @@ function Story() {
       </p>
       <img src={friend.src} alt="" className="h-80 w-full rounded-3xl bg-dusk object-contain object-center" />
       <p className="text-lg leading-relaxed">{beat.text}</p>
+      {voiceWait && <LanternGame />}
       {beat.play && (
         <PlayBox
           key={beatId}
@@ -678,6 +724,7 @@ function Story() {
                 }
                 if (next?.end && !granted.current) {
                   granted.current = true;
+                  markRead(story.id);
                   finishStory(active);
                 }
               }}

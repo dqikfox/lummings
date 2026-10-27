@@ -59,6 +59,8 @@ export type LummState = {
   bonusDay: string;
   privacy: boolean;
   filters: boolean;
+  plus: boolean;
+  plush: boolean;
   memories: Memory[];
   memoryDay: string;
   usedSec: number;
@@ -69,7 +71,9 @@ export type LummState = {
   note: string;
   focusStory: string | null;
   place: { story: string; beat: string } | null;
+  read: string[];
   setPlace: (story: string, beat: string) => void;
+  markRead: (story: string) => void;
   go: (view: View) => void;
   openTale: (storyId: string) => void;
   choose: (id: CrewId) => void;
@@ -78,7 +82,7 @@ export type LummState = {
   openParent: (pin: string) => boolean;
   closeParent: () => void;
   setLimit: (min: number) => void;
-  toggle: (key: "privacy" | "filters" | "muted") => void;
+  toggle: (key: "privacy" | "filters" | "plus" | "plush" | "muted") => void;
   grant: (id: CrewId, xp: number, heart?: number, charm?: CharmId, charmN?: number) => void;
   hug: (id: CrewId) => void;
   talk: (id: CrewId) => void;
@@ -114,6 +118,8 @@ const persistedDefaults = {
   bonusDay: "",
   privacy: true,
   filters: true,
+  plus: false,
+  plush: false,
   memories: [] as Memory[],
   memoryDay: "",
   usedSec: 0,
@@ -122,6 +128,7 @@ const persistedDefaults = {
   talkDay: "",
   muted: false,
   place: null as { story: string; beat: string } | null,
+  read: [] as string[],
 };
 
 function savedCrew(id: string | null | undefined): CrewId | null {
@@ -159,6 +166,8 @@ export const useLumm = create<LummState>()(
         }),
       openTale: (storyId) => set({ focusStory: storyId, view: "story", parentOpen: false, note: "" }),
       setPlace: (story, beat) => set({ place: { story, beat } }),
+      markRead: (story) =>
+        set((s) => ({ read: s.read.includes(story) ? s.read : [...s.read, story] })),
       choose: (id) =>
         set({
           primary: id,
@@ -303,6 +312,8 @@ export const useLumm = create<LummState>()(
         bonusDay: s.bonusDay,
         privacy: s.privacy,
         filters: s.filters,
+        plus: s.plus,
+        plush: s.plush,
         memories: s.memories,
         memoryDay: s.memoryDay,
         usedSec: s.usedSec,
@@ -311,6 +322,7 @@ export const useLumm = create<LummState>()(
         talkDay: s.talkDay,
         muted: s.muted,
         place: s.place,
+        read: s.read,
       }),
       merge: (persisted, current) => {
         const saved = (persisted ?? {}) as Partial<LummState> & {

@@ -19,10 +19,10 @@
 | Typecheck (`tsc --noEmit`) | Pass | Pass |
 | Lint (`eslint`) | Broken: no config file existed | Config added; passes |
 | Tests | 39 of 40 passed (1 scaffolding test failing); 9 more tests were never run because of a quoting bug in the test script | 9 of 9 pass. Includes a privacy guard and a PWA guard |
-| Production build | Pass, but ran a database migration step | Pass; build is just `vite build` |
+| Production build | Pass, but ran a database migration step. (Commits pushed on 27 October also broke it: `voice.ts` imported a `*.server.*` file into browser code, which the framework forbids) | Pass; build is just `vite build`. The voice fallback is split into `eleven-tts.functions.ts` (callable from the browser) and `eleven-tts.server.ts` (key and ElevenLabs call, server only) |
 | Package | Named `app-builder-workspace`, 58 dependencies (44 unused), login and database code, `public/__grok` | Named `lummings-bedtime`, 16 dependencies, no login or database code |
 | Security alerts | 1 high-severity (`zod`) | `npm audit`: 0 vulnerabilities |
-| Third-party requests | Google Fonts on every page; a remote script from `grok.com`; share images from `og.grok.me`; messaging to a Grok preview host | None. Fonts are bundled; the privacy test fails if a third-party host appears in the source |
+| Third-party requests | Google Fonts on every page; a remote script from `grok.com`; share images from `og.grok.me`; messaging to a Grok preview host | None from the browser. Fonts are bundled; the privacy test fails if a third-party host appears in the source. (The server voice fallback calls ElevenLabs; see below) |
 | "Add to home screen" | Broken in production: the manifest was only served by the dev server, and the icon was a generic Grok placeholder | Real `manifest.webmanifest` and icons cropped from the locked Lumo portrait; verified in the build output |
 | Paid tier | Fake "Heartlight Plus" gating the end-of-story page and the memory gallery | Removed. Everything is free; nothing is gated |
 | CI | Ran only Rust (stub crates) and the site-link audit. **The Python tests were never run in CI.** | `make test` runs pytest and cargo; `make web-check` runs typecheck, lint, tests and build. Python suite also passes under Linux (WSL) |
@@ -41,6 +41,7 @@ Status: **Fixed** = changed in this pass. **Flagged** = marked "do not publish" 
 | Hardware pre-order page ("PRE-ORDER OPEN", `$129` in the structured data, a different price from `$149`) | `docs/shop.html` | **Fixed**: replaced by a "Not for sale yet" notice |
 | Waitlist form that never worked (a JavaScript syntax error) | `docs/index.html` | **Fixed** and syntax-checked; copy now says "early access", not "production" |
 | 75 corrupted links, stylesheet and script tags, including all of the Living Lummings app page's scripts and styles | 13 pages under `docs/` | **Fixed**. The link audit now also detects this kind of corruption |
+| **Open voice endpoint.** `eleven-tts.server.ts` is a public server function that spends your ElevenLabs credits for any request with an allowed voice id and up to 1,400 characters of text. Anyone who finds it can burn credits. It also falls back to reading a key file at `/workspace/.grok/eleven.key` | `web/src/lib/eleven-tts.server.ts` | **Open**: before launch, allow only known authored lines (or add rate limits), remove the sandbox key-file fallback, and set a spending cap in ElevenLabs |
 | Hardware campaign documents (Kickstarter, pre-order, press sheet, parent quickstart) | `docs/` | **Flagged** "archived hardware concept, do not publish" |
 | Ready-to-post drafts claiming "runs entirely on-device, no cloud" | `marketing/` (6 files), `docs/demo-video-script.md` | **Flagged** "draft, do not post" |
 | Privacy policy describing a toy and a companion app | `docs/PRIVACY_POLICY.md` | **Fixed**: rewritten for the bedtime app and waitlist; the old one is archived as `PRIVACY_POLICY_HARDWARE_CONCEPT.md`. Not reviewed by a lawyer |
@@ -55,7 +56,7 @@ Status: **Fixed** = changed in this pass. **Flagged** = marked "do not publish" 
 - No ads, no analytics, and the app loads nothing from other companies' servers (a test enforces this).
 - A parent PIN protects the grown-up page. It stays on the device. *(It is a gentle gate, not strong security: the PIN is stored unhashed.)*
 - **The microphone is off by default.** A grown-up can turn on "Talk". If they do, the browser may send speech to its own speech service; the app says so. *(Do not say "the microphone is always off" or "nothing ever leaves the phone".)*
-- Voices are recordings. If there is no recording, the app stays silent. There is no text-to-speech.
+- Most voices are recordings. If a line has no recording, our server asks ElevenLabs to say it in the friend's voice; only the friends' own authored lines are sent, never what a child types or says. *(Do not say "voices are only recordings" or "no text-to-speech".)*
 - Five friends with different personalities, and stories that end with a game in the middle.
 - Free to try while it is tested. *(Say nothing more about price until it is decided.)*
 

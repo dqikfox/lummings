@@ -70,7 +70,7 @@ Shared foundations every line needs: the **character registry** (one source of t
 
 **Now**
 1. Decide the hosting address, then set `VITE_SITE_URL` so link previews get an absolute image.
-2. Choose the canonical voices (decision 2) and record the 25 missing hug, goodnight, moon, sleep and kind lines. No recording means silence; browser speech stays off.
+2. Finish the recordings (several are now in `public/voices`). Lines without a recording fall back to a server call to ElevenLabs; harden that endpoint first (it is open to anyone and spends your credits; see `docs/LAUNCH_READINESS.md`). Browser speech stays off.
 3. Phone QA: install to the home screen, hear an intro, open a story, hit the parent gate. Log defects.
 4. Safety review items: the first person to open the grown-up screen can set the PIN (a child could do so before a parent), and the PIN is stored unhashed.
 
@@ -122,6 +122,8 @@ Until Stage 2 passes, the Lummings show a living character with Pixel's procedur
 
 ## Decisions needed
 
+0. **Web roles vs the brand bible.** `web/src/lib/crew.ts` labels the friends Storyweaver, Mystical Gamer Captain, Moon-Tide Guardian and Glitch Gremlin; the brand bible says Spooky Poet, Hyperfixation Gremlin, Cosmic Weirdo and Chaos Gremlin. Recent work is making Luna brighter and younger. Pick one set and I will align the other. (Sprout is settled: Quiet Garden Sprite.)
+
 1. **Priority.** Is the order above right? In particular, is the flagship the Living Lummings creative companion (C) with bedtime (B) as the quick first release?
 2. **Voices.** The 12 recorded intros came from video clips; five new voices were designed on 27 October. A child could hear two different Sprouts. Re-record the intros in the new voices (recommended), or keep the old ones.
 3. **ElevenLabs agents.** Which account owns the five agent ids in `web/src/lib/eleven-agents.json`, or create new ones?
@@ -141,4 +143,4 @@ Until Stage 2 passes, the Lummings show a living character with Pixel's procedur
 - Pixel studio working and supervised as a service.
 - Five ElevenLabs voices designed for the five friends.
 - Executive summary: `docs/EXECUTIVE_SUMMARY.md`; launch readiness: `docs/LAUNCH_READINESS.md`.
-- Fix pass (27 October 2026): web scaffolding and the Grok builder layer removed; privacy, PWA and canon guard tests added; CI now runs Python, web and lint; 75 corrupted links repaired; home page claims corrected; privacy policy rewritten; Sprout's 100 training pairs rewritten in the quiet voice; Python lint clean.
+- Fix pass (27 October 2026; also repaired a production build that the latest voice commits had broken): web scaffolding and the Grok builder layer removed; privacy, PWA and canon guard tests added; CI now runs Python, web and lint; 75 corrupted links repaired; home page claims corrected; privacy policy rewritten; Sprout's 100 training pairs rewritten in the quiet voice; Python lint clean.

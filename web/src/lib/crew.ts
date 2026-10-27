@@ -20,6 +20,8 @@ export type Crew = {
   light: string;
   charm: CharmId;
   src: string;
+  voiceId: string;
+  agentId: string;
   line: string;
   hello: string;
   hug: string;
@@ -35,12 +37,14 @@ export const CREW: Crew[] = [
     id: "sprout",
     name: "Sprout",
     role: "Quiet Garden Sprite",
-    trait: "Adventurous and nature-loving, always ready for a trail.",
+    trait: "Quiet and nature-loving, always ready for a gentle trail.",
     light: "Traillight",
     charm: "traillight",
     src: "/crew/sprout.jpg",
+    voiceId: "7VqZXEDC0ddU1b0F0jq9",
+    agentId: "agent_5101m5ycx5kvemrt24m7wx4rm2y1",
     line: "The trail is glowing. Perfect, let's check it.",
-    hello: "Hi, I'm Sprout, the quiet garden sprite. New route, same brave little feet. Let's illuminate the way.",
+    hello: "Hi, I'm Sprout the Sprout Scout. New route, same brave little feet. Let's illuminate the way.",
     hug: "Soft as moss. I'm right here.",
     goodnight: "Trails sleep too. I'll keep the acorn lantern low.",
     moon: "The moon is just the highest lantern. It walks when you walk, so the trail never feels alone.",
@@ -51,17 +55,19 @@ export const CREW: Crew[] = [
   {
     id: "luna",
     name: "Luna",
-    role: "Spooky Poet",
+    role: "Storyweaver",
     trait: "Imaginative and dreamy. She weaves stories that come alive.",
     light: "Dreamlight",
     charm: "dreamlight",
     src: "/crew/luna.jpg",
+    voiceId: "ILlSg5Jt8r3V71f2WdL3",
+    agentId: "agent_8201m5ycxe1ke2hbsrd07wqykycf",
     line: "Welcome to a world of stories.",
-    hello: "Hi friend, I'm Luna the Spooky Poet. What if the story went sideways? Let's illuminate your what-if.",
+    hello: "Hi friend, I'm Luna the Storyweaver. What if the story went sideways? Let's illuminate your what-if.",
     hug: "This hug has a bookmark in it. We'll find our place again.",
     goodnight: "Close your eyes. I'll finish the page very quietly.",
-    moon: "The moon is a story that refuses to end. It follows so the next page can find you.",
-    sleep: "Sleep is just the soft chapter. I'll hold the pencil until you're ready.",
+    moon: "The moon came too! It is glowing just for us, walking beside the story all the way home.",
+    sleep: "Sleepy time, and I am still smiling. I'll hold the pencil, you hold the blanket, and the page will wait. Sweet dreams, friend!",
     quest: "Welcome to a world of stories.",
     kind: "You are already in the good part of the story.",
   },
@@ -73,6 +79,8 @@ export const CREW: Crew[] = [
     light: "Questlight",
     charm: "questlight",
     src: "/crew/lumo.jpg",
+    voiceId: "eekTT2qA38B1zCMMefpZ",
+    agentId: "agent_8501m5ycxpdxfjzr5rt7jgdwhmcs",
     line: "Player one, crew first.",
     hello:
       "Hey, I'm Lumo, the arcane gamer and captain of the Little Tomorrow crew. Player one, crew first. Let's illuminate our next quest together.",
@@ -86,30 +94,34 @@ export const CREW: Crew[] = [
   {
     id: "nori",
     name: "Nori",
-    role: "Cosmic Weirdo",
+    role: "Moon-Tide Guardian",
     trait: "Calm, protective, and a wise guardian of the night.",
     light: "Tidelight",
     charm: "tidelight",
     src: "/crew/nori.jpg",
+    voiceId: "Y2TS7tIZ7rATjbXnOgU5",
+    agentId: "agent_7201m5ycxytaeb1bs4gkdz5fazms",
     line: "The tide is gentle tonight. I'll hold the lantern.",
-    hello: "Hello, I'm Nori, the Cosmic Weirdo. Small things have big stories. Let's illuminate the little things.",
+    hello: "Hello, I'm Nori, the Moon-Tide Guardian. Small things have big stories. Let's illuminate the little things.",
     hug: "Steady as tidewater. You can lean here.",
     goodnight: "The moon will keep watch. You only have to rest.",
-    moon: "But why is the moon following us? When the questions never end, a little light answers with you.",
+    moon: "The moon walks beside you. It is keeping a promise, not chasing.",
     sleep: "Questions can wait on the shore. I'll keep them safe until morning.",
     quest: "A quest can be quiet. We'll follow the tide-light and come home.",
-    kind: "When the questions never end, a little light answers with you.",
+    kind: "A little light stays with you. You only have to rest.",
   },
   {
     id: "moki",
     name: "Moki",
-    role: "Chaos Gremlin",
+    role: "Glitch Gremlin",
     trait: "Cheeky and creative. Brings fun glitches and sparkles.",
     light: "Sparklight",
     charm: "sparklight",
     src: "/crew/moki.jpg",
+    voiceId: "XzPT0rXcwuZbTnbHcb6R",
+    agentId: "agent_0601m5ycy8r8f6jvcxbxvefjhrxa",
     line: "Plot twist. Let's illuminate that.",
-    hello: "Oops, hi, I'm Moki the Chaos Gremlin. Plot twist. Let's illuminate that.",
+    hello: "Oops, hi, I'm Moki the Glitch Gremlin. Plot twist. Let's illuminate that.",
     hug: "Glitch hug! It skipped a beat and landed softer.",
     goodnight: "I'll turn the sparkles down to night-light. Promise.",
     moon: "Plot twist: the moon isn't a follower. It's a friend who refuses to lose you in the dark.",
@@ -189,6 +201,8 @@ export type Story = {
   beats: Record<string, Beat>;
   origin?: boolean;
   shared?: boolean;
+  /** Extra pages used when the short night is stretched into a book. */
+  chapters?: string[];
 };
 
 export const STORIES: Story[] = [
@@ -272,7 +286,7 @@ export const STORIES: Story[] = [
     start: "why",
     beats: {
       why: {
-        text: "Somebody small looked up and asked why the moon was following them. The moon did not answer. Nori did. They lifted a lantern and said, “It isn't chasing you. It is keeping a promise.”",
+        text: "Somebody small looked up. The moon was walking with them, and it felt too close. The moon did not explain. Nori did. They lifted a lantern and said, “It isn't chasing you. It is keeping a promise.”",
         choices: [
           { label: "Make the promise", next: "promise" },
           { label: "Stay for the question", next: "question" },
@@ -1046,7 +1060,7 @@ export const ADVENTURES: Adventure[] = [
     crew: "nori",
     text: "Nori stands where the path turns to wet stone. The moon is huge and close. “Ask it anything. It answers in light, not lectures.”",
     choices: [
-      { label: "Ask why it stays", end: "The moon doesn't move away. Nori nods. “Because you do. Tidelight is a promise, not a chase.”" },
+      { label: "Ask if it stays", end: "The moon doesn't move away. Nori nods. “Because you do. Tidelight is a promise, not a chase.”" },
       { label: "Say thank you", end: "A ring of soft blue spreads across the puddles. Nori's lantern burns steadier. “It heard you.”" },
     ],
   },

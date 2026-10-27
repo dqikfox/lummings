@@ -30,7 +30,8 @@ import {
   type Play,
 } from "@/lib/crew";
 import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View } from "@/lib/store";
-import { listen, speak, stopSpeak, TOGETHER } from "@/lib/voice";
+import { pageCount, pageOf } from "@/lib/long-stories";
+import { listen, pageLine, speak, stopSpeak, TOGETHER } from "@/lib/voice";
 
 const NAV: { id: View; label: string; icon: typeof House }[] = [
   { id: "home", label: "Home", icon: House },
@@ -107,7 +108,7 @@ function Shell() {
   return (
     <div className="relative min-h-dvh text-ink">
       <img
-        src="/crew/forest.jpg"
+        src="/crew/cover.jpg"
         alt=""
         className="pointer-events-none fixed inset-0 h-full w-full object-cover opacity-45"
       />
@@ -162,16 +163,11 @@ function Welcome() {
   const go = useLumm((s) => s.go);
   return (
     <main className="flex min-h-full flex-col justify-end gap-5 pb-2">
-      <div className="flex items-end justify-center">
-        {CREW.map((c) => (
-          <img
-            key={c.id}
-            src={c.src}
-            alt=""
-            className="-mx-2 h-44 w-20 rounded-3xl object-cover object-top shadow-lg ring-2 ring-night sm:h-56 sm:w-24"
-          />
-        ))}
-      </div>
+      <img
+        src="/crew/cover.jpg"
+        alt="Lumo, Luna, Sprout, Nori, and Moki"
+        className="w-full rounded-3xl object-cover shadow-lg ring-2 ring-gold/40"
+      />
       <div className="text-center">
         <p className="text-sm tracking-wide text-gold">Welcome to</p>
         <h1 className="font-display text-5xl leading-none text-gold">Lummings</h1>
@@ -250,6 +246,9 @@ function Safety() {
         <Toggle on={privacy} label="Microphone stays off" onClick={() => toggle("privacy")} />
         <Toggle on={filters} label="Skip the silly choices" onClick={() => toggle("filters")} />
       </div>
+      <p className="rounded-3xl border border-gold/40 px-4 py-3 text-center text-sm text-ink">
+        Stories, hugs, and the bond stay on this device. Nothing here is for sale.
+      </p>
       <button
         type="button"
         onClick={() => go("pick")}
@@ -281,7 +280,7 @@ function Pick() {
             }}
             className="w-56 shrink-0 snap-center overflow-hidden rounded-3xl border border-gold/30 bg-panel text-left"
           >
-            <img src={c.src} alt="" className="h-72 w-full object-cover object-top" />
+            <img src={c.src} alt="" className="h-96 w-full bg-dusk object-contain object-center" />
             <span className="block px-3 py-3 font-display text-2xl">{c.name}</span>
           </button>
         ))}
@@ -374,7 +373,7 @@ function Home() {
           );
         })}
       </div>
-      <div className="relative overflow-hidden rounded-3xl border border-gold/30 bg-panel">
+      <div className="overflow-hidden rounded-3xl border border-gold/30 bg-dusk">
         <button
           type="button"
           className="block w-full"
@@ -384,16 +383,12 @@ function Home() {
             speak(friend.hello, s.muted, friend.id);
           }}
         >
-          <img src={friend.src} alt={friend.name} className="h-80 w-full object-cover object-top" />
+          <img src={friend.src} alt={friend.name} className="h-[28rem] w-full object-contain object-center" />
         </button>
-        <p
-          role="status"
-          aria-live="polite"
-          className="absolute inset-x-3 bottom-3 rounded-2xl bg-night/90 p-4 text-lg leading-snug"
-        >
-          {shown}
-        </p>
       </div>
+      <p role="status" aria-live="polite" className="rounded-2xl bg-night/90 p-4 text-lg leading-snug">
+        {shown}
+      </p>
       <p className="text-center font-display text-2xl text-gold">{friend.name}</p>
       {asleep && (
         <p className="rounded-2xl bg-dusk px-3 py-2 text-center text-base text-ink">
@@ -558,6 +553,7 @@ function PlayBox({ play, onSolved }: { play: Play; onSolved: () => void }) {
 function Story() {
   const go = useLumm((s) => s.go);
   const finishStory = useLumm((s) => s.finishStory);
+  const setPlace = useLumm((s) => s.setPlace);
   const filters = useLumm((s) => s.filters);
   const muted = useLumm((s) => s.muted);
   const active = useLumm((s) => s.active ?? s.primary ?? "lumo");
@@ -579,10 +575,17 @@ function Story() {
 
   useEffect(() => {
     if (!story) return;
-    setBeatId(story.start);
+    const saved = useLumm.getState().place;
+    const id = saved?.story === story.id && story.beats[saved.beat] ? saved.beat : story.start;
+    const page = story.beats[id];
+    setBeatId(id);
     setSolved(false);
     granted.current = false;
-  }, [story]);
+    if (page?.text) {
+      const choices = (page.choices ?? []).filter((choice) => !(useLumm.getState().filters && choice.playful));
+      speak(pageLine(page.text, page.play ? undefined : choices, Boolean(page.play)), useLumm.getState().muted, active);
+    }
+  }, [story?.id, active]);
 
   useEffect(() => {
     return () => stopSpeak();
@@ -605,7 +608,6 @@ function Story() {
               onClick={() => {
                 setPicked(item.id);
                 useLumm.setState({ focusStory: null });
-                speak(friend.hello, muted, active);
               }}
             >
               <span className="block text-sm text-gold">
@@ -633,9 +635,9 @@ function Story() {
       </button>
       <p className="font-display text-2xl text-gold">{friend.name}</p>
       <p className="text-sm text-mist">
-        Page {["p1", "p2", "p3", "p4", "p5", "p6", "end"].indexOf(beatId) + 1} of 7
+        Page {pageOf(beatId)} of {pageCount()}
       </p>
-      <img src={friend.src} alt="" className="h-48 w-full rounded-3xl object-cover object-top" />
+      <img src={friend.src} alt="" className="h-80 w-full rounded-3xl bg-dusk object-contain object-center" />
       <p className="text-lg leading-relaxed">{beat.text}</p>
       {beat.play && (
         <PlayBox
@@ -658,7 +660,11 @@ function Story() {
                 const next = story.beats[choice.next];
                 setBeatId(choice.next);
                 setSolved(false);
-                if (next?.text) speak(next.text, muted, active);
+                setPlace(story.id, choice.next);
+                if (next?.text) {
+                  const choices = (next.choices ?? []).filter((choice) => !(filters && choice.playful));
+                  speak(pageLine(next.text, next.play ? undefined : choices, Boolean(next.play)), muted, active);
+                }
                 if (next?.end && !granted.current) {
                   granted.current = true;
                   finishStory(active);
@@ -710,7 +716,7 @@ function Adventures() {
         </button>
         <p className="text-sm text-gold">{who.name}</p>
         <h1 className="font-display text-3xl">{adv.title}</h1>
-        <img src={who.src} alt="" className="h-44 w-full rounded-3xl object-cover object-top" />
+        <img src={who.src} alt="" className="h-80 w-full rounded-3xl bg-dusk object-contain object-center" />
         <p className="leading-relaxed">{ending ?? adv.text}</p>
         {!ending && (
           <div className="grid gap-2">
@@ -1058,7 +1064,7 @@ function Parent() {
         />
       </div>
       <p className="text-sm leading-relaxed text-mist">
-        Everything here is free. Nothing locks a friend, a hug, or the bond.
+        Nothing on this page is for sale. A friend, a hug, and the bond stay free.
         Talk is the only thing that can leave this phone, and only if you turn the microphone on.
       </p>
       <div className="rounded-3xl border border-line bg-panel/80 p-3">

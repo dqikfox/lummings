@@ -6,9 +6,9 @@
 
 - **No account. No login.** The app asks for no name, email or age.
 - **Your child's progress stays on your device.** It is saved in the browser. We do not receive it.
-- **No ads. No tracking scripts. No analytics.** The app loads nothing from other companies' servers, including fonts.
+- **No ads. No tracking scripts. No analytics.** Your browser loads nothing from other companies' servers, including fonts. (One thing happens on our server: see "Voices".)
 - **The microphone is off by default.** A grown-up can switch on "Talk". If they do, read the microphone section below.
-- **Voices are recordings** that ship with the app. There is no text-to-speech and no voice cloning of your child.
+- **Voices** are mostly recordings that ship with the app. If a line has no recording yet, our server asks ElevenLabs to say it in that friend's voice. Only the friends' own story lines are sent: never your child's name, memories or anything they say. See "Voices".
 
 ## What the app saves, and where
 
@@ -21,6 +21,10 @@ Everything below is saved **only in your browser on your device**, under one ent
 - the parent PIN (four digits)
 
 **About the PIN:** it is a gentle gate on a shared phone, not strong security. It is stored on the device and someone who can open the device's browser tools could read it. Do not reuse a PIN you use anywhere else.
+
+## Voices
+
+Most of what the friends say is a recording that ships with the app. If a line has no recording yet, the app asks **our own server** to turn that one line into speech in the friend's voice using **ElevenLabs**, a text-to-speech company. The text sent is only the friends' own pre-written story lines and choices. It never includes anything your child types or says, their memories, or any name. ElevenLabs receives our server's request, not your device's address. The app never uses your browser's built-in voice, and it does not clone anyone's voice.
 
 ## The microphone and "Talk"
 

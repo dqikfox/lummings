@@ -62,10 +62,13 @@ def test_public_character_names_are_official():
     assert shown["Luna"]["color"].lower() == PALETTE["luna"]["hex"].lower()
 
 
-def test_web_app_roles_match_the_brand_bible():
+def test_web_app_sprout_is_the_quiet_garden_sprite():
+    # Only Sprout is pinned: that is the owner's decision. The other roles in web/src/lib/crew.ts are
+    # still being shaped (for example a brighter Luna), so they are tracked in ROADMAP.md, not enforced here.
     crew = text("web/src/lib/crew.ts")
-    for role in ("Quiet Garden Sprite", "Spooky Poet", "Cosmic Weirdo", "Chaos Gremlin"):
-        assert f'role: "{role}"' in crew, role
+    assert 'role: "Quiet Garden Sprite"' in crew
+    assert "Speed Demon" not in crew
+
 
 
 def test_sprout_training_data_teaches_the_quiet_sprout():

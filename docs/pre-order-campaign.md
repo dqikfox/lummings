@@ -239,7 +239,7 @@ the 5 Lummings:
 
 🟡 Lumo — the curious one
 🟣 Luna — the Spooky Poet
-🟢 Sprout — the Speed Demon
+🟢 Sprout — the Quiet Garden Sprite
 🔵 Nori — the observer
 🩷 Moki — the joker
 

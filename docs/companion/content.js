@@ -57,7 +57,7 @@
       }
     },
     {
-      id: 'nori', name: 'Nori', light: 'Tidelight', color: '#9edbff',
+      id: 'nori', name: 'Nori', light: 'Tidelight', color: '#75d8ef',
       portrait: '../portraits/nori-happy.svg',
       description: 'Quiet wonder, thoughtful questions, and room to pause.',
       catchphrase: 'Small things have big stories.',
@@ -74,7 +74,7 @@
       }
     },
     {
-      id: 'moki', name: 'Moki', light: 'Sparklight', color: '#ffa2cc',
+      id: 'moki', name: 'Moki', light: 'Sparklight', color: '#ff83bd',
       portrait: '../portraits/moki-happy.svg',
       description: 'Playful ideas and kind jokes. Mistakes welcome.',
       catchphrase: 'Oops. Plot twist!',

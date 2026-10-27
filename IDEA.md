@@ -11,7 +11,7 @@ Meet the Little Tomorrow Crew: new character themes, lovable flaws, signature lo
 
 An open-source smart-toy platform. Each Lumming is a small character from the future who lives on a Raspberry Pi inside a child-friendly shell. All AI runs locally — no cloud, no telemetry, no subscription.
 
-The product ships as a single device with five personality options: Lumo (the Hyperfixation Gremlin), Luna (the Spooky Poet), Sprout (the Speed Demon), Nori (the Cosmic Weirdo), and Moki (the Chaos Gremlin). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
+The product ships as a single device with five personality options: Lumo (the Hyperfixation Gremlin), Luna (the Spooky Poet), Sprout (the Quiet Garden Sprite), Nori (the Cosmic Weirdo), and Moki (the Chaos Gremlin). The platform handles conversation, persistent memory (the Lumming remembers what the child has learned), character mood, and on-device inference.
 
 Repository structure
 src/lummings/      # Personality engine (Python)

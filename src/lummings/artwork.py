@@ -1,6 +1,6 @@
 """Shared Tomorrow Crew vector artwork for runtime and export."""
 
-PROFILES = {'lumo': {'title': 'The Hyperfixation Gremlin', 'color': '#ed4054'}, 'lila': {'display_name': 'Lila', 'title': 'The Spooky Poet', 'color': '#b59aff'}, 'pip': {'display_name': 'Pip', 'title': 'The Speed Demon', 'color': '#57db91'}, 'nori': {'title': 'The Cosmic Weirdo', 'color': '#75d8ef'}, 'moki': {'title': 'The Chaos Gremlin', 'color': '#ff83bd'}}
+PROFILES = {'lumo': {'title': 'The Hyperfixation Gremlin', 'color': '#ed4054'}, 'lila': {'display_name': 'Luna', 'title': 'The Spooky Poet', 'color': '#b59aff'}, 'pip': {'display_name': 'Sprout', 'title': 'The Quiet Garden Sprite', 'color': '#57db91'}, 'nori': {'title': 'The Cosmic Weirdo', 'color': '#75d8ef'}, 'moki': {'title': 'The Chaos Gremlin', 'color': '#ff83bd'}}
 MOODS = ['amused', 'calm', 'cryptic', 'curious', 'distant', 'drowsy', 'embarrassed', 'excited', 'happy', 'mischievous', 'playful', 'sleepy', 'thoughtful', 'tired', 'warm', 'watchful']
 SHAPES = {
 'lumo':'M120 56 C162 56 169 93 181 123 C209 189 173 214 120 214 C67 214 31 189 59 123 C71 93 78 56 120 56Z',

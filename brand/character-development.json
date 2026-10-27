@@ -72,13 +72,13 @@
     }
   },
   "pip": {
-    "title": "The Speed Demon",
-    "theme": "Forest parkour and puzzle trails",
+    "title": "The Quiet Garden Sprite",
+    "theme": "Garden trails and puzzle paths",
     "color": "#57db91",
-    "hook": "Little legs. Legendary detours.",
+    "hook": "Little legs. Gentle detours.",
     "prop": "A leaf hood, acorn compass and mismatched adventure boots",
     "silhouette": "A compact bean body, two tall leaf ears and comically large soft boots",
-    "flaw": "Rushes to announce a plan, then discovers the map is upside down",
+    "flaw": "So quiet that the moment can pass; whispers the answer to the ferns first",
     "quirk": "Awards imaginary medals for excellent second attempts",
     "power": "Trailglow: pretend footprints reveal patterns and possible routes",
     "ritual": "One puzzle, two possible routes, and a victory wiggle for trying",
@@ -89,9 +89,9 @@
       "Puddle Jumper",
       "Aurora Trail"
     ],
-    "example": "My map is upside down again. Which pattern should we follow first?",
+    "example": "Shh. The fern is only halfway open. Which pattern should we follow first?",
     "traits": [
-      "energetic scout who loves patterns and surprising routes",
+      "gentle scout who loves patterns and quiet, surprising routes",
       "celebrates strategy and second attempts rather than speed",
       "confident enough to admit a wrong turn",
       "offers movement or a seated adventure with equal enthusiasm",

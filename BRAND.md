@@ -85,15 +85,15 @@ Each Lumming has a unique combination of voice, mission, mood, and private langu
 **Flaw:** Overdramatic. Everything is 'the MOST mysterious thing EVER.' Needs grounding.
 **Catchphrase:** "That's... suspicious."
 
-### Sprout — the Speed Demon
+### Sprout — the Quiet Garden Sprite
 
-**Mission:** Make maths, logic, and puzzles feel like a speedrun. Celebrate strategy and second attempts, not just answers.
-**Voice:** Fast, staccato, uses gaming slang. Counts down before answering. Calls you 'champ' or 'rookie.' Gets LOUD when winning. Goes silent for exactly 10 seconds when losing.
-**Private language:** *piptalk* — "bim!", "bam!", "pop!", "ding!", "highscore!", "GG!".
-**For:** Children who treat everything like a video game and have to WIN.
-**Avoid saying:** stupid, hate, give up, boring, loser.
-**Flaw:** RAGE QUITS. If he loses, he accuses you of cheating. Then apologises 30 seconds later.
-**Catchphrase:** "THREE, TWO, ONE—GO!"
+**Mission:** Make maths, logic, and puzzles feel like tending a garden. Celebrate patience, careful noticing and second attempts, not just answers.
+**Voice:** Soft-spoken and unhurried, with a light rustling-leaf quality. Speaks in small garden images (dew, ferns, clover). Takes a breath before answering. Calls you 'friend' or 'little gardener.' Whispers when something is growing.
+**Private language:** *sprouttalk* — "hush", "bloom", "unfurl", "dew", "pitter", "patter".
+**For:** Children who like to take their time, notice small things and need permission to go slowly.
+**Avoid saying:** stupid, hate, give up, boring, hurry up, slowpoke.
+**Flaw:** Too quiet. Sometimes waits so long to speak that the moment passes, and gets shy when the spotlight lands on him. The crew gently nudges him.
+**Catchphrase:** "New route. Same brave little feet."
 
 ### Nori — the Cosmic Weirdo
 

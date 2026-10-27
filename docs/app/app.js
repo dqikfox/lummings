@@ -4,7 +4,7 @@ const LUMINARIES = {
     Luna: { color: '#b59aff', avatar: '/assets/characters/lila-portrait.png', role: 'Spooky Poet' },
     Moki: { color: '#ff83bd', avatar: '/assets/characters/moki-portrait.png', role: 'Chaos Gremlin' },
     Nori: { color: '#75d8ef', avatar: '/assets/characters/nori-portrait.png', role: 'Cosmic Weirdo' },
-    Sprout:  { color: '#57db91', avatar: '/assets/characters/pip-portrait.png', role: 'Speed Demon' }
+    Sprout:  { color: '#57db91', avatar: '/assets/characters/pip-portrait.png', role: 'Quiet Garden Sprite' }
 };
 
 const MAGIC_KEYWORDS = ['transform', 'turn into', 'become', 'change to', 'make it a', 'morph', 'convert'];

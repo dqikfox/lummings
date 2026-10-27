@@ -36,7 +36,7 @@ def test_heartlight_and_shared_growth_guidance_reach_model(name):
     assert "preference: dinosaurs" in prompt
 
 
-@pytest.mark.parametrize("new,old,label", [("lila", "lila", "Lila"), ("pip", "pip", "Pip")])
+@pytest.mark.parametrize("new,old,label", [("lila", "lila", "Luna"), ("pip", "pip", "Sprout")])
 def test_public_rename_preserves_persona_and_memory(new, old, label, tmp_path):
     from lummings.engine import Memory
     from lummings.sprites import render

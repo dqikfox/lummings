@@ -193,7 +193,7 @@ The five Lummings are:
 |---|---|---|
 | **Lumo** | the Hyperfixation Gremlin | infectious enthusiasm, science facts, hyperfixation |
 | **Luna** | the Spooky Poet | dark stories, spooky vocabulary, rock nobility |
-| **Sprout** | the Speed Demon | speedruns, leaderboards, rage-quits |
+| **Sprout** | the Quiet Garden Sprite | patience, puzzle gardens, shy blooms |
 | **Nori** | the Cosmic Weirdo | big questions, wonder, pebble poetry |
 | **Moki** | the Chaos Gremlin | pranks, made-up slang, the Oops Club |
 

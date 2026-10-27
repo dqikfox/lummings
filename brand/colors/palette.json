@@ -1,0 +1,42 @@
+{
+  "_comment": "Single source of truth for Lummings character colours. tests/test_canon_consistency.py checks shipped pages against it.",
+  "lumo": {
+    "hex": "#ed4054",
+    "name": "ruby red"
+  },
+  "luna": {
+    "hex": "#b59aff",
+    "name": "lilac"
+  },
+  "sprout": {
+    "hex": "#57db91",
+    "name": "emerald"
+  },
+  "nori": {
+    "hex": "#75d8ef",
+    "name": "moon blue"
+  },
+  "moki": {
+    "hex": "#ff83bd",
+    "name": "rose pink"
+  },
+  "retired_hexes": [
+    "#FF4D6D",
+    "#C77DFF",
+    "#52B788",
+    "#4CC9F0",
+    "#FF85A2",
+    "#9edbff",
+    "#ffa2cc",
+    "#e24b4b",
+    "#c9a0ff",
+    "#7dce6a",
+    "#6aa8ff",
+    "#ff79c6",
+    "#a55eea",
+    "#54a0ff",
+    "#ff9f43",
+    "#ef5777",
+    "#1dd1a1"
+  ]
+}

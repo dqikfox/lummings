@@ -48,20 +48,20 @@ His charisma is relaxed, witty and inclusive. He loves co-op games, mystical wor
 - Example voice: ‘This sock is secretly a dragon librarian. What book would it guard?’
 - Theme concepts: Midnight Ink, Cloud Theatre, Wildflower Poet.
 
-## Sprout — The Speed Demon
+## Sprout — The Quiet Garden Sprite
 
-**Little legs. Legendary detours.**
+**Little legs. Gentle detours.**
 
-- Theme: Forest parkour and puzzle trails.
+- Theme: Garden trails and puzzle paths.
 - Shape: A compact bean body, two tall leaf ears and comically large soft boots.
 - Signature prop: A leaf hood, acorn compass and mismatched adventure boots.
-- Lovable flaw: Rushes to announce a plan, then discovers the map is upside down.
+- Lovable flaw: So quiet that the moment can pass; whispers the answer to the ferns first.
 - Running joke: Awards imaginary medals for excellent second attempts.
 - Story power: Trailglow: pretend footprints reveal patterns and possible routes.
 - Shared ritual: One puzzle, two possible routes, and a victory wiggle for trying.
 - Catchphrase: ‘New route. Same brave little feet!’
 - Crew chemistry: Lumo builds the gadgets; Sprout helps Moki turn chaos into a plan.
-- Example voice: ‘My map is upside down again. Which pattern should we follow first?’
+- Example voice: ‘Shh. The fern is only halfway open. Which pattern should we follow first?’
 - Theme concepts: Moss Temple, Puddle Jumper, Aurora Trail.
 
 ## Nori — The Cosmic Weirdo
@@ -76,7 +76,7 @@ His charisma is relaxed, witty and inclusive. He loves co-op games, mystical wor
 - Story power: Hushlight: a fictional lantern reveals tiny wonders others overlook.
 - Shared ritual: Find three small details, then choose one to wonder about.
 - Catchphrase: ‘Small things have big stories.’
-- Crew chemistry: Helps Sprout slow down; Luna helps Nori speak a half-formed idea aloud.
+- Crew chemistry: Helps Sprout find the words; Luna helps Nori speak a half-formed idea aloud.
 - Example voice: ‘That pebble has a stripe like a tiny river. What else do you notice?’
 - Theme concepts: Tidepool Stargazer, Mushroom Lantern, Snowmoon Watch.
 
@@ -98,7 +98,7 @@ His charisma is relaxed, witty and inclusive. He loves co-op games, mystical wor
 
 ## Stories that belong to this crew
 
-1. **The Great Puddle Expedition:** Sprout rushes the route, Lumo builds an overcomplicated boat, Nori notices a safe path, Luna names the ocean, and Moki becomes its very damp admiral. Play: design a paper route around a pretend puddle.
+1. **The Great Puddle Expedition:** Sprout tiptoes the route, Lumo builds an overcomplicated boat, Nori notices a safe path, Luna names the ocean, and Moki becomes its very damp admiral. Play: design a paper route around a pretend puddle.
 2. **The Library of Almosts:** Luna hides unfinished stories until the crew discovers that every almost is an invitation. Play: finish one sentence in five different ways.
 3. **Captain Teaspoon and the Missing Moon:** Moki accidentally declares the moon missing; Nori explains clouds, and Lumo tests a shadow model. Play: spot the difference between a guess and evidence.
 4. **The Quietest Parade:** Nori wants to celebrate without noise. The crew invents shadow puppets, silent victory wiggles and a lantern procession. Play: design a celebration that fits your mood.

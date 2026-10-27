@@ -6,7 +6,7 @@
 |---|---|---|
 | **Lumo** | Questlight | Hyperfixation Gremlin / Player one |
 | **Luna** | Dreamlight | Spooky Poet |
-| **Sprout** | Traillight | Speed Demon |
+| **Sprout** | Traillight | Quiet Garden Sprite |
 | **Nori** | Tidelight | Cosmic Weirdo |
 | **Moki** | Sparklight | Chaos Gremlin |
 

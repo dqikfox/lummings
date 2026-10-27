@@ -26,7 +26,7 @@ Safety First. Soft hooks. Never punish missed days. Never paywall bond.
 
 ## 6. Colours
 Nest `#070A14` · CTA `#FFC857`  
-Lumo `#FF4D6D` · Luna `#C77DFF` · Sprout `#52B788` · Nori `#4CC9F0` · Moki `#FF85A2`
+Lumo `#ed4054` · Luna `#b59aff` · Sprout `#57db91` · Nori `#75d8ef` · Moki `#ff83bd` (single palette: `brand/colors/palette.json`)
 
 ## 7. Marketing ban list
 ❌ New character generations · “why why” / horror-parent ads · Heartlight as pet · dark FOMO  

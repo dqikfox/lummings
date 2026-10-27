@@ -10,11 +10,11 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { CREW } from "../src/lib/crew.ts";
 
 const CAST = {
-  sprout: "Lily",
-  luna: "Bella",
-  lumo: "Charlie",
-  nori: "Matilda",
-  moki: "River",
+  sprout: "SPROUT",
+  luna: "LUNA",
+  lumo: "LUMO",
+  nori: "NORI",
+  moki: "MOKI",
 };
 
 const SLOTS = ["hug", "goodnight", "sleep", "moon", "kind"];

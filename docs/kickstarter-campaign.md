@@ -69,7 +69,7 @@ A row of five portrait cards. Each portrait: the Lumming in the `curious` mood. 
 |---|---|---|---|---|
 | 🟡 | **Lumo** | Science, maths, "what if" questions | *lumospeak* — zap, zoom, ping, shimmer | Curious kids ages 5–9 |
 | 🟣 | **Luna** | Reading, writing, storytelling | *lilisong* — ling, la, twinkle | Imaginative kids ages 7–12 |
-| 🟢 | **Sprout** | Maths, logic, games | *piptalk* — bim, bam, pop, highscore | Kids who love a challenge |
+| 🟢 | **Sprout** | Maths, logic, games | *sprouttalk* — hush, bloom, unfurl, dew | Kids who like to take their time |
 | 🔵 | **Nori** | History, nature, big questions | *noriquiet* — hush, still, listen | Quiet kids ages 8–12 |
 | 🩷 | **Moki** | Curiosity through humour | *mokigiggles* — bim, swoosh, plop, dingdong | Kids who love to laugh |
 

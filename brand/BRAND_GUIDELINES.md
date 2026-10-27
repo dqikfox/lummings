@@ -83,7 +83,7 @@ Public / product names (use **only** these):
 |---|---|
 | **Lumo** | Hyperfixation Gremlin / Player one |
 | **Luna** | Spooky Poet |
-| **Sprout** | Speed Demon |
+| **Sprout** | Quiet Garden Sprite |
 | **Nori** | Cosmic Weirdo |
 | **Moki** | Chaos Gremlin |
 

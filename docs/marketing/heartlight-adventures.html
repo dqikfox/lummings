@@ -71,7 +71,7 @@ function reader(s){
   <details><summary>Grown-up note</summary><p>${esc(s.grownup)}</p></details>
   <section class="pad"><h2>Your idea</h2><p>${esc(s.write)}</p><label>Stays on this page only. It is not saved or sent.</label><textarea data-write maxlength="400">${esc(draft)}</textarea></section>`;
 }
-const WHOCOLOR = {Lumo:"#e24b4b",Luna:"#c9a0ff",Sprout:"#7dce6a",Nori:"#6aa8ff",Moki:"#ff79c6"};
+const WHOCOLOR = {Lumo:"#ed4054",Luna:"#b59aff",Sprout:"#57db91",Nori:"#75d8ef",Moki:"#ff83bd"};
 STORIES.forEach(s => { s.color = WHOCOLOR[s.lumming]; });
 function bind(){
   app.querySelectorAll("[data-filter]").forEach(b => b.onclick = () => { filter = b.dataset.filter; render(); });

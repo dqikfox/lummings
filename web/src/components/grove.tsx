@@ -30,6 +30,7 @@ import {
   type Play,
 } from "@/lib/crew";
 import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View } from "@/lib/store";
+import { pageCount, pageOf } from "@/lib/long-stories";
 import { listen, speak, stopSpeak, TOGETHER } from "@/lib/voice";
 
 const NAV: { id: View; label: string; icon: typeof House }[] = [
@@ -107,7 +108,7 @@ function Shell() {
   return (
     <div className="relative min-h-dvh text-ink">
       <img
-        src="/crew/forest.jpg"
+        src="/crew/cover.jpg"
         alt=""
         className="pointer-events-none fixed inset-0 h-full w-full object-cover opacity-45"
       />
@@ -162,16 +163,11 @@ function Welcome() {
   const go = useLumm((s) => s.go);
   return (
     <main className="flex min-h-full flex-col justify-end gap-5 pb-2">
-      <div className="flex items-end justify-center">
-        {CREW.map((c) => (
-          <img
-            key={c.id}
-            src={c.src}
-            alt=""
-            className="-mx-2 h-44 w-20 rounded-3xl object-cover object-top shadow-lg ring-2 ring-night sm:h-56 sm:w-24"
-          />
-        ))}
-      </div>
+      <img
+        src="/crew/cover.jpg"
+        alt="Lumo, Luna, Sprout, Nori, and Moki"
+        className="w-full rounded-3xl object-cover shadow-lg ring-2 ring-gold/40"
+      />
       <div className="text-center">
         <p className="text-sm tracking-wide text-gold">Welcome to</p>
         <h1 className="font-display text-5xl leading-none text-gold">Lummings</h1>
@@ -250,8 +246,8 @@ function Safety() {
         <Toggle on={privacy} label="Microphone stays off" onClick={() => toggle("privacy")} />
         <Toggle on={filters} label="Skip the silly choices" onClick={() => toggle("filters")} />
       </div>
-      <p className="rounded-3xl border border-gold/40 px-4 py-3 text-center font-display text-gold">
-        Heartlight Plus is a free preview. The bond is never paywalled.
+      <p className="rounded-3xl border border-gold/40 px-4 py-3 text-center text-sm text-ink">
+        Stories, hugs, and the bond stay on this device. Nothing here is for sale.
       </p>
       <button
         type="button"
@@ -284,7 +280,7 @@ function Pick() {
             }}
             className="w-56 shrink-0 snap-center overflow-hidden rounded-3xl border border-gold/30 bg-panel text-left"
           >
-            <img src={c.src} alt="" className="h-72 w-full object-cover object-top" />
+            <img src={c.src} alt="" className="h-96 w-full bg-dusk object-contain object-center" />
             <span className="block px-3 py-3 font-display text-2xl">{c.name}</span>
           </button>
         ))}
@@ -377,7 +373,7 @@ function Home() {
           );
         })}
       </div>
-      <div className="relative overflow-hidden rounded-3xl border border-gold/30 bg-panel">
+      <div className="overflow-hidden rounded-3xl border border-gold/30 bg-dusk">
         <button
           type="button"
           className="block w-full"
@@ -387,16 +383,12 @@ function Home() {
             speak(friend.hello, s.muted, friend.id);
           }}
         >
-          <img src={friend.src} alt={friend.name} className="h-80 w-full object-cover object-top" />
+          <img src={friend.src} alt={friend.name} className="h-[28rem] w-full object-contain object-center" />
         </button>
-        <p
-          role="status"
-          aria-live="polite"
-          className="absolute inset-x-3 bottom-3 rounded-2xl bg-night/90 p-4 text-lg leading-snug"
-        >
-          {shown}
-        </p>
       </div>
+      <p role="status" aria-live="polite" className="rounded-2xl bg-night/90 p-4 text-lg leading-snug">
+        {shown}
+      </p>
       <p className="text-center font-display text-2xl text-gold">{friend.name}</p>
       {asleep && (
         <p className="rounded-2xl bg-dusk px-3 py-2 text-center text-base text-ink">
@@ -561,8 +553,8 @@ function PlayBox({ play, onSolved }: { play: Play; onSolved: () => void }) {
 function Story() {
   const go = useLumm((s) => s.go);
   const finishStory = useLumm((s) => s.finishStory);
+  const setPlace = useLumm((s) => s.setPlace);
   const filters = useLumm((s) => s.filters);
-  const plus = useLumm((s) => s.plus);
   const muted = useLumm((s) => s.muted);
   const active = useLumm((s) => s.active ?? s.primary ?? "lumo");
   const focusStory = useLumm((s) => s.focusStory);
@@ -583,7 +575,8 @@ function Story() {
 
   useEffect(() => {
     if (!story) return;
-    setBeatId(story.start);
+    const saved = useLumm.getState().place;
+    setBeatId(saved?.story === story.id && story.beats[saved.beat] ? saved.beat : story.start);
     setSolved(false);
     granted.current = false;
   }, [story]);
@@ -637,9 +630,9 @@ function Story() {
       </button>
       <p className="font-display text-2xl text-gold">{friend.name}</p>
       <p className="text-sm text-mist">
-        Page {["p1", "p2", "p3", "p4", "p5", "p6", "end"].indexOf(beatId) + 1} of 7
+        Page {pageOf(beatId)} of {pageCount()}
       </p>
-      <img src={friend.src} alt="" className="h-48 w-full rounded-3xl object-cover object-top" />
+      <img src={friend.src} alt="" className="h-80 w-full rounded-3xl bg-dusk object-contain object-center" />
       <p className="text-lg leading-relaxed">{beat.text}</p>
       {beat.play && (
         <PlayBox
@@ -648,12 +641,7 @@ function Story() {
           onSolved={() => setSolved(true)}
         />
       )}
-      {beat.end && plus && <p className="leading-relaxed text-gold">{AFTER[active]}</p>}
-      {beat.end && !plus && (
-        <p className="text-sm text-mist">
-          Heartlight Plus keeps one extra page. This story, and the bond, stay free either way.
-        </p>
-      )}
+      {beat.end && <p className="leading-relaxed text-gold">{AFTER[active]}</p>}
       <div className="grid gap-2">
         {(!beat.play || solved) &&
           (beat.choices ?? [])
@@ -667,6 +655,7 @@ function Story() {
                 const next = story.beats[choice.next];
                 setBeatId(choice.next);
                 setSolved(false);
+                setPlace(story.id, choice.next);
                 if (next?.text) speak(next.text, muted, active);
                 if (next?.end && !granted.current) {
                   granted.current = true;
@@ -719,7 +708,7 @@ function Adventures() {
         </button>
         <p className="text-sm text-gold">{who.name}</p>
         <h1 className="font-display text-3xl">{adv.title}</h1>
-        <img src={who.src} alt="" className="h-44 w-full rounded-3xl object-cover object-top" />
+        <img src={who.src} alt="" className="h-80 w-full rounded-3xl bg-dusk object-contain object-center" />
         <p className="leading-relaxed">{ending ?? adv.text}</p>
         {!ending && (
           <div className="grid gap-2">
@@ -845,7 +834,7 @@ function Care() {
   const friend = crewById(s.active ?? s.primary ?? "lumo");
   const [draft, setDraft] = useState("");
   const today = todayKey();
-  const memories = s.plus ? s.memories : s.memories.slice(0, 1);
+  const memories = s.memories;
   const savedToday = s.memoryDay === today;
 
   return (
@@ -923,11 +912,6 @@ function Care() {
             {memory.text}
           </li>
         ))}
-        {!s.plus && s.memories.length > 1 && (
-          <li className="text-sm text-mist">
-            The rest of the gallery waits with Heartlight Plus. Your bond is not locked.
-          </li>
-        )}
         {s.memories.length === 0 && <li className="text-sm text-mist">No memories yet. One sentence is enough.</li>}
       </ul>
     </main>
@@ -1070,17 +1054,9 @@ function Parent() {
             s.toggle("muted");
           }}
         />
-        <Toggle
-          on={s.plus}
-          label="Extra page preview"
-          onClick={() => {
-            s.toggle("plus");
-            s.flash("Preview only. Nothing is charged. The bond stays free.");
-          }}
-        />
       </div>
       <p className="text-sm leading-relaxed text-mist">
-        The extra page and the full memory list are a preview. They never lock a friend, a hug, or the bond.
+        Nothing on this page is for sale. A friend, a hug, and the bond stay free.
         Talk is the only thing that can leave this phone, and only if you turn the microphone on.
       </p>
       <div className="rounded-3xl border border-line bg-panel/80 p-3">

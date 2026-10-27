@@ -8,28 +8,87 @@ const INTRO: Record<CrewId, string> = {
   moki: "/voices/moki.mp3",
 };
 
-/** Only lines that exist as a real take in the intro scenes. No synthetic voice. */
+/** Shared line from the intro. Played with the crew recording, not a browser voice. */
 export const TOGETHER = "Let's quest together, growing together.";
 
-const CLIPS: Record<string, string> = {
-  "Player one, crew first. Let's illuminate together.": "/voices/lumo-quest.mp3",
-  "Player one, crew first.": "/voices/lumo-crew.mp3",
-  "Welcome to a world of stories.": "/voices/luna-welcome.mp3",
-  "The trail is glowing. Perfect, let's check it.": "/voices/sprout-trail.mp3",
-  "But why is the moon following us? When the questions never end, a little light answers with you.":
-    "/voices/nori-moon.mp3",
-  "Ta-da. The glitch gremlin arrives. Whoops, drumroll fail. Perfect chaos.": "/voices/moki-chaos.mp3",
+/** Lines spoken in that character's ElevenLabs voice. */
+const OWN: Record<CrewId, Record<string, string>> = {
+  sprout: {
+    hug: "/voices/sprout-hug.mp3",
+    goodnight: "/voices/sprout-goodnight.mp3",
+    moon: "/voices/sprout-moon.mp3",
+    sleep: "/voices/sprout-sleep.mp3",
+    kind: "/voices/sprout-kind.mp3",
+    line: "/voices/sprout-trail.mp3",
+    quest: "/voices/sprout-trail.mp3",
+  },
+  luna: {
+    hug: "/voices/luna-hug.mp3",
+    goodnight: "/voices/luna-goodnight.mp3",
+    moon: "/voices/luna-moon.mp3",
+    sleep: "/voices/luna-sleep.mp3",
+    kind: "/voices/luna-kind.mp3",
+    line: "/voices/luna-welcome.mp3",
+    quest: "/voices/luna-welcome.mp3",
+  },
+  lumo: {
+    hug: "/voices/lumo-hug.mp3",
+    goodnight: "/voices/lumo-goodnight.mp3",
+    moon: "/voices/lumo-moon.mp3",
+    sleep: "/voices/lumo-sleep.mp3",
+    kind: "/voices/lumo-crew.mp3",
+    line: "/voices/lumo-crew.mp3",
+    quest: "/voices/lumo-quest.mp3",
+  },
+  nori: {
+    hug: "/voices/nori-hug.mp3",
+    goodnight: "/voices/nori-goodnight.mp3",
+    moon: "/voices/nori-moon.mp3",
+    sleep: "/voices/nori-sleep.mp3",
+    kind: "/voices/nori-kind.mp3",
+    line: "/voices/nori-line.mp3",
+    quest: "/voices/nori-quest.mp3",
+  },
+  moki: {
+    hug: "/voices/moki-hug.mp3",
+    goodnight: "/voices/moki-goodnight.mp3",
+    moon: "/voices/moki-moon.mp3",
+    sleep: "/voices/moki-sleep.mp3",
+    kind: "/voices/moki-chaos.mp3",
+    line: "/voices/moki-line.mp3",
+    quest: "/voices/moki-quest.mp3",
+  },
+};
+
+const EXTRA: Record<string, string> = {
   [TOGETHER]: "/voices/together.mp3",
 };
 
 export function clipFor(text: string, crew?: CrewId): string | undefined {
   if (!text) return undefined;
-  return CLIPS[text] ?? (crew && text === crewById(crew).hello ? INTRO[crew] : undefined);
+  if (EXTRA[text]) return EXTRA[text];
+  if (!crew) return undefined;
+  const friend = crewById(crew);
+  if (text === friend.hello) return INTRO[crew];
+  const own = OWN[crew];
+  for (const key of ["hug", "goodnight", "moon", "sleep", "kind", "line", "quest"] as const) {
+    if (text === friend[key]) return own[key];
+  }
+  return undefined;
 }
 
 let current: HTMLAudioElement | null = null;
+let token = 0;
+
+function play(src: string, mine: number) {
+  if (mine !== token || typeof window === "undefined") return;
+  const audio = new Audio(src);
+  current = audio;
+  void audio.play().catch(() => {});
+}
 
 export function stopSpeak() {
+  token += 1;
   if (typeof window !== "undefined" && window.speechSynthesis) window.speechSynthesis.cancel();
   if (current) {
     current.pause();
@@ -38,15 +97,28 @@ export function stopSpeak() {
   }
 }
 
-/** Plays a real intro-scene recording. Anything without a take stays quiet. */
+/**
+ * Plays that character's own recording when one exists.
+ * Otherwise asks ElevenLabs for the same voice. Never uses the browser voice.
+ */
 export function speak(text: string, muted: boolean, crew?: CrewId) {
   if (muted || !text || typeof window === "undefined") return;
   stopSpeak();
+  const mine = token;
   const src = clipFor(text, crew);
-  if (!src) return;
-  const audio = new Audio(src);
-  current = audio;
-  void audio.play().catch(() => {});
+  if (src) {
+    play(src, mine);
+    return;
+  }
+  if (!crew) return;
+  const voiceId = crewById(crew).voiceId;
+  void import("@/lib/eleven-tts.server")
+    .then((mod) => mod.speakWithVoice({ data: { voiceId, text } }))
+    .then((res) => {
+      if (!res?.audio || mine !== token) return;
+      play(`data:audio/mpeg;base64,${res.audio}`, mine);
+    })
+    .catch(() => {});
 }
 
 type Rec = {

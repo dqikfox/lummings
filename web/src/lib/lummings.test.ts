@@ -59,17 +59,21 @@ describe("voices", () => {
     for (const id of CREW_IDS) {
       const friend = crewById(id);
       assert.ok(clipFor(friend.hello, id)?.endsWith(".mp3"));
-      assert.equal(clipFor(friend.hug, id), undefined);
-      assert.equal(clipFor(friend.sleep, id), undefined);
+      assert.equal(clipFor(friend.hug, id), `/voices/${id}-hug.mp3`);
+      assert.equal(clipFor(friend.sleep, id), `/voices/${id}-sleep.mp3`);
+      assert.equal(clipFor(friend.moon, id), `/voices/${id}-moon.mp3`);
+      assert.ok(friend.voiceId.length > 10);
+      assert.ok(friend.agentId.startsWith("agent_"));
       assert.equal(storiesFor(id).length, 7);
       const book = storiesFor(id)[0];
-      assert.equal(Object.keys(book.beats).length, 7);
+      assert.equal(Object.keys(book.beats).length, 12);
       assert.ok(book.beats.p4.play);
+      assert.ok(book.beats.p7.play);
       assert.equal(originFor(id).origin, true);
       assert.equal(storiesFor(id).filter((story) => story.shared).length, 1);
     }
     assert.equal(clipFor(crewById("nori").moon, "nori"), "/voices/nori-moon.mp3");
-    assert.equal(clipFor(crewById("lumo").moon, "lumo"), undefined);
+    assert.equal(clipFor(crewById("lumo").moon, "lumo"), "/voices/lumo-moon.mp3");
     assert.equal(clipFor(TOGETHER), "/voices/together.mp3");
     assert.equal(clipFor("a made-up line", "moki"), undefined);
   });

@@ -70,6 +70,8 @@ export type LummState = {
   muted: boolean;
   note: string;
   focusStory: string | null;
+  place: { story: string; beat: string } | null;
+  setPlace: (story: string, beat: string) => void;
   go: (view: View) => void;
   openTale: (storyId: string) => void;
   choose: (id: CrewId) => void;
@@ -123,6 +125,7 @@ const persistedDefaults = {
   talkCount: 0,
   talkDay: "",
   muted: false,
+  place: null as { story: string; beat: string } | null,
 };
 
 function savedCrew(id: string | null | undefined): CrewId | null {
@@ -159,6 +162,7 @@ export const useLumm = create<LummState>()(
           note: "",
         }),
       openTale: (storyId) => set({ focusStory: storyId, view: "story", parentOpen: false, note: "" }),
+      setPlace: (story, beat) => set({ place: { story, beat } }),
       choose: (id) =>
         set({
           primary: id,
@@ -206,7 +210,7 @@ export const useLumm = create<LummState>()(
           { sprout: "traillight", luna: "dreamlight", lumo: "questlight", nori: "tidelight", moki: "sparklight" } as const
         )[id];
         get().grant(id, 15, 6, charm, 18);
-        set({ note: "The story tucked itself in beside your bond." });
+        set({ note: "The story tucked itself in beside your bond.", place: null });
       },
       finishAdventure: (adv) => {
         const s = get();
@@ -312,6 +316,7 @@ export const useLumm = create<LummState>()(
         talkCount: s.talkCount,
         talkDay: s.talkDay,
         muted: s.muted,
+        place: s.place,
       }),
       merge: (persisted, current) => {
         const saved = (persisted ?? {}) as Partial<LummState> & {

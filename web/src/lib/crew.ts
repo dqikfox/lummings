@@ -180,7 +180,7 @@ export type Play =
   | { kind: "spot"; prompt: string; items: string[]; odd: string };
 
 export type Choice = { label: string; next: string; playful?: boolean };
-export type Beat = { text: string; choices?: Choice[]; end?: boolean; plus?: boolean; play?: Play };
+export type Beat = { text: string; choices?: Choice[]; end?: boolean; play?: Play };
 export type Story = {
   id: string;
   crew: CrewId;

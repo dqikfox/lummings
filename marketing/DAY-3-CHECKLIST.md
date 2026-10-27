@@ -1,3 +1,6 @@
+<!-- status-banner -->
+> **STATUS: DRAFT. DO NOT POST until its claims match `docs/LAUNCH_READINESS.md` section 3 (27 October 2026).** It says the product runs entirely on-device or has no cloud. That is not demonstrated for the current product. Use only the claims listed there as true today.
+
 # Marketing Quick-Start Checklist — Day 3
 
 This is the exact sequence to drive traffic in the next 7 days, using only channels that need no API keys.

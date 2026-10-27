@@ -1,3 +1,6 @@
+<!-- status-banner -->
+> **STATUS: ARCHIVED HARDWARE CONCEPT. DO NOT PUBLISH (27 October 2026).** This describes a planned toy that is on hold. Prices, dates, battery life, on-device AI and store availability below are unverified plans, not facts. The current product is the bedtime web app. See `ROADMAP.md` and `docs/LAUNCH_READINESS.md`.
+
 # The Lummings — Parent Quick-Start Guide
 
 > Little friends from a brighter tomorrow.

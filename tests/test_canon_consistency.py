@@ -35,7 +35,7 @@ def test_sprout_runtime_persona_is_not_the_old_speedrunner():
 
 def test_retired_names_line_names_the_retired_ones():
     sot = text("SOURCE_OF_TRUTH.md")
-    line = [ln for ln in sot.splitlines() if ln.startswith("**Retired names")][0]
+    line = next(ln for ln in sot.splitlines() if ln.startswith("**Retired names"))
     assert "Lila" in line and "Pip" in line and "Luna" not in line and "Sprout" not in line
 
 
@@ -66,3 +66,13 @@ def test_web_app_roles_match_the_brand_bible():
     crew = text("web/src/lib/crew.ts")
     for role in ("Quiet Garden Sprite", "Spooky Poet", "Cosmic Weirdo", "Chaos Gremlin"):
         assert f'role: "{role}"' in crew, role
+
+
+def test_sprout_training_data_teaches_the_quiet_sprout():
+    rows = [json.loads(line) for line in text('src/lummings/dialogue/pip_sft.jsonl').splitlines() if line.strip()]
+    assert len(rows) == 100
+    assert 'Quiet Garden Sprite' in rows[0]['messages'][0]['content']
+    old_voice = ('champ', 'rookie', 'bim!', 'bam!', 'highscore', 'gg!', 'speedrun', 'rage')
+    for row in rows:
+        reply = row['messages'][-1]['content'].lower()
+        assert not any(w in reply for w in old_voice), reply

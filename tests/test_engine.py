@@ -1,11 +1,13 @@
 """Unit tests for the Lummings personality engine."""
 
-import json
-from pathlib import Path
-from unittest.mock import patch
 
 from lummings.engine import (
-    load_persona, build_system_prompt, sanitize_reply, extract_facts, Memory, Mood,
+    Memory,
+    Mood,
+    build_system_prompt,
+    extract_facts,
+    load_persona,
+    sanitize_reply,
 )
 
 

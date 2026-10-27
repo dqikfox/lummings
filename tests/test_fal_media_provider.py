@@ -6,8 +6,7 @@ from unittest.mock import patch
 from lummings.characters import registry
 from lummings.fal_media_provider import FalMediaProvider, ProviderError
 from lummings.http_app import ROOT
-from lummings.media_jobs import JobConflict, MediaJobs
-
+from lummings.media_jobs import MediaJobs
 
 PNG = b"\x89PNG\r\n\x1a\nprovider-fixture"
 

@@ -23,9 +23,11 @@ Brand line: **Little friends. Big discoveries.**
 | Area | State |
 |---|---|
 | Characters, art, lore, brand bible | Complete and now consistent: one name set, one Sprout, one colour palette (`brand/colors/palette.json`) |
-| Python personality engine (`src/lummings`) | Working: five personas, SQLite memory, mood transitions, browser and terminal UI, API on :8511. **90 automated tests pass**, including a new guard that fails if names, Sprout's personality or colours drift again |
+| Python personality engine (`src/lummings`) | Working: five personas, SQLite memory, mood transitions, browser and terminal UI, API on :8511. **93 automated tests pass (also under Linux), lint clean, now run in CI**, including a new guard that fails if names, Sprout's personality or colours drift again |
 | Family browser app (`docs/companion`) | Five authored adventures, parent dashboard, separate explorer profiles, optional local saving |
-| Web app (`web/`) | Present; roles now match the brand bible. Its own tests were **not run** (dependencies not installed here) |
+| Bedtime web app (`web/`) | Typecheck, lint, 9 tests and production build pass; 0 audit vulnerabilities; no third-party requests; login, database and fake paid tier removed. A small, near-launch slice of the project |
+| Living Lummings creative companion (`docs/app`, gateway on :8511) | Baseline, media library, generation job queue, review workflow and spend guard built; paid generation off by default; live avatar is research only |
+| Pixel studio (separate repo, :8520) | Working local character and media studio with local image/video generation; 59 tests pass; supervised service |
 | Flutter mobile app (`app/`), Rust device runtime (`crates/`) | Present; not exercised in this audit |
 | Voices | Five distinct ElevenLabs voices designed and saved (Lumo, Luna, Sprout, Nori, Moki); wired into the project's voice config. Live voice agents are **not yet connected** (see section 6) |
 | Hardware | **Deferred.** Software-first decision, 13 Oct 2026 |
@@ -33,6 +35,8 @@ Brand line: **Little friends. Big discoveries.**
 **Not demonstrated** (per the repository's own product plan): generated-response safety, speech quality in a noisy room, child usability, on-device inference, battery and charging claims, physical Heartlight controls.
 
 ## 3. Product and expected outcome
+
+**The ecosystem.** The Lummings are delivered through several product lines on one shared foundation (character registry, voices, media jobs, parent controls): a **bedtime web app** (small, near launch), the **Living Lummings creative companion** (talk to a character, change its look, make images, films and stories; the flagship ambition, built on the Pixel studio), a **family companion** of authored adventures, and a **device** later if software shows sustained use. `ROADMAP.md` has the full plan.
 
 **First release (recommended in the repo):** a parent-led early-access software experience led by **Lumo**, with the other four present in the world and introduced over time. Three modes: **Wonder** (questions), **Quest** (short guided activities), **Wind-down** (stories and reflection). One obvious parent setup, one optional daily invitation, no streak penalties.
 

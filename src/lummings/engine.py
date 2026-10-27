@@ -10,7 +10,6 @@ import random
 import sqlite3
 import time
 from pathlib import Path
-from typing import Optional
 
 PERSONAS_DIR = Path(__file__).parent / "personas"
 PERSONA_ALIASES = {"luna": "lila", "sprout": "pip"}

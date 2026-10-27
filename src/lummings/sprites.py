@@ -6,9 +6,7 @@ Used for: device UI (1.5" TFT), marketing site, print collateral.
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
-
 
 # ----------------------------------------------------------------------------
 # Persona color palette (from BRAND.md §8)
@@ -70,7 +68,8 @@ class Sprite:
     glow: bool = True
 
     def to_svg(self) -> str:
-        from .artwork import MOODS, render as render_artwork
+        from .artwork import MOODS
+        from .artwork import render as render_artwork
         aliases = {"lumi": "lila", "piko": "pip", "nomi": "nori", "luna": "lila", "sprout": "pip"}
         name = aliases.get(self.persona, self.persona)
         if name not in ("lumo", "lila", "pip", "nori", "moki"):
@@ -174,7 +173,6 @@ def render(persona: str, mood: str = "curious", size: int = 240) -> str:
 
 def render_all(out_dir: str) -> list:
     """Render a grid of all personas × moods. Returns list of (persona, mood, path)."""
-    import os
     from pathlib import Path
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)

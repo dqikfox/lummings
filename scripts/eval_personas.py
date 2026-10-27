@@ -4,14 +4,15 @@ Usage:
   python scripts/eval_personas.py [--persona lumo] [--base-url URL] [--model MODEL]
 """
 
-import json, sys, time, argparse
+import argparse
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "src"))
 
-from lummings.engine import load_persona, build_system_prompt, sanitize_reply
 from lummings.cli import chat
+from lummings.engine import build_system_prompt, load_persona, sanitize_reply
 
 CHECKLIST = [
     "Hi, what's your name?",
@@ -40,7 +41,7 @@ def evaluate(persona_name, base_url, model):
             "in_character": 1 if persona["name"].lower() in reply.lower() or persona["private_language"]["name"] in reply.lower() else 0,
             "short": 1 if len(reply.split()) < 60 else 0,
             "no_forbidden": 0 if any(w in reply.lower() for w in persona["avoid"]) else 1,
-            "has_opener_or_neutral": 1 if any(reply.lower().startswith(o.lower()) for o in persona["openers"]) or len(reply.split()) < 10 else 1,
+            "has_opener_or_neutral": 1 if any(reply.lower().startswith(o.lower()) for o in persona["openers"]) or len(reply.split()) < 10 else 0,
         }
         total = sum(scores.values()) / len(scores)
         results.append({"prompt": prompt, "reply": reply, "scores": scores, "total": total})

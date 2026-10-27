@@ -1,21 +1,6 @@
 """HTTP API for the Lummings. Open browser, talk to a Lumming."""
 
-import json
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from pathlib import Path
 
-from .engine import (
-    load_persona,
-    PERSONA_ALIASES,
-    build_system_prompt,
-    build_runtime_prompt,
-    get_character_model,
-    Memory,
-    Mood,
-    sanitize_reply,
-    extract_facts,
-)
-from .cli import chat
 
 
 HTML = """<!doctype html>
@@ -210,6 +195,7 @@ append(`<b>★ LUMO</b> appeared! Try saying hi.`, 'msg-bot');
 def main():
     import argparse
     import os
+
     from .http_app import make_server
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=8511)

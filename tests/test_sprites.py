@@ -1,6 +1,6 @@
 """Tests for the Lummings sprite renderer."""
 
-from lummings.sprites import Sprite, render, render_all, PERSONA_COLORS, EYE_SHAPES
+from lummings.sprites import EYE_SHAPES, PERSONA_COLORS, Sprite, render, render_all
 
 
 def test_all_personas_have_colors():

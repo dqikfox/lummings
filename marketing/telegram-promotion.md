@@ -1,3 +1,6 @@
+<!-- status-banner -->
+> **STATUS: DRAFT. DO NOT POST until its claims match `docs/LAUNCH_READINESS.md` section 3 (27 October 2026).** It says the product runs entirely on-device or has no cloud. That is not demonstrated for the current product. Use only the claims listed there as true today.
+
 # Telegram Promotion Plan
 
 The Telegram bot @Ultron420bot is our most direct channel. Every DM = a real sales lead.

@@ -7,12 +7,11 @@ same source bytes. Duplicate bytes produce one item with additional source paths
 import argparse
 import hashlib
 import json
-from pathlib import Path
 import subprocess
 import textwrap
+from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-
 
 CHARACTERS = ('lumo', 'lila', 'pip', 'nori', 'moki')
 PREVIEWS = Path('data/creator/media-previews')

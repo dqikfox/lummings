@@ -250,9 +250,6 @@ function Safety() {
         <Toggle on={privacy} label="Microphone stays off" onClick={() => toggle("privacy")} />
         <Toggle on={filters} label="Skip the silly choices" onClick={() => toggle("filters")} />
       </div>
-      <p className="rounded-3xl border border-gold/40 px-4 py-3 text-center font-display text-gold">
-        Heartlight Plus is a free preview. The bond is never paywalled.
-      </p>
       <button
         type="button"
         onClick={() => go("pick")}
@@ -562,7 +559,6 @@ function Story() {
   const go = useLumm((s) => s.go);
   const finishStory = useLumm((s) => s.finishStory);
   const filters = useLumm((s) => s.filters);
-  const plus = useLumm((s) => s.plus);
   const muted = useLumm((s) => s.muted);
   const active = useLumm((s) => s.active ?? s.primary ?? "lumo");
   const focusStory = useLumm((s) => s.focusStory);
@@ -648,12 +644,7 @@ function Story() {
           onSolved={() => setSolved(true)}
         />
       )}
-      {beat.end && plus && <p className="leading-relaxed text-gold">{AFTER[active]}</p>}
-      {beat.end && !plus && (
-        <p className="text-sm text-mist">
-          Heartlight Plus keeps one extra page. This story, and the bond, stay free either way.
-        </p>
-      )}
+      {beat.end && <p className="leading-relaxed text-gold">{AFTER[active]}</p>}
       <div className="grid gap-2">
         {(!beat.play || solved) &&
           (beat.choices ?? [])
@@ -845,7 +836,7 @@ function Care() {
   const friend = crewById(s.active ?? s.primary ?? "lumo");
   const [draft, setDraft] = useState("");
   const today = todayKey();
-  const memories = s.plus ? s.memories : s.memories.slice(0, 1);
+  const memories = s.memories;
   const savedToday = s.memoryDay === today;
 
   return (
@@ -923,11 +914,6 @@ function Care() {
             {memory.text}
           </li>
         ))}
-        {!s.plus && s.memories.length > 1 && (
-          <li className="text-sm text-mist">
-            The rest of the gallery waits with Heartlight Plus. Your bond is not locked.
-          </li>
-        )}
         {s.memories.length === 0 && <li className="text-sm text-mist">No memories yet. One sentence is enough.</li>}
       </ul>
     </main>
@@ -1070,17 +1056,9 @@ function Parent() {
             s.toggle("muted");
           }}
         />
-        <Toggle
-          on={s.plus}
-          label="Extra page preview"
-          onClick={() => {
-            s.toggle("plus");
-            s.flash("Preview only. Nothing is charged. The bond stays free.");
-          }}
-        />
       </div>
       <p className="text-sm leading-relaxed text-mist">
-        The extra page and the full memory list are a preview. They never lock a friend, a hug, or the bond.
+        Everything here is free. Nothing locks a friend, a hug, or the bond.
         Talk is the only thing that can leave this phone, and only if you turn the microphone on.
       </p>
       <div className="rounded-3xl border border-line bg-panel/80 p-3">

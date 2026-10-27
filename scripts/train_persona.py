@@ -17,7 +17,9 @@ Requires: same env as ultron-training (torch, transformers, peft, trl, bitsandby
 
 from __future__ import annotations
 
-import os, sys, argparse, json, subprocess, shutil
+import argparse
+import subprocess
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -57,10 +59,11 @@ def train_inline(persona: str, base_model: str, dataset: Path, output_dir: Path,
     """Minimal in-process trainer (works without ultron-training)."""
     import torch
     from datasets import load_dataset
-    from transformers import (
-        AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
-    )
     from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+    from transformers import (
+        AutoModelForCausalLM,
+        AutoTokenizer,
+    )
     from trl import SFTConfig, SFTTrainer
 
     print(f"\n=== training {persona} on {base_model} ===")
@@ -96,19 +99,19 @@ def train_inline(persona: str, base_model: str, dataset: Path, output_dir: Path,
         return {"text": text}
     ds = raw.map(to_text, remove_columns=raw.column_names)
 
-    sft_kwargs = dict(
-        output_dir=str(output_dir),
-        num_train_epochs=epochs,
-        per_device_train_batch_size=1,
-        gradient_accumulation_steps=8,
-        learning_rate=2e-4,
-        warmup_steps=10,
-        logging_steps=5,
-        save_steps=200,
-        bf16=True,
-        gradient_checkpointing=True,
-        report_to="none",
-    )
+    sft_kwargs = {
+        "output_dir": str(output_dir),
+        "num_train_epochs": epochs,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 8,
+        "learning_rate": 2e-4,
+        "warmup_steps": 10,
+        "logging_steps": 5,
+        "save_steps": 200,
+        "bf16": True,
+        "gradient_checkpointing": True,
+        "report_to": "none",
+    }
     sft_kwargs["dataset_text_field"] = "text"
     sft_kwargs["max_length"] = 2048
     sft_kwargs["packing"] = True

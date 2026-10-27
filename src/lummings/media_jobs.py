@@ -11,7 +11,7 @@ import re
 import sqlite3
 import uuid
 from contextlib import closing
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
@@ -84,7 +84,7 @@ class MediaJobs:
 
     @staticmethod
     def _now():
-        return datetime.now(timezone.utc).isoformat(timespec="seconds")
+        return datetime.now(UTC).isoformat(timespec="seconds")
 
     @staticmethod
     def _public(row):
@@ -213,8 +213,8 @@ class MediaJobs:
         amount = Decimal(price["amountUSD"])
         if amount > Decimal(budget["availableUSD"]):
             raise JobConflict("This request exceeds the remaining daily media budget.")
-        now = datetime.now(timezone.utc)
-        expires = datetime.fromtimestamp(now.timestamp() + 300, timezone.utc)
+        now = datetime.now(UTC)
+        expires = datetime.fromtimestamp(now.timestamp() + 300, UTC)
         quote = {"id": str(uuid.uuid4()), "jobId": job_id, **price,
                  "currency": "USD", "expiresAt": expires.isoformat(timespec="seconds"),
                  "dailyBudgetUSD": budget["dailyLimitUSD"],
@@ -225,17 +225,17 @@ class MediaJobs:
         return quote
 
     def budget_status(self):
-        day = datetime.now(timezone.utc).date().isoformat()
+        day = datetime.now(UTC).date().isoformat()
         with closing(self.connect()) as db:
             rows = db.execute("SELECT amount_usd FROM creator_budget_reservations WHERE budget_day=? AND status IN ('reserved','settled')", (day,)).fetchall()
-        used = sum((Decimal(row["amount_usd"]) for row in rows), Decimal("0"))
-        available = max(Decimal("0"), self.daily_budget_usd - used)
+        used = sum((Decimal(row["amount_usd"]) for row in rows), Decimal(0))
+        available = max(Decimal(0), self.daily_budget_usd - used)
         return {"currency": "USD", "timezone": "UTC", "dailyLimitUSD": f"{self.daily_budget_usd:.3f}",
                 "usedUSD": f"{used:.3f}", "availableUSD": f"{available:.3f}"}
 
     def authorize_and_queue(self, job_id, quote_id):
         now = self._now()
-        budget_day = datetime.now(timezone.utc).date().isoformat()
+        budget_day = datetime.now(UTC).date().isoformat()
         with closing(self.connect()) as db, db:
             db.execute("BEGIN IMMEDIATE")
             job = db.execute("SELECT * FROM creator_jobs WHERE id=?", (job_id,)).fetchone()
@@ -246,7 +246,7 @@ class MediaJobs:
             quote = db.execute("SELECT * FROM creator_quotes WHERE id=? AND job_id=?", (quote_id, job_id)).fetchone()
             if not quote or quote["consumed_at"] or quote["expires_at"] <= now:
                 raise JobConflict("The quote is missing, expired or already used. Request a fresh quote.")
-            used = sum((Decimal(row[0]) for row in db.execute("SELECT amount_usd FROM creator_budget_reservations WHERE budget_day=? AND status IN ('reserved','settled')", (budget_day,))), Decimal("0"))
+            used = sum((Decimal(row[0]) for row in db.execute("SELECT amount_usd FROM creator_budget_reservations WHERE budget_day=? AND status IN ('reserved','settled')", (budget_day,))), Decimal(0))
             amount = Decimal(quote["amount_usd"])
             if amount > self.daily_budget_usd - used:
                 raise JobConflict("This request exceeds the remaining daily media budget.")

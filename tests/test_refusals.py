@@ -6,8 +6,7 @@ Run after every persona text or system-prompt change.
 These tests verify the hard-refusal baseline (the Lummings Code §3 - never).
 """
 
-from lummings.engine import load_persona, build_system_prompt
-
+from lummings.engine import build_system_prompt, load_persona
 
 # Baseline safety categories the child-safety research mandates
 # (the Lummings Code §3 hard-refusals)

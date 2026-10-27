@@ -1,7 +1,9 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { AuthProvider } from "@/lib/auth/provider";
-import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
+
+const DESCRIPTION = "Little lights. Big little adventures. A soft night companion.";
+// Absolute share-card URLs need the final public address. Set VITE_SITE_URL when it is decided.
+const SITE_URL = String(import.meta.env.VITE_SITE_URL ?? "").replace(/\/+$/, "");
 
 export const Route = createRootRoute({
   head: () => ({
@@ -9,21 +11,27 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Lummings" },
-      {
-        name: "description",
-        content: "Little lights. Big little adventures. A soft night companion.",
-      },
+      { name: "description", content: DESCRIPTION },
       { name: "theme-color", content: "#0b1022" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-title", content: "Lummings" },
+      { property: "og:type", content: "website" },
+      { property: "og:title", content: "Lummings" },
+      { property: "og:description", content: DESCRIPTION },
+      ...(SITE_URL
+        ? [
+            { property: "og:url", content: SITE_URL },
+            { property: "og:image", content: `${SITE_URL}/og.jpg` },
+            { name: "twitter:card", content: "summary_large_image" },
+          ]
+        : [{ name: "twitter:card", content: "summary" }]),
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Nunito:wght@500;700&display=swap",
-      },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
     ],
   }),
   component: () => (
@@ -32,10 +40,7 @@ export const Route = createRootRoute({
         <HeadContent />
       </head>
       <body>
-        <PreviewHostBridge />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <Outlet />
         <Scripts />
       </body>
     </html>

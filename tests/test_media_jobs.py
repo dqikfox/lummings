@@ -1,13 +1,12 @@
 import tempfile
 import unittest
-from contextlib import closing
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import closing
 from pathlib import Path
 
 from lummings.characters import registry
 from lummings.http_app import ROOT
 from lummings.media_jobs import JobConflict, MediaJobs
-
 
 PNG = b"\x89PNG\r\n\x1a\n" + b"fake-image-payload"
 MP4 = b"\x00\x00\x00\x18ftypisom" + b"fake-video-payload"

@@ -68,9 +68,9 @@
 
         .ring-glow { box-shadow: 0 0 60px rgba(255, 159, 67, 0.3); }
     </style>
-<link rel="stylesheet" /app/stage.css="/lummingshref">
-<link rel="stylesheet" /app/library.css="/lummingshref">
-<link rel="stylesheet" /app/creator.css="/lummingshref">
+<link rel="stylesheet" href="/lummings/app/stage.css">
+<link rel="stylesheet" href="/lummings/app/library.css">
+<link rel="stylesheet" href="/lummings/app/creator.css">
 </head>
 <body>
 <div role="status" id="connection-status" style="position:fixed;bottom:0;left:0;right:0;z-index:100;background:#17171c;color:#fff;padding:8px 16px;font:12px system-ui;text-align:center">Checking local character models…</div>
@@ -168,11 +168,11 @@
             <div class="island-container">
                 <div class="absolute top-[20%] left-[25%] w-32 h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
                 <div class="absolute bottom-[10%] right-[10%] w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <img /assets/characters/lumo-portrait.png="/lummingssrc" class="lummings-node w-16 h-16 top-[28%] left-[22%]" onclick="openChat('Lumo')" title="Visit Lumo">
-                <img /assets/characters/lila-portrait.png="/lummingssrc" class="lummings-node w-14 h-14 bottom-[22%] right-[18%]" onclick="openChat('Luna')" title="Visit Luna">
-                <img /assets/characters/moki-portrait.png="/lummingssrc" class="lummings-node w-12 h-12 top-[55%] left-[45%] opacity-70" onclick="openChat('Moki')" title="Visit Moki">
-                <img /assets/characters/nori-portrait.png="/lummingssrc" class="lummings-node w-14 h-14 top-[15%] right-[30%] opacity-80" onclick="openChat('Nori')" title="Visit Nori">
-                <img /assets/characters/pip-portrait.png="/lummingssrc" class="lummings-node w-12 h-12 bottom-[15%] left-[20%] opacity-70" onclick="openChat('Sprout')" title="Visit Sprout">
+                <img src="/lummings/assets/characters/lumo-portrait.png" class="lummings-node w-16 h-16 top-[28%] left-[22%]" onclick="openChat('Lumo')" title="Visit Lumo">
+                <img src="/lummings/assets/characters/lila-portrait.png" class="lummings-node w-14 h-14 bottom-[22%] right-[18%]" onclick="openChat('Luna')" title="Visit Luna">
+                <img src="/lummings/assets/characters/moki-portrait.png" class="lummings-node w-12 h-12 top-[55%] left-[45%] opacity-70" onclick="openChat('Moki')" title="Visit Moki">
+                <img src="/lummings/assets/characters/nori-portrait.png" class="lummings-node w-14 h-14 top-[15%] right-[30%] opacity-80" onclick="openChat('Nori')" title="Visit Nori">
+                <img src="/lummings/assets/characters/pip-portrait.png" class="lummings-node w-12 h-12 bottom-[15%] left-[20%] opacity-70" onclick="openChat('Sprout')" title="Visit Sprout">
             </div>
         </section>
 
@@ -180,7 +180,7 @@
         <section id="profile-view" class="hidden opacity-0 py-16 space-y-8 px-6 transition-all duration-700 text-center scale-95">
             <div class="relative mx-auto w-32 h-32 mb-4">
                 <div class="absolute -inset-2 bg-gradient-to-tr from-orange-500 to-pink-500 rounded-full blur opacity-50 ring-glow"></div>
-                <img /assets/characters/lumo-portrait.png="/lummingssrc" class="relative w-full h-full rounded-full object-cover border-4 border-[#1a1a1c] grayscale hover:grayscale-0 transition-all">
+                <img src="/lummings/assets/characters/lumo-portrait.png" class="relative w-full h-full rounded-full object-cover border-4 border-[#1a1a1c] grayscale hover:grayscale-0 transition-all">
             </div>
             <div>
                 <h2 class="text-3xl font-extrabold text-white tracking-tighter italic uppercase">Settings</h2>
@@ -253,9 +253,9 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script /app/app.js="/lummingssrc"></script>
-<script /app/stage.js="/lummingssrc"></script>
-<script /app/creator.js="/lummingssrc"></script>
-<script /app/library.js="/lummingssrc"></script>
+<script src="/lummings/app/app.js"></script>
+<script src="/lummings/app/stage.js"></script>
+<script src="/lummings/app/creator.js"></script>
+<script src="/lummings/app/library.js"></script>
 </body>
 </html>

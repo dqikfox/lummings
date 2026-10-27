@@ -34,6 +34,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DOCS = REPO / "docs"
 REF_RE = re.compile(r'(?:src|href)="([^"]+)"')
+# A past bad rewrite produced tags like <a /shop/="/lummingshref">: the link silently does nothing.
+# Any tag carrying an attribute that starts with "/" is malformed.
+MALFORMED_RE = re.compile(r'<[a-zA-Z][^<>]*?\s(/[^\s="<>]*)="[^"]*"')
 SKIP_PREFIXES = ("http", "#", "mailto:", "data:", "javascript:", "//")
 
 
@@ -70,6 +73,11 @@ def audit(mount: str) -> list[dict]:
     for f in sorted(DOCS.rglob("*.html")):
         page_url = mount + f.relative_to(DOCS).as_posix().replace("\\", "/")
         text = f.read_text(encoding="utf-8", errors="ignore")
+        for bad in MALFORMED_RE.findall(text):
+            problems.append({
+                "page": page_url[len(mount):], "ref": bad, "resolves_to": "(none)",
+                "issue": "malformed tag: attribute name starts with '/' so the link or asset never loads",
+            })
         for raw in REF_RE.findall(text):
             ref = raw.strip()
             if not ref or ref.startswith(SKIP_PREFIXES):

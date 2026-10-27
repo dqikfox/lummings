@@ -1,11 +1,13 @@
 """Export all 80 Tomorrow Crew portraits to each website asset directory."""
-from pathlib import Path
-import sys
 import re
+import sys
 import xml.etree.ElementTree as ET
+from pathlib import Path
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
-from lummings.artwork import PROFILES, MOODS, render
+from lummings.artwork import MOODS, PROFILES, render
+
 
 def main():
  folders=[ROOT/'brand/portraits',ROOT/'docs/portraits',ROOT/'docs/assets/portraits']
@@ -21,7 +23,7 @@ def main():
   text = page.read_text(encoding='utf-8')
   counter = [0]
   names = list(PROFILES)
-  def update(match):
+  def update(match, counter=counter, names=names):
    old = match.group()
    if '0 0 240 240' not in old:
     return old
@@ -36,7 +38,7 @@ def main():
    if featured or i == 10:
     svg = svg.replace('width="240" height="240"', 'style="background:#2a3142;border-radius:1rem;width:100%;max-width:400px"')
    return svg
-  text = re.sub(r'<svg\b.*?</svg>', update, text, flags=re.S)
+  text = re.sub(r'<svg\b.*?</svg>', update, text, flags=re.DOTALL)
   page.write_text(text, encoding='utf-8')
  print(f'Updated {len(PROFILES)*len(MOODS)*len(folders)} SVG portraits across {len(folders)} directories.')
 if __name__=='__main__': main()

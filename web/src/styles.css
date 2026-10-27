@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/nunito";
 
 @theme {
   --color-night: #0b1022;
@@ -15,8 +17,8 @@
   --color-quest: #ff6b5a;
   --color-tide: #7eb6ff;
   --color-spark: #ff8ec8;
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Nunito Variable", "Nunito", ui-rounded, system-ui, sans-serif;
   --radius-card: 1.5rem;
 }
 

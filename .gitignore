@@ -56,3 +56,9 @@ Thumbs.db
 /tmp.zip
 /imagine_images.zip
 /imagine_videos.zip
+
+# Build output and tooling caches
+.vercel/
+.tanstack/
+.output/
+*.tsbuildinfo

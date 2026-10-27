@@ -7,7 +7,7 @@ import json
 import secrets
 import sqlite3
 import threading
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -30,7 +30,7 @@ def validate(data):
     ids = set()
     for p in profiles:
         if not isinstance(p, dict):
-            raise ValueError("Invalid profile")
+            raise ValueError("Invalid profile")  # noqa: TRY004 - caller maps ValueError and TypeError to HTTP 400
         for key, limit in [("id", 100), ("name", 24)]:
             if not isinstance(p.get(key), str) or not p[key].strip() or len(p[key]) > limit:
                 raise ValueError("Invalid profile " + key)
@@ -57,7 +57,7 @@ def validate(data):
                 raise ValueError("Invalid notebook story")
         for item in p["discoveries"]:
             if not isinstance(item, dict) or not isinstance(item.get("story"), str) or not isinstance(item.get("at"), str):
-                raise ValueError("Invalid discovery")
+                raise ValueError("Invalid discovery")  # noqa: TRY004 - caller maps ValueError and TypeError to HTTP 400
     if data.get("active") not in ids:
         raise ValueError("Active profile is missing")
     settings = data.get("settings")
@@ -141,7 +141,7 @@ class FamilyRepository:
     def export(self, data=None):
         with self.lock:
             payload = validate(data) if data is not None else self.read()["data"]
-            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
             path = self.directory / "exports" / f"family-{stamp}.json"
             with path.open("x", encoding="utf-8") as stream:
                 json.dump(payload, stream, indent=2, ensure_ascii=False)
@@ -222,7 +222,7 @@ class FamilyHandler(SimpleHTTPRequestHandler):
                 raise ValueError("Expected JSON body under 1 MB")
             body = json.loads(self.rfile.read(size))
             if not isinstance(body, dict):
-                raise ValueError("Expected an object")
+                raise ValueError("Expected an object")  # noqa: TRY004 - caller maps ValueError and TypeError to HTTP 400
             route = urlsplit(self.path).path
             if route == "/api/family":
                 result = self.server.repository.write(body.get("data"), body.get("revision"))

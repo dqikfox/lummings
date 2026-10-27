@@ -1,5 +1,4 @@
 import json
-from contextlib import closing
 import os
 import sqlite3
 import tempfile
@@ -7,6 +6,7 @@ import threading
 import unittest
 import urllib.error
 import urllib.request
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import patch
 
@@ -55,6 +55,15 @@ class GatewayTests(unittest.TestCase):
             self.assertEqual(status, 200)
             self.assertIn('image/svg+xml', headers['Content-Type'])
         self.assertEqual(self.request('/app/app.js')[0], 200)
+
+    def test_site_mount_prefix_serves_the_same_app(self):
+        # Pages link to /lummings/app/...; the local gateway must serve those paths too.
+        status, data, _ = self.request('/lummings/')
+        self.assertEqual(status, 200)
+        self.assertIn(b'/lummings/app/app.js', data)
+        for asset in ('app.js', 'stage.js', 'creator.js', 'library.js', 'stage.css', 'library.css', 'creator.css'):
+            self.assertEqual(self.request(f'/lummings/app/{asset}')[0], 200, asset)
+        self.assertEqual(self.request('/lummings/../lummings.sqlite')[0], 404)
 
     def test_private_files_and_traversal_unavailable(self):
         for path in ('/lummings.sqlite', '/assets/%2e%2e/%2e%2e/lummings.sqlite', '/app/../../README.md'):

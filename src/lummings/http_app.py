@@ -12,11 +12,19 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-from .characters import AppearanceStore, Conflict, canonical, registry
+from .characters import AppearanceStore, Conflict, registry
 from .cli import chat
+from .engine import (
+    CHARACTER_MODELS,
+    PERSONA_ALIASES,
+    Memory,
+    Mood,
+    build_runtime_prompt,
+    load_persona,
+    sanitize_reply,
+)
+from .media_jobs import PRICES, JobConflict, MediaJobs
 from .media_library import MediaLibrary, serve_media
-from .media_jobs import JobConflict, MediaJobs, PRICES
-from .engine import CHARACTER_MODELS, PERSONA_ALIASES, Memory, Mood, build_runtime_prompt, load_persona, sanitize_reply
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -77,7 +85,7 @@ def make_server(port=8511, db_path=None, base_url='http://127.0.0.1:11434/v1',
             if not isinstance(output, tuple) or len(output) != 2:
                 raise ValueError('Media provider returned an invalid result.')
             jobs.save_output(job_id, output[0], output[1])
-        except Exception as error:
+        except Exception:  # noqa: BLE001 - boundary: any provider failure must fail the job, never kill the worker
             try:
                 current = jobs.get(job_id)
                 if current and current['state'] in ('queued', 'running'):
@@ -119,6 +127,9 @@ def make_server(port=8511, db_path=None, base_url='http://127.0.0.1:11434/v1',
             if not self.allowed():
                 return
             route = unquote(urlsplit(self.path).path)
+            # The public site lives under /lummings/; accept the same prefix locally so one set of page links works in both.
+            if route == '/lummings' or route.startswith('/lummings/'):
+                route = route[len('/lummings'):] or '/'
             if route == '/api/v1/capabilities':
                 return self.respond(200, capabilities())
             if route == '/api/v1/characters':
@@ -266,7 +277,7 @@ def make_server(port=8511, db_path=None, base_url='http://127.0.0.1:11434/v1',
                     raise ValueError('Expected persona and message only.')
                 name, message = body.get('persona'), body.get('message')
                 if not isinstance(name, str) or not isinstance(message, str):
-                    raise ValueError('Character and message must be text.')
+                    raise ValueError('Character and message must be text.')  # noqa: TRY004 - caller maps ValueError and TypeError to HTTP 400
                 name = PERSONA_ALIASES.get(name.lower(), name.lower())
                 if name not in CHARACTER_MODELS or not 1 <= len(message.strip()) <= 4000:
                     raise ValueError('Choose a known character and a message of 1–4000 characters.')

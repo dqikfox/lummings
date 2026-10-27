@@ -6,14 +6,13 @@ import urllib.request
 from pathlib import Path
 
 from .engine import (
-    load_persona,
-    build_system_prompt,
-    build_runtime_prompt,
-    get_character_model,
     Memory,
     Mood,
-    sanitize_reply,
+    build_runtime_prompt,
     extract_facts,
+    get_character_model,
+    load_persona,
+    sanitize_reply,
 )
 
 
@@ -54,7 +53,7 @@ def chat(base_url: str, model: str, system: str, user: str, history=None,
             if not content:
                 content = msg.get("thinking", "").strip()
             return {"ok": True, "content": content}
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - boundary: report any provider failure to the caller
         return {"ok": False, "error": str(e)[:120]}
 
 

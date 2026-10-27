@@ -55,7 +55,7 @@ export const CREW: Crew[] = [
   {
     id: "luna",
     name: "Luna",
-    role: "Storyweaver",
+    role: "Spooky Poet",
     trait: "Imaginative and dreamy. She weaves stories that come alive.",
     light: "Dreamlight",
     charm: "dreamlight",
@@ -74,7 +74,7 @@ export const CREW: Crew[] = [
   {
     id: "lumo",
     name: "Lumo",
-    role: "Mystical Gamer Captain",
+    role: "Hyperfixation Gremlin",
     trait: "Confident leader of the Little Tomorrow crew. Playful, and crew first.",
     light: "Questlight",
     charm: "questlight",
@@ -94,7 +94,7 @@ export const CREW: Crew[] = [
   {
     id: "nori",
     name: "Nori",
-    role: "Moon-Tide Guardian",
+    role: "Cosmic Weirdo",
     trait: "Calm, protective, and a wise guardian of the night.",
     light: "Tidelight",
     charm: "tidelight",
@@ -113,7 +113,7 @@ export const CREW: Crew[] = [
   {
     id: "moki",
     name: "Moki",
-    role: "Glitch Gremlin",
+    role: "Chaos Gremlin",
     trait: "Cheeky and creative. Brings fun glitches and sparkles.",
     light: "Sparklight",
     charm: "sparklight",

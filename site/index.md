@@ -8,11 +8,11 @@ Five bedtime friends. Lumo, Luna, Sprout, Nori, and Moki.
 
 | Name | Role | Light |
 |---|---|---|
-| **Lumo** | Mystical gamer captain | Questlight |
-| **Luna** | Storyweaver | Dreamlight |
-| **Sprout** | Sprout Scout | Traillight |
-| **Nori** | Moon-tide guardian | Tidelight |
-| **Moki** | Glitch gremlin | Sparklight |
+| **Lumo** | Hyperfixation Gremlin | Questlight |
+| **Luna** | Spooky Poet | Dreamlight |
+| **Sprout** | Quiet Garden Sprite | Traillight |
+| **Nori** | Cosmic Weirdo | Tidelight |
+| **Moki** | Chaos Gremlin | Sparklight |
 
 Lila and Pip are retired names. Do not use them in public.
 

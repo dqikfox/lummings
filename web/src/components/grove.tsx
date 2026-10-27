@@ -33,6 +33,13 @@ import { limitSeconds, resting, setComplete, useLumm, type CareKind, type View }
 import { pageCount, pageOf } from "@/lib/long-stories";
 import { listen, pageLine, speak, stopSpeak, TOGETHER } from "@/lib/voice";
 
+const HUE: Record<CrewId, string> = {
+  lumo: "border-quest text-quest",
+  luna: "border-dream text-dream",
+  sprout: "border-trail text-trail",
+  nori: "border-tide text-tide",
+  moki: "border-spark text-spark",
+};
 const NAV: { id: View; label: string; icon: typeof House }[] = [
   { id: "home", label: "Home", icon: House },
   { id: "adventures", label: "Play", icon: Compass },
@@ -169,9 +176,9 @@ function Welcome() {
         className="w-full rounded-3xl object-cover shadow-lg ring-2 ring-gold/40"
       />
       <div className="text-center">
-        <p className="text-sm tracking-wide text-gold">Welcome to</p>
-        <h1 className="font-display text-5xl leading-none text-gold">Lummings</h1>
-        <p className="mt-2 text-lg text-ink">A friend who stays for the story, and for the dark.</p>
+        <p className="text-sm tracking-wide text-gold">Little Tomorrow Crew</p>
+        <h1 className="font-display text-5xl leading-none text-gold">The Lummings</h1>
+        <p className="mt-2 text-lg text-ink">Little friends from a brighter tomorrow.</p>
       </div>
       <button
         type="button"
@@ -278,10 +285,12 @@ function Pick() {
               speak(c.hello, useLumm.getState().muted, c.id);
               choose(c.id);
             }}
-            className="w-56 shrink-0 snap-center overflow-hidden rounded-3xl border border-gold/30 bg-panel text-left"
+            className={`w-56 shrink-0 snap-center overflow-hidden rounded-3xl border-2 bg-panel text-left ${HUE[c.id]}`}
           >
             <img src={c.src} alt="" className="h-96 w-full bg-dusk object-contain object-center" />
-            <span className="block px-3 py-3 font-display text-2xl">{c.name}</span>
+            <span className="block px-3 pt-3 font-display text-2xl text-ink">{c.name}</span>
+            <span className="block px-3 pb-3 text-sm">{c.role}</span>
+            <span className="block px-3 pb-3 text-xs text-mist">{c.light}</span>
           </button>
         ))}
       </div>
@@ -390,6 +399,8 @@ function Home() {
         {shown}
       </p>
       <p className="text-center font-display text-2xl text-gold">{friend.name}</p>
+      <p className={`text-center text-sm ${HUE[friend.id]}`}>{friend.role}</p>
+      <p className="text-center text-xs text-mist">{friend.light}</p>
       {asleep && (
         <p className="rounded-2xl bg-dusk px-3 py-2 text-center text-base text-ink">
           Play waits until tomorrow. Hugs and stories stay.

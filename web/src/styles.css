@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0b1022;
+  --color-dusk: #171d36;
+  --color-panel: #12182e;
+  --color-ink: #f6f0e2;
+  --color-mist: #b7b0c4;
+  --color-gold: #e8c56a;
+  --color-gold-deep: #a67932;
+  --color-ember: #ffb15a;
+  --color-line: #31385a;
+  --color-trail: #7dce7a;
+  --color-dream: #c9a6ff;
+  --color-quest: #ff6b5a;
+  --color-tide: #7eb6ff;
+  --color-spark: #ff8ec8;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+  --radius-card: 1.5rem;
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+    background: var(--color-night);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 2.75rem;
+    accent-color: var(--color-gold);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.drift {
+  animation: drift 5s ease-in-out infinite;
+}
+
+.charm {
+  width: 4.25rem;
+  height: 4.25rem;
+  margin-inline: auto;
+}
+
+.charm[data-id="questlight"] {
+  border-radius: 0.4rem 0.4rem 0.7rem 0.7rem;
+  background: linear-gradient(180deg, var(--color-ember), var(--color-gold-deep));
+  box-shadow: inset 0 0 0 4px color-mix(in oklab, var(--color-night) 35%, transparent);
+}
+
+.charm[data-id="dreamlight"] {
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--color-ink), var(--color-dream) 42%, transparent 46%);
+  box-shadow: inset 14px 0 0 var(--color-dream);
+}
+
+.charm[data-id="traillight"] {
+  background: var(--color-trail);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.charm[data-id="heartlight"] {
+  border-radius: 50% 50% 42% 42%;
+  background: radial-gradient(circle at 50% 40%, var(--color-ink), var(--color-ember) 46%, var(--color-gold-deep));
+}
+
+.charm[data-id="tidelight"] {
+  border-radius: 50% 50% 50% 8%;
+  background: radial-gradient(circle at 40% 35%, var(--color-ink), var(--color-tide) 55%, var(--color-dusk));
+  transform: rotate(35deg);
+}
+
+.charm[data-id="sparklight"] {
+  background: var(--color-spark);
+  clip-path: polygon(50% 0, 62% 35%, 100% 38%, 70% 59%, 80% 100%, 50% 76%, 20% 100%, 30% 59%, 0 38%, 38% 35%);
+}
+
+.charm[data-id="dawnlight"],
+.charm[data-id="stowlight"] {
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-mist) 35%, var(--color-dusk));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
